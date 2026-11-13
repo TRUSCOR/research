@@ -1,14 +1,14 @@
 <div align="center">
 
-# SOVA Research
+# TRUSCOR Research
 
-**Portable, verifiable evidence for AI-agent security findings.**
+**Papers and R&D from TRUSCOR, released with everything needed to check them.**
 
-How a security finding about an AI agent can be packaged so that someone else<br/>
-can check it, reproduce it, and see exactly where the evidence stops.
+Each paper ships with its data, code, protocols, validators, and evidence,<br/>
+so a reader can recompute its numbers instead of taking them on trust.
 
 <p>
-  <a href="preprints/sova-portable-evidence-reproduction-v1.1.pdf"><img src="https://img.shields.io/badge/PREPRINT-v1.1-FFB000?style=for-the-badge" alt="Preprint v1.1" /></a>
+  <a href="preprints/sova-portable-evidence-reproduction-v1.1.pdf"><img src="https://img.shields.io/badge/LATEST%20PREPRINT-.sova%20v1.1-FFB000?style=for-the-badge" alt="Latest preprint: .sova v1.1" /></a>
   <img src="https://img.shields.io/badge/PEER%20REVIEW-NOT%20YET-D22128?style=for-the-badge" alt="Not peer reviewed" />
   <img src="https://img.shields.io/badge/PAPERS-CC%20BY%204.0-00B8D9?style=for-the-badge" alt="CC BY 4.0" />
   <a href="https://github.com/TRUSCOR/SOVA-OSS"><img src="https://img.shields.io/badge/CODE-TRUSCOR%2FSOVA--OSS-0B8793?style=for-the-badge" alt="Implementation" /></a>
@@ -21,13 +21,26 @@ Gautam R. Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@trus
 
 ---
 
-This repository holds the released SOVA papers and everything needed to check
-them: data, code, protocols, validators, and the evidence as `.sova` files.
-The implementation lives in **[SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS)**.
+## Papers
+
+| Paper | Version | Read | Check it |
+|---|---|---|---|
+| **.sova: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings** | 1.1 · 2026-11-13 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) | [Artifact](artifacts/pf-v1.1/) · [four findings as `.sova` files](artifacts/pf-v1.1/findings/) |
+
+Each released paper keeps its text in `preprints/` and everything needed to
+check it in `artifacts/<paper-id>/`:
+
+```
+preprints/            released papers, PDF and Markdown, every version
+artifacts/pf-v1.1/    data, code, protocols, validators and .sova evidence
+                      for the .sova preprint, version 1.1
+```
+
+The software lives in **[SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS)**.
 
 ---
 
-## Read this first
+## The SOVA research programme
 
 AI-agent security findings are usually exchanged as prose reports, screenshots,
 logs, or replay scripts. Those artifacts preserve useful observations while
@@ -37,12 +50,12 @@ staying ambiguous about three things that decide whether a finding is real:
 - **which parts of the execution context** must stay equivalent for the claim to hold;
 - **whether** capture, conversion, or redaction removed the evidence the claim depends on.
 
-The research programme below attacks that problem from several directions. Its
+The SOVA research programme attacks that problem from several directions. Its
 core output is the `.sova` capsule and the `.sova-trace` evidence record.
 
 ---
 
-## The preprint
+## The .sova preprint
 
 ### [`.sova`: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings](preprints/sova-portable-evidence-reproduction-v1.1.pdf)
 
@@ -165,9 +178,10 @@ AgentDojo excerpts listed in the artifact's `THIRD-PARTY.md`.
 ## History
 
 Gautam R. Patil started this repository on 2 November 2026 on a personal GitHub
-account, as `Gautam-R-Patil/sova-research`, and moved it to the TRUSCOR
-organisation on 13 November 2026. Its full commit history moved with it, and the
-old address redirects here. The six working drafts first published here on
+account, as `Gautam-R-Patil/sova-research`. On 13 November 2026 it moved to the
+TRUSCOR organisation and was renamed `TRUSCOR/research`, to hold all of
+TRUSCOR's research. Its full commit history moved with it, and both old
+addresses redirect here. The six working drafts first published here on
 2 November now live, with their history, in
 [Gautam-R-Patil/research-papers](https://github.com/Gautam-R-Patil/research-papers).
 
@@ -190,7 +204,7 @@ The SOVA OSS source code is separately licensed under Apache-2.0.
   author       = {Patil, Gautam R.},
   year         = {2026},
   note         = {Preprint, version 1.1. Not peer reviewed.},
-  howpublished = {\url{https://github.com/TRUSCOR/sova-research}},
+  howpublished = {\url{https://github.com/TRUSCOR/research}},
 }
 ```
 

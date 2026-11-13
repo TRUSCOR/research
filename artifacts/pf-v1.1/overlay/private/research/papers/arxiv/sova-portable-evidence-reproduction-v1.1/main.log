@@ -896,21 +896,21 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 7.0pt on input line 191.
+(Font)              scaled to size 7.0pt on input line 190.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(1)/m/n' will be
-(Font)              scaled to size 5.0pt on input line 191.
+(Font)              scaled to size 5.0pt on input line 190.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 10.00092pt on input line 191.
+(Font)              scaled to size 10.00092pt on input line 190.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 7.00064pt on input line 191.
+(Font)              scaled to size 7.00064pt on input line 190.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(2)/m/n' will be
-(Font)              scaled to size 5.00046pt on input line 191.
+(Font)              scaled to size 5.00046pt on input line 190.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 9.99893pt on input line 191.
+(Font)              scaled to size 9.99893pt on input line 190.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 6.99925pt on input line 191.
+(Font)              scaled to size 6.99925pt on input line 190.
 LaTeX Font Info:    Font shape `TU/latinmodern-math.otf(3)/m/n' will be
-(Font)              scaled to size 4.99947pt on input line 191.
+(Font)              scaled to size 4.99947pt on input line 190.
  [1
 
 ] [2] [3] [4]
@@ -949,4 +949,4 @@ Package caption Warning: Unused \captionsetup[table] on input line 46.
 See the caption package documentation for explanation.
 
 [34] (main.aux) )
-Output written on main.xdv (34 pages, 1439436 bytes).
+Output written on main.xdv (34 pages, 1439244 bytes).
