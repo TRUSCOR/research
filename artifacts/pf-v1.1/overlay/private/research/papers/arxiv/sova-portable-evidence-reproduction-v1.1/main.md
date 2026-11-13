@@ -32,7 +32,7 @@ header-includes:
 **Contact:** gautam@truscor.org\
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), © 2026 Gautam R. Patil\
 **arXiv classification:** cs.CR (cross-list candidates: cs.AI, cs.SE)\
-**Artifact (code, data, protocols, validators, four findings as .sova files):** <https://github.com/Gautam-R-Patil/sova-research/tree/main/artifacts/pf-v1.1>\
+**Artifact (code, data, protocols, validators, four findings as .sova files):** <https://github.com/TRUSCOR/sova-research/tree/main/artifacts/pf-v1.1>\
 **Implementation:** <https://github.com/TRUSCOR/SOVA-OSS> (commit 42b4972)\
 **Competing interest:** the author leads TRUSCOR Private Limited, which develops the system evaluated here (see Declarations).
 
@@ -1895,7 +1895,7 @@ The generic SOVA implementation, public specifications, safe examples, and tests
 are in the SOVA-OSS repository, <https://github.com/TRUSCOR/SOVA-OSS> (commit
 42b4972 for this paper). Everything that validates this preprint is public in
 the paper artifact,
-<https://github.com/Gautam-R-Patil/sova-research/tree/main/artifacts/pf-v1.1>.
+<https://github.com/TRUSCOR/sova-research/tree/main/artifacts/pf-v1.1>.
 The artifact contains the research prototype, every experiment script and
 retained result file, the frozen protocols and pre-specified designs, and the
 re-execution check. It also contains every fresh-run episode record with its

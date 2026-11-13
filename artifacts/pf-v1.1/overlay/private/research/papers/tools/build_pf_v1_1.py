@@ -687,7 +687,7 @@ header-includes:
 **Contact:** gautam@truscor.org\\
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), © 2026 Gautam R. Patil\\
 **arXiv classification:** {PRIMARY} (cross-list candidates: {", ".join(CROSS)})\\
-**Artifact (code, data, protocols, validators, four findings as .sova files):** <https://github.com/Gautam-R-Patil/sova-research/tree/main/artifacts/pf-v1.1>\\
+**Artifact (code, data, protocols, validators, four findings as .sova files):** <https://github.com/TRUSCOR/sova-research/tree/main/artifacts/pf-v1.1>\\
 **Implementation:** <https://github.com/TRUSCOR/SOVA-OSS> (commit 42b4972)\\
 **Competing interest:** the author leads TRUSCOR Private Limited, which develops the system evaluated here (see Declarations).
 

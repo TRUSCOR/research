@@ -21,8 +21,9 @@ Gautam R. Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@trus
 
 ---
 
-This repository holds the papers. The implementation lives in
-**[SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS)**.
+This repository holds the released SOVA papers and everything needed to check
+them: data, code, protocols, validators, and the evidence as `.sova` files.
+The implementation lives in **[SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS)**.
 
 ---
 
@@ -130,7 +131,7 @@ independently operated runtimes, and external security and privacy review) is
 
 **Check it yourself.** [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/) holds the
 research prototype, every experiment script and result file, the frozen
-protocols, the manuscript source, and a validator that recomputes all 285
+protocols, the manuscript source, and a validator that recomputes all 292
 reported values, with SHA-256 checksums, plus every fresh-run episode with its
 full message trace and four findings packaged as `.sova` files.
 
@@ -138,27 +139,11 @@ full message trace and four findings packaged as `.sova` files.
 
 ## Working drafts
 
-Everything below is **an early draft, openly published for transparency about
-work in progress.** None of it is peer reviewed, independently validated, or
-submitted anywhere. Methods, results, and claims will change. Please don't cite
-these as settled results; they are shared so the direction of the work is legible,
-not because the work is finished.
-
-| | Paper | What it asks | Stage |
-|---|---|---|---|
-| **P1** | [Evidence-Guided Trigger-Interaction Search for Stateful AI Agents](drafts/P1-evidence-guided-trigger-interaction-search.md) · [PDF](drafts/P1-evidence-guided-trigger-interaction-search.pdf) | Can evidence from earlier interactions guide the search for the conditions that trigger an agent failure? | Draft · internal benchmark only |
-| **P2** | [From Scanner Disagreement to Bounded Evidence](drafts/P2-scanner-disagreement-adjudication.md) | When scanners disagree about a finding, can execution adjudicate between them? | Early draft · incomplete |
-| **P4** | [Evidence-Bounded Semantic Reproduction Across Runtimes](drafts/P4-semantic-reproduction.md) · [PDF](drafts/P4-semantic-reproduction.pdf) | Did the same observable behaviour recur, despite allowed stochastic variation? | Draft · superseded in part by the preprint |
-| **P5** | [Claim-Conditioned Evidence Fidelity for Behaviour Records](drafts/P5-trace-evidence-fidelity.md) · [PDF](drafts/P5-trace-evidence-fidelity.pdf) | Does the retained evidence still support the claim after capture, conversion, and redaction? | Draft · superseded in part by the preprint |
-| **P6** | [Evidence-Bounded Semantic Conformance Across Heterogeneous Executors](drafts/P6-executor-conformance.md) · [PDF](drafts/P6-executor-conformance.pdf) | Do two different agent executors actually agree on what happened? | Draft · internal corpus only |
-| **P7** | [Evidence-Bounded Causal Composition Forensics](drafts/P7-causal-composition-forensics.md) | In a partially observed multi-step failure, which steps were actually responsible? | Early draft · mechanism in progress |
-
-Each draft keeps its own limitations and gate-decision section. Those sections are
-internal research notes, retained rather than polished away, and they are the
-honest record of what is and is not established.
-
-Two further questions, substitution-fidelity transfer and reducing false
-security labels across three axes, are at the question stage with no draft yet.
+Working drafts of further SOVA papers, and of papers on other projects, are kept
+in the author's own repository,
+**[Gautam-R-Patil/research-papers](https://github.com/Gautam-R-Patil/research-papers)**.
+They are early, not peer reviewed, and not meant to be cited as settled results.
+This repository holds only released papers and the material needed to check them.
 
 ---
 
@@ -174,6 +159,17 @@ protocols, build provenance, and reviewer packet are public in
 [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/). Third-party raw data are pinned by
 commit or digest rather than redistributed, apart from small MIT-licensed
 AgentDojo excerpts listed in the artifact's `THIRD-PARTY.md`.
+
+---
+
+## History
+
+Gautam R. Patil started this repository on 2 November 2026 on a personal GitHub
+account, as `Gautam-R-Patil/sova-research`, and moved it to the TRUSCOR
+organisation on 13 November 2026. Its full commit history moved with it, and the
+old address redirects here. The six working drafts first published here on
+2 November now live, with their history, in
+[Gautam-R-Patil/research-papers](https://github.com/Gautam-R-Patil/research-papers).
 
 ---
 
@@ -194,7 +190,7 @@ The SOVA OSS source code is separately licensed under Apache-2.0.
   author       = {Patil, Gautam R.},
   year         = {2026},
   note         = {Preprint, version 1.1. Not peer reviewed.},
-  howpublished = {\url{https://github.com/Gautam-R-Patil/sova-research}},
+  howpublished = {\url{https://github.com/TRUSCOR/sova-research}},
 }
 ```
 
