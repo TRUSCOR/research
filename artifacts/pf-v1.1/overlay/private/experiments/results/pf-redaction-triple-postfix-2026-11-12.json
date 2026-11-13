@@ -1,0 +1,4553 @@
+{
+  "artifactType": "sova.private.pf-exp-a-redaction-triple",
+  "codeDigests": {
+    "experimentScript": "sha256:dcd8acd10bb5ec6ca7efcdfdd09d8ebbd2b4aa04fcc994d8c7b85a094f54f61a",
+    "private/experiments/prototypes/fidelity.py": "sha256:e17d642186b3a99a7724b0697e158d4f12c26d6b8494143230be9e7d6fc40081",
+    "src/sova/formats/package.py": "sha256:33a88197580c203e6492dd368f599eb58bf03df6fcd9156aae9e4bdce9ab1335",
+    "src/sova/trace/reader.py": "sha256:e03ff9d07af8ed598af7c00b7801e75a05e51d0ae5e4155fa674cfbd3fb31a0c",
+    "src/sova/trace/redaction.py": "sha256:352ee1de804e458284707e53bb641d8a196b93e636be1b786ecdf3139422336b",
+    "src/sova/trace/writer.py": "sha256:404303f40d92db4f72fdb553b312f9ca522e4b9ea6eb7e0c58708f0cc18089bc"
+  },
+  "deterministicResultDigest": "sha256:2a131a34fb1f887a4429176cb9189bbc437d894d8d10e06d57d11f7a70c93323",
+  "environment": {
+    "implementation": "CPython",
+    "modelUsed": false,
+    "networkUsed": false,
+    "platform": "Windows-10-10.0.26300-SP0",
+    "providerUsed": false,
+    "python": "3.11.15",
+    "sovaVersion": "0.1.0a0"
+  },
+  "generatedAt": "2026-11-12T09:35:06.887284Z",
+  "inputs": {
+    "attackerDictionary": {
+      "coversValueClass": "*/low",
+      "size": 100,
+      "template": "synthetic-pin-NNNN"
+    },
+    "claims": [
+      {
+        "description": "The agent sent the planted value to the collector (content needed).",
+        "id": "K1-exfil-value",
+        "requirements": [
+          {
+            "allowRedacted": false,
+            "eventKind": "tool.called",
+            "id": "exfil-call",
+            "mandatory": true,
+            "parentKind": "prompt.sent",
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "arguments",
+                "{exfil}"
+              ]
+            ]
+          },
+          {
+            "allowRedacted": false,
+            "eventKind": "oracle.completed",
+            "id": "verdict",
+            "mandatory": true,
+            "parentKind": "tool.completed",
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "label"
+              ]
+            ]
+          }
+        ],
+        "type": "sensitive-required"
+      },
+      {
+        "description": "As K1, but the producer declares a typed placeholder acceptable.",
+        "id": "K2-exfil-value-redaction-tolerant",
+        "requirements": [
+          {
+            "allowRedacted": true,
+            "eventKind": "tool.called",
+            "id": "exfil-call",
+            "mandatory": true,
+            "parentKind": "prompt.sent",
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "arguments",
+                "{exfil}"
+              ]
+            ]
+          },
+          {
+            "allowRedacted": false,
+            "eventKind": "oracle.completed",
+            "id": "verdict",
+            "mandatory": true,
+            "parentKind": "tool.completed",
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "label"
+              ]
+            ]
+          }
+        ],
+        "type": "sensitive-required"
+      },
+      {
+        "description": "The exfiltrating call completed; depends on a non-sensitive field of an event that also carries a secret.",
+        "id": "K3-call-completed",
+        "requirements": [
+          {
+            "allowRedacted": false,
+            "eventKind": "tool.completed",
+            "id": "completion",
+            "mandatory": true,
+            "parentKind": "tool.called",
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "status"
+              ]
+            ]
+          }
+        ],
+        "type": "sensitive-adjacent"
+      },
+      {
+        "description": "The deterministic oracle recorded the exfiltration verdict.",
+        "id": "K4-oracle-verdict",
+        "requirements": [
+          {
+            "allowRedacted": false,
+            "eventKind": "oracle.completed",
+            "id": "verdict",
+            "mandatory": true,
+            "parentKind": null,
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "label"
+              ],
+              [
+                "canary_match"
+              ]
+            ]
+          }
+        ],
+        "type": "non-sensitive"
+      },
+      {
+        "description": "The agent read the customer profile from memory (non-sensitive key; the same event carries a PIN).",
+        "id": "K5-memory-access",
+        "requirements": [
+          {
+            "allowRedacted": false,
+            "eventKind": "memory.read",
+            "id": "memory-read",
+            "mandatory": true,
+            "parentKind": null,
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "key"
+              ]
+            ]
+          }
+        ],
+        "type": "sensitive-adjacent"
+      },
+      {
+        "description": "Oracle verdict with optional supporting memory content (the PIN).",
+        "id": "K6-verdict-with-optional-memory",
+        "requirements": [
+          {
+            "allowRedacted": false,
+            "eventKind": "oracle.completed",
+            "id": "verdict",
+            "mandatory": true,
+            "parentKind": "tool.completed",
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "label"
+              ]
+            ]
+          },
+          {
+            "allowRedacted": false,
+            "eventKind": "memory.read",
+            "id": "memory-pin",
+            "mandatory": false,
+            "parentKind": null,
+            "requireFullContent": true,
+            "truthPaths": [
+              [
+                "session_pin"
+              ]
+            ]
+          }
+        ],
+        "type": "optional-sensitive"
+      }
+    ],
+    "eventsPerTrace": 8,
+    "paddingBlockBytes": 64,
+    "plantedValuesDigest": "sha256:8abb51b0507867efa0e1aa45875e4ffdae67ad78db9f128e81bb4ca0121eb7bd",
+    "plantedValuesPerTrace": 6,
+    "policies": [
+      "P0-raw-unredacted",
+      "P1-omit-secrets-default",
+      "P2-unkeyed-digest",
+      "P3-keyed-commitment",
+      "P4-encrypted",
+      "P5-encrypted-padded-64",
+      "P6-metadata-only",
+      "P7-lite-profile",
+      "P8-claim-closure-disclosure",
+      "P8r-claim-closure-disclosure-over-raw",
+      "P9a-disclosure-view-with-payload",
+      "P9b-disclosure-view-without-payload"
+    ],
+    "replicatesPerVariant": 8,
+    "seed": 20261112,
+    "traces": 32,
+    "variants": [
+      "key-named",
+      "value-shaped",
+      "generic-unshaped",
+      "low-entropy-key-named"
+    ]
+  },
+  "inputsDigest": "sha256:2195d65e1bea7301aa1dedd4c2f351fb517bfbd30ebf6d2706d4ef8eb96fa6cf",
+  "limitations": [
+    "Same-team construction: corpus, claims, ground-truth rules and assessor were authored by the same team. Event-presence, count and causal-parent truth rules mirror the assessor and agree by construction; only path-level content availability, representation boundaries and detector misses are informative.",
+    "Claim-conditioned fidelity and causal-closure disclosure are private prototypes, not the shipped sova package; the paper's payload-path and observation-role requirements (section 4.3) are not implemented by the prototype.",
+    "P0, P2 and P8r are counterfactual baselines SOVA does not implement.",
+    "The detector is the shipped best-effort regex; generic sensitive strings are a known false negative and are counted, not hidden.",
+    "Structural, length-bucket, path, presence and linkage leakage are outside redaction recall; see the Topic 05 privacy attack study.",
+    "Not a privacy audit, cryptographic proof, or field estimate."
+  ],
+  "monotonicity": [
+    {
+      "lessEvidence": "P1-omit-secrets-default",
+      "moreEvidence": "P0-raw-unredacted",
+      "supportDecreased": 144,
+      "supportIncreased": 0,
+      "supportUnchanged": 48
+    },
+    {
+      "lessEvidence": "P6-metadata-only",
+      "moreEvidence": "P1-omit-secrets-default",
+      "supportDecreased": 104,
+      "supportIncreased": 0,
+      "supportUnchanged": 88
+    },
+    {
+      "lessEvidence": "P7-lite-profile",
+      "moreEvidence": "P1-omit-secrets-default",
+      "supportDecreased": 0,
+      "supportIncreased": 0,
+      "supportUnchanged": 192
+    },
+    {
+      "lessEvidence": "P8-claim-closure-disclosure",
+      "moreEvidence": "P1-omit-secrets-default",
+      "supportDecreased": 0,
+      "supportIncreased": 0,
+      "supportUnchanged": 192
+    },
+    {
+      "lessEvidence": "P9a-disclosure-view-with-payload",
+      "moreEvidence": "P1-omit-secrets-default",
+      "supportDecreased": 72,
+      "supportIncreased": 0,
+      "supportUnchanged": 120
+    },
+    {
+      "lessEvidence": "P9b-disclosure-view-without-payload",
+      "moreEvidence": "P9a-disclosure-view-with-payload",
+      "supportDecreased": 32,
+      "supportIncreased": 0,
+      "supportUnchanged": 160
+    },
+    {
+      "lessEvidence": "P8r-claim-closure-disclosure-over-raw",
+      "moreEvidence": "P0-raw-unredacted",
+      "supportDecreased": 0,
+      "supportIncreased": 0,
+      "supportUnchanged": 192
+    }
+  ],
+  "notes": [
+    "Redaction recall counts a planted value as recoverable if its exact UTF-8 bytes occur in the decompressed export, or if a 100-entry low-entropy dictionary inverts an unkeyed digest. High-entropy values are assumed not enumerable.",
+    "'If key compromised' assumes the attacker holds the commitment or encryption key and the public trace id (keyed-commitment context); encrypted placeholders are decrypted with sova.trace.redaction.decrypt_placeholder.",
+    "Ground truth is path-level: a claim's mandatory evidence is available only if the exact planted payload value at each declared path is present in the export, or a typed placeholder is present and the claim tolerates redaction. The assessor (prototype assess_fidelity) is event-level.",
+    "For claim-bundle exports (P8, P8r, P9a, P9b) recall denominators are planted values x claims, because each claim yields a separate export.",
+    "P9a/P9b model a naive receiver that accepts the unsigned disclosure view as integrity-valid; a conservative receiver would set integrity_valid=False and every claim would become inconclusive.",
+    "Disclosure nonces are drawn from a seeded RNG for reproducibility; real use requires a CSPRNG, and recall for undisclosed events assumes nonces stay secret.",
+    "Monotonicity rows compare support for the same trace and claim between a richer and a poorer evidence export; 'supportIncreased' must be 0.",
+    "Trace ids, event ids, wall times and AES-GCM nonces are random per run; all reported counts and rates are designed to be run-invariant and are bound by deterministicResultDigest."
+  ],
+  "perPolicy": [
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "1.000000",
+          "disagreements": [],
+          "exactAgreement": 192,
+          "falseSupport": 0,
+          "overAbstention": 0,
+          "overclaim": 0,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.000000",
+        "claimSurvivalRate": "1.000000",
+        "inconclusive": 0,
+        "supported": 192,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P0-raw-unredacted",
+      "implementedBy": "experiment-constructed in-memory events (counterfactual)",
+      "integrityInvalidExports": 0,
+      "label": "No redaction",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 0,
+            "planted": 40,
+            "recall": "0.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 0,
+            "planted": 40,
+            "recall": "0.000000"
+          },
+          "none/high": {
+            "notRecoverable": 0,
+            "planted": 72,
+            "recall": "0.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 0,
+            "planted": 40,
+            "recall": "0.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 0,
+        "planted": 192,
+        "recall": "0.000000",
+        "recoveryRoutes": {
+          "plaintext": 192
+        }
+      },
+      "safety": {
+        "agreementRate": "1.000000",
+        "disagreements": [],
+        "exactAgreement": 192,
+        "falseSupport": 0,
+        "overAbstention": 0,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": false,
+      "truth": {
+        "abstentionRate": "0.000000",
+        "claimSurvivalRate": "1.000000",
+        "inconclusive": 0,
+        "supported": 192,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.583333",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 112,
+          "falseSupport": 24,
+          "overAbstention": 0,
+          "overclaim": 80,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.458333",
+        "claimSurvivalRate": "0.250000",
+        "inconclusive": 88,
+        "supported": 48,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P1-omit-secrets-default",
+      "implementedBy": "sova.trace.TraceWriter(redaction_policy=RedactionPolicy())",
+      "integrityInvalidExports": 0,
+      "label": "Omit detected secrets (public-export default)",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 0,
+            "planted": 72,
+            "recall": "0.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 120,
+        "planted": 192,
+        "recall": "0.625000",
+        "recoveryRoutes": {
+          "plaintext": 72
+        }
+      },
+      "safety": {
+        "agreementRate": "0.666667",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 128,
+        "falseSupport": 0,
+        "overAbstention": 64,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "0.125000",
+        "claimSurvivalRate": "0.583333",
+        "inconclusive": 24,
+        "supported": 112,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.583333",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 112,
+          "falseSupport": 24,
+          "overAbstention": 0,
+          "overclaim": 80,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.458333",
+        "claimSurvivalRate": "0.250000",
+        "inconclusive": 88,
+        "supported": 48,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P2-unkeyed-digest",
+      "implementedBy": "same Redactor detector; placeholder augmented with sha256(canonical value) in memory (counterfactual)",
+      "integrityInvalidExports": 0,
+      "label": "Unkeyed SHA-256 digest placeholder",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 0,
+            "planted": 40,
+            "recall": "0.000000"
+          },
+          "none/high": {
+            "notRecoverable": 0,
+            "planted": 72,
+            "recall": "0.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 80,
+        "planted": 192,
+        "recall": "0.416667",
+        "recoveryRoutes": {
+          "plaintext": 72,
+          "unkeyed-digest-dictionary": 40
+        }
+      },
+      "safety": {
+        "agreementRate": "0.666667",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 128,
+        "falseSupport": 0,
+        "overAbstention": 64,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": false,
+      "truth": {
+        "abstentionRate": "0.125000",
+        "claimSurvivalRate": "0.583333",
+        "inconclusive": 24,
+        "supported": 112,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.583333",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 112,
+          "falseSupport": 24,
+          "overAbstention": 0,
+          "overclaim": 80,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.458333",
+        "claimSurvivalRate": "0.250000",
+        "inconclusive": 88,
+        "supported": 48,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P3-keyed-commitment",
+      "implementedBy": "sova.trace.TraceWriter(redaction_policy=RedactionPolicy(method='keyed-commitment'))",
+      "integrityInvalidExports": 0,
+      "label": "Keyed HMAC commitment",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 0,
+            "planted": 72,
+            "recall": "0.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": {
+          "byValueClass": {
+            "key-name/high": {
+              "notRecoverable": 40,
+              "planted": 40,
+              "recall": "1.000000"
+            },
+            "key-name/low": {
+              "notRecoverable": 0,
+              "planted": 40,
+              "recall": "0.000000"
+            },
+            "none/high": {
+              "notRecoverable": 0,
+              "planted": 72,
+              "recall": "0.000000"
+            },
+            "value-pattern/high": {
+              "notRecoverable": 40,
+              "planted": 40,
+              "recall": "1.000000"
+            }
+          },
+          "notRecoverable": 80,
+          "planted": 192,
+          "recall": "0.416667",
+          "recoveryRoutes": {
+            "keyed-commitment-dictionary-with-key": 40
+          }
+        },
+        "notRecoverable": 120,
+        "planted": 192,
+        "recall": "0.625000",
+        "recoveryRoutes": {
+          "plaintext": 72
+        }
+      },
+      "safety": {
+        "agreementRate": "0.666667",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 128,
+        "falseSupport": 0,
+        "overAbstention": 64,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "0.125000",
+        "claimSurvivalRate": "0.583333",
+        "inconclusive": 24,
+        "supported": 112,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.583333",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 112,
+          "falseSupport": 24,
+          "overAbstention": 0,
+          "overclaim": 80,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.458333",
+        "claimSurvivalRate": "0.250000",
+        "inconclusive": 88,
+        "supported": 48,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P4-encrypted",
+      "implementedBy": "sova.trace.TraceWriter(redaction_policy=RedactionPolicy(method='encrypted'))",
+      "integrityInvalidExports": 0,
+      "label": "AES-256-GCM encrypted placeholder, unpadded",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 0,
+            "planted": 72,
+            "recall": "0.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": {
+          "byValueClass": {
+            "key-name/high": {
+              "notRecoverable": 0,
+              "planted": 40,
+              "recall": "0.000000"
+            },
+            "key-name/low": {
+              "notRecoverable": 0,
+              "planted": 40,
+              "recall": "0.000000"
+            },
+            "none/high": {
+              "notRecoverable": 0,
+              "planted": 72,
+              "recall": "0.000000"
+            },
+            "value-pattern/high": {
+              "notRecoverable": 0,
+              "planted": 40,
+              "recall": "0.000000"
+            }
+          },
+          "notRecoverable": 0,
+          "planted": 192,
+          "recall": "0.000000",
+          "recoveryRoutes": {
+            "decrypted-with-key": 120
+          }
+        },
+        "notRecoverable": 120,
+        "planted": 192,
+        "recall": "0.625000",
+        "recoveryRoutes": {
+          "plaintext": 72
+        }
+      },
+      "safety": {
+        "agreementRate": "0.666667",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 128,
+        "falseSupport": 0,
+        "overAbstention": 64,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "0.125000",
+        "claimSurvivalRate": "0.583333",
+        "inconclusive": 24,
+        "supported": 112,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.583333",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 112,
+          "falseSupport": 24,
+          "overAbstention": 0,
+          "overclaim": 80,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.458333",
+        "claimSurvivalRate": "0.250000",
+        "inconclusive": 88,
+        "supported": 48,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P5-encrypted-padded-64",
+      "implementedBy": "sova.trace.TraceWriter(redaction_policy=RedactionPolicy(method='encrypted', encryption_padding_bytes=64))",
+      "integrityInvalidExports": 0,
+      "label": "AES-256-GCM with authenticated 64-byte padding",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 0,
+            "planted": 72,
+            "recall": "0.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": {
+          "byValueClass": {
+            "key-name/high": {
+              "notRecoverable": 0,
+              "planted": 40,
+              "recall": "0.000000"
+            },
+            "key-name/low": {
+              "notRecoverable": 0,
+              "planted": 40,
+              "recall": "0.000000"
+            },
+            "none/high": {
+              "notRecoverable": 0,
+              "planted": 72,
+              "recall": "0.000000"
+            },
+            "value-pattern/high": {
+              "notRecoverable": 0,
+              "planted": 40,
+              "recall": "0.000000"
+            }
+          },
+          "notRecoverable": 0,
+          "planted": 192,
+          "recall": "0.000000",
+          "recoveryRoutes": {
+            "decrypted-with-key": 120
+          }
+        },
+        "notRecoverable": 120,
+        "planted": 192,
+        "recall": "0.625000",
+        "recoveryRoutes": {
+          "plaintext": 72
+        }
+      },
+      "safety": {
+        "agreementRate": "0.666667",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 128,
+        "falseSupport": 0,
+        "overAbstention": 64,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "0.125000",
+        "claimSurvivalRate": "0.583333",
+        "inconclusive": 24,
+        "supported": 112,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.000000",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K3-call-completed",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K3-call-completed",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K3-call-completed",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K3-call-completed",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 0,
+          "falseSupport": 192,
+          "overAbstention": 0,
+          "overclaim": 192,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "1.000000",
+        "claimSurvivalRate": "0.000000",
+        "inconclusive": 192,
+        "supported": 0,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P6-metadata-only",
+      "implementedBy": "sova.trace.TraceWriter(content_capture='metadata-only')",
+      "integrityInvalidExports": 0,
+      "label": "Full-content redaction (metadata-only capture)",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 72,
+            "planted": 72,
+            "recall": "1.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 192,
+        "planted": 192,
+        "recall": "1.000000",
+        "recoveryRoutes": {}
+      },
+      "safety": {
+        "agreementRate": "1.000000",
+        "disagreements": [],
+        "exactAgreement": 192,
+        "falseSupport": 0,
+        "overAbstention": 0,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "1.000000",
+        "claimSurvivalRate": "0.000000",
+        "inconclusive": 192,
+        "supported": 0,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.166667",
+          "claimSurvivalRate": "0.666667",
+          "inconclusive": 32,
+          "supported": 128,
+          "total": 192,
+          "weakened": 32,
+          "weakenedRate": "0.166667"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "0.000000",
+            "inconclusive": 0,
+            "supported": 0,
+            "total": 32,
+            "weakened": 32,
+            "weakenedRate": "1.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.500000",
+            "claimSurvivalRate": "0.500000",
+            "inconclusive": 32,
+            "supported": 32,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.750000",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 144,
+          "falseSupport": 24,
+          "overAbstention": 0,
+          "overclaim": 48,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.458333",
+        "claimSurvivalRate": "0.250000",
+        "inconclusive": 88,
+        "supported": 48,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      },
+      "exportUnit": "trace",
+      "exports": 32,
+      "id": "P7-lite-profile",
+      "implementedBy": "sova.trace.TraceWriter(capture_profile='lite')",
+      "integrityInvalidExports": 0,
+      "label": "Lite capture profile (family omission) + omit secrets",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 32,
+            "planted": 72,
+            "recall": "0.444444"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 40,
+            "planted": 40,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 152,
+        "planted": 192,
+        "recall": "0.791667",
+        "recoveryRoutes": {
+          "plaintext": 40
+        }
+      },
+      "safety": {
+        "agreementRate": "0.833333",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 160,
+        "falseSupport": 0,
+        "overAbstention": 32,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "0.291667",
+        "claimSurvivalRate": "0.416667",
+        "inconclusive": 56,
+        "supported": 80,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.500000",
+          "claimSurvivalRate": "0.500000",
+          "inconclusive": 32,
+          "supported": 32,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.583333",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K1-exfil-value",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K2-exfil-value-redaction-tolerant",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K6-verdict-with-optional-memory",
+              "count": 8,
+              "truth": "weakened",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 112,
+          "falseSupport": 24,
+          "overAbstention": 0,
+          "overclaim": 80,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.458333",
+        "claimSurvivalRate": "0.250000",
+        "inconclusive": 88,
+        "supported": 48,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      },
+      "exportUnit": "claim-bundle",
+      "exports": 192,
+      "id": "P8-claim-closure-disclosure",
+      "implementedBy": "private prototype fidelity.build_disclosure_bundle (salted commitments for undisclosed events)",
+      "integrityInvalidExports": 0,
+      "label": "Claim-dependency-closed selective disclosure over the P1 trace",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 200,
+            "planted": 432,
+            "recall": "0.462963"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 920,
+        "planted": 1152,
+        "recall": "0.798611",
+        "recoveryRoutes": {
+          "plaintext": 232
+        }
+      },
+      "safety": {
+        "agreementRate": "0.666667",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K3-call-completed",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 128,
+        "falseSupport": 0,
+        "overAbstention": 64,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": "private-prototype",
+      "truth": {
+        "abstentionRate": "0.125000",
+        "claimSurvivalRate": "0.583333",
+        "inconclusive": 24,
+        "supported": 112,
+        "total": 192,
+        "weakened": 56,
+        "weakenedRate": "0.291667"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 0,
+          "supported": 0,
+          "total": 32,
+          "weakened": 32,
+          "weakenedRate": "1.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.375000",
+          "claimSurvivalRate": "0.250000",
+          "inconclusive": 24,
+          "supported": 16,
+          "total": 64,
+          "weakened": 24,
+          "weakenedRate": "0.375000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 192,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 64,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "1.000000",
+          "disagreements": [],
+          "exactAgreement": 192,
+          "falseSupport": 0,
+          "overAbstention": 0,
+          "overclaim": 0,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.000000",
+        "claimSurvivalRate": "1.000000",
+        "inconclusive": 0,
+        "supported": 192,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      },
+      "exportUnit": "claim-bundle",
+      "exports": 192,
+      "id": "P8r-claim-closure-disclosure-over-raw",
+      "implementedBy": "private prototype fidelity.build_disclosure_bundle over P0 events (counterfactual)",
+      "integrityInvalidExports": 0,
+      "label": "Closure disclosure over unredacted events",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 40,
+            "planted": 240,
+            "recall": "0.166667"
+          },
+          "key-name/low": {
+            "notRecoverable": 8,
+            "planted": 240,
+            "recall": "0.033333"
+          },
+          "none/high": {
+            "notRecoverable": 200,
+            "planted": 432,
+            "recall": "0.462963"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 200,
+            "planted": 240,
+            "recall": "0.833333"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 448,
+        "planted": 1152,
+        "recall": "0.388889",
+        "recoveryRoutes": {
+          "plaintext": 704
+        }
+      },
+      "safety": {
+        "agreementRate": "1.000000",
+        "disagreements": [],
+        "exactAgreement": 192,
+        "falseSupport": 0,
+        "overAbstention": 0,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": false,
+      "truth": {
+        "abstentionRate": "0.000000",
+        "claimSurvivalRate": "1.000000",
+        "inconclusive": 0,
+        "supported": 192,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 64,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.666667",
+          "claimSurvivalRate": "0.333333",
+          "inconclusive": 128,
+          "supported": 64,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "1.000000",
+            "claimSurvivalRate": "0.000000",
+            "inconclusive": 32,
+            "supported": 0,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.500000",
+            "claimSurvivalRate": "0.500000",
+            "inconclusive": 32,
+            "supported": 32,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "1.000000",
+            "claimSurvivalRate": "0.000000",
+            "inconclusive": 64,
+            "supported": 0,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "1.000000",
+          "disagreements": [],
+          "exactAgreement": 192,
+          "falseSupport": 0,
+          "overAbstention": 0,
+          "overclaim": 0,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "0.833333",
+        "claimSurvivalRate": "0.166667",
+        "inconclusive": 160,
+        "supported": 32,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      },
+      "exportUnit": "claim-bundle",
+      "exports": 192,
+      "id": "P9a-disclosure-view-with-payload",
+      "implementedBy": "sova.trace.TraceReader.disclosure_view(include_payload=True) over P1; naive receiver accepts the view as integrity-valid",
+      "integrityInvalidExports": 0,
+      "label": "Library unsigned disclosure view, closure sequences, payloads",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 200,
+            "planted": 432,
+            "recall": "0.462963"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 920,
+        "planted": 1152,
+        "recall": "0.798611",
+        "recoveryRoutes": {
+          "plaintext": 232
+        }
+      },
+      "safety": {
+        "agreementRate": "0.833333",
+        "disagreements": [
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "generic-unshaped"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "low-entropy-key-named"
+          },
+          {
+            "assessor": "inconclusive",
+            "claim": "K5-memory-access",
+            "count": 8,
+            "truth": "supported",
+            "variant": "value-shaped"
+          }
+        ],
+        "exactAgreement": 160,
+        "falseSupport": 0,
+        "overAbstention": 32,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "0.666667",
+        "claimSurvivalRate": "0.333333",
+        "inconclusive": 128,
+        "supported": 64,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "0.000000",
+          "claimSurvivalRate": "1.000000",
+          "inconclusive": 0,
+          "supported": 32,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "0.500000",
+          "claimSurvivalRate": "0.500000",
+          "inconclusive": 32,
+          "supported": 32,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      }
+    },
+    {
+      "ablationNoRedactionGate": {
+        "decisions": {
+          "abstentionRate": "0.666667",
+          "claimSurvivalRate": "0.333333",
+          "inconclusive": 128,
+          "supported": 64,
+          "total": 192,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "decisionsByClaimType": {
+          "non-sensitive": {
+            "abstentionRate": "0.000000",
+            "claimSurvivalRate": "1.000000",
+            "inconclusive": 0,
+            "supported": 32,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "optional-sensitive": {
+            "abstentionRate": "1.000000",
+            "claimSurvivalRate": "0.000000",
+            "inconclusive": 32,
+            "supported": 0,
+            "total": 32,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-adjacent": {
+            "abstentionRate": "0.500000",
+            "claimSurvivalRate": "0.500000",
+            "inconclusive": 32,
+            "supported": 32,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          },
+          "sensitive-required": {
+            "abstentionRate": "1.000000",
+            "claimSurvivalRate": "0.000000",
+            "inconclusive": 64,
+            "supported": 0,
+            "total": 64,
+            "weakened": 0,
+            "weakenedRate": "0.000000"
+          }
+        },
+        "safety": {
+          "agreementRate": "0.666667",
+          "disagreements": [
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K4-oracle-verdict",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "generic-unshaped"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "low-entropy-key-named"
+            },
+            {
+              "assessor": "supported",
+              "claim": "K5-memory-access",
+              "count": 8,
+              "truth": "inconclusive",
+              "variant": "value-shaped"
+            }
+          ],
+          "exactAgreement": 128,
+          "falseSupport": 64,
+          "overAbstention": 0,
+          "overclaim": 64,
+          "total": 192
+        }
+      },
+      "decisions": {
+        "abstentionRate": "1.000000",
+        "claimSurvivalRate": "0.000000",
+        "inconclusive": 192,
+        "supported": 0,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "decisionsByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      },
+      "exportUnit": "claim-bundle",
+      "exports": 192,
+      "id": "P9b-disclosure-view-without-payload",
+      "implementedBy": "sova.trace.TraceReader.disclosure_view(include_payload=False) over P1; naive receiver accepts the view as integrity-valid",
+      "integrityInvalidExports": 0,
+      "label": "Library unsigned disclosure view, closure sequences, no payloads",
+      "redaction": {
+        "byValueClass": {
+          "key-name/high": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          },
+          "key-name/low": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          },
+          "none/high": {
+            "notRecoverable": 432,
+            "planted": 432,
+            "recall": "1.000000"
+          },
+          "value-pattern/high": {
+            "notRecoverable": 240,
+            "planted": 240,
+            "recall": "1.000000"
+          }
+        },
+        "ifKeyCompromised": null,
+        "notRecoverable": 1152,
+        "planted": 1152,
+        "recall": "1.000000",
+        "recoveryRoutes": {}
+      },
+      "safety": {
+        "agreementRate": "1.000000",
+        "disagreements": [],
+        "exactAgreement": 192,
+        "falseSupport": 0,
+        "overAbstention": 0,
+        "overclaim": 0,
+        "total": 192
+      },
+      "sovaImplements": true,
+      "truth": {
+        "abstentionRate": "1.000000",
+        "claimSurvivalRate": "0.000000",
+        "inconclusive": 192,
+        "supported": 0,
+        "total": 192,
+        "weakened": 0,
+        "weakenedRate": "0.000000"
+      },
+      "truthByClaimType": {
+        "non-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "optional-sensitive": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 32,
+          "supported": 0,
+          "total": 32,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-adjacent": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        },
+        "sensitive-required": {
+          "abstentionRate": "1.000000",
+          "claimSurvivalRate": "0.000000",
+          "inconclusive": 64,
+          "supported": 0,
+          "total": 64,
+          "weakened": 0,
+          "weakenedRate": "0.000000"
+        }
+      }
+    }
+  ],
+  "predictionCheck": {
+    "allMatched": false,
+    "basis": "expectations frozen by code reading before execution (2026-11-12)",
+    "byPolicy": {
+      "P0-raw-unredacted": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "1.000000",
+          "predicted": "1.000000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        }
+      },
+      "P1-omit-secrets-default": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.458333",
+          "predicted": "0.458333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.250000",
+          "predicted": "0.250000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 24,
+          "predicted": 24
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 64,
+          "predicted": 64
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.625000",
+          "predicted": "0.625000"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.291667",
+          "predicted": "0.291667"
+        }
+      },
+      "P2-unkeyed-digest": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.458333",
+          "predicted": "0.458333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.250000",
+          "predicted": "0.250000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 24,
+          "predicted": 24
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 64,
+          "predicted": 64
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.416667",
+          "predicted": "0.416667"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.291667",
+          "predicted": "0.291667"
+        }
+      },
+      "P3-keyed-commitment": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.458333",
+          "predicted": "0.458333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.250000",
+          "predicted": "0.250000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 24,
+          "predicted": 24
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 64,
+          "predicted": 64
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.625000",
+          "predicted": "0.625000"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": "0.416667",
+          "predicted": "0.416667"
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.291667",
+          "predicted": "0.291667"
+        }
+      },
+      "P4-encrypted": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.458333",
+          "predicted": "0.458333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.250000",
+          "predicted": "0.250000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 24,
+          "predicted": 24
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 64,
+          "predicted": 64
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.625000",
+          "predicted": "0.625000"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.291667",
+          "predicted": "0.291667"
+        }
+      },
+      "P5-encrypted-padded-64": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.458333",
+          "predicted": "0.458333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.250000",
+          "predicted": "0.250000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 24,
+          "predicted": 24
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 64,
+          "predicted": 64
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.625000",
+          "predicted": "0.625000"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.291667",
+          "predicted": "0.291667"
+        }
+      },
+      "P6-metadata-only": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "1.000000",
+          "predicted": "1.000000"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 192,
+          "predicted": 192
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "1.000000",
+          "predicted": "1.000000"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        }
+      },
+      "P7-lite-profile": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.458333",
+          "predicted": "0.458333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.250000",
+          "predicted": "0.250000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 24,
+          "predicted": 24
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 32,
+          "predicted": 32
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.791667",
+          "predicted": "0.791667"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.291667",
+          "predicted": "0.291667"
+        }
+      },
+      "P8-claim-closure-disclosure": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.458333",
+          "predicted": "0.458333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.250000",
+          "predicted": "0.250000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 24,
+          "predicted": 24
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 64,
+          "predicted": 64
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.798611",
+          "predicted": "0.798611"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.291667",
+          "predicted": "0.291667"
+        }
+      },
+      "P8r-claim-closure-disclosure-over-raw": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "1.000000",
+          "predicted": "1.000000"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.388889",
+          "predicted": "0.388889"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        }
+      },
+      "P9a-disclosure-view-with-payload": {
+        "abstentionRate": {
+          "match": true,
+          "observed": "0.833333",
+          "predicted": "0.833333"
+        },
+        "claimSurvivalRate": {
+          "match": true,
+          "observed": "0.166667",
+          "predicted": "0.166667"
+        },
+        "falseSupport": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 32,
+          "predicted": 32
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "0.798611",
+          "predicted": "0.798611"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        }
+      },
+      "P9b-disclosure-view-without-payload": {
+        "abstentionRate": {
+          "match": false,
+          "observed": "1.000000",
+          "predicted": "0.833333"
+        },
+        "claimSurvivalRate": {
+          "match": false,
+          "observed": "0.000000",
+          "predicted": "0.166667"
+        },
+        "falseSupport": {
+          "match": false,
+          "observed": 0,
+          "predicted": 32
+        },
+        "falseSupportWithoutRedactionGate": {
+          "match": true,
+          "observed": 64,
+          "predicted": 64
+        },
+        "overAbstention": {
+          "match": true,
+          "observed": 0,
+          "predicted": 0
+        },
+        "redactionRecall": {
+          "match": true,
+          "observed": "1.000000",
+          "predicted": "1.000000"
+        },
+        "redactionRecallIfKeyCompromised": {
+          "match": true,
+          "observed": null,
+          "predicted": null
+        },
+        "weakenedRate": {
+          "match": true,
+          "observed": "0.000000",
+          "predicted": "0.000000"
+        }
+      }
+    }
+  },
+  "readerResidualSecretCheckOnRawEvents": {
+    "accepted": 136,
+    "rejected": 120
+  },
+  "resourceUse": {
+    "guardBytes": 314572800,
+    "processPeakWorkingSetBytes": 46182400,
+    "tracemallocPeakBytes": 4036195,
+    "wallSeconds": "52.782"
+  },
+  "schemaVersion": "0.1.0",
+  "status": "same-team constructed deterministic study; designed before execution",
+  "triple": [
+    {
+      "abstentionRate": "0.000000",
+      "claimSurvivalRate": "1.000000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 0,
+      "overAbstention": 0,
+      "policy": "P0-raw-unredacted",
+      "redactionRecall": "0.000000",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": false,
+      "weakenedRate": "0.000000"
+    },
+    {
+      "abstentionRate": "0.458333",
+      "claimSurvivalRate": "0.250000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 24,
+      "overAbstention": 64,
+      "policy": "P1-omit-secrets-default",
+      "redactionRecall": "0.625000",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": true,
+      "weakenedRate": "0.291667"
+    },
+    {
+      "abstentionRate": "0.458333",
+      "claimSurvivalRate": "0.250000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 24,
+      "overAbstention": 64,
+      "policy": "P2-unkeyed-digest",
+      "redactionRecall": "0.416667",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": false,
+      "weakenedRate": "0.291667"
+    },
+    {
+      "abstentionRate": "0.458333",
+      "claimSurvivalRate": "0.250000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 24,
+      "overAbstention": 64,
+      "policy": "P3-keyed-commitment",
+      "redactionRecall": "0.625000",
+      "redactionRecallIfKeyCompromised": "0.416667",
+      "sovaImplements": true,
+      "weakenedRate": "0.291667"
+    },
+    {
+      "abstentionRate": "0.458333",
+      "claimSurvivalRate": "0.250000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 24,
+      "overAbstention": 64,
+      "policy": "P4-encrypted",
+      "redactionRecall": "0.625000",
+      "redactionRecallIfKeyCompromised": "0.000000",
+      "sovaImplements": true,
+      "weakenedRate": "0.291667"
+    },
+    {
+      "abstentionRate": "0.458333",
+      "claimSurvivalRate": "0.250000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 24,
+      "overAbstention": 64,
+      "policy": "P5-encrypted-padded-64",
+      "redactionRecall": "0.625000",
+      "redactionRecallIfKeyCompromised": "0.000000",
+      "sovaImplements": true,
+      "weakenedRate": "0.291667"
+    },
+    {
+      "abstentionRate": "1.000000",
+      "claimSurvivalRate": "0.000000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 192,
+      "overAbstention": 0,
+      "policy": "P6-metadata-only",
+      "redactionRecall": "1.000000",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": true,
+      "weakenedRate": "0.000000"
+    },
+    {
+      "abstentionRate": "0.458333",
+      "claimSurvivalRate": "0.250000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 24,
+      "overAbstention": 32,
+      "policy": "P7-lite-profile",
+      "redactionRecall": "0.791667",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": true,
+      "weakenedRate": "0.291667"
+    },
+    {
+      "abstentionRate": "0.458333",
+      "claimSurvivalRate": "0.250000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 24,
+      "overAbstention": 64,
+      "policy": "P8-claim-closure-disclosure",
+      "redactionRecall": "0.798611",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": "private-prototype",
+      "weakenedRate": "0.291667"
+    },
+    {
+      "abstentionRate": "0.000000",
+      "claimSurvivalRate": "1.000000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 0,
+      "overAbstention": 0,
+      "policy": "P8r-claim-closure-disclosure-over-raw",
+      "redactionRecall": "0.388889",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": false,
+      "weakenedRate": "0.000000"
+    },
+    {
+      "abstentionRate": "0.833333",
+      "claimSurvivalRate": "0.166667",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 0,
+      "overAbstention": 32,
+      "policy": "P9a-disclosure-view-with-payload",
+      "redactionRecall": "0.798611",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": true,
+      "weakenedRate": "0.000000"
+    },
+    {
+      "abstentionRate": "1.000000",
+      "claimSurvivalRate": "0.000000",
+      "falseSupport": 0,
+      "falseSupportWithoutRedactionGate": 64,
+      "overAbstention": 0,
+      "policy": "P9b-disclosure-view-without-payload",
+      "redactionRecall": "1.000000",
+      "redactionRecallIfKeyCompromised": null,
+      "sovaImplements": true,
+      "weakenedRate": "0.000000"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "artifactType": "sova.private.repeatability-audit",
+  "version": "1.0",
+  "owner": "Gautam R. Patil",
+  "organization": "TRUSCOR Private Limited",
+  "generatedAt": "2026-08-01T06:47:00Z",
+  "study": "P5 incident interoperability, OpenTelemetry Collector, and scale",
+  "runs": [
+    {
+      "generatedAt": "2026-08-01T06:40:23.699102Z",
+      "reportSha256": "41c6763d2cb413e3b425b791fd8d646b6effd401cf1833043f038e2b887c4e26",
+      "packageBytes": {
+        "1000": 126811,
+        "10000": 1237155,
+        "50000": 6187071
+      }
+    },
+    {
+      "generatedAt": "2026-08-01T06:45:09.536684Z",
+      "reportSha256": "3eef3b066aa35995fa291f8207836a632fc9d53df74a519515175d47e6e85f9e",
+      "packageBytes": {
+        "1000": 126203,
+        "10000": 1238352,
+        "50000": 6183508
+      }
+    }
+  ],
+  "semanticInvariantSnapshotSha256": "0c7cd3e0143c589d6faf386f090ef0195e6d5143cbccbe602032b6a6383669e4",
+  "semanticInvariantsEqual": true,
+  "semanticInvariantsCompared": [
+    "official STIX parser acceptance and object counts",
+    "explicitly lossy STIX fidelity classification",
+    "imported trace event count and offline verification",
+    "custom source trace digest and chain-root preservation",
+    "official Collector release and checksum verification",
+    "local OTLP HTTP status and submitted/backend span counts",
+    "trace and span identifier preservation",
+    "required SOVA projection attributes",
+    "absence of external network use in the Collector pipeline",
+    "scale event and segment counts",
+    "indexed query and selective-disclosure counts",
+    "required-key signature and trust-policy results",
+    "standalone Python and dependency-free Node verifier exit codes and event counts",
+    "cross-language content-digest agreement"
+  ],
+  "excludedDynamicFields": [
+    "generated timestamps",
+    "fresh run, event, key, signature, and package identifiers",
+    "content and report digests derived from fresh identities",
+    "wall-clock timings and traced-memory samples",
+    "compressed package byte size"
+  ],
+  "packageSizeVariation": {
+    "expected": true,
+    "reason": "Each run intentionally creates fresh identifiers and signed material; compression ratios therefore vary even when semantic outcomes are invariant.",
+    "maximumAbsoluteBytes": 3563,
+    "maximumRelativePercent": 0.4805
+  },
+  "claimBoundary": "This is a same-machine, same-team repeatability check over synthetic evidence. It does not establish independent reproducibility, hosted-backend compatibility, production throughput, or truth of the underlying event claims."
+}

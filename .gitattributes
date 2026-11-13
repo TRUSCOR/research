@@ -1,0 +1,3 @@
+# Keep every file byte-identical to what was published: the artifact checksums and
+# the code digests recorded in the result files depend on exact bytes.
+* -text

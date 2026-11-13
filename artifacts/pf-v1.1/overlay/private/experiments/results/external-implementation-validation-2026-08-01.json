@@ -1,0 +1,780 @@
+{
+  "artifactType": "sova.private-external-implementation-validation",
+  "environment": {
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.15"
+  },
+  "externalIntegrity": {
+    "canonicalization": {
+      "allSharedDomainBytesEqual": true,
+      "boundary": "SOVA deliberately uses an integer/decimal-string subset of RFC 8785 and does not claim full JCS number serialization.",
+      "byteEqualCases": 65,
+      "externalBinaryFloatCanonical": "{\"binaryFloat\":1.5}",
+      "sharedDomainCases": 65,
+      "sovaBinaryFloatRejected": true
+    },
+    "dsse": {
+      "externalVerifierAccepted": true,
+      "keyIdMismatchRejected": true,
+      "payloadMutationRejected": true,
+      "semanticallyEqualNoncanonicalPayloadRejected": true,
+      "signatureMutationRejected": true,
+      "trustBoundary": "Cross-library signature compatibility only; no key ownership, freshness, transparency, truth, or signer-honesty claim.",
+      "wrongKeyRejected": true
+    }
+  },
+  "generatedAt": "2026-08-01T05:43:39.430758Z",
+  "harnessEvals": {
+    "baselines": {
+      "exact_match": {
+        "accuracy": "0.428571",
+        "correct": 3,
+        "falseDivergence": 0,
+        "falseEquivalence": 2,
+        "total": 7,
+        "unsupportedTruthClasses": [
+          "incompatible",
+          "inconclusive",
+          "unsafe"
+        ]
+      },
+      "tool_argument_match": {
+        "accuracy": "0.285714",
+        "correct": 2,
+        "falseDivergence": 0,
+        "falseEquivalence": 3,
+        "total": 7,
+        "unsupportedTruthClasses": [
+          "incompatible",
+          "inconclusive",
+          "unsafe"
+        ]
+      },
+      "tool_correctness": {
+        "accuracy": "0.285714",
+        "correct": 2,
+        "falseDivergence": 0,
+        "falseEquivalence": 5,
+        "total": 7,
+        "unsupportedTruthClasses": [
+          "incompatible",
+          "inconclusive",
+          "unsafe"
+        ]
+      }
+    },
+    "candidateAccuracy": {
+      "correct": 7,
+      "total": 7
+    },
+    "claimBoundary": "External package implementation over a same-team seven-case corpus; not independent labels or a state-of-the-art claim.",
+    "deterministicRerunEqual": true,
+    "rows": [
+      {
+        "candidate": "equivalent",
+        "harness": {
+          "exact_match": {
+            "metadata": {
+              "dimension": "correctness"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "Output exactly matched expected answer",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_argument_match": {
+            "metadata": {
+              "arg_match": "exact",
+              "details": [
+                {
+                  "actual": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "expected": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "extra_keys": [],
+                  "matched": true,
+                  "missing_keys": [],
+                  "name_match": true,
+                  "reason": "ok",
+                  "value_mismatches": []
+                }
+              ],
+              "dimension": "trajectory",
+              "matches": 1,
+              "n_pairs": 1,
+              "pair": "exact"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls have matching arguments (1/1, exact pairing, exact args)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_correctness": {
+            "metadata": {
+              "dimension": "trajectory",
+              "expected_tools": [
+                "artifact.read"
+              ],
+              "matches": 1,
+              "mode": "exact",
+              "tools_called": [
+                "artifact.read"
+              ]
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls match the expected sequence (1/1, exact mode)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          }
+        },
+        "id": "cross-executor-equivalent",
+        "truth": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "harness": {
+          "exact_match": {
+            "metadata": {
+              "dimension": "correctness"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "Output exactly matched expected answer",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_argument_match": {
+            "metadata": {
+              "arg_match": "exact",
+              "details": [
+                {
+                  "actual": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "expected": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "extra_keys": [],
+                  "matched": true,
+                  "missing_keys": [],
+                  "name_match": true,
+                  "reason": "ok",
+                  "value_mismatches": []
+                }
+              ],
+              "dimension": "trajectory",
+              "matches": 1,
+              "n_pairs": 1,
+              "pair": "exact"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls have matching arguments (1/1, exact pairing, exact args)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_correctness": {
+            "metadata": {
+              "dimension": "trajectory",
+              "expected_tools": [
+                "artifact.read"
+              ],
+              "matches": 1,
+              "mode": "exact",
+              "tools_called": [
+                "artifact.read"
+              ]
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls match the expected sequence (1/1, exact mode)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          }
+        },
+        "id": "repeat-equivalent",
+        "truth": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "harness": {
+          "exact_match": {
+            "metadata": {
+              "dimension": "correctness"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "Output exactly matched expected answer",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_argument_match": {
+            "metadata": {
+              "arg_match": "exact",
+              "details": [
+                {
+                  "actual": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "expected": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "extra_keys": [],
+                  "matched": true,
+                  "missing_keys": [],
+                  "name_match": true,
+                  "reason": "ok",
+                  "value_mismatches": []
+                }
+              ],
+              "dimension": "trajectory",
+              "matches": 1,
+              "n_pairs": 1,
+              "pair": "exact"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls have matching arguments (1/1, exact pairing, exact args)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_correctness": {
+            "metadata": {
+              "dimension": "trajectory",
+              "expected_tools": [
+                "artifact.read"
+              ],
+              "matches": 1,
+              "mode": "exact",
+              "tools_called": [
+                "artifact.read"
+              ]
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls match the expected sequence (1/1, exact mode)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          }
+        },
+        "id": "required-context-incompatible",
+        "truth": "incompatible"
+      },
+      {
+        "candidate": "unsafe",
+        "harness": {
+          "exact_match": {
+            "metadata": {
+              "dimension": "correctness"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "Output exactly matched expected answer",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_argument_match": {
+            "metadata": {
+              "arg_match": "exact",
+              "details": [
+                {
+                  "actual": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "expected": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "extra_keys": [],
+                  "matched": true,
+                  "missing_keys": [],
+                  "name_match": true,
+                  "reason": "ok",
+                  "value_mismatches": []
+                }
+              ],
+              "dimension": "trajectory",
+              "matches": 1,
+              "n_pairs": 1,
+              "pair": "exact"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls have matching arguments (1/1, exact pairing, exact args)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_correctness": {
+            "metadata": {
+              "dimension": "trajectory",
+              "expected_tools": [
+                "artifact.read"
+              ],
+              "matches": 1,
+              "mode": "exact",
+              "tools_called": [
+                "artifact.read"
+              ]
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls match the expected sequence (1/1, exact mode)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          }
+        },
+        "id": "unsafe-comparison",
+        "truth": "unsafe"
+      },
+      {
+        "candidate": "inconclusive",
+        "harness": {
+          "exact_match": {
+            "metadata": {
+              "dimension": "correctness"
+            },
+            "passed": false,
+            "prediction": "divergent",
+            "reason": "Output did not exactly match expected answer",
+            "threshold": "1.000000",
+            "value": "0.000000"
+          },
+          "tool_argument_match": {
+            "metadata": {
+              "arg_match": "exact",
+              "details": [
+                {
+                  "actual": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae"
+                    },
+                    "name": "artifact.read"
+                  },
+                  "expected": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "extra_keys": [],
+                  "matched": false,
+                  "missing_keys": [
+                    "mediaType"
+                  ],
+                  "name_match": true,
+                  "reason": "arg_mismatch",
+                  "value_mismatches": []
+                }
+              ],
+              "dimension": "trajectory",
+              "matches": 0,
+              "n_pairs": 1,
+              "pair": "exact"
+            },
+            "passed": false,
+            "prediction": "divergent",
+            "reason": "0 of 1 tool calls have matching arguments (0/1, exact pairing, exact args)",
+            "threshold": "1.000000",
+            "value": "0.000000"
+          },
+          "tool_correctness": {
+            "metadata": {
+              "dimension": "trajectory",
+              "expected_tools": [
+                "artifact.read"
+              ],
+              "matches": 1,
+              "mode": "exact",
+              "tools_called": [
+                "artifact.read"
+              ]
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls match the expected sequence (1/1, exact mode)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          }
+        },
+        "id": "partial-prefix",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "divergent",
+        "harness": {
+          "exact_match": {
+            "metadata": {
+              "dimension": "correctness"
+            },
+            "passed": false,
+            "prediction": "divergent",
+            "reason": "Output did not exactly match expected answer",
+            "threshold": "1.000000",
+            "value": "0.000000"
+          },
+          "tool_argument_match": {
+            "metadata": {
+              "arg_match": "exact",
+              "details": [
+                {
+                  "actual": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 13,
+                      "text": "wrong fixture"
+                    }
+                  },
+                  "expected": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "extra_keys": [],
+                  "matched": true,
+                  "missing_keys": [],
+                  "name_match": true,
+                  "reason": "ok",
+                  "value_mismatches": []
+                }
+              ],
+              "dimension": "trajectory",
+              "matches": 1,
+              "n_pairs": 1,
+              "pair": "exact"
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls have matching arguments (1/1, exact pairing, exact args)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          },
+          "tool_correctness": {
+            "metadata": {
+              "dimension": "trajectory",
+              "expected_tools": [
+                "artifact.read"
+              ],
+              "matches": 1,
+              "mode": "exact",
+              "tools_called": [
+                "artifact.read"
+              ]
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls match the expected sequence (1/1, exact mode)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          }
+        },
+        "id": "provider-success-oracle-failure",
+        "truth": "divergent"
+      },
+      {
+        "candidate": "inconclusive",
+        "harness": {
+          "exact_match": {
+            "metadata": {
+              "dimension": "correctness"
+            },
+            "passed": false,
+            "prediction": "divergent",
+            "reason": "Output did not exactly match expected answer",
+            "threshold": "1.000000",
+            "value": "0.000000"
+          },
+          "tool_argument_match": {
+            "metadata": {
+              "arg_match": "exact",
+              "details": [
+                {
+                  "actual": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae"
+                    },
+                    "name": "artifact.read"
+                  },
+                  "expected": {
+                    "input": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain"
+                    },
+                    "name": "artifact.read",
+                    "output": {
+                      "digest": "sha256:3e08216fe20362572d2928df73734187f448ebc23dd2f181acb55fb82d1252ae",
+                      "mediaType": "text/plain",
+                      "size": 16,
+                      "text": "portable fixture"
+                    }
+                  },
+                  "extra_keys": [],
+                  "matched": false,
+                  "missing_keys": [
+                    "mediaType"
+                  ],
+                  "name_match": true,
+                  "reason": "arg_mismatch",
+                  "value_mismatches": []
+                }
+              ],
+              "dimension": "trajectory",
+              "matches": 0,
+              "n_pairs": 1,
+              "pair": "exact"
+            },
+            "passed": false,
+            "prediction": "divergent",
+            "reason": "0 of 1 tool calls have matching arguments (0/1, exact pairing, exact args)",
+            "threshold": "1.000000",
+            "value": "0.000000"
+          },
+          "tool_correctness": {
+            "metadata": {
+              "dimension": "trajectory",
+              "expected_tools": [
+                "artifact.read"
+              ],
+              "matches": 1,
+              "mode": "exact",
+              "tools_called": [
+                "artifact.read"
+              ]
+            },
+            "passed": true,
+            "prediction": "equivalent",
+            "reason": "1 of 1 tool calls match the expected sequence (1/1, exact mode)",
+            "threshold": "1.000000",
+            "value": "1.000000"
+          }
+        },
+        "id": "complete-missing-evidence",
+        "truth": "inconclusive"
+      }
+    ]
+  },
+  "officialOpenInference": {
+    "claimBoundary": "Official 0.1.56 OITracer and OpenTelemetry SDK emitted the span using official 0.1.30 conventions; scenario, harness, and interpretation remain same-team, not an independently operated producer or reviewer.",
+    "defaultContentAbsent": true,
+    "defaultOmittedKeys": [
+      "input.value",
+      "output.value"
+    ],
+    "explicitContentPreserved": true,
+    "mappedEventKind": "model.interaction",
+    "observedConstants": {
+      "input": "input.value",
+      "model": "llm.model_name",
+      "output": "output.value",
+      "retrieval": "retrieval.documents",
+      "spanKind": "openinference.span.kind",
+      "tool": "tool.name"
+    },
+    "observedSpanKinds": [
+      "AGENT",
+      "CHAIN",
+      "EMBEDDING",
+      "EVALUATOR",
+      "GUARDRAIL",
+      "LLM",
+      "PROMPT",
+      "RERANKER",
+      "RETRIEVER",
+      "TOOL",
+      "UNKNOWN"
+    ],
+    "officialConstantsExact": true,
+    "officialSpanKindsExact": true,
+    "officialTracerIdentifiersValid": true,
+    "officialTracerService": "official-openinference-producer",
+    "officialTracerSpanCount": 1,
+    "officialTracerSpanKind": "LLM",
+    "preservedSensitiveKeys": [
+      "input.value",
+      "output.value"
+    ]
+  },
+  "officialOtlp": {
+    "attributesPreserved": true,
+    "claimBoundary": "Official protobuf transport compatibility; semantic mapping remains explicitly lossy and no collector/backend was used.",
+    "eventCountPreserved": true,
+    "exportLossless": false,
+    "exportOmitted": [
+      "monotonicNs",
+      "clock",
+      "redactions",
+      "attempt",
+      "previousHash"
+    ],
+    "externalUnknownAttributePreserved": true,
+    "importLossless": false,
+    "importUnavailable": [
+      "SOVA authorization decision",
+      "SOVA safety policy",
+      "monotonic ordering when absent",
+      "capture-time redaction proof",
+      "event hash chain"
+    ],
+    "linksPreserved": true,
+    "namePreserved": true,
+    "parentPreserved": true,
+    "serializedBytes": 939,
+    "spanIdPreserved": true,
+    "startTimePreserved": true,
+    "traceIdPreserved": true
+  },
+  "organization": "TRUSCOR Private Limited",
+  "overallBoundary": "Independently maintained code and official wire formats exercised by a same-team harness; not independent human review, publication clearance, or patentability evidence.",
+  "owner": "Gautam R. Patil",
+  "packages": {
+    "harness-evals": {
+      "commit": "7828ffa93c597c9e66a866a122c62a21e94376e0",
+      "license": "Apache-2.0",
+      "observedVersion": "0.15.0",
+      "version": "0.15.0"
+    },
+    "openinference-instrumentation": {
+      "commit": "a374cbdcec6bf712a005549d15293c57c27cd109",
+      "license": "Apache-2.0",
+      "observedVersion": "0.1.56",
+      "sdistSha256": "c43bea7f1f4460fe13c3c88aff092500cc3397aaffea37188d72246489dcbc9f",
+      "version": "0.1.56"
+    },
+    "openinference-semantic-conventions": {
+      "commit": "789d41974c08a9a13147977f28ef4142a07e2106",
+      "license": "Apache-2.0",
+      "observedVersion": "0.1.30",
+      "sdistSha256": "81fece76e09c83789e35c393b8b30523481eeabf1008745b955631a53e3221d9",
+      "version": "0.1.30"
+    },
+    "opentelemetry-proto": {
+      "commit": "d2d893fefdbabae63762e328688ea1c97c04cb24",
+      "license": "Apache-2.0",
+      "observedVersion": "1.44.0",
+      "version": "1.44.0"
+    },
+    "opentelemetry-sdk": {
+      "commit": "53a5a40c9604583c501bcf13970a635f00e62df4",
+      "license": "Apache-2.0",
+      "observedVersion": "1.44.0",
+      "version": "1.44.0"
+    },
+    "rfc8785": {
+      "commit": "65ecc7d2b065d79a99e7a6a2f9aaa9d689db1c53",
+      "license": "Apache-2.0",
+      "observedVersion": "0.1.4",
+      "version": "0.1.4"
+    },
+    "securesystemslib": {
+      "commit": "8416c50ec6814762b32db08ab37fd2e495e771a4",
+      "license": "MIT",
+      "observedVersion": "1.4.0",
+      "version": "1.4.0"
+    }
+  },
+  "version": "0.2.0"
+}

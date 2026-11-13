@@ -1,0 +1,18 @@
+{
+  "caseId": "replace-with-stable-case-id",
+  "actionFamily": "browser",
+  "providerId": "provider-pseudonym-a",
+  "failureStratum": "false-success",
+  "scenario": {
+    "portableIntent": "Describe one safe, authorized observable action."
+  },
+  "contract": {
+    "requiredCapability": "replace/name/and-version",
+    "requiredEvidenceRoles": [
+      "post-action-observation"
+    ],
+    "maximumSideEffect": "read"
+  },
+  "expectedConformance": "inconclusive",
+  "rationale": "Keep this rationale private until predictions are frozen."
+}

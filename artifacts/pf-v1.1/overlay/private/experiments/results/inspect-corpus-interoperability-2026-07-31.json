@@ -1,0 +1,377 @@
+{
+  "artifactType": "sova.private-inspect-corpus-interoperability",
+  "claimBoundary": "Pinned official test-log JSON corpus. Accepted imports are explicitly lossy; refusals outside version/shape contract are valid outcomes; binary .eval support and general Inspect interoperability are not claimed.",
+  "generatedAt": "2026-07-31T05:06:57.286925Z",
+  "organization": "TRUSCOR Private Limited",
+  "owner": "Gautam R. Patil",
+  "rows": [
+    {
+      "completion": "completed",
+      "emittedEvents": 56,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 19,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 405566,
+      "sourceDigest": "sha256:e19b39ad6bf6358cd79ab3b71495b27cafde6835df72648b2988ef0af326d327",
+      "sourceEvents": 43,
+      "sourceLayouts": [
+        "legacy-flat-events"
+      ],
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-27-36-04-00_browser.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 43,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:61342468b7e73afdb2661e72ebd5d6b615409295d49ffc99c4f2407593ad033d",
+      "verifiedEvents": 56
+    },
+    {
+      "completion": "cancelled",
+      "emittedEvents": 2,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 0,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 3230,
+      "sourceDigest": "sha256:b5e483498324b2d18beda512660a61a2858b659f1ef4c0e726c23f41979fdc63",
+      "sourceEvents": 0,
+      "sourceLayouts": [],
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_no-samples.json",
+      "sourceSamples": 0,
+      "sourceShape": {
+        "events": 0,
+        "samples": 0,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:668ee912641c25bee6bed7f5741c9f0c2169d97fbd580279cbf71a14382c3023",
+      "verifiedEvents": 2
+    },
+    {
+      "completion": "cancelled",
+      "emittedEvents": 50,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 9,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 42667,
+      "sourceDigest": "sha256:85cd23ca8e6f5adba046db1e0d97e9b9a52c604fd3eed0f99bc27d734c308e3b",
+      "sourceEvents": 39,
+      "sourceLayouts": [
+        "legacy-flat-events"
+      ],
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_popularity.json",
+      "sourceSamples": 3,
+      "sourceShape": {
+        "events": 39,
+        "samples": 3,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:255eee3ab88e12fa7b3162398db86b768b851dacc3306e26eb04313dd17d356c",
+      "verifiedEvents": 50
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 56,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 15,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 110518,
+      "sourceDigest": "sha256:44f6203d88252de0c33f76c948ad7c537b412cff628c704e9a5449ffba9d5a34",
+      "sourceEvents": 42,
+      "sourceLayouts": [
+        "legacy-flat-events"
+      ],
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-28-26-04-00_security-guide.json",
+      "sourceSamples": 3,
+      "sourceShape": {
+        "events": 42,
+        "samples": 3,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:46a9acfe3b3295f66f36b03c26fdb7a41813e3bde2c7db02b5476d5304de1eba",
+      "verifiedEvents": 56
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 16,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 3,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 11469,
+      "sourceDigest": "sha256:b36b887e44701701d87a7bd8bac7f9fafb2804731491b3125b3917fb7968a825",
+      "sourceEvents": 11,
+      "sourceLayouts": [
+        "transcript-events"
+      ],
+      "sourcePath": "tests/log/test_eval_log/log_formats.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 11,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:b97409278f77a091ece3a70a05db0667765ea4a770833b8e3145d08ccbe87046",
+      "verifiedEvents": 16
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 16,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 3,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 30703,
+      "sourceDigest": "sha256:84fa01055302621c5650f330a502750c29c369229418157cca6984d4659e91ab",
+      "sourceEvents": 11,
+      "sourceLayouts": [
+        "legacy-flat-events"
+      ],
+      "sourcePath": "tests/log/test_eval_log/log_images.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 11,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:8f4c8b41cbb591fb332556d55e7d87e12108bbeef6835e54e55ca0250be584a1",
+      "verifiedEvents": 16
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 16,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 3,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 48350,
+      "sourceDigest": "sha256:66f705401c5aa9bbad26442eac615543d25fc1331f40ef97e97687588b62524c",
+      "sourceEvents": 11,
+      "sourceLayouts": [
+        "transcript-events"
+      ],
+      "sourcePath": "tests/log/test_eval_log/log_images_tc.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 11,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:66b34edd0fa1060470191b3bfec4dee103015d55f74f6f55e3cbe86f39a51ec1",
+      "verifiedEvents": 16
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 22,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 3,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 16639,
+      "sourceDigest": "sha256:c93f1468e69e66d6f27330013052df882dfd9f3dd4ab438b70d2ca0ed9f1b57f",
+      "sourceEvents": 17,
+      "sourceLayouts": [
+        "legacy-flat-events"
+      ],
+      "sourcePath": "tests/log/test_eval_log/log_read_sample.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 17,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:ae6b9187796dd44f47a3633e18cff09a7339c0a6248ba7bde6c0bb7ba3c8ab95",
+      "verifiedEvents": 22
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 4,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 0,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 6195,
+      "sourceDigest": "sha256:7d175484ebdface70b32e5b1611426e5a8c5e629c159953c5e481933a816dbc6",
+      "sourceEvents": 0,
+      "sourceLayouts": [
+        "no-event-stream"
+      ],
+      "sourcePath": "tests/log/test_eval_log/log_tool_call_error.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 0,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:a0d18c83511a49fb416f0526f5f5542bd744d2cc4eb2a241827e4455cfc30030",
+      "verifiedEvents": 4
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 19,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 5,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 25290,
+      "sourceDigest": "sha256:db3fc7411ef66480b3fc0dd74b42886990b1989ccb7c87b0ec3b3819ba0cd6e1",
+      "sourceEvents": 13,
+      "sourceLayouts": [
+        "legacy-flat-events"
+      ],
+      "sourcePath": "tests/log/test_list_logs/2024-11-05T13-31-45-05-00_input-task_8zXjbRzCWrL9GXiXo2vus9.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 13,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:0b413b697b2febf9ea6c77a22a4081f422641357f470be7ea96ddcfd815a53c6",
+      "verifiedEvents": 19
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 19,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 5,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 25290,
+      "sourceDigest": "sha256:db3fc7411ef66480b3fc0dd74b42886990b1989ccb7c87b0ec3b3819ba0cd6e1",
+      "sourceEvents": 13,
+      "sourceLayouts": [
+        "legacy-flat-events"
+      ],
+      "sourcePath": "tests/log/test_list_logs/ignore.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 13,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:bec7af55b80c89fd63f2ef52826cb155310e53ca01271924d010427ab5ee7be3",
+      "verifiedEvents": 19
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 2,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 0,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 1530,
+      "sourceDigest": "sha256:6e6ba958bacaa748684bf8587e3bfe2420feb806e1d91d8f923183f6a7b612bb",
+      "sourceEvents": 0,
+      "sourceLayouts": [],
+      "sourcePath": "tests/test_eval_set/2024-08-29T15-11-17+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json",
+      "sourceSamples": 0,
+      "sourceShape": {
+        "events": 0,
+        "samples": 0,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:a0738467f8468e373f73f0b2bef5fcd479e7457e5d06bc2adbf89e02c3d7e53e",
+      "verifiedEvents": 2
+    },
+    {
+      "completion": "failed",
+      "emittedEvents": 2,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 0,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 1528,
+      "sourceDigest": "sha256:5aa539464399cb36d9ed5820960da34caa9f8568b42571f8a2371f9b4589220d",
+      "sourceEvents": 0,
+      "sourceLayouts": [],
+      "sourcePath": "tests/test_eval_set/2024-08-29T15-11-18+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json",
+      "sourceSamples": 0,
+      "sourceShape": {
+        "events": 0,
+        "samples": 0,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:9bf389609601f10f2f51997c07b8658f810687e566843ccf2cbc0b083482cc5f",
+      "verifiedEvents": 2
+    }
+  ],
+  "source": {
+    "adapterVersion": "0.3.0",
+    "commit": "1ea01a9e1b3c94db3cdf93ce5583ffebf86e159f",
+    "rawFixturesRedistributed": false,
+    "repository": "UKGovernmentBEIS/inspect_ai",
+    "selection": [
+      "tests/analysis/test_logs/2025-05-12T20-27-36-04-00_browser.json",
+      "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_no-samples.json",
+      "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_popularity.json",
+      "tests/analysis/test_logs/2025-05-12T20-28-26-04-00_security-guide.json",
+      "tests/log/test_eval_log/log_formats.json",
+      "tests/log/test_eval_log/log_images.json",
+      "tests/log/test_eval_log/log_images_tc.json",
+      "tests/log/test_eval_log/log_read_sample.json",
+      "tests/log/test_eval_log/log_tool_call_error.json",
+      "tests/log/test_list_logs/2024-11-05T13-31-45-05-00_input-task_8zXjbRzCWrL9GXiXo2vus9.json",
+      "tests/log/test_list_logs/ignore.json",
+      "tests/test_eval_set/2024-08-29T15-11-17+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json",
+      "tests/test_eval_set/2024-08-29T15-11-18+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json"
+    ]
+  },
+  "summary": {
+    "accepted": 13,
+    "allAcceptedImportsDeclaredLossy": true,
+    "allAcceptedTracesVerified": true,
+    "contentPolicyViolations": 0,
+    "emittedEvents": 280,
+    "files": 13,
+    "refused": 0,
+    "sourceBytes": 728975,
+    "sourceEventsAccepted": 200,
+    "sourceSamplesAccepted": 14,
+    "unexpectedErrors": 0,
+    "verifiedEvents": 280
+  },
+  "version": "0.1.0"
+}

@@ -1,0 +1,1006 @@
+{
+  "artifactType": "sova.private-agentreward-cross-model-study",
+  "baselineExactAgreement": {
+    "actionMultiset": {
+      "matches": 6,
+      "total": 11
+    },
+    "exactActionSequence": {
+      "matches": 6,
+      "total": 11
+    },
+    "expertSuccessOnly": {
+      "matches": 7,
+      "total": 11
+    },
+    "terminalAction": {
+      "matches": 2,
+      "total": 11
+    }
+  },
+  "claimBoundary": "Two externally recorded real-model trajectory cohorts and external expert labels over eleven shared tasks. The comparison is retrospective and same-team; environment equivalence, controlled re-execution, blind SOVA-specific annotation, and generalization are not established.",
+  "generatedAt": "2026-07-31T05:05:52.162709Z",
+  "organization": "TRUSCOR Private Limited",
+  "owner": "Gautam R. Patil",
+  "reproductionEstimate": {
+    "conclusive_rate": 0.2857142857142857,
+    "divergences": 5,
+    "evidence_invalid": 0,
+    "exact_high": 0.7095791362626573,
+    "exact_low": 0.03669256617608557,
+    "identification_high": 0.5454545454545454,
+    "identification_low": 0.18181818181818182,
+    "incompatible": 0,
+    "inconclusive": 4,
+    "method": "sova.reproduction-rate/exact-wilson-partial-identification-0.2",
+    "successes": 2,
+    "unsafe": 0,
+    "wilson_high": 0.6410655481673808,
+    "wilson_low": 0.08221892400405678
+  },
+  "rows": [
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "inconclusive",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:bb80726b8f762284ea9871a67c39ff3293d376c9de2bcd5ee41f104a6d1d68bb",
+        "expert": {
+          "agreement": {
+            "looping": "tie",
+            "optimality": "tie",
+            "sideEffect": "unanimous",
+            "success": "tie"
+          },
+          "counts": {
+            "looping": {
+              "No": 1,
+              "Yes": 1
+            },
+            "optimality": {
+              "2. Suboptimal": 1,
+              "3. Somewhat Optimal": 1
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Successful": 1,
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": null,
+            "optimality": null,
+            "sideEffect": "No",
+            "success": null
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:9eaacbfc81d6b0062c5e0c9c403e2870904597b065394aa1d96f774ce8986d26",
+        "stepCount": 13,
+        "traceEvents": 16
+      },
+      "outcome": "inconclusive",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:df7a10b7085250755a640140aa2f1bd4ec42866982822d13804eff2c09d0e276",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "Yes": 1
+            },
+            "optimality": {
+              "1. Complete Failure": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": "Yes",
+            "optimality": "1. Complete Failure",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:86e02bcce017199092b103824c042d292de384a75143e19019c119391860a4d6",
+        "stepCount": 31,
+        "traceEvents": 34
+      },
+      "taskId": "webarena.100"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "divergent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:edf4cbca0dcea11563037357179ac547b3528bfde0b60883d912a94a8b130575",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "4. Completely Optimal": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Successful": 2
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "4. Completely Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:7fe3308e30c2763123977697596564e0f81c3d8039651257302aa8ed251d0cea",
+        "stepCount": 5,
+        "traceEvents": 8
+      },
+      "outcome": "divergent",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:37b8f2af0ee48930e70cb2d8b86bfcbc29f8dc8587c772e27b3f1c5ce278a822",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 1
+            },
+            "optimality": {
+              "2. Suboptimal": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "2. Suboptimal",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:0719ab4d56473cdfa378c6e4ec0f9830ac7794dc98c0df84aa790180a0d6198f",
+        "stepCount": 18,
+        "traceEvents": 21
+      },
+      "taskId": "webarena.126"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "equivalent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:36d953979d8f9f1a1f78ccbc2a61107895307f6df7d915ecb62ac059c4d0e3b4",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "tie",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "2. Suboptimal": 1,
+              "3. Somewhat Optimal": 1
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Unsuccessful": 2
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": null,
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:adc51b0053df24e853b2d10a8804d388115aa197a9560e720483000f7444ca3d",
+        "stepCount": 5,
+        "traceEvents": 8
+      },
+      "outcome": "divergent",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:34be36c6cf462dcb7d10edc56f8b7bb873155bee94ca8592260f94b6edc96e3e",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "Yes": 1
+            },
+            "optimality": {
+              "2. Suboptimal": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": "Yes",
+            "optimality": "2. Suboptimal",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:800cebde4a31ece32f48e7fb831265453e14630f8971a4db3b6be42e7ac4e513",
+        "stepCount": 31,
+        "traceEvents": 34
+      },
+      "taskId": "webarena.144"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "equivalent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:d8d28f1c62b54fb2518e3db6a5e528516378372f69846a39fbce25d64e3c9c9f",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "1. Complete Failure": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Unsuccessful": 2
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "1. Complete Failure",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:e740ecc1a8c672becf06fea3d8ad5ec67f7d3909bc7f6538ae7fb6a2f19fb7fa",
+        "stepCount": 6,
+        "traceEvents": 9
+      },
+      "outcome": "divergent",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:d8ebabed57f342ca2c52118e372c3dd4e721bcb952b611d018806931d3de1b54",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "Yes": 1
+            },
+            "optimality": {
+              "2. Suboptimal": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": "Yes",
+            "optimality": "2. Suboptimal",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:e25e2708deb8dc6c36661e4c134b8013b9eba153c6cd9303a388f9c12d8e671a",
+        "stepCount": 31,
+        "traceEvents": 34
+      },
+      "taskId": "webarena.15"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "equivalent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:39ca6714b7d56d310727ee1011f438be94206f6e0f2dc353da2c6f45737085f7",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "4. Completely Optimal": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Successful": 2
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "4. Completely Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:949b47f4d27f9f8e674f5289770fcb58e7f4b2eea3d06ab432428c9049b8bc91",
+        "stepCount": 6,
+        "traceEvents": 9
+      },
+      "outcome": "equivalent",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:34d68b2cf49c6c1d9070fe58af206b02df26797439c704e05db57d5d1c84db6c",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 1
+            },
+            "optimality": {
+              "3. Somewhat Optimal": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Successful": 1
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "3. Somewhat Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:c396450b1ee467471fd7d989407b36beee55cbfe8ab31ba9dbfb0d02b4d22864",
+        "stepCount": 13,
+        "traceEvents": 16
+      },
+      "taskId": "webarena.153"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "inconclusive",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:145c8f9d5b465a613beb3518ceab3266a1d3c9bc5d2828a473bcca79fc149024",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "4. Completely Optimal": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Successful": 2
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "4. Completely Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:5a9351e1075ab569cfd77b67943beefbde93b59d122971669b2832a05f0ad0ff",
+        "stepCount": 6,
+        "traceEvents": 9
+      },
+      "outcome": "inconclusive",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:bf7007f67dc0c612aaf9aaea124af2be699fb8630ff83aa4ae68b5cf662e60a6",
+        "expert": {
+          "agreement": {
+            "looping": "tie",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "tie"
+          },
+          "counts": {
+            "looping": {
+              "No": 1,
+              "Yes": 1
+            },
+            "optimality": {
+              "3. Somewhat Optimal": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Successful": 1,
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": null,
+            "optimality": "3. Somewhat Optimal",
+            "sideEffect": "No",
+            "success": null
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:ec8b5f5c040d6f09119a9ffb9506054664e30c93f9664e001d1fe43e183cb548",
+        "stepCount": 12,
+        "traceEvents": 15
+      },
+      "taskId": "webarena.155"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "divergent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:1afa12adf15349bf03485c107b9e1fc3c4dcca43a017b17cf4ec77f5efe55bc8",
+        "expert": {
+          "agreement": {
+            "looping": "tie",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 1,
+              "Yes": 1
+            },
+            "optimality": {
+              "2. Suboptimal": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Unsuccessful": 2
+            }
+          },
+          "labels": {
+            "looping": null,
+            "optimality": "2. Suboptimal",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:81fd2359c64085703cb04adfd81e344c9ec9c72001167ccf942ed94535636d4e",
+        "stepCount": 31,
+        "traceEvents": 34
+      },
+      "outcome": "inconclusive",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:503b22cece6db69d25127c090b99049b94cbf2f1689a3705b631bd11161dc6cc",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 1
+            },
+            "optimality": {
+              "4. Completely Optimal": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Successful": 1
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "4. Completely Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:21d726c3f36e59dee3ce18f88f5e51f72129fe9f069b107380a066d920fb35ad",
+        "stepCount": 9,
+        "traceEvents": 12
+      },
+      "taskId": "webarena.158"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "equivalent",
+        "exactActionSequence": "equivalent",
+        "expertSuccessOnly": "equivalent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:d1a22083a568f4cc683d88dea761ae772a01a1cc3111ffc1a73a32153f894ea6",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "4. Completely Optimal": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Successful": 2
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "4. Completely Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:bc3b7ef6427d4894e380678f4aa12d5c7a2fd8a56e9f315bd45bfaca85613bc3",
+        "stepCount": 3,
+        "traceEvents": 6
+      },
+      "outcome": "equivalent",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:691fb713d585e3908810fd4066c28dcd3f914e7cf51882aeed758684d7041f71",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 1
+            },
+            "optimality": {
+              "4. Completely Optimal": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Successful": 1
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "4. Completely Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:fb7684931aef806fee792309a7cb03ba59023dd5c38993b7414043f546384665",
+        "stepCount": 3,
+        "traceEvents": 6
+      },
+      "taskId": "webarena.164"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "inconclusive",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:ec6399e5455af029471173831a3d0bad92cdaa43b1bf1a11208bdb0f255495d0",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "tie",
+            "sideEffect": "unanimous",
+            "success": "tie"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "3. Somewhat Optimal": 1,
+              "4. Completely Optimal": 1
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Successful": 1,
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": null,
+            "sideEffect": "No",
+            "success": null
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:e85258b452ae65db4e2c95a12df49fadd7da992639b1b6df7e20d45bdd69f5eb",
+        "stepCount": 2,
+        "traceEvents": 5
+      },
+      "outcome": "inconclusive",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:86d4810ad859bddc7b8949b2baf0918d9172d5e3d125dfe4996771f88f1e8284",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "Yes": 1
+            },
+            "optimality": {
+              "1. Complete Failure": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Unsuccessful": 1
+            }
+          },
+          "labels": {
+            "looping": "Yes",
+            "optimality": "1. Complete Failure",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:e53633478e89962d90697e9e38248db9a257d9888be03b00906a1473b030f139",
+        "stepCount": 31,
+        "traceEvents": 34
+      },
+      "taskId": "webarena.171"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "equivalent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:33394ded1c3a1d47c546a84f3239dbf1b5e9f3976d246954b2ee468e8af3119a",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "Yes": 2
+            },
+            "optimality": {
+              "2. Suboptimal": 2
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Unsuccessful": 2
+            }
+          },
+          "labels": {
+            "looping": "Yes",
+            "optimality": "2. Suboptimal",
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:9c4d1042fd40b4b57505dc5c3191697f0f464e098f743876283f99e8d23e67f4",
+        "stepCount": 31,
+        "traceEvents": 34
+      },
+      "outcome": "divergent",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:45b5f242674a01124e26af258badb48ae0d2d4dd1139a98b00f20a1a0048d399",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "tie",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 2
+            },
+            "optimality": {
+              "2. Suboptimal": 1,
+              "3. Somewhat Optimal": 1
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Unsuccessful": 2
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": null,
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:1911e612b03bd05f6c2bc336e27ac30e0966661787dd18094b0839d864d2b0e8",
+        "stepCount": 5,
+        "traceEvents": 8
+      },
+      "taskId": "webarena.177"
+    },
+    {
+      "baselines": {
+        "actionMultiset": "divergent",
+        "exactActionSequence": "divergent",
+        "expertSuccessOnly": "divergent",
+        "terminalAction": "equivalent"
+      },
+      "candidate": {
+        "actionSequenceDigest": "sha256:85561a14dd19b8c218b27b92244cb88bee44d7d693a874afed54fdd0c55a4353",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "tie",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "Yes": 2
+            },
+            "optimality": {
+              "1. Complete Failure": 1,
+              "2. Suboptimal": 1
+            },
+            "sideEffect": {
+              "No": 2
+            },
+            "success": {
+              "Unsuccessful": 2
+            }
+          },
+          "labels": {
+            "looping": "Yes",
+            "optimality": null,
+            "sideEffect": "No",
+            "success": "Unsuccessful"
+          },
+          "records": 2
+        },
+        "model": "GenericAgent-gpt-4o-2024-11-20",
+        "sourceDigest": "sha256:6ef7bf6e1963ba4586b44ae356f45016b593bbbc4696753784760dddc9997419",
+        "stepCount": 31,
+        "traceEvents": 34
+      },
+      "outcome": "divergent",
+      "privacyViolations": 0,
+      "source": {
+        "actionSequenceDigest": "sha256:8fe3310abbb266e4aa5dcb75396d23a441476610238f5c2e431c91ce4aa1637b",
+        "expert": {
+          "agreement": {
+            "looping": "unanimous",
+            "optimality": "unanimous",
+            "sideEffect": "unanimous",
+            "success": "unanimous"
+          },
+          "counts": {
+            "looping": {
+              "No": 1
+            },
+            "optimality": {
+              "4. Completely Optimal": 1
+            },
+            "sideEffect": {
+              "No": 1
+            },
+            "success": {
+              "Successful": 1
+            }
+          },
+          "labels": {
+            "looping": "No",
+            "optimality": "4. Completely Optimal",
+            "sideEffect": "No",
+            "success": "Successful"
+          },
+          "records": 1
+        },
+        "model": "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+        "sourceDigest": "sha256:d909ff3ac680292954066a334f720c40b23ce3af962abb9ee0fc0a7680bbbd62",
+        "stepCount": 7,
+        "traceEvents": 10
+      },
+      "taskId": "webarena.185"
+    }
+  ],
+  "source": {
+    "annotationsDigest": "sha256:155be0e6530d190c14a056f0195aaafa081c2a45a36e8f72b922c9fdc6838367",
+    "commit": "271f96552e2e6dd13fe8e3572f0e5264039f6fd0",
+    "models": [
+      "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+      "GenericAgent-gpt-4o-2024-11-20"
+    ],
+    "rawSourceRedistributed": false,
+    "sourceLicenseAsserted": false,
+    "space": "McGill-NLP/agent-reward-bench-demo",
+    "tasks": [
+      "webarena.100",
+      "webarena.126",
+      "webarena.144",
+      "webarena.15",
+      "webarena.153",
+      "webarena.155",
+      "webarena.158",
+      "webarena.164",
+      "webarena.171",
+      "webarena.177",
+      "webarena.185"
+    ],
+    "trajectoryBytes": 517742449,
+    "trajectoryFiles": 22
+  },
+  "summary": {
+    "annotationDisagreementTrajectories": 7,
+    "capsulesVerified": 22,
+    "outcomes": {
+      "divergent": 5,
+      "equivalent": 2,
+      "inconclusive": 4
+    },
+    "pairs": 11,
+    "privacyViolations": 0,
+    "tracesVerified": 22
+  },
+  "version": "0.1.0"
+}

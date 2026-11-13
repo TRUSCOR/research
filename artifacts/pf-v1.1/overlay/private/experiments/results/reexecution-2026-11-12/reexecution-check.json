@@ -1,0 +1,75 @@
+{
+  "artifactType": "sova.pf-reexecution-check",
+  "executedAt": "2026-11-12T09:00:26Z",
+  "sovaOssCommit": "42b49726014f8e40cec2520c31236c2c1fa25a02",
+  "python": "3.11.15",
+  "platform": "Windows-10-10.0.26300-SP0",
+  "volatileFieldsIgnored": [
+    "decision_overhead",
+    "durationNanoseconds",
+    "durationSeconds",
+    "elapsedSeconds",
+    "environment",
+    "finishedAt",
+    "generatedAt",
+    "mean_microseconds_per_call",
+    "median_microseconds_per_call",
+    "nanoseconds",
+    "p95_microseconds_per_call",
+    "platform",
+    "python",
+    "seconds",
+    "startedAt",
+    "timing",
+    "timings",
+    "verifyNanoseconds",
+    "wallSeconds"
+  ],
+  "studies": [
+    {
+      "script": "private/experiments/run_topics_04_06_study.py",
+      "retainedResult": "topics-04-06-study-2026-07-31.json",
+      "returnCode": 0,
+      "seconds": 15.1,
+      "nonVolatileDifferences": 0,
+      "differencePaths": [],
+      "identicalApartFromVolatileFields": true
+    },
+    {
+      "script": "private/experiments/run_topic05_component_ablation_study.py",
+      "retainedResult": "topic05-component-ablation-study-2026-07-31.json",
+      "returnCode": 0,
+      "seconds": 3.5,
+      "nonVolatileDifferences": 0,
+      "differencePaths": [],
+      "identicalApartFromVolatileFields": true
+    },
+    {
+      "script": "private/experiments/run_topic05_privacy_attack_study.py",
+      "retainedResult": "topic05-privacy-attack-study-2026-08-01.json",
+      "returnCode": 0,
+      "seconds": 0.1,
+      "nonVolatileDifferences": 0,
+      "differencePaths": [],
+      "identicalApartFromVolatileFields": true
+    },
+    {
+      "script": "private/experiments/run_independent_adapter_study.py",
+      "retainedResult": "topic06-independent-adapter-study-2026-07-31.json",
+      "returnCode": 0,
+      "seconds": 12.7,
+      "nonVolatileDifferences": 0,
+      "differencePaths": [],
+      "identicalApartFromVolatileFields": true
+    },
+    {
+      "script": "private/experiments/run_topics12_13_postbuild_study.py",
+      "retainedResult": "topics12-13-postbuild-study-2026-08-03.json",
+      "returnCode": 0,
+      "seconds": 10.9,
+      "nonVolatileDifferences": 0,
+      "differencePaths": [],
+      "identicalApartFromVolatileFields": true
+    }
+  ]
+}

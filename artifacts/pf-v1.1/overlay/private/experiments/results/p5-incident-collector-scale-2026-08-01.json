@@ -1,0 +1,204 @@
+{
+  "artifactType": "sova.private-p5-incident-collector-scale-study",
+  "collectorBackend": {
+    "backend": "official file exporter JSONL",
+    "backendBytes": 10518,
+    "backendSpans": 8,
+    "binaryDigest": "sha256:76146071912cc973553058795b7bb1b0c839991757257dabfce2d99fa89e26be",
+    "binaryVersionOutput": "otelcol-contrib version 0.157.0",
+    "claimBoundary": "One official local collector/file-exporter path. It does not certify hosted vendors, production operations, semantic equivalence, privacy, availability, or SOVA evidence truth.",
+    "distribution": "otelcol-contrib",
+    "elapsedNanoseconds": 358683000,
+    "externalNetworkUsedByPipeline": false,
+    "httpStatus": 200,
+    "officialChecksumMatched": true,
+    "receiver": "OTLP/HTTP protobuf on 127.0.0.1",
+    "release": "v0.157.0",
+    "responseBytes": 2,
+    "sovaProjectionAttributesPresent": true,
+    "spanIdentifiersPreserved": true,
+    "submittedProtobufBytes": 5524,
+    "submittedSpans": 8,
+    "traceIdentifiersPreserved": true
+  },
+  "environment": {
+    "cpuOnly": true,
+    "externalCredentialsUsed": false,
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.15",
+    "workers": 1
+  },
+  "generatedAt": "2026-08-01T06:45:09.536684Z",
+  "incidentInteroperability": {
+    "bundleBytes": 2736,
+    "bundleDigest": "sha256:3fc809d016278d486075aa5f775e331d4c9606c221efcdb712e2f77d8871935c",
+    "claimBoundary": "A metadata-only, explicitly lossy incident interchange path. STIX acceptance does not verify SOVA evidence truth or reproducibility.",
+    "customChainRootPreserved": true,
+    "customTraceDigestPreserved": true,
+    "fidelity": {
+      "approximated": [
+        "SOVA finding and run represented as a STIX incident case",
+        "observable evidence represented as STIX Artifact/ObservedData"
+      ],
+      "lossless": false,
+      "omitted": [
+        "raw prompts and responses",
+        "event payloads",
+        "event sequence and complete causal graph",
+        "authorization and safety semantics",
+        "redaction records and retention policy",
+        "replay procedure and environment dependencies",
+        "DSSE signature and signer trust policy"
+      ],
+      "preserved": [
+        "incident identity and type",
+        "source package digest",
+        "source chain root reference",
+        "capture profile",
+        "source event count",
+        "artifact digest",
+        "object relationships"
+      ]
+    },
+    "importedEvents": 7,
+    "importedTraceVerified": true,
+    "library": "oasis-open/cti-python-stix2",
+    "libraryCommit": "679bfe0befae5c39143cedcdc3cacf97ac31c890",
+    "libraryLicense": "BSD-3-Clause",
+    "libraryVersion": "3.0.2",
+    "libraryWheelSha256": "f4814d29ebc332c92694fc8ddc96a4a5bfe2eac08494c0dec219719e7e654eb3",
+    "objects": {
+      "artifact": 1,
+      "identity": 1,
+      "incident": 1,
+      "note": 1,
+      "observed-data": 1,
+      "relationship": 1
+    },
+    "officialParserAccepted": true,
+    "standard": "OASIS STIX 2.1"
+  },
+  "organization": "TRUSCOR Private Limited",
+  "overallBoundary": "External implementations and official formats exercised by same-team code. This is not an independent review, production certification, truth guarantee, or non-repudiation evidence.",
+  "owner": "Gautam R. Patil",
+  "scale": {
+    "allCrossLanguageDigestsAgree": true,
+    "allSignedRequiredKeyVerified": true,
+    "cases": [
+      {
+        "captureEventsPerSecond": 289.8192608837928,
+        "captureNanoseconds": 3450426300,
+        "capturePeakTracedBytes": 2479536,
+        "crossLanguageContentDigestAgrees": true,
+        "disclosureNanoseconds": 1305200,
+        "disclosureOmitted": 900,
+        "disclosurePayloadsIncluded": false,
+        "disclosureSelected": 100,
+        "eventSegments": 1,
+        "events": 1000,
+        "externalEventScaleRatio": 1.1376564277588168,
+        "finalizeNanoseconds": 88833000,
+        "nodeVerifier": {
+          "eventCount": 1000,
+          "nanoseconds": 182249800,
+          "returnCode": 0,
+          "verifier": "sova-independent-node/0.1"
+        },
+        "packageBytes": 126203,
+        "pythonVerifier": {
+          "eventCount": 1000,
+          "nanoseconds": 380146900,
+          "returnCode": 0,
+          "verifier": null
+        },
+        "queryNanoseconds": 124400,
+        "querySelected": 250,
+        "readNanoseconds": 1600,
+        "signatureValid": true,
+        "trustPolicy": "required-key",
+        "verifyNanoseconds": 482037900
+      },
+      {
+        "captureEventsPerSecond": 321.73799260137747,
+        "captureNanoseconds": 31081191000,
+        "capturePeakTracedBytes": 12688051,
+        "crossLanguageContentDigestAgrees": true,
+        "disclosureNanoseconds": 4952300,
+        "disclosureOmitted": 9900,
+        "disclosurePayloadsIncluded": false,
+        "disclosureSelected": 100,
+        "eventSegments": 10,
+        "events": 10000,
+        "externalEventScaleRatio": 11.376564277588168,
+        "finalizeNanoseconds": 497900400,
+        "nodeVerifier": {
+          "eventCount": 10000,
+          "nanoseconds": 1006980100,
+          "returnCode": 0,
+          "verifier": "sova-independent-node/0.1"
+        },
+        "packageBytes": 1238352,
+        "pythonVerifier": {
+          "eventCount": 10000,
+          "nanoseconds": 2018591900,
+          "returnCode": 0,
+          "verifier": null
+        },
+        "queryNanoseconds": 1186100,
+        "querySelected": 2500,
+        "readNanoseconds": 600,
+        "signatureValid": true,
+        "trustPolicy": "required-key",
+        "verifyNanoseconds": 4473047500
+      },
+      {
+        "captureEventsPerSecond": 325.600019851703,
+        "captureNanoseconds": 153562644200,
+        "capturePeakTracedBytes": 54973724,
+        "crossLanguageContentDigestAgrees": true,
+        "disclosureNanoseconds": 16695600,
+        "disclosureOmitted": 49900,
+        "disclosurePayloadsIncluded": false,
+        "disclosureSelected": 100,
+        "eventSegments": 50,
+        "events": 50000,
+        "externalEventScaleRatio": 56.882821387940844,
+        "finalizeNanoseconds": 2153798400,
+        "nodeVerifier": {
+          "eventCount": 50000,
+          "nanoseconds": 3494715800,
+          "returnCode": 0,
+          "verifier": "sova-independent-node/0.1"
+        },
+        "packageBytes": 6183508,
+        "pythonVerifier": {
+          "eventCount": 50000,
+          "nanoseconds": 9491024100,
+          "returnCode": 0,
+          "verifier": null
+        },
+        "queryNanoseconds": 7467600,
+        "querySelected": 12500,
+        "readNanoseconds": 1100,
+        "signatureValid": true,
+        "trustPolicy": "required-key",
+        "verifyNanoseconds": 22762407100
+      }
+    ],
+    "claimBoundary": "Synthetic size-envelope measurements on one Windows host. The largest trace exceeds the retained external-event cohort but is not a production workload, distributed run, independent benchmark, or public performance claim.",
+    "externalReferenceCounts": {
+      "agentRewardImportedEvents": 396,
+      "combined": 879,
+      "inspectEvalEmittedEvents": 483
+    },
+    "largestCase": 50000,
+    "largestExternalScaleRatio": 56.882821387940844
+  },
+  "sourceTrace": {
+    "digest": "sha256:c6aa6337917d658e94be7dad3b17d73c9c5fe127140af372ecf4093ea4be6341",
+    "eventCount": 8,
+    "requiredKeyId": "sha256:40fb137011b6943f932b5a3d27a226d74cdb33c7a5250bb4baadd91ecbef5f8e",
+    "retained": false
+  },
+  "version": "0.1.0"
+}

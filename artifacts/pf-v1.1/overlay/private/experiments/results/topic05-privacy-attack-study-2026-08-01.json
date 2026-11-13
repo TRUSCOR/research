@@ -1,0 +1,97 @@
+{
+  "artifactType": "sova.private-topic05-privacy-attack-study",
+  "claimBoundary": "Same-team bounded attack study. Results quantify specific leakage and negative controls; they are not an independent privacy audit, anonymity guarantee, cryptographic proof, or regulatory conclusion.",
+  "commitmentLinkage": {
+    "differentValueSameContextCollision": false,
+    "interpretation": "The design intentionally supports equality correlation within one context and domain-separates different contexts. Context identifiers and paths remain metadata and can still enable non-cryptographic linkage.",
+    "sameValueDifferentContextLinkable": false,
+    "sameValueSameContextLinkable": true
+  },
+  "dictionaryRecovery": {
+    "compromisedKeyRecoveredUniqueCandidate": true,
+    "dictionarySize": 100,
+    "interpretation": "Unkeyed hashes permit direct low-entropy dictionary recovery. HMAC removes that public oracle only while the high-entropy key remains secret; compromise restores dictionary recovery. This experiment does not prove HMAC security.",
+    "keyedCommitmentNaiveUnkeyedMatches": 0,
+    "unkeyedHashRecoveredUniqueCandidate": true
+  },
+  "generatedAt": "2026-08-19T09:03:22.747248Z",
+  "lengthAndStructureLeakage": {
+    "canonicalPlaintextBytes": [
+      3,
+      6,
+      10,
+      18,
+      34,
+      66,
+      130
+    ],
+    "ciphertextLengthCorrelation": "1.000000",
+    "decodedCiphertextBytes": [
+      19,
+      22,
+      26,
+      34,
+      50,
+      82,
+      146
+    ],
+    "encryptedPlaceholderBytes": [
+      466,
+      470,
+      474,
+      486,
+      506,
+      550,
+      634
+    ],
+    "encryptionSizeConstant": false,
+    "interpretation": "AES-GCM conceals plaintext but reveals canonical plaintext length plus a fixed authentication-tag overhead. Authenticated padding reduces exact length to a declared bucket but does not hide the bucket. Omission hides value length in this fixture while retaining field presence, class, method, and path records.",
+    "omissionSizeConstant": true,
+    "omittedPlaceholderBytes": [
+      93,
+      93,
+      93,
+      93,
+      93,
+      93,
+      93
+    ],
+    "paddedDecodedCiphertextBytes": [
+      80,
+      80,
+      80,
+      80,
+      80,
+      144,
+      208
+    ],
+    "paddingCreatesLengthBuckets": true,
+    "pathAndPresenceRemainVisible": true,
+    "sourceCharacterLengths": [
+      1,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128
+    ]
+  },
+  "nonceAndDetectorLimits": {
+    "genericUnknownSecretRedacted": false,
+    "interpretation": "No nonce collision occurred in the bounded sample. The best-effort detector catches declared key/value shapes but cannot identify arbitrary sensitive text or a malicious recorder; pre-export review and data minimization remain required.",
+    "nonceCollisions": 0,
+    "nonceTrials": 512,
+    "obviousSecretPatternRedacted": true,
+    "uniqueNonces": 512
+  },
+  "organization": "TRUSCOR Private Limited",
+  "owner": "Gautam R. Patil",
+  "policyDecision": {
+    "encrypted": "recoverable sensitive data; explicit recipient/key policy required",
+    "keyedCommitment": "private equality checks with protected key only",
+    "padding": "optional authenticated buckets; bucket and structure leakage remain",
+    "publicExportDefault": "omitted"
+  },
+  "version": "0.1.0"
+}

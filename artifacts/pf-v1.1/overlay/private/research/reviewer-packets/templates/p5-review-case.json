@@ -1,0 +1,14 @@
+{
+  "caseId": "replace-with-stable-case-id",
+  "category": "dictionary-recovery",
+  "artifactFormat": "sova-native",
+  "claim": "State one narrow claim the case attempts to falsify.",
+  "inputDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "procedure": {
+    "safeSteps": [
+      "Use only synthetic secrets and authorized local artifacts.",
+      "Retain exact tool and dependency versions."
+    ]
+  },
+  "expectedHandling": "Describe the specified rejection, limitation, or loss report."
+}

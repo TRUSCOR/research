@@ -1,0 +1,277 @@
+{
+  "artifactType": "sova.private-cross-version-run",
+  "commands": {
+    "integratedStudy": {
+      "returnCode": 0,
+      "stderrDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrLines": 0,
+      "stdoutDigest": "2074ca0064c5b1f9b729717512838da2b923a68098c7cacbc36ac5b19c1275d9",
+      "stdoutLines": 1
+    },
+    "researchTests": {
+      "returnCode": 0,
+      "stderrDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrLines": 0,
+      "stdoutDigest": "045989cc092570645a84776497ade22d77415da4e20eb798f8c8d694d03c8ca8",
+      "stdoutLines": 2
+    },
+    "verticalStudy": {
+      "returnCode": 0,
+      "stderrDigest": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "stderrLines": 0,
+      "stdoutDigest": "8c640f83ce155ed143db8da93d48ffd62dccbe3330c9a6d9cf8f9c35b3e230e8",
+      "stdoutLines": 6
+    }
+  },
+  "implementation": "CPython",
+  "integrated": {
+    "driftAndMigration": {
+      "deterministicCapsuleBytes": true,
+      "deterministicMigrationBytes": true,
+      "migrationObjectBytesPreserved": true,
+      "missingRequiredContext": "inconclusive",
+      "recordedExecutorDrift": "equivalent",
+      "requiredDigestDrift": "incompatible",
+      "subprocessOutcome": "equivalent",
+      "subprocessReturnCode": 0
+    },
+    "inspectDirectMetrics": {
+      "candidate": {
+        "accuracy": "1.000000",
+        "correct": 4,
+        "total": 4
+      },
+      "exactFinalOutput": {
+        "accuracy": "0.250000",
+        "correct": 1,
+        "total": 4
+      },
+      "terminalCompletion": {
+        "accuracy": "0.500000",
+        "correct": 2,
+        "total": 4
+      }
+    },
+    "integratedMetrics": {
+      "candidate": {
+        "accuracy": "1.000000",
+        "correct": 7,
+        "total": 7
+      },
+      "declaredObservable": {
+        "accuracy": "0.714286",
+        "correct": 5,
+        "total": 7
+      },
+      "exactTransport": {
+        "accuracy": "0.142857",
+        "correct": 1,
+        "total": 7
+      },
+      "terminalCompletion": {
+        "accuracy": "0.285714",
+        "correct": 2,
+        "total": 7
+      },
+      "transportInteraction": {
+        "accuracy": "0.428571",
+        "correct": 3,
+        "total": 7
+      }
+    }
+  },
+  "integratedDigest": "sha256:891c07912f28e7743ea145593e73aa3d78c5e42ec10fc665cd11013408026960",
+  "limitations": [
+    "The runtimes executed on one physical Windows host.",
+    "Subprocess output digests are diagnostic and are not expected to match.",
+    "Cross-machine evidence remains public-CI evidence for public mechanisms only."
+  ],
+  "passed": true,
+  "platform": "Windows-11-10.0.26200-SP0",
+  "python": "3.12.13",
+  "vertical": {
+    "capsules": 24,
+    "cases": 12,
+    "checks": {
+      "allDeclaredOutcomesEquivalent": true,
+      "allIndependentVerificationPassed": true,
+      "allNativeVerificationPassed": true,
+      "allOraclesPassed": true,
+      "allPlaybackAndPackagingPassed": true,
+      "allRunsCompleted": true
+    },
+    "passed": true,
+    "rows": [
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      },
+      {
+        "declaredOutcomeEquivalent": true,
+        "evidenceCapsuleIndependent": true,
+        "localOracle": "pass",
+        "localStatus": null,
+        "localTraceIndependent": true,
+        "localTraceVerified": true,
+        "playbackNonEmpty": true,
+        "renderedObjectCount": true,
+        "scriptedOracle": "pass",
+        "scriptedStatus": null,
+        "scriptedTraceIndependent": true,
+        "scriptedTraceVerified": true
+      }
+    ],
+    "traces": 24
+  },
+  "verticalDigest": "sha256:f27cd1c4fdcff9903bf89e41de9436dc9e930b34ffc0347b16c8fd2f494d6f6f"
+}

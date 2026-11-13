@@ -1,0 +1,208 @@
+{
+  "artifactType": "sova.public-preprint-build-provenance",
+  "paper": "PF",
+  "version": "1.1",
+  "versionDate": "2026-11-13",
+  "supersedes": "1.0 (2026-08-20)",
+  "generatedAt": "2026-11-13T12:05:09.870304Z",
+  "status": "author-approved-public-preprint",
+  "authorApproval": {
+    "version": "1.1",
+    "approved": true,
+    "date": "2026-11-13",
+    "sourceSha256": "c6a7f92ae2fa4ab6d652a08b60a7b2a4c32f841bd6ee92e71d1ad6b1c15b8238",
+    "bibSha256": "c4009ec2d86050fe0318e762b5cf3adc559519c8fbd06145c74dc1f5239e9b67",
+    "basis": "Author instruction in the working session of 2026-11-13 to apply every fix from the first-time-reader review and finalize version 1.1 for public release; the author reads the built PDF before uploading."
+  },
+  "source": {
+    "path": "PF-sova-portable-evidence-reproduction-working-paper.md",
+    "sha256": "c6a7f92ae2fa4ab6d652a08b60a7b2a4c32f841bd6ee92e71d1ad6b1c15b8238"
+  },
+  "references": {
+    "path": "references.bib",
+    "sha256": "c4009ec2d86050fe0318e762b5cf3adc559519c8fbd06145c74dc1f5239e9b67"
+  },
+  "results": [
+    {
+      "path": "topics-04-06-study-2026-07-31.json",
+      "sha256": "5387e1f087ab956a153d6ca2be5cca1ea4e2fdf9144515198a5ebcae26701400"
+    },
+    {
+      "path": "integrated-baseline-drift-study-2026-07-31.json",
+      "sha256": "0b23ab3d31fded123b71ddcd5d7b53396b79d0a8896b2f0fda035253a2d21bf5"
+    },
+    {
+      "path": "agentreward-cross-model-study-2026-07-31.json",
+      "sha256": "6dabf15367e33c160de11c92451ea7d9a6a614bb3b5c0f6a32f83dbbbe0d3410"
+    },
+    {
+      "path": "p4-graph-semantic-baselines-2026-08-01.json",
+      "sha256": "cc761a4291aaa84b4240ded51d36e29ed96762b7a0865def71947be19088e42e"
+    },
+    {
+      "path": "topic05-component-ablation-study-2026-07-31.json",
+      "sha256": "02637491f339b13d36f13bbcc3db1c11827670a1ca7084ab9de716f8262cf74a"
+    },
+    {
+      "path": "topic05-privacy-attack-study-2026-08-01.json",
+      "sha256": "8ae7628bd0787a1075ee64b2b25c05fdcf1ec8a3c7d91b2d07ec833b30236762"
+    },
+    {
+      "path": "p5-incident-collector-scale-2026-08-01.json",
+      "sha256": "3eef3b066aa35995fa291f8207836a632fc9d53df74a519515175d47e6e85f9e"
+    },
+    {
+      "path": "topics12-13-postbuild-study-2026-08-03.json",
+      "sha256": "567255e0d1ef8166ea4e4931d0b6809ac5f13181de69e2b0720e8b342925791b"
+    },
+    {
+      "path": "inspect-corpus-interoperability-2026-07-31.json",
+      "sha256": "4e00f28cbe6e90cf3f70fdfe2592b9d27622a94bef521f8834b00c8f7e937b17"
+    },
+    {
+      "path": "inspect-corpus-interoperability-adapter-0.2.0-2026-07-31.json",
+      "sha256": "ed9db9356a1dba07f2e6bc570deca03f11eb1b86dee01b8c37f7a991d8c257b0"
+    },
+    {
+      "path": "inspect-eval-interoperability-2026-08-01.json",
+      "sha256": "2a4fedaaa59927b7f8e451cbecf10656ec9ed371c12500161862258bab0d6005"
+    },
+    {
+      "path": "topic06-independent-adapter-study-2026-07-31.json",
+      "sha256": "6f26400461716db0bf6830f857422ab7b117c90a7fa087b5f613e91274a66bd4"
+    },
+    {
+      "path": "topic05-attack-matrix-2026-07-31.json",
+      "sha256": "a49aee975d7b31c076666b92dcd8eca45a62af1fb05f6c85b90d666cdf168ddf"
+    },
+    {
+      "path": "p5-repeatability-audit-2026-08-01.json",
+      "sha256": "e5f46cd71a2e272eafa66af97193a45b47838b2bbf1cdb5d468ecbd291071db8"
+    },
+    {
+      "path": "cross-version-python-3.11-2026-07-31.json",
+      "sha256": "3b1184fc805ab934270f1c7f6b88e32ca268e76f9306b9d760bfe4d5ace95d0d"
+    },
+    {
+      "path": "cross-version-python-3.12-2026-07-31.json",
+      "sha256": "58a9d7cc8199ae9dcd9b992c6b159cbf6b0c816090c0dbd9e9c8c8b85c2134e3"
+    },
+    {
+      "path": "cross-version-python-3.13-2026-07-31.json",
+      "sha256": "c3746a01e60b5eb0b6d0063d0564ccb90b4c4d707dcc61071d9e941919baeed0"
+    },
+    {
+      "path": "cross-version-python-3.14-2026-07-31.json",
+      "sha256": "b703b5dd5a994546f0ae897113cc6ec26b0b1a436e92b1b7cb7293fae3b7aba5"
+    },
+    {
+      "path": "pf-redaction-triple-2026-11-12.json",
+      "sha256": "a7942c1e62590fcc494bdd3633d166801df3c673e60c82cb98db6bd7a2c3f3f0"
+    },
+    {
+      "path": "pf-agentdojo-reproduction-2026-11-12.json",
+      "sha256": "550e3a6758c4c4a611cca819778a639fde51fd1971a82c6071ae4e71611442c7"
+    },
+    {
+      "path": "external-implementation-validation-2026-07-31.json",
+      "sha256": "dbfd4853a131160ffb93c2b1b771c17e0e6483f0050ec8b85de9dc1ec2402542"
+    },
+    {
+      "path": "external-implementation-validation-2026-08-01.json",
+      "sha256": "551283e33cfacf70e18506e8bcf78be6a7d62b671d616ad409bba008cbb658b9"
+    },
+    {
+      "path": "external-interoperability-study-2026-07-31.json",
+      "sha256": "371fbf8b9f4f05db322a9c94497f35365896c6ed4074a58ce3b7750d29cc338e"
+    },
+    {
+      "path": "reexecution-2026-11-12/reexecution-check.json",
+      "sha256": "c50402d2d5a135e3e83e2e5e4f3a889803d16b3d8b978873058f6865c48cdfbb"
+    },
+    {
+      "path": "pf-redaction-triple-postfix-2026-11-12.json",
+      "sha256": "6141c22a2e116ca98dc42aa046da3d66cc646977e0947ff7f633203eba4dfbe2"
+    },
+    {
+      "path": "pf-agentdojo-supplementary-2026-11-12.json",
+      "sha256": "4ff632cd21b155434a75497b7fe5b08589b4016ee0e5e42c618bb0765db413c8"
+    },
+    {
+      "path": "pf-fresh-reexecution-2026-11-12.json",
+      "sha256": "b0fb2f9f24dc7bd21b0828159a47a1bdf24436135f79647ba44d4faefb6612f2"
+    },
+    {
+      "path": "pf-warning-classification-2026-11-12.json",
+      "sha256": "f79e303ee0fef20c19f40455117ac24981b29641c35e27042451634d24e33e7d"
+    },
+    {
+      "path": "pf-real-attack-predictiveness-2026-11-12.json",
+      "sha256": "bac55fde039d2d98022caa1830689f340639bad66d221b4af23e34cc8403e54c"
+    },
+    {
+      "path": "pf-fresh-successes-by-goal-2026-11-13.json",
+      "sha256": "36a3ff8bab3713c3f4f1eeaced44ddde3826e9f2e3b2a1e108f99d710e2fca25"
+    },
+    {
+      "path": "pf-fresh-successes-manual-audit-2026-11-13.json",
+      "sha256": "66e6a2a19b270e8df0950fb165cae8f4c150d98ad154f63a843ca87592e49032"
+    },
+    {
+      "path": "pf-published-text-collisions-2026-11-13.json",
+      "sha256": "9fd19b1b6bbaec4739b9f4171ee9640357a3bf0dcefbd2d334882886bf906c3c"
+    },
+    {
+      "path": "pf-published-hotel-reading-2026-11-13.json",
+      "sha256": "47e02edef24526dc156ecf8695d97a48d3db98b6032a492268d80561499c034e"
+    },
+    {
+      "path": "pf-cross-provider-2026-11-13.json",
+      "sha256": "fd73b98c01ce47adf650db3a51ff241376470e460407594d69718a6ea620ddab"
+    },
+    {
+      "path": "pf-cross-provider-reading-2026-11-13.json",
+      "sha256": "560238b88d3103aa705b20c085ef06bcfec9a41e107808832bc37bc3a0b4075c"
+    },
+    {
+      "path": "pf-cross-provider-selection-2026-11-13.json",
+      "sha256": "5078c707b877f541c1578394bbd10e65404015ebffed8860179ecf5827986481"
+    },
+    {
+      "path": "pf-cross-provider-predictiveness-2026-11-13.json",
+      "sha256": "b54bf874c68581d746c6e92954244e4713193d59b8c47eaee34b77ad50faf057"
+    }
+  ],
+  "redactionTripleFigure": true,
+  "tools": {
+    "pandoc": {
+      "path": "C:\\Users\\HP\\Downloads\\SOVA-OSS\\tmp\\pdfs\\tooling\\pandoc-3.10.1\\pandoc-3.10.1\\pandoc.exe",
+      "sha256": "77b83ac466f6bc446bb10176786830efdae1ed3c837ac9d64b0269ddf39a1ce8"
+    },
+    "tectonic": {
+      "path": "C:\\Users\\HP\\Downloads\\SOVA-OSS\\tmp\\pdfs\\tooling\\tectonic-0.16.9\\tectonic.exe",
+      "sha256": "a0a9a5eaf1a940d9a615ad78d35225ca59420c7984576c6402fffb3e9fb05ceb"
+    },
+    "python": {
+      "version": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]"
+    },
+    "matplotlib": "3.10.8"
+  },
+  "outputs": {
+    "mainMarkdownSha256": "06491cc4d7a3cdca766bc9fa4d340a4c722aba85560950fdf46bdcc6825671ac",
+    "mainTexSha256": "cbe2a1dea2e61ad0f4bc4200bc1f5b103cd176e7297be189530d77be409acac7",
+    "pdfSha256": "c2b447f76772617b6b77b85554ea0ec51492b6d3dbd25e96842a83e4da55f8af",
+    "pdfBytes": 366165,
+    "arxivSourceArchive": "output\\source\\SOVA-PF-sova-portable-evidence-reproduction-arxiv-source-v1.1.tar.gz",
+    "arxivSourceArchiveSha256": "7a181bd4f138b1f85dc99db6f9b614c67880ad47dea37cee14d1eb43ed067f72",
+    "arxivSourceArchiveMembers": [
+      "main.tex",
+      "figures/pf-agentdojo.pdf",
+      "figures/pf-decision-ladder.pdf",
+      "figures/pf-fresh.pdf",
+      "figures/pf-redaction-triple.pdf",
+      "figures/pf-same-pairs.pdf",
+      "figures/pf-successors.pdf"
+    ]
+  },
+  "claimBoundary": "Author approval and public packaging do not supply independent scientific validation or peer review."
+}

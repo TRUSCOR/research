@@ -1,0 +1,95 @@
+{
+  "agentRewardBench": {
+    "annotationRows": 1408,
+    "annotationsDigest": "sha256:155be0e6530d190c14a056f0195aaafa081c2a45a36e8f72b922c9fdc6838367",
+    "benchmarks": [
+      "assistantbench",
+      "visualwebarena",
+      "webarena",
+      "workarena"
+    ],
+    "capsuleDigest": "sha256:a013e49388d03672f8390bee2af6c0f7fa87dc1a8d30f07b19ce5f03521c0815",
+    "captured": [
+      "action verb",
+      "action digest",
+      "expert categorical labels"
+    ],
+    "forbiddenFieldLeaks": [],
+    "loopingDistribution": {
+      "No": 697,
+      "Yes": 711
+    },
+    "matchedExpertLabel": {
+      "looping": "No",
+      "sideEffect": "No",
+      "success": "Unsuccessful"
+    },
+    "matchedExpertLabelCount": 2,
+    "matchedExpertLabelDistributions": {
+      "trajectory_looping": {
+        "No": 2
+      },
+      "trajectory_side_effect": {
+        "No": 2
+      },
+      "trajectory_success": {
+        "Unsuccessful": 2
+      }
+    },
+    "models": [
+      "GenericAgent-Qwen_Qwen2.5-VL-72B-Instruct",
+      "GenericAgent-anthropic_claude-3.7-sonnet",
+      "GenericAgent-gpt-4o-2024-11-20",
+      "GenericAgent-meta-llama_Llama-3.3-70B-Instruct"
+    ],
+    "observableActionCount": 4,
+    "omitted": [
+      "goal",
+      "action arguments",
+      "reasoning",
+      "screenshots",
+      "accessibility trees",
+      "chat messages",
+      "annotator identity"
+    ],
+    "sideEffectDistribution": {
+      "No": 1316,
+      "Unsure": 1,
+      "Yes": 91
+    },
+    "sourceCommit": "271f96552e2e6dd13fe8e3572f0e5264039f6fd0",
+    "successDistribution": {
+      "Successful": 395,
+      "Unsuccessful": 1012,
+      "Unsure": 1
+    },
+    "traceDigest": "sha256:58b781bc0240fa1f350bb6a3fb81d24c054992ab21c9d8c729cc2f7ce8c0bc31",
+    "trajectoryDigest": "sha256:1911e612b03bd05f6c2bc336e27ac30e0966661787dd18094b0839d864d2b0e8",
+    "verifiedEvents": 9
+  },
+  "artifactType": "sova.private-external-interoperability-study",
+  "claimBoundary": "Pinned authoritative external fixtures; one imported trajectory and one format fixture do not establish external reproduction validity or publication readiness.",
+  "generatedAt": "2026-07-30T23:17:58.114306Z",
+  "inspectAi": {
+    "capsuleDigest": "sha256:18567343bf0aa07d92174bcdc84ef3bf9f913c22f6b52b3599504a57315c4ed9",
+    "contentProbeCount": 5,
+    "contentProbeLeaks": [],
+    "emittedEvents": 16,
+    "lossless": false,
+    "sourceCommit": "1ea01a9e1b3c94db3cdf93ce5583ffebf86e159f",
+    "sourceDigest": "sha256:b36b887e44701701d87a7bd8bac7f9fafb2804731491b3125b3917fb7968a825",
+    "sourceEvents": 11,
+    "sourceSamples": 1,
+    "verifiedEvents": 16
+  },
+  "limitations": [
+    "AgentRewardBench source licensing was not asserted by the Space metadata; source bytes are not redistributed.",
+    "Only one trajectory is converted; the complete expert-labeled cohort is summarized only.",
+    "Imported expert labels are carried as provenance and are not SOVA truth attestations.",
+    "The Inspect fixture is an official test log, not an independently produced SOVA reproduction.",
+    "No external model, browser, or computer action was executed by this study."
+  ],
+  "organization": "TRUSCOR Private Limited",
+  "owner": "Gautam R. Patil",
+  "version": "0.1.0"
+}

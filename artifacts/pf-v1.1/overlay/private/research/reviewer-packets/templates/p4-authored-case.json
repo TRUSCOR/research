@@ -1,0 +1,22 @@
+{
+  "caseId": "replace-with-stable-case-id",
+  "profile": "security",
+  "stratum": "version-drift",
+  "authorship": {
+    "reviewerId": "private-pseudonym",
+    "independentOfImplementation": true
+  },
+  "scenario": {
+    "observableIntent": "Describe only observable, authorized behavior."
+  },
+  "source": {
+    "environmentId": "source-environment",
+    "evidenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "candidate": {
+    "environmentId": "candidate-environment",
+    "evidenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000"
+  },
+  "expectedOutcome": "inconclusive",
+  "rationale": "Keep this rationale private until predictions are frozen."
+}

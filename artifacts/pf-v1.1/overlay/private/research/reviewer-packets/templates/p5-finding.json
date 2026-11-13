@@ -1,0 +1,8 @@
+{
+  "caseId": "replace-with-stable-case-id",
+  "disposition": "privacy-limitation",
+  "reviewerId": "private-pseudonym",
+  "independentOfImplementation": true,
+  "evidenceDigest": "sha256:0000000000000000000000000000000000000000000000000000000000000000",
+  "notes": "Record the finding, including unfavorable results and external assumptions."
+}

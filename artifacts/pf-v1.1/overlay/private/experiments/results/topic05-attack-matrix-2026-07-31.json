@@ -1,0 +1,111 @@
+{
+  "allDetectedRejectedOrCorrectlyBounded": true,
+  "artifactType": "sova.private-trace-attack-matrix",
+  "attackCount": 12,
+  "attacks": {
+    "corrupted-event": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_trace.py::test_recovery_rejects_corrupt_events"
+      ]
+    },
+    "hostile-extension": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_capsule.py::test_undeclared_member_is_rejected",
+        "tests/unit/test_format_edge_cases.py::test_reader_manifest_and_object_index_failure_modes"
+      ]
+    },
+    "low-entropy-commitment": {
+      "failureCode": "SOVA-REDACTION-KEY",
+      "outcome": "rejected-before-capture",
+      "passed": true
+    },
+    "malicious-archive": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_format_edge_cases.py::test_reader_rejects_empty_duplicate_and_resource_hostile_archives",
+        "tests/unit/test_format_edge_cases.py::test_unsafe_package_paths_fail"
+      ]
+    },
+    "parser-differential": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/compat/schemas/test_validator_parity.py",
+        "tests/unit/test_format_canonical.py"
+      ]
+    },
+    "privacy-leakage": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_trace_redaction.py::test_default_redaction_omits_secret_values_before_persistence",
+        "tests/unit/test_trace_redaction.py::test_redaction_verifier_rejects_inconsistent_or_residual_secrets"
+      ]
+    },
+    "reordered-events": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_trace.py::test_reordering_is_detected_even_if_package_descriptor_is_recomputed"
+      ]
+    },
+    "replayed-trace": {
+      "bounded": true,
+      "outcome": "not-detectable-by-single-trace-offline-verification",
+      "passed": true,
+      "requiredExternalControl": "freshness policy, nonce registry, timestamp service, or transparency log"
+    },
+    "signature-confusion": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_trace.py::test_signature_material_failure_modes_are_typed",
+        "tests/unit/test_trace.py::test_signature_substitution_is_detected",
+        "tests/unit/test_trace.py::test_signed_statement_shape_and_binding_are_verified"
+      ]
+    },
+    "signer-equivocation": {
+      "bounded": true,
+      "outcome": "not-detectable-by-single-trace-offline-verification",
+      "passed": true,
+      "requiredExternalControl": "trusted transparency log or other consistency monitor"
+    },
+    "substituted-content": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_trace.py::test_package_level_event_substitution_is_detected",
+        "tests/integration/test_independent_verifier.py::test_independent_process_fails_visibly_on_substitution"
+      ]
+    },
+    "truncated-trace": {
+      "outcome": "detected-or-rejected",
+      "passed": true,
+      "returnCode": 0,
+      "testNodeIds": [
+        "tests/unit/test_trace.py::test_recovery_preserves_only_valid_prefix_and_reports_tail"
+      ]
+    }
+  },
+  "generatedAt": "2026-07-31",
+  "limitations": [
+    "The matrix is synthetic and team-authored.",
+    "A passing public test establishes behavior for its exact fixture, not exhaustive security.",
+    "Replay and signer equivocation intentionally remain outside single-trace offline detection.",
+    "No external cryptographic or privacy reviewer participated."
+  ],
+  "protocol": "sova.topic05.attacks/0.1"
+}

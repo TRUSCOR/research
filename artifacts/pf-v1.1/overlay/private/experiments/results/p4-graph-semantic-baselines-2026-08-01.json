@@ -1,0 +1,509 @@
+{
+  "artifactType": "sova.private-p4-graph-semantic-baselines",
+  "calibration": {
+    "intercept": -8.47649092758727,
+    "iterations": 8,
+    "method": "Platt logistic calibration on train cosine; no test refit",
+    "slope": 9.774204437597398,
+    "splits": {
+      "test": {
+        "accuracy": 0.8216098622189992,
+        "brier": 0.1267224088306585,
+        "count": 1379,
+        "ece10": 0.038249037702920596,
+        "pearsonContinuous": 0.7725982550134088,
+        "positiveCount": 338,
+        "probabilityMaximum": 0.7854499190272132,
+        "probabilityMinimum": 0.00013897500144998445,
+        "spearmanContinuous": 0.7540519061413277
+      },
+      "train": {
+        "accuracy": 0.8053574534701687,
+        "brier": 0.13281863894796164,
+        "count": 5749,
+        "ece10": 0.020986804160420893,
+        "pearsonContinuous": 0.7947878667580468,
+        "positiveCount": 1406,
+        "probabilityMaximum": 0.7854499190272359,
+        "probabilityMinimum": 4.071018202679936e-05,
+        "spearmanContinuous": 0.7572581096524792
+      },
+      "validation": {
+        "accuracy": 0.8786666666666667,
+        "brier": 0.09122015489000632,
+        "count": 1500,
+        "ece10": 0.03135320519160173,
+        "pearsonContinuous": 0.8297239647466683,
+        "positiveCount": 264,
+        "probabilityMaximum": 0.7854499190272354,
+        "probabilityMinimum": 5.285774231370578e-05,
+        "spearmanContinuous": 0.8281028311154904
+      }
+    }
+  },
+  "claimBoundary": "Post-result same-team baseline study over pinned public trajectories and human STS labels. It is not blind calibration, independent validation, controlled re-execution, or a reproduction of WebGraphEval's LLM annotations.",
+  "environment": {
+    "gpuUsed": false,
+    "model2vec": "0.8.2",
+    "numpy": "2.4.6",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.15",
+    "workers": 1
+  },
+  "generatedAt": "2026-08-01T06:26:28.078935Z",
+  "limitations": [
+    "The graph adaptation is same-team and post-result; its threshold is exploratory.",
+    "Only two trajectories exist per task, far below WebGraphEval's intended corpus scale.",
+    "The deterministic canonicalizer is not WebGraphEval's LLM canonicalizer.",
+    "STS calibration is out of domain for web-action sequences and does not validate SOVA labels.",
+    "Embedding probability cannot represent incompatible, inconclusive, unsafe, or invalid evidence.",
+    "Dataset licensing is not asserted, so source content is not redistributed."
+  ],
+  "organization": "TRUSCOR Private Limited",
+  "owner": "Gautam R. Patil",
+  "performance": {
+    "sourceBytes": 518170055,
+    "stsPairs": 8628,
+    "totalNanoseconds": 23140611900,
+    "trajectoryPairs": 11
+  },
+  "privacy": {
+    "goalsUrlsReasoningRetained": false,
+    "knownForbiddenResultKeyCount": 0,
+    "rawActionsRetained": false,
+    "rawSentencesRetained": false
+  },
+  "sources": {
+    "agentRewardBench": {
+      "commit": "271f96552e2e6dd13fe8e3572f0e5264039f6fd0",
+      "licenseAsserted": false,
+      "rawContentRetained": false,
+      "trajectoryCount": 22
+    },
+    "semanticModel": {
+      "commit": "bf8b056651a2c21b8d2565580b8569da283cab23",
+      "directoryDigest": "sha256:8292ea032dd9b033a738b1dff1e5904f1d4fdf6e5696ee55806d87d53ee63f53",
+      "files": [
+        {
+          "digest": "sha256:684888c0ebb17f374298b65ee2807526c066094c701bcc7ebbe1c1095f494fc1",
+          "path": ".cache/huggingface/.gitignore",
+          "size": 1
+        },
+        {
+          "digest": "sha256:e8893e2dcb3f4545ef67a0a5b7b769113d38eef1aa61c7c7ba14659b02af955f",
+          "path": ".cache/huggingface/CACHEDIR.TAG",
+          "size": 195
+        },
+        {
+          "digest": "sha256:197e5ac5c04d29112e18522f9b95b8117980dbb5a3280c4acaa62da30052584e",
+          "path": ".cache/huggingface/download/.gitattributes.metadata",
+          "size": 104
+        },
+        {
+          "digest": "sha256:ee6c6909fb0425b5b0e21342e42c6acb9d5ba8ebd4f31de7845942e224e13333",
+          "path": ".cache/huggingface/download/config.json.metadata",
+          "size": 104
+        },
+        {
+          "digest": "sha256:8cebdc7ca12fdb8ece10de8290c796b71dceb9d04f54f0e4f5c75dedb2ff0fab",
+          "path": ".cache/huggingface/download/model.safetensors.metadata",
+          "size": 128
+        },
+        {
+          "digest": "sha256:b493387c23d9395c34126097f0f406188b9a9658a4aa8eccdbd0fd965853acbf",
+          "path": ".cache/huggingface/download/modules.json.metadata",
+          "size": 103
+        },
+        {
+          "digest": "sha256:bccc77e6f3184578d09ff68d19eeee5821d188fc849a5a4463e3dcb77323f9ff",
+          "path": ".cache/huggingface/download/onnx/model.onnx.metadata",
+          "size": 128
+        },
+        {
+          "digest": "sha256:a77c029c864a6e7302da2df5e25ef3741379681adf57df2786cee1d90b73829d",
+          "path": ".cache/huggingface/download/README.md.metadata",
+          "size": 104
+        },
+        {
+          "digest": "sha256:27073ec7f0f7319719b447fbf1e2c425dc0ab4518d0c73f7c56bc9de5e7c7984",
+          "path": ".cache/huggingface/download/special_tokens_map.json.metadata",
+          "size": 104
+        },
+        {
+          "digest": "sha256:0635eff73d4690875b369cc5429254a85fe3d86fef90a6a3811f0ce4dbddee63",
+          "path": ".cache/huggingface/download/tokenizer.json.metadata",
+          "size": 104
+        },
+        {
+          "digest": "sha256:767952dd41ef6aaf55993ca4526f7d8f4e4e0169e73e47f7785904ce754048b9",
+          "path": ".cache/huggingface/download/tokenizer_config.json.metadata",
+          "size": 104
+        },
+        {
+          "digest": "sha256:a33a7822c329b959d774b22fce4340d7b4d1babb0897424bbc641ac1b37fe117",
+          "path": ".cache/huggingface/download/vocab.txt.metadata",
+          "size": 104
+        },
+        {
+          "digest": "sha256:144eebfded63adfc95eec28b4cc4a429404b9c9c110f57e49683ef4d218fcca6",
+          "path": ".cache/huggingface/trees/bf8b056651a2c21b8d2565580b8569da283cab23.json",
+          "size": 1499
+        },
+        {
+          "digest": "sha256:11ad7efa24975ee4b0c3c3a38ed18737f0658a5f75a0a96787b576a78a023361",
+          "path": ".gitattributes",
+          "size": 1519
+        },
+        {
+          "digest": "sha256:2a6ac0e9aaa356a68a5688070db78fc3a464fefe85d2f06a1905ce3718687553",
+          "path": "config.json",
+          "size": 202
+        },
+        {
+          "digest": "sha256:f65d0f325faadc1e121c319e2faa41170d3fa07d8c89abd48ca5358d9a223de2",
+          "path": "model.safetensors",
+          "size": 30236760
+        },
+        {
+          "digest": "sha256:a68dcbed0429dcdd5bfdca92b0b03cc30d09122c0a3fcf4758787d4b244e45b2",
+          "path": "modules.json",
+          "size": 278
+        },
+        {
+          "digest": "sha256:da4c828fe012ec97f053278f363645b52c3815ec9a1d13d695ac901398c10f2e",
+          "path": "onnx/model.onnx",
+          "size": 30240854
+        },
+        {
+          "digest": "sha256:de8ec91bf63c5f4c0e20751c227b2d049953e1cab5f8d5d44211c59a44795bdd",
+          "path": "README.md",
+          "size": 5203
+        },
+        {
+          "digest": "sha256:a9e8fb6f99fb0b8803f0e6942fdf4d95d6645204620b67dc3310a1024bcbac59",
+          "path": "special_tokens_map.json",
+          "size": 134
+        },
+        {
+          "digest": "sha256:e67e803f624fb4d67dea1c730d06e1067e1b14d830e2c2202569e3ef0f70bb50",
+          "path": "tokenizer.json",
+          "size": 683666
+        },
+        {
+          "digest": "sha256:6725995e3ab3039857ff5bd99178a7cdf42863abb04449e7bb31feb1f55fe567",
+          "path": "tokenizer_config.json",
+          "size": 1431
+        },
+        {
+          "digest": "sha256:1394523a67ddd404a825428018c0582a6998bcfa044ecbcbf1f4d71adb94c61c",
+          "path": "vocab.txt",
+          "size": 219690
+        }
+      ],
+      "id": "minishlab/potion-base-8M",
+      "license": "MIT",
+      "model2vecWheelSha256": "f0ecfe994316e401dca583fbf6dd22079d308c05717dd36d40bff60f265431cf"
+    },
+    "stsBenchmark": {
+      "binaryLabelRule": "human score >= 4.0",
+      "license": "unknown; private evaluation only; no redistribution",
+      "mtebCommit": "96943a16ea6a35129e253c659081cb59daf81b30",
+      "splits": [
+        {
+          "digest": "sha256:a65b4c9e9b1e7a8f784b0099cba2d5db046d6763e63cccb1286e1eaada24db63",
+          "name": "train",
+          "rows": 5749,
+          "size": 277970
+        },
+        {
+          "digest": "sha256:e2cf5a5881c37c44d5de5c5b390834585234acdab4e6e08071c474bf00157783",
+          "name": "validation",
+          "rows": 1500,
+          "size": 86431
+        },
+        {
+          "digest": "sha256:524a75137d413dbfc40c3e84905f733714232647c3848521acb6bc375b834e1c",
+          "name": "test",
+          "rows": 1379,
+          "size": 63205
+        }
+      ]
+    },
+    "webGraphEval": {
+      "mergeThreshold": 0.9,
+      "methodBoundary": "two-pass deterministic edit-similarity action graph; no LLM canonicalization, necessity labels, or claimed code integration",
+      "openReviewId": "IPpOtWGmdf",
+      "postResultEquivalenceThreshold": 0.5
+    }
+  },
+  "trajectoryMetrics": {
+    "graph": {
+      "accuracy": 0.7142857142857143,
+      "correct": 5,
+      "multiValuedOutcomesSupported": false,
+      "totalConclusive": 7
+    },
+    "semantic": {
+      "accuracy": 1.0,
+      "correct": 7,
+      "multiValuedOutcomesSupported": false,
+      "totalConclusive": 7
+    }
+  },
+  "trajectoryRows": [
+    {
+      "candidateDigest": "sha256:9eaacbfc81d6b0062c5e0c9c403e2870904597b065394aa1d96f774ce8986d26",
+      "candidateStepCount": 13,
+      "graph": {
+        "candidateEdges": 9,
+        "candidateNodes": 7,
+        "compositeSimilarity": 0.16666666666666666,
+        "edgeJaccard": 0.0,
+        "mergedNodes": 9,
+        "nodeJaccard": 0.3333333333333333,
+        "sharedEdges": 0,
+        "sourceEdges": 7,
+        "sourceNodes": 5
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.5719955569252922,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.05286553713051339,
+      "sourceDigest": "sha256:86e02bcce017199092b103824c042d292de384a75143e19019c119391860a4d6",
+      "sourceStepCount": 31,
+      "taskId": "webarena.100",
+      "truth": "inconclusive"
+    },
+    {
+      "candidateDigest": "sha256:7fe3308e30c2763123977697596564e0f81c3d8039651257302aa8ed251d0cea",
+      "candidateStepCount": 5,
+      "graph": {
+        "candidateEdges": 4,
+        "candidateNodes": 5,
+        "compositeSimilarity": 0.20512820512820512,
+        "edgeJaccard": 0.07692307692307693,
+        "mergedNodes": 9,
+        "nodeJaccard": 0.3333333333333333,
+        "sharedEdges": 1,
+        "sourceEdges": 10,
+        "sourceNodes": 7
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.6863025518963101,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.14573774725831254,
+      "sourceDigest": "sha256:0719ab4d56473cdfa378c6e4ec0f9830ac7794dc98c0df84aa790180a0d6198f",
+      "sourceStepCount": 18,
+      "taskId": "webarena.126",
+      "truth": "divergent"
+    },
+    {
+      "candidateDigest": "sha256:adc51b0053df24e853b2d10a8804d388115aa197a9560e720483000f7444ca3d",
+      "candidateStepCount": 5,
+      "graph": {
+        "candidateEdges": 4,
+        "candidateNodes": 5,
+        "compositeSimilarity": 0.1875,
+        "edgeJaccard": 0.0,
+        "mergedNodes": 8,
+        "nodeJaccard": 0.375,
+        "sharedEdges": 0,
+        "sourceEdges": 9,
+        "sourceNodes": 6
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.8484473184972944,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.4542301442369196,
+      "sourceDigest": "sha256:800cebde4a31ece32f48e7fb831265453e14630f8971a4db3b6be42e7ac4e513",
+      "sourceStepCount": 31,
+      "taskId": "webarena.144",
+      "truth": "divergent"
+    },
+    {
+      "candidateDigest": "sha256:e740ecc1a8c672becf06fea3d8ad5ec67f7d3909bc7f6538ae7fb6a2f19fb7fa",
+      "candidateStepCount": 6,
+      "graph": {
+        "candidateEdges": 5,
+        "candidateNodes": 6,
+        "compositeSimilarity": 0.1,
+        "edgeJaccard": 0.0,
+        "mergedNodes": 10,
+        "nodeJaccard": 0.2,
+        "sharedEdges": 0,
+        "sourceEdges": 10,
+        "sourceNodes": 6
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.829531976499645,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.40890937287655826,
+      "sourceDigest": "sha256:e25e2708deb8dc6c36661e4c134b8013b9eba153c6cd9303a388f9c12d8e671a",
+      "sourceStepCount": 31,
+      "taskId": "webarena.15",
+      "truth": "divergent"
+    },
+    {
+      "candidateDigest": "sha256:949b47f4d27f9f8e674f5289770fcb58e7f4b2eea3d06ab432428c9049b8bc91",
+      "candidateStepCount": 6,
+      "graph": {
+        "candidateEdges": 5,
+        "candidateNodes": 5,
+        "compositeSimilarity": 0.31666666666666665,
+        "edgeJaccard": 0.13333333333333333,
+        "mergedNodes": 10,
+        "nodeJaccard": 0.5,
+        "sharedEdges": 2,
+        "sourceEdges": 12,
+        "sourceNodes": 10
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.9246623983911474,
+      "semanticPrediction": "equivalent",
+      "semanticProbability": 0.6367644742798436,
+      "sourceDigest": "sha256:c396450b1ee467471fd7d989407b36beee55cbfe8ab31ba9dbfb0d02b4d22864",
+      "sourceStepCount": 13,
+      "taskId": "webarena.153",
+      "truth": "equivalent"
+    },
+    {
+      "candidateDigest": "sha256:5a9351e1075ab569cfd77b67943beefbde93b59d122971669b2832a05f0ad0ff",
+      "candidateStepCount": 6,
+      "graph": {
+        "candidateEdges": 5,
+        "candidateNodes": 6,
+        "compositeSimilarity": 0.4277777777777778,
+        "edgeJaccard": 0.3,
+        "mergedNodes": 9,
+        "nodeJaccard": 0.5555555555555556,
+        "sharedEdges": 3,
+        "sourceEdges": 8,
+        "sourceNodes": 8
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.6965148148550864,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.15860922515260856,
+      "sourceDigest": "sha256:ec8b5f5c040d6f09119a9ffb9506054664e30c93f9664e001d1fe43e183cb548",
+      "sourceStepCount": 12,
+      "taskId": "webarena.155",
+      "truth": "inconclusive"
+    },
+    {
+      "candidateDigest": "sha256:81fd2359c64085703cb04adfd81e344c9ec9c72001167ccf942ed94535636d4e",
+      "candidateStepCount": 31,
+      "graph": {
+        "candidateEdges": 13,
+        "candidateNodes": 8,
+        "compositeSimilarity": 0.125,
+        "edgeJaccard": 0.0,
+        "mergedNodes": 12,
+        "nodeJaccard": 0.25,
+        "sharedEdges": 0,
+        "sourceEdges": 7,
+        "sourceNodes": 7
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.4316613736773013,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.013962153178870692,
+      "sourceDigest": "sha256:21d726c3f36e59dee3ce18f88f5e51f72129fe9f069b107380a066d920fb35ad",
+      "sourceStepCount": 9,
+      "taskId": "webarena.158",
+      "truth": "inconclusive"
+    },
+    {
+      "candidateDigest": "sha256:bc3b7ef6427d4894e380678f4aa12d5c7a2fd8a56e9f315bd45bfaca85613bc3",
+      "candidateStepCount": 3,
+      "graph": {
+        "candidateEdges": 2,
+        "candidateNodes": 3,
+        "compositeSimilarity": 0.41666666666666663,
+        "edgeJaccard": 0.3333333333333333,
+        "mergedNodes": 4,
+        "nodeJaccard": 0.5,
+        "sharedEdges": 1,
+        "sourceEdges": 2,
+        "sourceNodes": 3
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.8953749914800618,
+      "semanticPrediction": "equivalent",
+      "semanticProbability": 0.5683413977885877,
+      "sourceDigest": "sha256:fb7684931aef806fee792309a7cb03ba59023dd5c38993b7414043f546384665",
+      "sourceStepCount": 3,
+      "taskId": "webarena.164",
+      "truth": "equivalent"
+    },
+    {
+      "candidateDigest": "sha256:e85258b452ae65db4e2c95a12df49fadd7da992639b1b6df7e20d45bdd69f5eb",
+      "candidateStepCount": 2,
+      "graph": {
+        "candidateEdges": 1,
+        "candidateNodes": 2,
+        "compositeSimilarity": 0.07142857142857142,
+        "edgeJaccard": 0.0,
+        "mergedNodes": 7,
+        "nodeJaccard": 0.14285714285714285,
+        "sharedEdges": 0,
+        "sourceEdges": 11,
+        "sourceNodes": 6
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.3172851458356453,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.004608282823384301,
+      "sourceDigest": "sha256:e53633478e89962d90697e9e38248db9a257d9888be03b00906a1473b030f139",
+      "sourceStepCount": 31,
+      "taskId": "webarena.171",
+      "truth": "inconclusive"
+    },
+    {
+      "candidateDigest": "sha256:9c4d1042fd40b4b57505dc5c3191697f0f464e098f743876283f99e8d23e67f4",
+      "candidateStepCount": 31,
+      "graph": {
+        "candidateEdges": 11,
+        "candidateNodes": 7,
+        "compositeSimilarity": 0.1875,
+        "edgeJaccard": 0.0,
+        "mergedNodes": 8,
+        "nodeJaccard": 0.375,
+        "sharedEdges": 0,
+        "sourceEdges": 4,
+        "sourceNodes": 4
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.3985456577729048,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.010140515221686719,
+      "sourceDigest": "sha256:1911e612b03bd05f6c2bc336e27ac30e0966661787dd18094b0839d864d2b0e8",
+      "sourceStepCount": 5,
+      "taskId": "webarena.177",
+      "truth": "divergent"
+    },
+    {
+      "candidateDigest": "sha256:6ef7bf6e1963ba4586b44ae356f45016b593bbbc4696753784760dddc9997419",
+      "candidateStepCount": 31,
+      "graph": {
+        "candidateEdges": 8,
+        "candidateNodes": 6,
+        "compositeSimilarity": 0.20512820512820512,
+        "edgeJaccard": 0.07692307692307693,
+        "mergedNodes": 9,
+        "nodeJaccard": 0.3333333333333333,
+        "sharedEdges": 1,
+        "sourceEdges": 6,
+        "sourceNodes": 6
+      },
+      "graphPrediction": "divergent",
+      "semanticCosine": 0.35962939435484687,
+      "semanticPrediction": "divergent",
+      "semanticProbability": 0.006954416065286166,
+      "sourceDigest": "sha256:d909ff3ac680292954066a334f720c40b23ce3af962abb9ee0fc0a7680bbbd62",
+      "sourceStepCount": 7,
+      "taskId": "webarena.185",
+      "truth": "divergent"
+    }
+  ],
+  "version": "0.1.0"
+}

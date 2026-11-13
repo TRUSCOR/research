@@ -1,0 +1,5919 @@
+{
+  "artifactType": "sova.private-research-result",
+  "conformance": {
+    "count": 60,
+    "decision_errors": {
+      "calibration": {
+        "applicable": false,
+        "reason": "The deterministic prototype emits categorical decisions, not probabilistic confidence scores."
+      },
+      "denominators": {
+        "accepted_truth": 12,
+        "nonaccepted_truth": 48
+      },
+      "false_accept_rate": 0.0,
+      "false_accepts": 0,
+      "false_reject_rate": 0.0,
+      "false_rejects": 0
+    },
+    "decision_overhead": {
+      "batches": 100,
+      "calls": 10000,
+      "calls_per_batch": 100,
+      "limitations": [
+        "This isolates the in-process decision function and excludes executor, I/O, and trace cost.",
+        "The result is engineering evidence from one CPU, not a public performance claim."
+      ],
+      "mean_microseconds_per_call": 12.055599999999997,
+      "median_microseconds_per_call": 10.905999999999999,
+      "p95_microseconds_per_call": 17.387,
+      "reference_machine_only": true
+    },
+    "labels": {
+      "conformant": 12,
+      "inconclusive": 12,
+      "nonconformant": 24,
+      "unsupported": 12
+    },
+    "metrics": {
+      "candidate": {
+        "accuracy": 1.0,
+        "confusion": {
+          "conformant": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "inconclusive": {
+            "conformant": 0,
+            "inconclusive": 12,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "nonconformant": {
+            "conformant": 0,
+            "inconclusive": 0,
+            "nonconformant": 24,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "conformant": 0,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 12
+          }
+        },
+        "macro_f1": 1.0,
+        "per_class": {
+          "conformant": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 12
+          },
+          "inconclusive": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 12
+          },
+          "nonconformant": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "unsupported": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 12
+          }
+        }
+      },
+      "capability_only": {
+        "accuracy": 0.2,
+        "confusion": {
+          "conformant": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "inconclusive": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "nonconformant": {
+            "conformant": 24,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          }
+        },
+        "macro_f1": 0.08333333333333334,
+        "per_class": {
+          "conformant": {
+            "f1": 0.33333333333333337,
+            "fn": 0,
+            "fp": 48,
+            "precision": 0.2,
+            "recall": 1.0,
+            "tp": 12
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 12,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "nonconformant": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsupported": {
+            "f1": 0.0,
+            "fn": 12,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "exact_output": {
+        "accuracy": 0.4166666666666667,
+        "confusion": {
+          "conformant": {
+            "conformant": 1,
+            "inconclusive": 0,
+            "nonconformant": 11,
+            "unsupported": 0
+          },
+          "inconclusive": {
+            "conformant": 0,
+            "inconclusive": 0,
+            "nonconformant": 12,
+            "unsupported": 0
+          },
+          "nonconformant": {
+            "conformant": 0,
+            "inconclusive": 0,
+            "nonconformant": 24,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "conformant": 0,
+            "inconclusive": 0,
+            "nonconformant": 12,
+            "unsupported": 0
+          }
+        },
+        "macro_f1": 0.1830398517145505,
+        "per_class": {
+          "conformant": {
+            "f1": 0.15384615384615385,
+            "fn": 11,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.08333333333333333,
+            "tp": 1
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 12,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "nonconformant": {
+            "f1": 0.5783132530120482,
+            "fn": 0,
+            "fp": 35,
+            "precision": 0.4067796610169492,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "unsupported": {
+            "f1": 0.0,
+            "fn": 12,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "no_independent_observation": {
+        "accuracy": 0.6,
+        "confusion": {
+          "conformant": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "inconclusive": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "nonconformant": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 12,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "conformant": 0,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 12
+          }
+        },
+        "macro_f1": 0.5416666666666666,
+        "per_class": {
+          "conformant": {
+            "f1": 0.5,
+            "fn": 0,
+            "fp": 24,
+            "precision": 0.3333333333333333,
+            "recall": 1.0,
+            "tp": 12
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 12,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "nonconformant": {
+            "f1": 0.6666666666666666,
+            "fn": 12,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.5,
+            "tp": 12
+          },
+          "unsupported": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 12
+          }
+        }
+      },
+      "provider_status": {
+        "accuracy": 0.4,
+        "confusion": {
+          "conformant": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "inconclusive": {
+            "conformant": 12,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "nonconformant": {
+            "conformant": 24,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 0
+          },
+          "unsupported": {
+            "conformant": 0,
+            "inconclusive": 0,
+            "nonconformant": 0,
+            "unsupported": 12
+          }
+        },
+        "macro_f1": 0.35,
+        "per_class": {
+          "conformant": {
+            "f1": 0.4,
+            "fn": 0,
+            "fp": 36,
+            "precision": 0.25,
+            "recall": 1.0,
+            "tp": 12
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 12,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "nonconformant": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsupported": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 12
+          }
+        }
+      }
+    },
+    "rows": [
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "conformant",
+        "id": "executor-000",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-001",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-002",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-003",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-004",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-005",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-006",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-007",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-008",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-009",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-010",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-011",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-012",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-013",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-014",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-015",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-016",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-017",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-018",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-019",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-020",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-021",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-022",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-023",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-024",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-025",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-026",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-027",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-028",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-029",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-030",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-031",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-032",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-033",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-034",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-035",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-036",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-037",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-038",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-039",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-040",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-041",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-042",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-043",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-044",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-045",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-046",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-047",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-048",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-049",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-050",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-051",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-052",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-053",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-054",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "conformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-055",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "conformant"
+      },
+      {
+        "candidate": "inconclusive",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-056",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-057",
+        "no_independent_observation": "conformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      },
+      {
+        "candidate": "unsupported",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-058",
+        "no_independent_observation": "unsupported",
+        "provider_status": "unsupported",
+        "truth": "unsupported"
+      },
+      {
+        "candidate": "nonconformant",
+        "capability_only": "conformant",
+        "exact_output": "nonconformant",
+        "id": "executor-059",
+        "no_independent_observation": "nonconformant",
+        "provider_status": "conformant",
+        "truth": "nonconformant"
+      }
+    ]
+  },
+  "corrected_v0_2_thresholds_passed": true,
+  "durationSeconds": 10.820386799998232,
+  "fidelity": {
+    "count": 120,
+    "decision_errors": {
+      "calibration": {
+        "applicable": false,
+        "reason": "The deterministic prototype emits categorical decisions, not probabilistic confidence scores."
+      },
+      "denominators": {
+        "accepted_truth": 20,
+        "nonaccepted_truth": 100
+      },
+      "false_accept_rate": 0.0,
+      "false_accepts": 0,
+      "false_reject_rate": 0.0,
+      "false_rejects": 0
+    },
+    "disclosure": {
+      "attack_detection_rate": 1.0,
+      "checks": [
+        {
+          "name": "valid",
+          "passed": true
+        },
+        {
+          "name": "tamper-0-event",
+          "passed": true
+        },
+        {
+          "name": "tamper-1-nonce",
+          "passed": true
+        },
+        {
+          "name": "tamper-2-digest",
+          "passed": true
+        },
+        {
+          "name": "tamper-3-root",
+          "passed": true
+        },
+        {
+          "name": "tamper-4-sequence",
+          "passed": true
+        }
+      ],
+      "closure_complete": true,
+      "disclosed_fraction": 0.75,
+      "irrelevant_event_hidden": true,
+      "valid_bundle_verified": true
+    },
+    "labels": {
+      "inconclusive": 100,
+      "supported": 20
+    },
+    "metrics": {
+      "candidate": {
+        "accuracy": 1.0,
+        "confusion": {
+          "inconclusive": {
+            "inconclusive": 100,
+            "supported": 0,
+            "weakened": 0
+          },
+          "supported": {
+            "inconclusive": 0,
+            "supported": 20,
+            "weakened": 0
+          },
+          "weakened": {
+            "inconclusive": 0,
+            "supported": 0,
+            "weakened": 0
+          }
+        },
+        "macro_f1": 0.6666666666666666,
+        "per_class": {
+          "inconclusive": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 100
+          },
+          "supported": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 20
+          },
+          "weakened": {
+            "f1": 0.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "full_share": {
+        "accuracy": 0.16666666666666666,
+        "confusion": {
+          "inconclusive": {
+            "inconclusive": 0,
+            "supported": 100,
+            "weakened": 0
+          },
+          "supported": {
+            "inconclusive": 0,
+            "supported": 20,
+            "weakened": 0
+          },
+          "weakened": {
+            "inconclusive": 0,
+            "supported": 0,
+            "weakened": 0
+          }
+        },
+        "macro_f1": 0.09523809523809523,
+        "per_class": {
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 100,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "supported": {
+            "f1": 0.2857142857142857,
+            "fn": 0,
+            "fp": 100,
+            "precision": 0.16666666666666666,
+            "recall": 1.0,
+            "tp": 20
+          },
+          "weakened": {
+            "f1": 0.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "integrity_only": {
+        "accuracy": 0.3333333333333333,
+        "confusion": {
+          "inconclusive": {
+            "inconclusive": 20,
+            "supported": 80,
+            "weakened": 0
+          },
+          "supported": {
+            "inconclusive": 0,
+            "supported": 20,
+            "weakened": 0
+          },
+          "weakened": {
+            "inconclusive": 0,
+            "supported": 0,
+            "weakened": 0
+          }
+        },
+        "macro_f1": 0.22222222222222224,
+        "per_class": {
+          "inconclusive": {
+            "f1": 0.33333333333333337,
+            "fn": 80,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.2,
+            "tp": 20
+          },
+          "supported": {
+            "f1": 0.33333333333333337,
+            "fn": 0,
+            "fp": 80,
+            "precision": 0.2,
+            "recall": 1.0,
+            "tp": 20
+          },
+          "weakened": {
+            "f1": 0.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "no_causal_requirements": {
+        "accuracy": 0.8333333333333334,
+        "confusion": {
+          "inconclusive": {
+            "inconclusive": 80,
+            "supported": 20,
+            "weakened": 0
+          },
+          "supported": {
+            "inconclusive": 0,
+            "supported": 20,
+            "weakened": 0
+          },
+          "weakened": {
+            "inconclusive": 0,
+            "supported": 0,
+            "weakened": 0
+          }
+        },
+        "macro_f1": 0.5185185185185185,
+        "per_class": {
+          "inconclusive": {
+            "f1": 0.888888888888889,
+            "fn": 20,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.8,
+            "tp": 80
+          },
+          "supported": {
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 20,
+            "precision": 0.5,
+            "recall": 1.0,
+            "tp": 20
+          },
+          "weakened": {
+            "f1": 0.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "no_content_requirements": {
+        "accuracy": 0.8333333333333334,
+        "confusion": {
+          "inconclusive": {
+            "inconclusive": 80,
+            "supported": 20,
+            "weakened": 0
+          },
+          "supported": {
+            "inconclusive": 0,
+            "supported": 20,
+            "weakened": 0
+          },
+          "weakened": {
+            "inconclusive": 0,
+            "supported": 0,
+            "weakened": 0
+          }
+        },
+        "macro_f1": 0.5185185185185185,
+        "per_class": {
+          "inconclusive": {
+            "f1": 0.888888888888889,
+            "fn": 20,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 0.8,
+            "tp": 80
+          },
+          "supported": {
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 20,
+            "precision": 0.5,
+            "recall": 1.0,
+            "tp": 20
+          },
+          "weakened": {
+            "f1": 0.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "profile_only": {
+        "accuracy": 0.16666666666666666,
+        "confusion": {
+          "inconclusive": {
+            "inconclusive": 0,
+            "supported": 100,
+            "weakened": 0
+          },
+          "supported": {
+            "inconclusive": 0,
+            "supported": 20,
+            "weakened": 0
+          },
+          "weakened": {
+            "inconclusive": 0,
+            "supported": 0,
+            "weakened": 0
+          }
+        },
+        "macro_f1": 0.09523809523809523,
+        "per_class": {
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 100,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "supported": {
+            "f1": 0.2857142857142857,
+            "fn": 0,
+            "fp": 100,
+            "precision": 0.16666666666666666,
+            "recall": 1.0,
+            "tp": 20
+          },
+          "weakened": {
+            "f1": 0.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      }
+    },
+    "rows": [
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-000",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-001",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-002",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-003",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-004",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-005",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-006",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-007",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-008",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-009",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-010",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-011",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-012",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-013",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-014",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-015",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-016",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-017",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-018",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-019",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-020",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-021",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-022",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-023",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-024",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-025",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-026",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-027",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-028",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-029",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-030",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-031",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-032",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-033",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-034",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-035",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-036",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-037",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-038",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-039",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-040",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-041",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-042",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-043",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-044",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-045",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-046",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-047",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-048",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-049",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-050",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-051",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-052",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-053",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-054",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-055",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-056",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-057",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-058",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-059",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-060",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-061",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-062",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-063",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-064",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-065",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-066",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-067",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-068",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-069",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-070",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-071",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-072",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-073",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-074",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-075",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-076",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-077",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-078",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-079",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-080",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-081",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-082",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-083",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-084",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-085",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-086",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-087",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-088",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-089",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-090",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-091",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-092",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-093",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-094",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-095",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-096",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-097",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-098",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-099",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-100",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-101",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-102",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-103",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-104",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-105",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-106",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-107",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-108",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-109",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-110",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-111",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-112",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-113",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "supported",
+        "full_share": "supported",
+        "id": "fidelity-114",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "supported"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-115",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "supported",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-116",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-117",
+        "integrity_only": "inconclusive",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-118",
+        "integrity_only": "supported",
+        "no_causal_requirements": "supported",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      },
+      {
+        "candidate": "inconclusive",
+        "full_share": "supported",
+        "id": "fidelity-119",
+        "integrity_only": "supported",
+        "no_causal_requirements": "inconclusive",
+        "no_content_requirements": "inconclusive",
+        "profile_only": "supported",
+        "truth": "inconclusive"
+      }
+    ]
+  },
+  "generatedAt": "2026-07-31",
+  "initial_v0_1_thresholds_passed": false,
+  "limitations": [
+    "Synthetic deterministic evidence does not establish real-model generalization.",
+    "The corpora were generated by the same research team as the prototype.",
+    "Recent preprint baselines have not yet been independently reproduced here.",
+    "No adoption, novelty, patentability, or publication-acceptance claim follows."
+  ],
+  "protocol": "topics-04-06-corrected/0.1.0",
+  "seed": 20260731,
+  "semantic": {
+    "count": 144,
+    "decision_errors": {
+      "calibration": {
+        "applicable": false,
+        "reason": "The deterministic prototype emits categorical decisions, not probabilistic confidence scores."
+      },
+      "denominators": {
+        "accepted_truth": 24,
+        "nonaccepted_truth": 120
+      },
+      "false_accept_rate": 0.0,
+      "false_accepts": 0,
+      "false_reject_rate": 0.0,
+      "false_rejects": 0
+    },
+    "exact_interval": {
+      "aggregate_coverage": 0.9750827437369661,
+      "cells": [
+        {
+          "coverage": 0.9884964426207028,
+          "n": 10,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9840984739802355,
+          "n": 20,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9882135522027337,
+          "n": 50,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9826070607121773,
+          "n": 100,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9872048016000002,
+          "n": 10,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9887468658354914,
+          "n": 20,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9703082890880897,
+          "n": 50,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9556901071912257,
+          "n": 100,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9802722930908203,
+          "n": 10,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9618229581910782,
+          "n": 20,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9666915191609466,
+          "n": 50,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9624626377010249,
+          "n": 100,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.978515625,
+          "n": 10,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9586105346679688,
+          "n": 20,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9671608624357315,
+          "n": 50,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9647997997822952,
+          "n": 100,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9802722930908203,
+          "n": 10,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9618229581910782,
+          "n": 20,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9666915191609468,
+          "n": 50,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9624626377010251,
+          "n": 100,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9872048016000001,
+          "n": 10,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9887468658354911,
+          "n": 20,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9703082890880883,
+          "n": 50,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.955690107191223,
+          "n": 100,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9884964426207031,
+          "n": 10,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.9840984739802363,
+          "n": 20,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.9882135522027357,
+          "n": 50,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.9826070607121813,
+          "n": 100,
+          "p": 0.95
+        }
+      ],
+      "minimum_cell_coverage": 0.955690107191223
+    },
+    "labels": {
+      "divergent": 24,
+      "equivalent": 24,
+      "evidence-invalid": 24,
+      "incompatible": 24,
+      "inconclusive": 24,
+      "unsafe": 24
+    },
+    "metrics": {
+      "candidate": {
+        "accuracy": 1.0,
+        "confusion": {
+          "divergent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 24,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 24,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 24,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 24
+          }
+        },
+        "macro_f1": 1.0,
+        "per_class": {
+          "divergent": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "equivalent": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "evidence-invalid": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "incompatible": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "inconclusive": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "unsafe": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          }
+        }
+      },
+      "exact_trace": {
+        "accuracy": 0.16666666666666666,
+        "confusion": {
+          "divergent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          }
+        },
+        "macro_f1": 0.1111111111111111,
+        "per_class": {
+          "divergent": {
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 24,
+            "precision": 0.5,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "equivalent": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 96,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "evidence-invalid": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "incompatible": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsafe": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "final_payload": {
+        "accuracy": 0.0,
+        "confusion": {
+          "divergent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          }
+        },
+        "macro_f1": 0.0,
+        "per_class": {
+          "divergent": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 24,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "equivalent": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 120,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "evidence-invalid": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "incompatible": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsafe": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "inconclusive_as_failure": {
+        "accuracy": 0.8333333333333334,
+        "confusion": {
+          "divergent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 24,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 24,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 24
+          }
+        },
+        "macro_f1": 0.7777777777777777,
+        "per_class": {
+          "divergent": {
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 24,
+            "precision": 0.5,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "equivalent": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "evidence-invalid": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "incompatible": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsafe": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          }
+        }
+      },
+      "inconclusive_as_success": {
+        "accuracy": 0.8333333333333334,
+        "confusion": {
+          "divergent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 24,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 24,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 24
+          }
+        },
+        "macro_f1": 0.7777777777777777,
+        "per_class": {
+          "divergent": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "equivalent": {
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 24,
+            "precision": 0.5,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "evidence-invalid": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "incompatible": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsafe": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          }
+        }
+      },
+      "no_context_envelope": {
+        "accuracy": 0.8333333333333334,
+        "confusion": {
+          "divergent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 24,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 24,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 24
+          }
+        },
+        "macro_f1": 0.7777777777777777,
+        "per_class": {
+          "divergent": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "equivalent": {
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 24,
+            "precision": 0.5,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "evidence-invalid": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "incompatible": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "inconclusive": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "unsafe": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          }
+        }
+      },
+      "no_evidence_validity": {
+        "accuracy": 0.8333333333333334,
+        "confusion": {
+          "divergent": {
+            "divergent": 24,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 24,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 24,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 0,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 24
+          }
+        },
+        "macro_f1": 0.7777777777777777,
+        "per_class": {
+          "divergent": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "equivalent": {
+            "f1": 0.6666666666666666,
+            "fn": 0,
+            "fp": 24,
+            "precision": 0.5,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "evidence-invalid": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "incompatible": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "inconclusive": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "unsafe": {
+            "f1": 1.0,
+            "fn": 0,
+            "fp": 0,
+            "precision": 1.0,
+            "recall": 1.0,
+            "tp": 24
+          }
+        }
+      },
+      "terminal_status": {
+        "accuracy": 0.16666666666666666,
+        "confusion": {
+          "divergent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          }
+        },
+        "macro_f1": 0.047619047619047616,
+        "per_class": {
+          "divergent": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "equivalent": {
+            "f1": 0.2857142857142857,
+            "fn": 0,
+            "fp": 120,
+            "precision": 0.16666666666666666,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "evidence-invalid": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "incompatible": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsafe": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      },
+      "untyped_kinds": {
+        "accuracy": 0.16666666666666666,
+        "confusion": {
+          "divergent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "equivalent": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "evidence-invalid": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "incompatible": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "inconclusive": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          },
+          "unsafe": {
+            "divergent": 0,
+            "equivalent": 24,
+            "evidence-invalid": 0,
+            "incompatible": 0,
+            "inconclusive": 0,
+            "unsafe": 0
+          }
+        },
+        "macro_f1": 0.047619047619047616,
+        "per_class": {
+          "divergent": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "equivalent": {
+            "f1": 0.2857142857142857,
+            "fn": 0,
+            "fp": 120,
+            "precision": 0.16666666666666666,
+            "recall": 1.0,
+            "tp": 24
+          },
+          "evidence-invalid": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "incompatible": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "inconclusive": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          },
+          "unsafe": {
+            "f1": 0.0,
+            "fn": 24,
+            "fp": 0,
+            "precision": 0.0,
+            "recall": 0.0,
+            "tp": 0
+          }
+        }
+      }
+    },
+    "profiles": {
+      "evaluation": 24,
+      "incident": 24,
+      "interpretability": 24,
+      "publication": 24,
+      "security": 24,
+      "trajectory": 24
+    },
+    "recomputation": {
+      "estimate": {
+        "conclusive_rate": 0.6666666666666666,
+        "divergences": 1,
+        "evidence_invalid": 1,
+        "exact_high": 0.9915962413403874,
+        "exact_low": 0.09429932405024594,
+        "identification_high": 0.75,
+        "identification_low": 0.5,
+        "incompatible": 1,
+        "inconclusive": 1,
+        "method": "sova.reproduction-rate/exact-wilson-partial-identification-0.2",
+        "successes": 2,
+        "unsafe": 1,
+        "wilson_high": 0.9385080552796037,
+        "wilson_low": 0.2076596008020477
+      },
+      "order_independent": true
+    },
+    "rows": [
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "security-000",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "security-001",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-002",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-003",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-004",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-005",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "security-006",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "security-007",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-008",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-009",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-010",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-011",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "security-012",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "security-013",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-014",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-015",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-016",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-017",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "security-018",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "security-019",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-020",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-021",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-022",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "security-023",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "security",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "evaluation-000",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "evaluation-001",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-002",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-003",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-004",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-005",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "evaluation-006",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "evaluation-007",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-008",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-009",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-010",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-011",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "evaluation-012",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "evaluation-013",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-014",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-015",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-016",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-017",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "evaluation-018",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "evaluation-019",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-020",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-021",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-022",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "evaluation-023",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "evaluation",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "trajectory-000",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "trajectory-001",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-002",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-003",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-004",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-005",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "trajectory-006",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "trajectory-007",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-008",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-009",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-010",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-011",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "trajectory-012",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "trajectory-013",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-014",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-015",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-016",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-017",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "trajectory-018",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "trajectory-019",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-020",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-021",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-022",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "trajectory-023",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "trajectory",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "interpretability-000",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "interpretability-001",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-002",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-003",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-004",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-005",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "interpretability-006",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "interpretability-007",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-008",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-009",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-010",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-011",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "interpretability-012",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "interpretability-013",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-014",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-015",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-016",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-017",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "interpretability-018",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "interpretability-019",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-020",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-021",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-022",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "interpretability-023",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "interpretability",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "incident-000",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "incident-001",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-002",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-003",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-004",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-005",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "incident-006",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "incident-007",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-008",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-009",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-010",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-011",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "incident-012",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "incident-013",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-014",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-015",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-016",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-017",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "incident-018",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "incident-019",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-020",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-021",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-022",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "incident-023",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "incident",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "publication-000",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "publication-001",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-002",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-003",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-004",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-005",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "publication-006",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "publication-007",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-008",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-009",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-010",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-011",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "publication-012",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "publication-013",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-014",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-015",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-016",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-017",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "equivalent",
+        "exact_trace": "divergent",
+        "final_payload": "divergent",
+        "id": "publication-018",
+        "inconclusive_as_failure": "equivalent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "equivalent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "divergent",
+        "exact_trace": "divergent",
+        "final_payload": "equivalent",
+        "id": "publication-019",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "divergent",
+        "no_context_envelope": "divergent",
+        "no_evidence_validity": "divergent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "divergent",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "inconclusive",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-020",
+        "inconclusive_as_failure": "divergent",
+        "inconclusive_as_success": "equivalent",
+        "no_context_envelope": "inconclusive",
+        "no_evidence_validity": "inconclusive",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "inconclusive",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "incompatible",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-021",
+        "inconclusive_as_failure": "incompatible",
+        "inconclusive_as_success": "incompatible",
+        "no_context_envelope": "equivalent",
+        "no_evidence_validity": "incompatible",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "incompatible",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "unsafe",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-022",
+        "inconclusive_as_failure": "unsafe",
+        "inconclusive_as_success": "unsafe",
+        "no_context_envelope": "unsafe",
+        "no_evidence_validity": "unsafe",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "unsafe",
+        "untyped_kinds": "equivalent"
+      },
+      {
+        "candidate": "evidence-invalid",
+        "exact_trace": "equivalent",
+        "final_payload": "equivalent",
+        "id": "publication-023",
+        "inconclusive_as_failure": "evidence-invalid",
+        "inconclusive_as_success": "evidence-invalid",
+        "no_context_envelope": "evidence-invalid",
+        "no_evidence_validity": "equivalent",
+        "profile": "publication",
+        "terminal_status": "equivalent",
+        "truth": "evidence-invalid",
+        "untyped_kinds": "equivalent"
+      }
+    ],
+    "wilson": {
+      "aggregate_coverage": 0.949375,
+      "cells": [
+        {
+          "coverage": 0.914,
+          "n": 10,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.921,
+          "n": 20,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9655,
+          "n": 50,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.964,
+          "n": 100,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.932,
+          "n": 10,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9585,
+          "n": 20,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.971,
+          "n": 50,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.939,
+          "n": 100,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9775,
+          "n": 10,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9385,
+          "n": 20,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.954,
+          "n": 50,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9485,
+          "n": 100,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9765,
+          "n": 10,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.957,
+          "n": 20,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.939,
+          "n": 50,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.944,
+          "n": 100,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9795,
+          "n": 10,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.938,
+          "n": 20,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9545,
+          "n": 50,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9515,
+          "n": 100,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.928,
+          "n": 10,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9585,
+          "n": 20,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.97,
+          "n": 50,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.938,
+          "n": 100,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.915,
+          "n": 10,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.9255,
+          "n": 20,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.954,
+          "n": 50,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.97,
+          "n": 100,
+          "p": 0.95
+        }
+      ],
+      "minimum_cell_coverage": 0.914,
+      "repeats_per_cell": 2000,
+      "seed": 20260731
+    },
+    "wilson_analytic": {
+      "aggregate_coverage": 0.9489788859866509,
+      "cells": [
+        {
+          "coverage": 0.9138616441006833,
+          "n": 10,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9245163262115028,
+          "n": 20,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9622238270102207,
+          "n": 50,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9658911766162459,
+          "n": 100,
+          "p": 0.05
+        },
+        {
+          "coverage": 0.9298091736000003,
+          "n": 10,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9568255047155371,
+          "n": 20,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9703082890880897,
+          "n": 50,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9363983902254425,
+          "n": 100,
+          "p": 0.1
+        },
+        {
+          "coverage": 0.9802722930908203,
+          "n": 10,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9347622074283208,
+          "n": 20,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9518759680040765,
+          "n": 50,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.9512948142448159,
+          "n": 100,
+          "p": 0.25
+        },
+        {
+          "coverage": 0.978515625,
+          "n": 10,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9586105346679688,
+          "n": 20,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9350913529277278,
+          "n": 50,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9431120663590193,
+          "n": 100,
+          "p": 0.5
+        },
+        {
+          "coverage": 0.9802722930908203,
+          "n": 10,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9347622074283208,
+          "n": 20,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9518759680040764,
+          "n": 50,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9512948142448161,
+          "n": 100,
+          "p": 0.75
+        },
+        {
+          "coverage": 0.9298091736,
+          "n": 10,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9568255047155366,
+          "n": 20,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9703082890880883,
+          "n": 50,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9363983902254399,
+          "n": 100,
+          "p": 0.9
+        },
+        {
+          "coverage": 0.9138616441006835,
+          "n": 10,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.9245163262115035,
+          "n": 20,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.9622238270102225,
+          "n": 50,
+          "p": 0.95
+        },
+        {
+          "coverage": 0.9658911766162499,
+          "n": 100,
+          "p": 0.95
+        }
+      ],
+      "minimum_cell_coverage": 0.9138616441006833
+    }
+  },
+  "thresholds": {
+    "m04_baseline_delta": true,
+    "m04_exact_minimum_cell_coverage_v0_2": true,
+    "m04_macro_f1": true,
+    "m04_recomputable": true,
+    "m04_unsafe_false_equivalence_zero": true,
+    "m04_wilson_aggregate_coverage": true,
+    "m04_wilson_minimum_cell_coverage_v0_1": false,
+    "m05_accuracy": true,
+    "m05_attacks": true,
+    "m05_closure": true,
+    "m05_no_false_support": true,
+    "m06_accuracy": true,
+    "m06_baseline_delta": true,
+    "m06_no_self_attested_success": true
+  }
+}

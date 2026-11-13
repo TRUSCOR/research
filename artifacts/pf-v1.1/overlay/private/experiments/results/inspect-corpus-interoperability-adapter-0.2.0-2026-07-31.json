@@ -1,0 +1,288 @@
+{
+  "artifactType": "sova.private-inspect-corpus-interoperability",
+  "claimBoundary": "Pinned official test-log JSON corpus. Accepted imports are explicitly lossy; refusals outside version/shape contract are valid outcomes; binary .eval support and general Inspect interoperability are not claimed.",
+  "generatedAt": "2026-07-31T04:31:31.361367Z",
+  "organization": "TRUSCOR Private Limited",
+  "owner": "Gautam R. Patil",
+  "rows": [
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 405566,
+      "sourceDigest": "sha256:e19b39ad6bf6358cd79ab3b71495b27cafde6835df72648b2988ef0af326d327",
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-27-36-04-00_browser.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "completion": "cancelled",
+      "emittedEvents": 2,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 0,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 3230,
+      "sourceDigest": "sha256:b5e483498324b2d18beda512660a61a2858b659f1ef4c0e726c23f41979fdc63",
+      "sourceEvents": 0,
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_no-samples.json",
+      "sourceSamples": 0,
+      "sourceShape": {
+        "events": 0,
+        "samples": 0,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:a6563ecec1fe746e56037c8f2578c2ef9b8e8c51f0cdd7f5e8c77d91862bf6f8",
+      "verifiedEvents": 2
+    },
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 42667,
+      "sourceDigest": "sha256:85cd23ca8e6f5adba046db1e0d97e9b9a52c604fd3eed0f99bc27d734c308e3b",
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_popularity.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 3,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 110518,
+      "sourceDigest": "sha256:44f6203d88252de0c33f76c948ad7c537b412cff628c704e9a5449ffba9d5a34",
+      "sourcePath": "tests/analysis/test_logs/2025-05-12T20-28-26-04-00_security-guide.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 3,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 16,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 3,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 11469,
+      "sourceDigest": "sha256:b36b887e44701701d87a7bd8bac7f9fafb2804731491b3125b3917fb7968a825",
+      "sourceEvents": 11,
+      "sourcePath": "tests/log/test_eval_log/log_formats.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 11,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:3943559e306e5689db4de86caee2174b7026af342508d8f080c6d5df2a5878cc",
+      "verifiedEvents": 16
+    },
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 30703,
+      "sourceDigest": "sha256:84fa01055302621c5650f330a502750c29c369229418157cca6984d4659e91ab",
+      "sourcePath": "tests/log/test_eval_log/log_images.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 16,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 3,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 48350,
+      "sourceDigest": "sha256:66f705401c5aa9bbad26442eac615543d25fc1331f40ef97e97687588b62524c",
+      "sourceEvents": 11,
+      "sourcePath": "tests/log/test_eval_log/log_images_tc.json",
+      "sourceSamples": 1,
+      "sourceShape": {
+        "events": 11,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:38982d910723b4f915937489ad497f0008170cfa86ce2cb8b61e9dd1b474f5b6",
+      "verifiedEvents": 16
+    },
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 16639,
+      "sourceDigest": "sha256:c93f1468e69e66d6f27330013052df882dfd9f3dd4ab438b70d2ca0ed9f1b57f",
+      "sourcePath": "tests/log/test_eval_log/log_read_sample.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 6195,
+      "sourceDigest": "sha256:7d175484ebdface70b32e5b1611426e5a8c5e629c159953c5e481933a816dbc6",
+      "sourcePath": "tests/log/test_eval_log/log_tool_call_error.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 25290,
+      "sourceDigest": "sha256:db3fc7411ef66480b3fc0dd74b42886990b1989ccb7c87b0ec3b3819ba0cd6e1",
+      "sourcePath": "tests/log/test_list_logs/2024-11-05T13-31-45-05-00_input-task_8zXjbRzCWrL9GXiXo2vus9.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "issue": {
+        "code": "SOVA-INSPECT-IMPORT",
+        "message": "expected an object",
+        "path": "$.samples[0].transcript"
+      },
+      "sourceBytes": 25290,
+      "sourceDigest": "sha256:db3fc7411ef66480b3fc0dd74b42886990b1989ccb7c87b0ec3b3819ba0cd6e1",
+      "sourcePath": "tests/log/test_list_logs/ignore.json",
+      "sourceShape": {
+        "events": 0,
+        "samples": 1,
+        "version": 2
+      },
+      "status": "refused"
+    },
+    {
+      "completion": "completed",
+      "emittedEvents": 2,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 0,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 1530,
+      "sourceDigest": "sha256:6e6ba958bacaa748684bf8587e3bfe2420feb806e1d91d8f923183f6a7b612bb",
+      "sourceEvents": 0,
+      "sourcePath": "tests/test_eval_set/2024-08-29T15-11-17+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json",
+      "sourceSamples": 0,
+      "sourceShape": {
+        "events": 0,
+        "samples": 0,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:4659a537b82b990fb18975e087897a5fb81303d7dffe575b330ccb7cc3eb20d2",
+      "verifiedEvents": 2
+    },
+    {
+      "completion": "failed",
+      "emittedEvents": 2,
+      "lossless": false,
+      "omissionProbe": {
+        "contentFieldsChecked": 0,
+        "contentPolicyViolations": 0,
+        "sourceObjectViolations": 0
+      },
+      "sourceBytes": 1528,
+      "sourceDigest": "sha256:5aa539464399cb36d9ed5820960da34caa9f8568b42571f8a2371f9b4589220d",
+      "sourceEvents": 0,
+      "sourcePath": "tests/test_eval_set/2024-08-29T15-11-18+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json",
+      "sourceSamples": 0,
+      "sourceShape": {
+        "events": 0,
+        "samples": 0,
+        "version": 2
+      },
+      "status": "accepted",
+      "traceDigest": "sha256:b36429b09ee62b6f36c86aae9f8552ee5064e9d7a27ab4aed83909c6dc11d36d",
+      "verifiedEvents": 2
+    }
+  ],
+  "source": {
+    "adapterVersion": "0.2.0",
+    "commit": "1ea01a9e1b3c94db3cdf93ce5583ffebf86e159f",
+    "rawFixturesRedistributed": false,
+    "repository": "UKGovernmentBEIS/inspect_ai",
+    "selection": [
+      "tests/analysis/test_logs/2025-05-12T20-27-36-04-00_browser.json",
+      "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_no-samples.json",
+      "tests/analysis/test_logs/2025-05-12T20-28-13-04-00_popularity.json",
+      "tests/analysis/test_logs/2025-05-12T20-28-26-04-00_security-guide.json",
+      "tests/log/test_eval_log/log_formats.json",
+      "tests/log/test_eval_log/log_images.json",
+      "tests/log/test_eval_log/log_images_tc.json",
+      "tests/log/test_eval_log/log_read_sample.json",
+      "tests/log/test_eval_log/log_tool_call_error.json",
+      "tests/log/test_list_logs/2024-11-05T13-31-45-05-00_input-task_8zXjbRzCWrL9GXiXo2vus9.json",
+      "tests/log/test_list_logs/ignore.json",
+      "tests/test_eval_set/2024-08-29T15-11-17+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json",
+      "tests/test_eval_set/2024-08-29T15-11-18+00-00_popularity_5EAmX6wjMFqea6WY7XHzZp.json"
+    ]
+  },
+  "summary": {
+    "accepted": 5,
+    "allAcceptedImportsDeclaredLossy": true,
+    "allAcceptedTracesVerified": true,
+    "contentPolicyViolations": 0,
+    "emittedEvents": 38,
+    "files": 13,
+    "refused": 8,
+    "sourceBytes": 728975,
+    "sourceEventsAccepted": 22,
+    "sourceSamplesAccepted": 2,
+    "unexpectedErrors": 0,
+    "verifiedEvents": 38
+  },
+  "version": "0.1.0"
+}

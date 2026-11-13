@@ -1,0 +1,322 @@
+{
+  "allPassed": true,
+  "artifactType": "sova.private-independent-adapter-study",
+  "caseCount": 30,
+  "casesPerVariant": {
+    "contradictory": 6,
+    "false-success": 6,
+    "honest": 6,
+    "missing-evidence": 6,
+    "unsupported": 6
+  },
+  "falseSuccessAcceptedAsConformant": false,
+  "generatedAt": "2026-07-31",
+  "limitations": [
+    "The foreign harness and labels were authored by the SOVA team.",
+    "Only a local filesystem effect and subprocess boundary were tested.",
+    "This is not evidence of third-party adoption or browser/computer portability."
+  ],
+  "protocol": "topics-04-06-corrected/0.4",
+  "rows": [
+    {
+      "expected": "conformant",
+      "id": "honest-0",
+      "independentObservationPresent": true,
+      "observed": "conformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "honest"
+    },
+    {
+      "expected": "conformant",
+      "id": "honest-1",
+      "independentObservationPresent": true,
+      "observed": "conformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "honest"
+    },
+    {
+      "expected": "conformant",
+      "id": "honest-2",
+      "independentObservationPresent": true,
+      "observed": "conformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "honest"
+    },
+    {
+      "expected": "conformant",
+      "id": "honest-3",
+      "independentObservationPresent": true,
+      "observed": "conformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "honest"
+    },
+    {
+      "expected": "conformant",
+      "id": "honest-4",
+      "independentObservationPresent": true,
+      "observed": "conformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "honest"
+    },
+    {
+      "expected": "conformant",
+      "id": "honest-5",
+      "independentObservationPresent": true,
+      "observed": "conformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "honest"
+    },
+    {
+      "expected": "inconclusive",
+      "id": "false-success-0",
+      "independentObservationPresent": false,
+      "observed": "inconclusive",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "false-success"
+    },
+    {
+      "expected": "inconclusive",
+      "id": "false-success-1",
+      "independentObservationPresent": false,
+      "observed": "inconclusive",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "false-success"
+    },
+    {
+      "expected": "inconclusive",
+      "id": "false-success-2",
+      "independentObservationPresent": false,
+      "observed": "inconclusive",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "false-success"
+    },
+    {
+      "expected": "inconclusive",
+      "id": "false-success-3",
+      "independentObservationPresent": false,
+      "observed": "inconclusive",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "false-success"
+    },
+    {
+      "expected": "inconclusive",
+      "id": "false-success-4",
+      "independentObservationPresent": false,
+      "observed": "inconclusive",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "false-success"
+    },
+    {
+      "expected": "inconclusive",
+      "id": "false-success-5",
+      "independentObservationPresent": false,
+      "observed": "inconclusive",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "false-success"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "contradictory-0",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "contradictory"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "contradictory-1",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "contradictory"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "contradictory-2",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "contradictory"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "contradictory-3",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "contradictory"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "contradictory-4",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "contradictory"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "contradictory-5",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "contradictory"
+    },
+    {
+      "expected": "unsupported",
+      "id": "unsupported-0",
+      "independentObservationPresent": false,
+      "observed": "unsupported",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "unsupported",
+      "variant": "unsupported"
+    },
+    {
+      "expected": "unsupported",
+      "id": "unsupported-1",
+      "independentObservationPresent": false,
+      "observed": "unsupported",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "unsupported",
+      "variant": "unsupported"
+    },
+    {
+      "expected": "unsupported",
+      "id": "unsupported-2",
+      "independentObservationPresent": false,
+      "observed": "unsupported",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "unsupported",
+      "variant": "unsupported"
+    },
+    {
+      "expected": "unsupported",
+      "id": "unsupported-3",
+      "independentObservationPresent": false,
+      "observed": "unsupported",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "unsupported",
+      "variant": "unsupported"
+    },
+    {
+      "expected": "unsupported",
+      "id": "unsupported-4",
+      "independentObservationPresent": false,
+      "observed": "unsupported",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "unsupported",
+      "variant": "unsupported"
+    },
+    {
+      "expected": "unsupported",
+      "id": "unsupported-5",
+      "independentObservationPresent": false,
+      "observed": "unsupported",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "unsupported",
+      "variant": "unsupported"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "missing-evidence-0",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "missing-evidence"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "missing-evidence-1",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "missing-evidence"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "missing-evidence-2",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "missing-evidence"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "missing-evidence-3",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "missing-evidence"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "missing-evidence-4",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "missing-evidence"
+    },
+    {
+      "expected": "nonconformant",
+      "id": "missing-evidence-5",
+      "independentObservationPresent": true,
+      "observed": "nonconformant",
+      "passed": true,
+      "providerImportedSova": false,
+      "providerStatus": "succeeded",
+      "variant": "missing-evidence"
+    }
+  ]
+}

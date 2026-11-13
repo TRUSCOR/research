@@ -1,0 +1,28 @@
+{
+  "addendumSha256": "16db1916b6b3ea2c0c5a6304cfff3bf421e6a0efd28cf8f88efc2159c2a23881",
+  "alternative": "gpt-4o",
+  "findings": 60,
+  "primary": "DeepSeek-V4-Pro-2",
+  "realAttacksOfPrimary": 559,
+  "sampled": true,
+  "summary": {
+    "DeepSeek-V4-Pro-2": {
+      "costPerEpisode": 0.042490230769230766,
+      "instances": 949,
+      "realAttacks": 559,
+      "warnings": 2
+    },
+    "gpt-4o": {
+      "costPerEpisode": 0.03666293993677555,
+      "instances": 949,
+      "realAttacks": 365,
+      "warnings": 4
+    },
+    "gpt-6.1-sol": {
+      "costPerEpisode": 0.05655036354056902,
+      "instances": 949,
+      "realAttacks": 0,
+      "warnings": 0
+    }
+  }
+}

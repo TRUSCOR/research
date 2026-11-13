@@ -1,0 +1,40 @@
+cff-version: 1.2.0
+message: "If you use this preprint, its data, or its .sova evidence, please cite it as below."
+type: dataset
+title: ".sova: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings"
+version: "1.1"
+date-released: "2026-11-13"
+license: CC-BY-4.0
+authors:
+  - family-names: "Patil"
+    given-names: "Gautam R."
+    affiliation: "TRUSCOR Private Limited"
+    email: "gautam@truscor.org"
+repository: "https://github.com/Gautam-R-Patil/sova-research"
+repository-code: "https://github.com/TRUSCOR/SOVA-OSS"
+url: "https://github.com/Gautam-R-Patil/sova-research/tree/main/artifacts/pf-v1.1"
+abstract: "Agent-security benchmarks score an attack as successful when an automated check passes, and the scores are reused as findings. We re-ran AgentDojo's prompt-injection attacks on eight models in its simulated bank, inbox, travel, and chat apps: 7,434 episodes under three frozen protocols, an addendum, and one post-hoc pass. On five Claude models, 340 of the 341 runs scored as attacked (21 distinct attack instances) were warnings to the user, 339 of them scored by a check for a hotel's name in the reply, and one warning still relayed the attacker's link. GPT-4o and DeepSeek-V4-Pro were scored as attacked in 39% and 68% of conclusive instances, and all 109 of their successes we read were real; GPT-6.1-sol was scored as attacked in 0 of 949. Attacks that succeeded in AgentDojo's published 2024 GPT-4o logs succeeded again on a 2026 snapshot in 85.3% of cases, against 23.1% of those that had failed (goal-stratified odds ratio 11.4). Two published prompt defenses left 91% and 87% of 60 real DeepSeek attacks working. To make such findings checkable, .sova packages a declared observable outcome, its context, and its evidence as an inert capsule. A research prototype compares a rerun with a finding through a typed context envelope and returns one of six states instead of a Boolean. Its test of whether the envelope predicts recurrence passed on conclusive runs only through the change of model, and is not identified once inconclusive runs are bounded. In 15,118 published logs from 22 models, 98 of 2,710 recorded successes came from runs that ended in an error or had no agent turn, and 18 user tasks and 11 goals were reworded between versions. Readings were AI-assisted and not blind. Code, data, and protocols are public; the re-run study, every reply we read, and four findings ship as .sova files from which the recurrence and reading counts recompute."
+keywords:
+  - "AI agent security"
+  - "prompt injection"
+  - "LLM agents"
+  - "reproducibility"
+  - "benchmark validity"
+  - "AgentDojo"
+  - "security evidence"
+  - "semantic reproduction"
+  - ".sova"
+preferred-citation:
+  type: article
+  status: preprint
+  title: ".sova: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings"
+  authors:
+    - family-names: "Patil"
+      given-names: "Gautam R."
+      affiliation: "TRUSCOR Private Limited"
+  year: 2026
+  month: 11
+  publisher:
+    name: "TRUSCOR Private Limited"
+  url: "https://github.com/Gautam-R-Patil/sova-research/blob/main/preprints/sova-portable-evidence-reproduction-v1.1.pdf"
+  notes: "Preprint version 1.1. Not peer reviewed."

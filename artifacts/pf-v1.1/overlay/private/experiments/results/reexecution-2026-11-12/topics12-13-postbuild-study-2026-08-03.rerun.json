@@ -1,0 +1,4214 @@
+{
+  "artifactType": "sova.private.topics12-13-postbuild-study",
+  "schemaVersion": "0.1.0",
+  "generatedAt": "2026-11-12T09:01:01.114033Z",
+  "protocol": "private/experiments/topics-12-14-predeclared-protocol-2026-08-03.md",
+  "environment": {
+    "python": "3.11.15",
+    "platform": "Windows-10-10.0.26300-SP0",
+    "networkUsed": false,
+    "modelUsed": false,
+    "gpuUsed": false
+  },
+  "topic12": {
+    "contracts": 12,
+    "candidateTraces": 96,
+    "correctContracts": 12,
+    "decisionAccuracy": 1.0,
+    "acceptedIncompleteAsReproduced": 0,
+    "exactByteMatches": 0,
+    "classificationCounts": {
+      "inconclusive": 12
+    },
+    "rows": [
+      {
+        "contract": "observable-00",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-01",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-02",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-03",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-04",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-05",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-06",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-07",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-08",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-09",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-10",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      },
+      {
+        "contract": "observable-11",
+        "expected": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "observed": [
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "reproduced",
+          "not-reproduced",
+          "not-reproduced",
+          "inconclusive",
+          "inconclusive"
+        ],
+        "correct": true,
+        "exactByteMatches": 0,
+        "report": {
+          "classification": "inconclusive",
+          "reproduced": 4,
+          "eligible": 6,
+          "total": 8,
+          "inconclusive": 2,
+          "interval95": [
+            "0.299993315138",
+            "0.903228588894"
+          ],
+          "sensitivity": [
+            {
+              "condition": "equivalent-runtime-drift",
+              "reproduced": 4,
+              "eligible": 4,
+              "inconclusive": 0,
+              "interval95": [
+                "0.510109163545",
+                "1"
+              ]
+            },
+            {
+              "condition": "material-outcome-drift",
+              "reproduced": 0,
+              "eligible": 2,
+              "inconclusive": 0,
+              "interval95": [
+                "0",
+                "0.657619772493"
+              ]
+            },
+            {
+              "condition": "missing-required-evidence",
+              "reproduced": 0,
+              "eligible": 0,
+              "inconclusive": 2,
+              "interval95": [
+                "0",
+                "1"
+              ]
+            }
+          ]
+        }
+      }
+    ],
+    "gatePassed": true,
+    "limitations": [
+      "Synthetic same-team traces test shipped decision semantics only.",
+      "No hosted model, independent runtime, or controlled provider re-execution was used.",
+      "The public study uses Wilson intervals; it is not the complete private P4 mechanism."
+    ]
+  },
+  "topic13": {
+    "cases": 72,
+    "correctCases": 72,
+    "decisionAccuracy": 1.0,
+    "unverifiedProviderSuccessAccepted": 0,
+    "providerOnlySuccesses": 36,
+    "brokerVerifiedSuccesses": 54,
+    "nonIdempotentFallbackViolations": 0,
+    "secretCheckpointViolations": 0,
+    "rows": [
+      {
+        "family": "browser",
+        "stratum": "verified-first",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-0",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "verified-first",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-1",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "verified-first",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-2",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "verified-first",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-3",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "verified-first",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-4",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "verified-first",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-5",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "unverified-then-fallback",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-0",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-6",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-0",
+            "browser-provider-b-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "unverified-then-fallback",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-1",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-7",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-1",
+            "browser-provider-b-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "unverified-then-fallback",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-2",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-8",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-2",
+            "browser-provider-b-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "unverified-then-fallback",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-3",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-9",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-3",
+            "browser-provider-b-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "unverified-then-fallback",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-4",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-10",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-4",
+            "browser-provider-b-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "unverified-then-fallback",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-5",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-11",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-5",
+            "browser-provider-b-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "failed-retryable-fallback",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-0",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-12",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-0",
+            "browser-provider-b-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "failed-retryable-fallback",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-1",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-13",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-1",
+            "browser-provider-b-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "failed-retryable-fallback",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-2",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-14",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-2",
+            "browser-provider-b-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "failed-retryable-fallback",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-3",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-15",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-3",
+            "browser-provider-b-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "failed-retryable-fallback",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-4",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-16",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-4",
+            "browser-provider-b-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "failed-retryable-fallback",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "browser-provider-b-5",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-17",
+          "action": "browser.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "browser-provider-a-5",
+            "browser-provider-b-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "nonidempotent-stop",
+        "case": 0,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-18",
+          "action": "browser.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "nonidempotent-stop",
+        "case": 1,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-19",
+          "action": "browser.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "nonidempotent-stop",
+        "case": 2,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-20",
+          "action": "browser.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "nonidempotent-stop",
+        "case": 3,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-21",
+          "action": "browser.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "nonidempotent-stop",
+        "case": 4,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-22",
+          "action": "browser.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "browser",
+        "stratum": "nonidempotent-stop",
+        "case": 5,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "browser-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-23",
+          "action": "browser.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "browser-provider-a-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "verified-first",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-24",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "verified-first",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-25",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "verified-first",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-26",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "verified-first",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-27",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "verified-first",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-28",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "verified-first",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-29",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "unverified-then-fallback",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-0",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-30",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-0",
+            "computer-provider-b-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "unverified-then-fallback",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-1",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-31",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-1",
+            "computer-provider-b-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "unverified-then-fallback",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-2",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-32",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-2",
+            "computer-provider-b-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "unverified-then-fallback",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-3",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-33",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-3",
+            "computer-provider-b-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "unverified-then-fallback",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-4",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-34",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-4",
+            "computer-provider-b-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "unverified-then-fallback",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-5",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-35",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-5",
+            "computer-provider-b-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "failed-retryable-fallback",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-0",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-36",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-0",
+            "computer-provider-b-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "failed-retryable-fallback",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-1",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-37",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-1",
+            "computer-provider-b-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "failed-retryable-fallback",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-2",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-38",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-2",
+            "computer-provider-b-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "failed-retryable-fallback",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-3",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-39",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-3",
+            "computer-provider-b-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "failed-retryable-fallback",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-4",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-40",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-4",
+            "computer-provider-b-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "failed-retryable-fallback",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "computer-provider-b-5",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-41",
+          "action": "computer.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "computer-provider-a-5",
+            "computer-provider-b-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "nonidempotent-stop",
+        "case": 0,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-42",
+          "action": "computer.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "nonidempotent-stop",
+        "case": 1,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-43",
+          "action": "computer.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "nonidempotent-stop",
+        "case": 2,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-44",
+          "action": "computer.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "nonidempotent-stop",
+        "case": 3,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-45",
+          "action": "computer.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "nonidempotent-stop",
+        "case": 4,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-46",
+          "action": "computer.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "computer",
+        "stratum": "nonidempotent-stop",
+        "case": 5,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "computer-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-47",
+          "action": "computer.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "computer-provider-a-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "verified-first",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-48",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "verified-first",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-49",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "verified-first",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-50",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "verified-first",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-51",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "verified-first",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-52",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "verified-first",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-53",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "unverified-then-fallback",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-0",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-54",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-0",
+            "terminal-provider-b-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "unverified-then-fallback",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-1",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-55",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-1",
+            "terminal-provider-b-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "unverified-then-fallback",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-2",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-56",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-2",
+            "terminal-provider-b-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "unverified-then-fallback",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-3",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-57",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-3",
+            "terminal-provider-b-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "unverified-then-fallback",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-4",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-58",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-4",
+            "terminal-provider-b-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "unverified-then-fallback",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": true,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "partial",
+            "failureCause": "evidence",
+            "verification": {
+              "verified": false,
+              "method": "provider-result-only",
+              "evidenceIds": [],
+              "limitations": [
+                "No independent post-action observation was available."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-5",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-59",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-5",
+            "terminal-provider-b-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "failed-retryable-fallback",
+        "case": 0,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-0",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-60",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-0",
+            "terminal-provider-b-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "failed-retryable-fallback",
+        "case": 1,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-1",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-61",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-1",
+            "terminal-provider-b-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "failed-retryable-fallback",
+        "case": 2,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-2",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-62",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-2",
+            "terminal-provider-b-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "failed-retryable-fallback",
+        "case": 3,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-3",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-63",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-3",
+            "terminal-provider-b-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "failed-retryable-fallback",
+        "case": 4,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-4",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-64",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-4",
+            "terminal-provider-b-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "failed-retryable-fallback",
+        "case": 5,
+        "expectedStatus": "succeeded",
+        "observedStatus": "succeeded",
+        "expectedAttempts": 2,
+        "observedAttempts": 2,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": true
+          },
+          {
+            "executor": "terminal-provider-b-5",
+            "attempt": 1,
+            "outcomeStatus": "succeeded",
+            "failureCause": "none",
+            "verification": {
+              "verified": true,
+              "method": "post-action-observation",
+              "evidenceIds": [],
+              "limitations": []
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-65",
+          "action": "terminal.snapshot",
+          "state": "verified",
+          "attemptCount": 2,
+          "executors": [
+            "terminal-provider-a-5",
+            "terminal-provider-b-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "nonidempotent-stop",
+        "case": 0,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-0",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-66",
+          "action": "terminal.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-0"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "nonidempotent-stop",
+        "case": 1,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-1",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-67",
+          "action": "terminal.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-1"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "nonidempotent-stop",
+        "case": 2,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-2",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-68",
+          "action": "terminal.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-2"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "nonidempotent-stop",
+        "case": 3,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-3",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-69",
+          "action": "terminal.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-3"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "nonidempotent-stop",
+        "case": 4,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-4",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-70",
+          "action": "terminal.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-4"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      },
+      {
+        "family": "terminal",
+        "stratum": "nonidempotent-stop",
+        "case": 5,
+        "expectedStatus": "failed",
+        "observedStatus": "failed",
+        "expectedAttempts": 1,
+        "observedAttempts": 1,
+        "correct": true,
+        "unverifiedAccepted": false,
+        "providerOnlyWouldAccept": false,
+        "attempts": [
+          {
+            "executor": "terminal-provider-a-5",
+            "attempt": 0,
+            "outcomeStatus": "failed",
+            "failureCause": "executor",
+            "verification": {
+              "verified": false,
+              "method": "not-applicable-unsuccessful-action",
+              "evidenceIds": [],
+              "limitations": [
+                "Postcondition verification requires a succeeded action."
+              ]
+            },
+            "fallbackAllowed": false
+          }
+        ],
+        "checkpoint": {
+          "requestId": "request-71",
+          "action": "terminal.mutate",
+          "state": "failed",
+          "attemptCount": 1,
+          "executors": [
+            "terminal-provider-a-5"
+          ],
+          "inputsPersisted": false,
+          "sessionMaterialPersisted": false
+        }
+      }
+    ],
+    "gatePassed": true,
+    "limitations": [
+      "All providers and expected outcomes are deterministic same-team fixtures.",
+      "Verification labels are injected by fixture executors; observer truth is not established.",
+      "The study tests broker invariants, not full P6 cross-provider conformance."
+    ]
+  }
+}

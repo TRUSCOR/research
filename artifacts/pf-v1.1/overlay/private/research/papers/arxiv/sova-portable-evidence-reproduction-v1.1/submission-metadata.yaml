@@ -1,0 +1,23 @@
+title: ".sova: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings"
+author: "Gautam R. Patil"
+affiliation: "TRUSCOR Private Limited"
+contact: "gautam@truscor.org"
+orcid: "not provided"
+version: "1.1"
+version_date: "2026-11-13"
+supersedes: "1.0 (2026-08-20)"
+status: "APPROVED FOR PUBLIC PREPRINT SUBMISSION"
+author_approval_date: "2026-11-13"
+primary_category: "cs.CR"
+cross_list_candidates: [cs.AI, cs.SE]
+license: "CC BY 4.0"
+license_url: "https://creativecommons.org/licenses/by/4.0/"
+peer_reviewed: false
+public_release_cleared: true
+submission_authorized: true
+ai_assistance_disclosed: true
+competing_interest_declared: true
+remaining_peer_review_gates:
+  - "independent validation identified in the paper"
+  - "independent security, privacy, and artifact review"
+  - "anonymous venue package and account-bound venue submission"
