@@ -2716,10 +2716,12 @@ an author of this paper.
 ### Funding and competing interests
 
 TRUSCOR Private Limited funded this work and provided all of its support and
-institutional backing. It paid for the model API usage of every fresh run:
-about USD 49 on Anthropic's API and about USD
-261 of Azure AI Foundry credits, computed from token
-counts at the prices stated in the protocols. No other funding or support was
+institutional backing. It paid for the model API usage of every fresh run
+reported here, from 12 to 14 November 2026: about USD 88
+on Anthropic's API and about USD 423 of Azure AI Foundry
+credits for the agent runs, computed from token counts at the prices stated
+in the protocols, plus USD 4 to 25 for the blind readers'
+2.0 million tokens, depending on the share of output tokens. No other funding or support was
 received. The author founded and leads TRUSCOR Private Limited, which develops
 SOVA and may offer commercial services that use it. The paper evaluates the
 author's own system. To limit the influence of this interest, the protocols
