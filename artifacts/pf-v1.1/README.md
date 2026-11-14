@@ -4,7 +4,7 @@ Everything needed to check every number, figure, and protocol in preprint
 version 1.1 is in this folder. Nothing that the paper relies on is withheld.
 
 - Paper: [`../../preprints/`](../../preprints/)
-- Implementation: [SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS), commit `143e175`
+- Implementation: [SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS), released as [`sova-oss` 0.1.0 on PyPI](https://pypi.org/project/sova-oss/0.1.0/) (release commit `3c3b1d1`)
 - Frozen protocols, published before their runs: [`../../protocols/pf-confirmatory-2026-11-14/`](../../protocols/pf-confirmatory-2026-11-14/)
 - Checksums for every file: [`SHA256SUMS`](SHA256SUMS)
 - Automatic re-check on GitHub's machines, no model key needed:
@@ -17,7 +17,7 @@ one per model (S2, S5) or per model and change (S3, S4), under
 `overlay/private/experiments/results/pf-confirmatory-2026-11-14/sova/`.
 
 ```bash
-python -m pip install "sova-oss @ git+https://github.com/TRUSCOR/SOVA-OSS@143e1751995e8e76dd8e6a19f67eb21ccc968703"
+python -m pip install "sova-oss==0.1.0"          # Python 3.11 to 3.14
 R=overlay/private/experiments/results/pf-confirmatory-2026-11-14
 sova verify $R/sova/s2-anthropic/claude-opus-5-5/claude-opus-5-5.sova     # offline; runs nothing
 sova audit  $R/sova/s2-anthropic/claude-opus-5-5/claude-opus-5-5.sova     # benchmark verdict vs. the agent's actual calls
@@ -40,17 +40,22 @@ sova rerun <finding.sova> --model <your-deployment> --trials 10 --authorize
 The protocol, the audit rules, the runner, and the analysis were frozen and
 published before the first run (`protocols/pf-confirmatory-2026-11-14/`,
 commit `c7e3fb4`, 05:57 UTC; the head-to-head addendum at `5a2ad61`, 06:41 UTC).
-Deviations are in `overlay/private/research/papers/PF-confirmatory-deviations-2026-11-14.md`.
+The extensions were frozen the same way before their runs: E1 at `6a90764`, E2 at
+`c51b356`, and E3 at `4289427` (revised at `2c9104a` before any reader saw an item).
+Deviations (D1 to D5) are in `overlay/private/research/papers/PF-confirmatory-deviations-2026-11-14.md`.
 
 | Study | Paper | Result files (under `overlay/private/experiments/results/`) | Script |
 |---|---|---|---|
 | S1 verdict audit of published and earlier runs | 4.1, 4.2 | `pf-audit-2026-11-14/` | `audit_pf.py published` and `study` |
 | S2 scoreboard of current models | 4.3, 5.1 | `pf-confirmatory-2026-11-14/s2/`, `s2-anthropic/`, `scoreboard.json` | `run_pf_confirmatory.py`, `analyze_pf_v2.py scoreboard` |
-| S3 reproduction rates | 5.2 | `s34/`, `reliability.json`, `plan.json` | `analyze_pf_v2.py select` and `reliability` |
-| S4 prediction test | 6.1 | `s34/`, `prediction.json` | `analyze_pf_v2.py prediction` |
-| S5 upgrade checks | 5.3 | `s5/`, `s5-anthropic/`, `upgrade.json` | `analyze_pf_v2.py upgrade` |
-| S6 head-to-head | 6.2 | `s6/` | `compare_pf_neighbors.py` |
-| S7 blind readers | 4.4 | `readers-items.json`, `readers-*.jsonl`, `readers-agreement.json` | `read_pf_blind.py` |
+| S3 reproduction rates | 5.2 | `s34/`, `reliability.json` (three primaries), `reliability-e1.json` (six), `plan-locked.json`, `plan-extended.json` | `analyze_pf_locked.py`, `extend_pf_primaries.py analyze` |
+| S4 prediction test | 6.1 | `s34/`, `prediction.json` (the protocol's three primaries), `prediction-e1.json` (six), `posthoc-sensitivity.json` | `analyze_pf_locked.py`, `extend_pf_primaries.py analyze` |
+| S5 upgrade checks | 5.3 | `s5/`, `s5-anthropic/`, `upgrade.json`, `upgrade-e1.json` | `analyze_pf_v2.py upgrade` |
+| S6 head-to-head | 6.2 | `s6/`, `s6-e1/` (six primaries) | `compare_pf_neighbors.py` |
+| S6b tasks beyond recurrence | 6.2 | `s6b/`, `s6b-tasks.json` (as the frozen script wrote it), `s6b-tasks-recovered.json` (deviation D5) | `compare_pf_tasks_ext.py`, `recover_pf_s6b.py`, `run_pf_s6b_t10.py` |
+| S7 blind readers | 4.4 | `readers-items.json`, `readers-*.jsonl`, `readers-agreement-e1.json` (three readers) | `read_pf_blind.py` |
+| E2 measured envelopes on fresh findings | 6.1 | `e2/`, `plan-e2.json`, `e2-result.json`, `calibrate-crosscheck.json` | `extend_pf_e2.py`, `check_pf_calibrate.py` |
+| E3 blind reading by people | 4.4 | `plan-e3.json`, `human-sample-key.json`; no results in this version | `select_pf_human_e3.py`, `analyze_pf_human.py` |
 
 All are under `pf-confirmatory-2026-11-14/` unless named otherwise. Each run
 directory holds `episodes.jsonl` (one record per run: model, returned model
@@ -92,7 +97,7 @@ public now.
 
 ```bash
 git clone https://github.com/TRUSCOR/SOVA-OSS sova-oss
-cd sova-oss && git checkout 42b4972
+cd sova-oss && git checkout v0.1.0       # release commit 3c3b1d1, sova-oss 0.1.0 on PyPI
 cp -r <this-folder>/overlay/private ./private
 python -m pip install pypdf            # only needed for --package
 python -X utf8 private/research/papers/tools/validate_pf_v1_1.py --package

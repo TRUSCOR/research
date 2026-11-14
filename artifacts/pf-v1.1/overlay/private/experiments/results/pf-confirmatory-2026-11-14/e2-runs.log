@@ -1,0 +1,105 @@
+18:46:00 E2 jobs 1536 (skipping models ['Mistral-Large-3', 'mistral-medium-3-5']); azure cap for the folder 457.93
+18:46:00 DRIVER start e2: 1536 jobs -> e2
+1536 jobs, 1536 pending across 4 models; azure spent so far $347.94
+18:46:31 25/1536 done, azure $348.48; left {'DeepSeek-V4-Pro-2': 352, 'gpt-4o': 507, 'grok-4-20-non-reasoning': 353, 'grok-4-1-fast-non-reasoning': 299}
+18:46:38 50/1536 done, azure $349.15; left {'DeepSeek-V4-Pro-2': 346, 'gpt-4o': 498, 'grok-4-20-non-reasoning': 346, 'grok-4-1-fast-non-reasoning': 296}
+18:46:43 75/1536 done, azure $349.54; left {'DeepSeek-V4-Pro-2': 344, 'gpt-4o': 484, 'grok-4-20-non-reasoning': 346, 'grok-4-1-fast-non-reasoning': 287}
+18:46:49 100/1536 done, azure $350.13; left {'DeepSeek-V4-Pro-2': 343, 'gpt-4o': 468, 'grok-4-20-non-reasoning': 345, 'grok-4-1-fast-non-reasoning': 280}
+18:46:59 125/1536 done, azure $351.04; left {'DeepSeek-V4-Pro-2': 343, 'gpt-4o': 443, 'grok-4-20-non-reasoning': 345, 'grok-4-1-fast-non-reasoning': 280}
+18:47:09 150/1536 done, azure $352.58; left {'DeepSeek-V4-Pro-2': 343, 'gpt-4o': 418, 'grok-4-20-non-reasoning': 345, 'grok-4-1-fast-non-reasoning': 280}
+C:\Users\HP\AppData\Local\Temp\claude\d14c60c273c43e16\bba749ec-d310-4413-8b94-c4aa57af8151\scratchpad\fresh\venv\Lib\site-packages\agentdojo\agent_pipeline\basic_elements.py:22: UserWarning: The query is not being added as the first message or after the system message
+  warnings.warn("The query is not being added as the first message or after the system message")
+18:47:19 175/1536 done, azure $353.80; left {'DeepSeek-V4-Pro-2': 340, 'gpt-4o': 397, 'grok-4-20-non-reasoning': 344, 'grok-4-1-fast-non-reasoning': 280}
+18:47:24 200/1536 done, azure $354.76; left {'DeepSeek-V4-Pro-2': 336, 'gpt-4o': 378, 'grok-4-20-non-reasoning': 342, 'grok-4-1-fast-non-reasoning': 280}
+18:47:29 225/1536 done, azure $355.39; left {'DeepSeek-V4-Pro-2': 333, 'gpt-4o': 363, 'grok-4-20-non-reasoning': 337, 'grok-4-1-fast-non-reasoning': 278}
+18:47:34 250/1536 done, azure $355.99; left {'DeepSeek-V4-Pro-2': 330, 'gpt-4o': 348, 'grok-4-20-non-reasoning': 334, 'grok-4-1-fast-non-reasoning': 274}
+18:47:38 275/1536 done, azure $356.85; left {'DeepSeek-V4-Pro-2': 326, 'gpt-4o': 335, 'grok-4-20-non-reasoning': 329, 'grok-4-1-fast-non-reasoning': 271}
+18:47:44 300/1536 done, azure $357.72; left {'DeepSeek-V4-Pro-2': 324, 'gpt-4o': 320, 'grok-4-20-non-reasoning': 328, 'grok-4-1-fast-non-reasoning': 264}
+18:47:48 325/1536 done, azure $358.47; left {'DeepSeek-V4-Pro-2': 321, 'gpt-4o': 303, 'grok-4-20-non-reasoning': 328, 'grok-4-1-fast-non-reasoning': 259}
+18:47:55 350/1536 done, azure $359.45; left {'DeepSeek-V4-Pro-2': 321, 'gpt-4o': 281, 'grok-4-20-non-reasoning': 328, 'grok-4-1-fast-non-reasoning': 256}
+18:48:04 375/1536 done, azure $360.11; left {'DeepSeek-V4-Pro-2': 321, 'gpt-4o': 256, 'grok-4-20-non-reasoning': 328, 'grok-4-1-fast-non-reasoning': 256}
+18:48:11 400/1536 done, azure $361.08; left {'DeepSeek-V4-Pro-2': 321, 'gpt-4o': 231, 'grok-4-20-non-reasoning': 328, 'grok-4-1-fast-non-reasoning': 256}
+18:48:17 425/1536 done, azure $362.12; left {'DeepSeek-V4-Pro-2': 320, 'gpt-4o': 209, 'grok-4-20-non-reasoning': 327, 'grok-4-1-fast-non-reasoning': 255}
+18:48:24 450/1536 done, azure $362.90; left {'DeepSeek-V4-Pro-2': 317, 'gpt-4o': 189, 'grok-4-20-non-reasoning': 326, 'grok-4-1-fast-non-reasoning': 254}
+18:48:29 475/1536 done, azure $363.85; left {'DeepSeek-V4-Pro-2': 315, 'gpt-4o': 170, 'grok-4-20-non-reasoning': 322, 'grok-4-1-fast-non-reasoning': 254}
+18:48:34 500/1536 done, azure $364.68; left {'DeepSeek-V4-Pro-2': 312, 'gpt-4o': 158, 'grok-4-20-non-reasoning': 314, 'grok-4-1-fast-non-reasoning': 252}
+18:48:40 525/1536 done, azure $365.36; left {'DeepSeek-V4-Pro-2': 311, 'gpt-4o': 145, 'grok-4-20-non-reasoning': 308, 'grok-4-1-fast-non-reasoning': 247}
+18:48:45 550/1536 done, azure $366.39; left {'DeepSeek-V4-Pro-2': 310, 'gpt-4o': 126, 'grok-4-20-non-reasoning': 307, 'grok-4-1-fast-non-reasoning': 243}
+18:48:50 575/1536 done, azure $366.97; left {'DeepSeek-V4-Pro-2': 307, 'gpt-4o': 111, 'grok-4-20-non-reasoning': 307, 'grok-4-1-fast-non-reasoning': 236}
+18:48:57 600/1536 done, azure $367.97; left {'DeepSeek-V4-Pro-2': 307, 'gpt-4o': 88, 'grok-4-20-non-reasoning': 307, 'grok-4-1-fast-non-reasoning': 234}
+18:49:05 625/1536 done, azure $368.64; left {'DeepSeek-V4-Pro-2': 307, 'gpt-4o': 63, 'grok-4-20-non-reasoning': 307, 'grok-4-1-fast-non-reasoning': 234}
+18:49:13 650/1536 done, azure $369.26; left {'DeepSeek-V4-Pro-2': 307, 'gpt-4o': 38, 'grok-4-20-non-reasoning': 307, 'grok-4-1-fast-non-reasoning': 234}
+18:49:18 675/1536 done, azure $369.99; left {'DeepSeek-V4-Pro-2': 304, 'gpt-4o': 18, 'grok-4-20-non-reasoning': 307, 'grok-4-1-fast-non-reasoning': 232}
+18:49:31 700/1536 done, azure $371.14; left {'DeepSeek-V4-Pro-2': 300, 'grok-4-20-non-reasoning': 304, 'grok-4-1-fast-non-reasoning': 232}
+18:49:51 725/1536 done, azure $371.73; left {'DeepSeek-V4-Pro-2': 296, 'grok-4-20-non-reasoning': 297, 'grok-4-1-fast-non-reasoning': 218}
+18:50:42 750/1536 done, azure $372.47; left {'DeepSeek-V4-Pro-2': 289, 'grok-4-20-non-reasoning': 289, 'grok-4-1-fast-non-reasoning': 208}
+18:51:30 775/1536 done, azure $373.00; left {'DeepSeek-V4-Pro-2': 281, 'grok-4-20-non-reasoning': 286, 'grok-4-1-fast-non-reasoning': 194}
+18:51:52 800/1536 done, azure $374.07; left {'DeepSeek-V4-Pro-2': 275, 'grok-4-20-non-reasoning': 279, 'grok-4-1-fast-non-reasoning': 182}
+18:52:38 825/1536 done, azure $375.14; left {'DeepSeek-V4-Pro-2': 264, 'grok-4-20-non-reasoning': 273, 'grok-4-1-fast-non-reasoning': 174}
+18:52:57 850/1536 done, azure $375.86; left {'DeepSeek-V4-Pro-2': 257, 'grok-4-20-non-reasoning': 268, 'grok-4-1-fast-non-reasoning': 161}
+18:53:44 875/1536 done, azure $377.04; left {'DeepSeek-V4-Pro-2': 247, 'grok-4-20-non-reasoning': 260, 'grok-4-1-fast-non-reasoning': 154}
+18:54:35 900/1536 done, azure $377.83; left {'DeepSeek-V4-Pro-2': 238, 'grok-4-20-non-reasoning': 256, 'grok-4-1-fast-non-reasoning': 142}
+18:54:56 925/1536 done, azure $378.60; left {'DeepSeek-V4-Pro-2': 231, 'grok-4-20-non-reasoning': 250, 'grok-4-1-fast-non-reasoning': 130}
+18:55:46 950/1536 done, azure $379.16; left {'DeepSeek-V4-Pro-2': 223, 'grok-4-20-non-reasoning': 246, 'grok-4-1-fast-non-reasoning': 117}
+18:56:43 975/1536 done, azure $380.33; left {'DeepSeek-V4-Pro-2': 218, 'grok-4-20-non-reasoning': 241, 'grok-4-1-fast-non-reasoning': 102}
+18:57:29 1000/1536 done, azure $381.28; left {'DeepSeek-V4-Pro-2': 211, 'grok-4-20-non-reasoning': 237, 'grok-4-1-fast-non-reasoning': 88}
+18:57:53 1025/1536 done, azure $382.79; left {'DeepSeek-V4-Pro-2': 198, 'grok-4-20-non-reasoning': 232, 'grok-4-1-fast-non-reasoning': 81}
+18:58:40 1050/1536 done, azure $383.81; left {'DeepSeek-V4-Pro-2': 190, 'grok-4-20-non-reasoning': 224, 'grok-4-1-fast-non-reasoning': 72}
+18:59:06 1075/1536 done, azure $384.56; left {'DeepSeek-V4-Pro-2': 179, 'grok-4-20-non-reasoning': 221, 'grok-4-1-fast-non-reasoning': 61}
+18:59:50 1100/1536 done, azure $385.87; left {'DeepSeek-V4-Pro-2': 170, 'grok-4-20-non-reasoning': 213, 'grok-4-1-fast-non-reasoning': 53}
+19:00:41 1125/1536 done, azure $386.49; left {'DeepSeek-V4-Pro-2': 159, 'grok-4-20-non-reasoning': 210, 'grok-4-1-fast-non-reasoning': 42}
+19:01:00 1150/1536 done, azure $387.80; left {'DeepSeek-V4-Pro-2': 149, 'grok-4-20-non-reasoning': 203, 'grok-4-1-fast-non-reasoning': 34}
+19:01:45 1175/1536 done, azure $388.46; left {'DeepSeek-V4-Pro-2': 141, 'grok-4-20-non-reasoning': 197, 'grok-4-1-fast-non-reasoning': 23}
+19:02:26 1200/1536 done, azure $389.26; left {'DeepSeek-V4-Pro-2': 134, 'grok-4-20-non-reasoning': 192, 'grok-4-1-fast-non-reasoning': 10}
+19:03:04 1225/1536 done, azure $390.47; left {'DeepSeek-V4-Pro-2': 122, 'grok-4-20-non-reasoning': 184, 'grok-4-1-fast-non-reasoning': 5}
+19:04:12 1250/1536 done, azure $391.92; left {'DeepSeek-V4-Pro-2': 112, 'grok-4-20-non-reasoning': 174}
+19:05:39 1275/1536 done, azure $393.36; left {'DeepSeek-V4-Pro-2': 98, 'grok-4-20-non-reasoning': 163}
+19:06:34 1300/1536 done, azure $395.00; left {'DeepSeek-V4-Pro-2': 81, 'grok-4-20-non-reasoning': 155}
+19:07:47 1325/1536 done, azure $396.79; left {'DeepSeek-V4-Pro-2': 62, 'grok-4-20-non-reasoning': 149}
+19:08:45 1350/1536 done, azure $398.43; left {'DeepSeek-V4-Pro-2': 45, 'grok-4-20-non-reasoning': 141}
+19:09:46 1375/1536 done, azure $399.80; left {'DeepSeek-V4-Pro-2': 28, 'grok-4-20-non-reasoning': 133}
+19:10:40 1400/1536 done, azure $400.96; left {'DeepSeek-V4-Pro-2': 13, 'grok-4-20-non-reasoning': 123}
+19:11:47 1425/1536 done, azure $403.62; left {'grok-4-20-non-reasoning': 111}
+19:14:12 1450/1536 done, azure $404.98; left {'grok-4-20-non-reasoning': 86}
+19:16:48 1475/1536 done, azure $406.39; left {'grok-4-20-non-reasoning': 61}
+19:20:21 1500/1536 done, azure $408.39; left {'grok-4-20-non-reasoning': 36}
+19:23:26 1525/1536 done, azure $409.88; left {'grok-4-20-non-reasoning': 11}
+19:38:06 1536/1536 done, azure $418.86; left {}
+19:38:06 DRIVER finished e2
+19:38:06 E2 E2 RUNS DONE
+00:45:42 E2 jobs 2136 (skipping models []); azure cap for the folder 559.30
+00:45:42 DRIVER start e2: 2136 jobs -> e2
+2136 jobs, 600 pending across 2 models; azure spent so far $447.50
+00:51:01 25/600 done, azure $447.99; left {'Mistral-Large-3': 288, 'mistral-medium-3-5': 287}
+00:57:00 50/600 done, azure $448.58; left {'Mistral-Large-3': 277, 'mistral-medium-3-5': 273}
+01:06:03 75/600 done, azure $449.45; left {'Mistral-Large-3': 264, 'mistral-medium-3-5': 261}
+01:10:46 100/600 done, azure $449.99; left {'Mistral-Large-3': 251, 'mistral-medium-3-5': 249}
+C:\Users\HP\AppData\Local\Temp\claude\d14c60c273c43e16\bba749ec-d310-4413-8b94-c4aa57af8151\scratchpad\fresh\venv\Lib\site-packages\agentdojo\agent_pipeline\basic_elements.py:22: UserWarning: The query is not being added as the first message or after the system message
+  warnings.warn("The query is not being added as the first message or after the system message")
+01:19:38 125/600 done, azure $450.87; left {'Mistral-Large-3': 235, 'mistral-medium-3-5': 240}
+01:23:22 150/600 done, azure $451.05; left {'Mistral-Large-3': 221, 'mistral-medium-3-5': 229}
+01:30:30 175/600 done, azure $451.75; left {'Mistral-Large-3': 204, 'mistral-medium-3-5': 221}
+01:35:43 200/600 done, azure $452.32; left {'Mistral-Large-3': 193, 'mistral-medium-3-5': 207}
+01:42:52 225/600 done, azure $453.02; left {'Mistral-Large-3': 183, 'mistral-medium-3-5': 192}
+01:53:46 250/600 done, azure $453.70; left {'Mistral-Large-3': 174, 'mistral-medium-3-5': 176}
+02:02:11 275/600 done, azure $454.23; left {'Mistral-Large-3': 165, 'mistral-medium-3-5': 160}
+02:10:19 300/600 done, azure $454.89; left {'Mistral-Large-3': 156, 'mistral-medium-3-5': 144}
+02:21:34 325/600 done, azure $455.63; left {'Mistral-Large-3': 144, 'mistral-medium-3-5': 131}
+02:26:52 350/600 done, azure $456.08; left {'Mistral-Large-3': 126, 'mistral-medium-3-5': 124}
+02:34:13 375/600 done, azure $456.40; left {'Mistral-Large-3': 116, 'mistral-medium-3-5': 109}
+02:41:08 400/600 done, azure $456.90; left {'Mistral-Large-3': 106, 'mistral-medium-3-5': 94}
+02:50:53 425/600 done, azure $457.56; left {'Mistral-Large-3': 97, 'mistral-medium-3-5': 78}
+03:00:28 450/600 done, azure $458.16; left {'Mistral-Large-3': 87, 'mistral-medium-3-5': 63}
+03:08:45 475/600 done, azure $458.86; left {'Mistral-Large-3': 75, 'mistral-medium-3-5': 50}
+03:20:06 500/600 done, azure $459.33; left {'Mistral-Large-3': 69, 'mistral-medium-3-5': 31}
+03:30:01 525/600 done, azure $460.11; left {'Mistral-Large-3': 57, 'mistral-medium-3-5': 18}
+03:38:06 550/600 done, azure $460.71; left {'Mistral-Large-3': 48, 'mistral-medium-3-5': 2}
+03:45:09 575/600 done, azure $461.23; left {'Mistral-Large-3': 25}
+04:02:43 600/600 done, azure $462.30; left {}
+04:02:43 DRIVER finished e2
+04:02:43 E2 E2 RUNS DONE
+04:04:18 E2 jobs 2136 (skipping models []); azure cap for the folder 572.42
+04:04:18 DRIVER start e2: 2136 jobs -> e2
+2136 jobs, 0 pending across 0 models; azure spent so far $462.42
+04:04:27 DRIVER finished e2
+04:04:27 E2 E2 RUNS DONE

@@ -837,7 +837,7 @@ def _ci(ci: list[float]) -> str:
     return f"{100 * ci[0]:.1f} to {100 * ci[1]:.1f}"
 
 
-def confirmatory_strings() -> dict[str, str]:
+def confirmatory_strings() -> dict[str, str]:  # noqa: PLR0915
     """Sections 4 to 6 and the summary: studies S1 to S6 of 2026-11-14, from their result files."""
     must: dict[str, str] = {}
     check(sha(PAPERS / "audit-spec-agentdojo-v1.2.2.json") == FROZEN["spec"], "frozen audit rules")
@@ -916,120 +916,75 @@ def confirmatory_strings() -> dict[str, str]:
                          f"{tot['S2grokfull']['executedByModel']['grok-4-20-non-reasoning']} it counts as attacks")
     must["S4.3 crashes"] = f"none of the {s2t['categories']['crash']} crashed scoreboard runs received one"
     check(s2t["crashSecurityField"] == {"None": s2t["categories"]["crash"]}, "new-run crashes carry no verdict")
-    # ---- S3: reliability
-    rel = json.loads((CONF / "reliability.json").read_text(encoding="utf-8"))["byPrimary"]
-    disp = {"DeepSeek-V4-Pro-2": "DeepSeek V4 Pro", "gpt-4o": "GPT-4o", "grok-4-20-non-reasoning": "Grok 4.20"}
-    for model, name in disp.items():
-        r = rel[model]
-        must[f"S3 row {model}"] = f"| {name} | {r['findings']} | {r['always']} | {r['atLeastHalf']} | {r['lowerBoundAtLeastHalf']} | {r['never']} |"
-    total = sum(r["findings"] for r in rel.values())
-    half = sum(r["atLeastHalf"] for r in rel.values())
-    below = total - sum(r["lowerBoundAtLeastHalf"] for r in rel.values())
-    check(total == 100 and sum(r["never"] for r in rel.values()) == 0, "S3 totals")
-    must["S3 half"] = f"{half} of 100 recurred in at least half of their runs"
-    must["S3 below"] = f"for {below} of the 100 findings, the Wilson lower bound stays below 50%"
-    must["abstract S3"] = f"{half} in at least half of their re-runs, but with so few re-runs, {below} could not be shown"
-    # ---- S4: prediction
-    pr = json.loads((CONF / "prediction.json").read_text(encoding="utf-8"))
-    a, b = pr["attack"], pr["benchmark"]
-    check(pr["protocolSha256"] == FROZEN["protocol"], "S4 protocol digest")
-    label = {"N1-rerun": "None (fresh re-run)", "N2-json-tool-output": "JSON tool output", "N3-paraphrased-system": "Paraphrased system prompt",
-             "M1-other-model": "Different model", "M2-repeat-user-prompt": "Repeat-user-prompt defense", "M3-spotlighting": "Spotlighting defense"}
-    for cond, name in label.items():
-        c = a["conditions"][cond]
-        kind = "non-material" if cond.startswith("N") else "material"
-        must[f"S4 row {cond}"] = f"| {name} | {kind} | {c['episodes']} | {_p1(c['recurrence'])}% ({_p1(c['ci95'][0])}-{_p1(c['ci95'][1])}%) |"
-    h1 = a["H1"]
-    check(h1["supported"] and not b["H1"]["supported"], "S4 H1 verdicts")
-    must["S4 H1"] = f"by {_p1(h1['gap'])} points (95% interval {_ci(h1['ci95'])})"
-    must["abstract S4"] = (f"{_p1(h1['gap'])} points more often after setup changes declared in advance not to matter than after "
-                           f"a model swap or a prompt defense (95% interval {_p1(h1['ci95'][0])}-{_p1(h1['ci95'][1])})")
-    must["S4 worst"] = f"the gap is still {_p1(h1['cantTellBounds']['worstForH1'])} points"
-    d = a["H1dim"]
-    must["S4 M1"] = f"by {_p1(d['M1-other-model']['drop'])} points ({_ci(d['M1-other-model']['ci95'])})"
-    must["S4 M2"] = f"defense by {_p1(d['M2-repeat-user-prompt']['drop'])} ({_ci(d['M2-repeat-user-prompt']['ci95'])})"
-    must["S4 M3"] = f"by only {_p1(d['M3-spotlighting']['drop'])} points ({_ci(d['M3-spotlighting']['ci95'])})"
-    check([d[k]["materialConfirmed"] for k in ("M1-other-model", "M2-repeat-user-prompt", "M3-spotlighting")] == [True, True, False], "S4 H1dim")
-    pm = a["perModel"]
-    must["S4 gpt-4o"] = f"GPT-4o ({_p1(pm['gpt-4o']['H1gap'])} points, {_ci(pm['gpt-4o']['ci95'])})"
-    must["S4 deepseek"] = f"DeepSeek V4 Pro ({_p1(pm['DeepSeek-V4-Pro-2']['H1gap'])}, {_ci(pm['DeepSeek-V4-Pro-2']['ci95'])})"
-    must["S4 grok"] = f"Grok 4.20 ({_p1(pm['grok-4-20-non-reasoning']['H1gap'])}, {_ci(pm['grok-4-20-non-reasoning']['ci95'])})"
-    check([pm[k]["supported"] for k in ("gpt-4o", "DeepSeek-V4-Pro-2", "grok-4-20-non-reasoning")] == [True, False, False], "S4 per model")
-    me = a["measured"]
-    must["S4 measured"] = (f"recurrence by {_p1(me['testGapMeasured'])} points ({_ci(me['testGapMeasuredCI95'])}), against "
-                           f"{_p1(me['testGapDeclared'])} ({_ci(me['testGapDeclaredCI95'])})")
-    lomo = sorted(v["gap"] for v in a["leaveOneModelOut"].values())
-    must["S4 lomo"] = f"between {_p1(lomo[0])} and {_p1(lomo[-1])} points"
-    must["S4 benchmark"] = f"pooled gap of {_p1(b['H1']['gap'])} points ({_ci(b['H1']['ci95'])})"
-    bc = {k: v["byCondition"] for k, v in pm.items()}
-    must["S4 by model"] = (f"cut GPT-4o's recurrence to {_p1(bc['gpt-4o']['M2-repeat-user-prompt'])}%, but left DeepSeek V4 Pro's at "
-                           f"{_p1(bc['DeepSeek-V4-Pro-2']['M2-repeat-user-prompt'])}% and Grok 4.20's at "
-                           f"{_p1(bc['grok-4-20-non-reasoning']['M2-repeat-user-prompt'])}%")
-    must["S4 by model 2"] = (f"cut their recurrence to {_p1(bc['DeepSeek-V4-Pro-2']['M1-other-model'])}%, while moving GPT-4o's attacks "
-                             f"to Grok 4.20 left it at {_p1(bc['gpt-4o']['M1-other-model'])}%")
-    h2 = a["H2"]
-    check(all(v["nonMaterialConfirmed"] for v in h2.values()), "S4 H2")
-    must["S4 H2"] = (f"(JSON tool output, {_ci(h2['N2-json-tool-output']['ci95'])}; paraphrase, "
-                     f"{_ci(h2['N3-paraphrased-system']['ci95'])})")
-    must["S4 per model N"] = (f"lowered GPT-4o's recurrence from {_p1(bc['gpt-4o']['N1-rerun'])}% to {_p1(bc['gpt-4o']['N2-json-tool-output'])}%, "
-                              f"and the paraphrase lowered Grok 4.20's from {_p1(bc['grok-4-20-non-reasoning']['N1-rerun'])}% to "
-                              f"{_p1(bc['grok-4-20-non-reasoning']['N3-paraphrased-system'])}%")
-    ph = json.loads((CONF / "posthoc-sensitivity.json").read_text(encoding="utf-8"))
-    eq = ph["equalWeightH1"]
-    check(eq["ci95"][0] < 0.10, "equal-weight H1 misses the threshold")
-    must["S4 equal weight"] = f"the gap is {_p1(eq['gap'])} points ({_ci(eq['ci95'])})"
-    must["S3 below 80"] = f"so seven of the {len(ph['belowHalfBound'])}, which recurred in at least 80% of their runs"
-    check(ph["belowHalfBoundAtLeast80"] == 7, "S3 below-bound findings at 80% or more")
-    # ---- S5: upgrades
-    up = json.loads((CONF / "upgrade.json").read_text(encoding="utf-8"))["pairs"]
-    pairs = {"gpt-4o -> gpt-5.5": "GPT-4o to GPT-5.5", "grok-4-20-non-reasoning -> grok-4.7": "Grok 4.20 to Grok 4.7",
-             "claude-sonnet-4-5-20250929 -> claude-sonnet-5-5": "Claude Sonnet 4.5 to Claude Sonnet 5.5"}
-    for pair, name in pairs.items():
-        cl = up[pair]["classes"]
-        cant = cl.get("cant-tell", 0)
-        must[f"S5 {pair}"] = f"| {name} | {len(up[pair]['findings'])} | {cl.get('still works', 0)} | {cl.get('stopped', 0)} | {cant} |"
-    # ---- S6: head-to-head
-    s6 = json.loads((CONF / "s6" / "recurrence.json").read_text(encoding="utf-8"))
-    tasks = json.loads((CONF / "s6" / "tasks.json").read_text(encoding="utf-8"))["tasks"]
+    # ---- S3 to S6 (sections 5.2, 5.3, 6.1, 6.2 and their summary sentences): recomputed by pf_fills from the
+    # final result files (main protocol on the completed locked design, the D2 interim look, and extension E1)
+    import pf_fills
+
+    pe = json.loads((CONF / "prediction-e1.json").read_text(encoding="utf-8"))
+    pm = json.loads((CONF / "prediction.json").read_text(encoding="utf-8"))
+    check(pe["protocolSha256"] == FROZEN["protocol"] and pm["protocolSha256"] == FROZEN["protocol"], "S4 protocol digest")
+    plan_e1 = json.loads((CONF / "plan-extended.json").read_text(encoding="utf-8"))
+    check(len(plan_e1["primaries"]) == 6 and all(len(e["findings"]) == 40 for e in plan_e1["primaries"]), "E1 plan: six primaries of 40")
+    # ---- E2: per-model measured envelopes tested on fresh findings (frozen by MANIFEST-e2.sha256)
+    check(sha(PAPERS / "PF-extension-e2-addendum-2026-11-14.md") == "ea41c44ffbe2057efde12365532241bc226d43e9e1a06d6bd64079acaec852a9",
+          "E2 addendum changed after freeze")
+    check(sha(ROOT / "private" / "experiments" / "extend_pf_e2.py") == "e71b9e02dba3d486c933bb293a969169da83ffd65dbe6e5a65f8e0b0d51e9525",
+          "E2 script changed after freeze")
+    plan_e2 = json.loads((CONF / "plan-e2.json").read_text(encoding="utf-8"))
+    used_e1 = {e["model"]: {tuple(k) for k in e["findings"]} for e in plan_e1["primaries"]}
+    check(len(plan_e2["primaries"]) == 6 and all(len(e["findings"]) == 20 for e in plan_e2["primaries"]), "E2 plan: six primaries of 20")
+    check(all(not ({tuple(k) for k in e["findings"]} & used_e1[e["model"]]) for e in plan_e2["primaries"]), "E2 findings are fresh")
+    # pushes of each freeze as GitHub's activity log records them, against the first run each governs
+    from datetime import datetime as _dt
+    pushes = {a["after"][:7]: a["timestamp"] for a in json.loads((CONF / "github-activity.json").read_text(encoding="utf-8"))
+              if a["activity_type"] == "push" and a["ref"] == "refs/heads/main"}
+
+    def first_start(folder, models=None):
+        times = []
+        with (CONF / folder / "episodes.jsonl").open(encoding="utf-8") as handle:
+            for line in handle:
+                r = json.loads(line)
+                if r.get("startedAt") and (models is None or r["model"] in models):
+                    times.append(r["startedAt"])
+        return min(times)
+
+    def gap_s(a, b):
+        return int((_dt.fromisoformat(b.replace("Z", "+00:00")) - _dt.fromisoformat(a.replace("Z", "+00:00"))).total_seconds())
+
+    e1_models = {"Mistral-Large-3", "mistral-medium-3-5", "grok-4-1-fast-non-reasoning"}
+    for name, commit, start in (("protocol", "c7e3fb4", first_start("s2")), ("E1", "6a90764", first_start("s34", e1_models)),
+                                ("E2", "c51b356", first_start("e2"))):
+        gap = gap_s(pushes[commit], start)
+        check(gap > 0, f"{name} pushed before its first run")
+        must[f"push {name}"] = f"{pushes[commit][11:19]}"
+        must[f"push gap {name}"] = f"{gap} seconds before"
+        must[f"first run {name}"] = f"({start[11:19]})"
+    e2r = json.loads((CONF / "e2-result.json").read_text(encoding="utf-8"))
+    check(e2r["threshold"] == 0.1 and set(e2r["envelopes"]) == set(used_e1), "E2 result covers the six primaries")
+    xc = json.loads((CONF / "calibrate-crosscheck.json").read_text(encoding="utf-8"))
+    check(xc["pairs"] == 30 and all(r["research"]["class"] == e2r["envelopes"][r["model"]][c]["measured"]
+                                    for r in xc["rows"] for c in [k for k, v in pf_fills.E2_PRODUCT.items() if v == r["change"]]),
+          "calibrate cross-check reads E2's envelopes")
+    s6 = json.loads((CONF / "s6-e1" / "recurrence.json").read_text(encoding="utf-8"))
     check(s6["scriptSha256"] == "78eb49cdd4acc6cc931ece1054fe452efa52e150b6da8aa52206b3241f2e7f73", "S6 script digest")
-    t3, t4 = tasks["T3-recurred-on-fresh-run"]["attack"], tasks["T4-refuse-when-setup-differs"]["attack"]
-    rows6 = {"ours": "`.sova`, declared rules", "ours-measured": "`.sova`, measured rules", "naive": "Naive verdict pairing",
-             "plain-sequence": "Plain log, same call sequence", "plain-final-call": "Plain log, same final call",
-             "CR*-finding": "ClaimReceipt, our instance", "AT*-latest": "AgentTriage, its latest-terminal rule",
-             "AT*-per-call": "AgentTriage, every call (our variant)"}
-    untyped = {"naive", "plain-sequence", "plain-final-call", "AT*-latest", "AT*-per-call"}
-    for key, name in rows6.items():
-        refused = t4[key]["refused"]
-        if key in untyped:
-            check(refused == 0, f"S6 {key} refuses nothing")
-            ref = "not applicable"
-        else:
-            ref = f"{refused} of {t4[key]['materialCells']}"
-        must[f"S6 row {key}"] = f"| {name} | {t3[key]['withRecurrenceVerdict']} ({t3[key]['agreeWithOursOnThose']}) | {ref} |"
-    check(t3["CR*-strict"]["withRecurrenceVerdict"] == 0 and t4["CR*-strict"]["refused"] == 0, "S6 CR strict abstains")
-    tab = s6["contingency"]["attack"]
-    must["S6 AT latest"] = f"called {tab['AT*-latest']['all']['table']['reproduced']['no-finding']} of the 294 recurring attacks"
-    check(sum(tab["AT*-latest"]["all"]["table"]["reproduced"].values()) == 294, "S6 recurring cells")
-    must["S6 CR finding"] = f"left {tab['CR*-finding']['all']['table']['reproduced']['inconclusive']} recurring cells inconclusive"
-    must["S6 naive material"] = f"would report {tab['naive']['all']['table']['incompatible']['not-reproduced']} of them"
-    must["S6 sequence"] = f"the same in only {tab['plain-sequence']['all']['table']['reproduced']['reproduced']} of them"
-    t5 = tasks["T5-abstain-on-crashes"]
-    t6 = tasks["T6-warning-scored-as-attack"]
-    must["S6 crashes"] = f"All {t5['episodes']} crashed runs in the data"
-    must["S6 warnings"] = f"Of the {t6['episodes']} Claude hotel-goal warnings"
+    for key, value in pf_fills.build_all(CONF).items():
+        for n, line in enumerate(x for x in value.splitlines() if x.strip()):
+            must[f"fill {key} {n}"] = " ".join(line.split())
+    tasks = json.loads((CONF / "s6-e1" / "tasks.json").read_text(encoding="utf-8"))["tasks"]
     check(all(v["state"] == "verified" for v in tasks["T1-verify-offline"]["ours (.sova)"]), "S6 T1")
     tot = agree = red = 0
-    for d in ("s2", "s2-anthropic", "s2-grok-full", "s34", "s5", "s5-anthropic"):
+    for d in ("s2", "s2-anthropic", "s2-grok-full", "s34", "s5", "s5-anthropic", "e2"):
         r6 = json.loads((CONF / "sova" / d / "audit-check.json").read_text(encoding="utf-8"))
         check(not r6["otherDifferences"], f"sova audit differs from the analysis: {d}")
         tot, agree = tot + r6["episodes"], agree + r6["agree"]
         red += sum(x["sova"] for x in r6["evidenceRedactedDifferences"] if x["category"] == "evidence-redacted")
         check(all(x["injectionTask"] == "injection_task_7" and x["suite"] == "banking" for x in r6["evidenceRedactedDifferences"]), f"redactions are password changes: {d}")
     check(tot - agree == red, "every difference is a redaction")
-    # ---- S7: blind readers
+    # ---- S7: three blind readers (two in S7, one added by extension E1)
+    readers7 = ("gpt-5.5", "grok-4.7", "cohere-command-a")
     items7 = {it["id"]: it for it in json.loads((CONF / "readers-items.json").read_text(encoding="utf-8"))}
     labels7: dict[str, dict[str, str]] = {}
-    for reader in ("gpt-5.5", "grok-4.7"):
+    for reader in readers7:
         labels7[reader] = {json.loads(line)["id"]: json.loads(line)["label"]
                            for line in (CONF / f"readers-{reader}.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()}
         check(set(labels7[reader]) == set(items7), f"S7 every item labelled once: {reader}")
@@ -1047,20 +1002,18 @@ def confirmatory_strings() -> dict[str, str]:
     for stratum, (label, audit_says) in names7.items():
         ids = [i for i, it in items7.items() if it["stratum"] == stratum]
         cells = []
-        for reader in ("gpt-5.5", "grok-4.7"):
+        for reader in readers7:
             lab = [labels7[reader][i] for i in ids]
             cells.append(f"{sum(x in attack7 for x in lab)} of {sum(x in valid7 for x in lab)}")
-        must[f"S7 row {stratum}"] = f"| {label} | {len(ids)} | {audit_says} | {cells[0]} | {cells[1]} |"
+        must[f"S7 row {stratum}"] = f"| {label} | {len(ids)} | {audit_says} | " + " | ".join(cells) + " |"
     must["S7 items"] = f"read {len(items7):,} runs blind"
     c5set = {"claude-opus-5-5", "claude-sonnet-5-5", "claude-fable-5-2", "claude-haiku-5-5"}
     c5ids = [i for i, it in items7.items() if it["stratum"] == "study:hotel-scored" and it["model"] in c5set]
-    check(len(c5ids) == 219 and all(labels7[r][i] == "warned_or_refused" for r in labels7 for i in c5ids), "S7 Claude 5.x hotel runs")
-    must["S7 claude"] = "Both blind readers of section 4.4 labelled all 219 of these runs as warnings or refusals."
-    ag7 = json.loads((CONF / "readers-agreement.json").read_text(encoding="utf-8"))
-    for reader in ("gpt-5.5", "grok-4.7"):
-        must[f"S7 agree {reader}"] = f"{100 * ag7['readers'][reader]['agreeWithAudit']:.1f}% (Cohen's kappa {ag7['readers'][reader]['kappaWithAudit']:.2f})"             if reader == "gpt-5.5" else f"the audit in {100 * ag7['readers'][reader]['agreeWithAudit']:.1f}% (kappa {ag7['readers'][reader]['kappaWithAudit']:.2f})"
-    must["S7 between"] = f"with kappa {ag7['betweenReaders']['kappaAttack']:.2f} on attack or not"
-    must["S6.3 agreement"] = f"for {agree:,} of {tot:,} runs. The other {red} are password changes"
+    check(len(c5ids) == 219 and all(labels7[r][i] == "warned_or_refused" for r in readers7 for i in c5ids), "S7 Claude 5.x hotel runs")
+    must["S7 claude"] = "All three blind readers of section 4.4 labelled all 219 of these runs as warnings or refusals."
+    ag7 = json.loads((CONF / "readers-agreement-e1.json").read_text(encoding="utf-8"))["readers"]
+    kap = sorted(ag7[r]["kappaWithAudit"] for r in readers7)
+    must["S7 kappa audit"] = f"(Cohen's kappa {kap[0]:.2f} to {kap[-1]:.2f})"
     return must
 
 
@@ -1091,6 +1044,9 @@ def check_text(must: dict[str, str]) -> None:
     for label, value in must.items():
         check(value in flat, f"reported value absent from paper: {label!r} -> {value!r}")
     check("<<" not in raw and ">>" not in raw and "[[RESULT" not in raw, "unresolved placeholder in paper")
+    abstract = raw.split("## Abstract", 1)[1].split("\n## ", 1)[0] if "## Abstract" in raw else ""
+    abstract_chars = len(" ".join(abstract.split()))
+    check(0 < abstract_chars <= 1920, f"abstract is {abstract_chars} characters; arXiv allows 1,920")
     public = flat.split("## Internal: required work before submission")[0]
     lowered = public.lower()
     for context in ALLOWED_FIRST_CONTEXTS:

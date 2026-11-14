@@ -1,0 +1,1 @@
+NOTE (added 2026-11-15): the log of the run that produced s6-e1/tasks.json (2026-11-14 19:36 UTC) was lost: an interrupted duplicate run of the post-run script started this step at 22:57 UTC and was stopped before it wrote anything. s6-e1/tasks.json is the output of the original run.

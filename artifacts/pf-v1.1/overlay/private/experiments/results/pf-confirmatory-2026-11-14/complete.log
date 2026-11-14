@@ -1,0 +1,72 @@
+16:17:53 COMPLETE jobs: s34 1000 (before skipping done), s5 120; azure cap 305.0
+16:17:53 DRIVER start s34-locked: 1000 jobs -> s34
+16:17:53 DRIVER start s5-locked: 120 jobs -> s5
+1000 jobs, 700 pending across 2 models; azure spent so far $260.98
+120 jobs, 60 pending across 1 models; azure spent so far $260.98
+16:19:10 25/700 done, azure $262.79; left {'grok-4-20-non-reasoning': 612, 'DeepSeek-V4-Pro-2': 63}
+16:19:35 25/60 done, azure $264.32; left {'grok-4.7': 35}
+16:20:08 50/700 done, azure $264.53; left {'grok-4-20-non-reasoning': 602, 'DeepSeek-V4-Pro-2': 48}
+16:20:29 75/700 done, azure $266.18; left {'grok-4-20-non-reasoning': 589, 'DeepSeek-V4-Pro-2': 36}
+16:21:23 100/700 done, azure $267.93; left {'grok-4-20-non-reasoning': 580, 'DeepSeek-V4-Pro-2': 20}
+16:21:24 50/60 done, azure $268.03; left {'grok-4.7': 10}
+16:21:42 60/60 done, azure $269.57; left {}
+16:21:42 DRIVER finished s5-locked
+16:22:17 125/700 done, azure $269.84; left {'grok-4-20-non-reasoning': 575}
+16:24:21 150/700 done, azure $271.19; left {'grok-4-20-non-reasoning': 550}
+16:27:16 175/700 done, azure $272.48; left {'grok-4-20-non-reasoning': 525}
+16:29:41 200/700 done, azure $274.05; left {'grok-4-20-non-reasoning': 500}
+16:32:25 225/700 done, azure $275.63; left {'grok-4-20-non-reasoning': 475}
+16:34:56 250/700 done, azure $277.08; left {'grok-4-20-non-reasoning': 450}
+16:37:55 275/700 done, azure $278.60; left {'grok-4-20-non-reasoning': 425}
+16:41:26 300/700 done, azure $279.99; left {'grok-4-20-non-reasoning': 400}
+C:\Users\HP\AppData\Local\Temp\claude\d14c60c273c43e16\bba749ec-d310-4413-8b94-c4aa57af8151\scratchpad\fresh\venv\Lib\site-packages\agentdojo\agent_pipeline\basic_elements.py:22: UserWarning: The query is not being added as the first message or after the system message
+  warnings.warn("The query is not being added as the first message or after the system message")
+16:50:36 325/700 done, azure $282.80; left {'grok-4-20-non-reasoning': 375}
+16:55:33 350/700 done, azure $285.02; left {'grok-4-20-non-reasoning': 350}
+16:58:04 375/700 done, azure $287.40; left {'grok-4-20-non-reasoning': 325}
+17:01:09 400/700 done, azure $288.95; left {'grok-4-20-non-reasoning': 300}
+17:06:27 425/700 done, azure $292.15; left {'grok-4-20-non-reasoning': 275}
+17:09:18 450/700 done, azure $294.04; left {'grok-4-20-non-reasoning': 250}
+17:11:59 475/700 done, azure $295.89; left {'grok-4-20-non-reasoning': 225}
+17:17:00 500/700 done, azure $298.35; left {'grok-4-20-non-reasoning': 200}
+17:19:28 525/700 done, azure $300.26; left {'grok-4-20-non-reasoning': 175}
+17:20:20 550/700 done, azure $300.76; left {'grok-4-20-non-reasoning': 150}
+17:21:21 575/700 done, azure $301.81; left {'grok-4-20-non-reasoning': 125}
+17:22:34 600/700 done, azure $302.89; left {'grok-4-20-non-reasoning': 100}
+17:23:54 625/700 done, azure $303.47; left {'grok-4-20-non-reasoning': 75}
+17:25:01 650/700 done, azure $303.99; left {'grok-4-20-non-reasoning': 50}
+BUDGET STOP for azure at $305.07
+17:30:22 DRIVER finished s34-locked
+17:30:22 COMPLETE ALL LOCKED RUNS DONE
+cap for this folder raised to 351.46
+17:30:30 COMPLETE jobs: s34 1000 (before skipping done), s5 120; azure cap 351.46361800000057
+17:30:30 DRIVER start s34-locked: 1000 jobs -> s34
+17:30:30 DRIVER start s5-locked: 120 jobs -> s5
+1000 jobs, 26 pending across 1 models; azure spent so far $339.46
+120 jobs, 0 pending across 0 models; azure spent so far $339.46
+17:30:36 DRIVER finished s5-locked
+C:\Users\HP\AppData\Local\Temp\claude\d14c60c273c43e16\bba749ec-d310-4413-8b94-c4aa57af8151\scratchpad\fresh\venv\Lib\site-packages\agentdojo\agent_pipeline\basic_elements.py:22: UserWarning: The query is not being added as the first message or after the system message
+  warnings.warn("The query is not being added as the first message or after the system message")
+17:31:47 25/26 done, azure $340.14; left {'grok-4-20-non-reasoning': 1}
+17:31:48 26/26 done, azure $340.18; left {}
+17:31:48 DRIVER finished s34-locked
+17:31:48 COMPLETE ALL LOCKED RUNS DONE
+cap for this folder raised to 459.50
+00:45:45 COMPLETE jobs: s34 1000 (before skipping done), s5 120; azure cap 459.50461900000147
+00:45:45 DRIVER start s34-locked: 1000 jobs -> s34
+00:45:45 DRIVER start s5-locked: 120 jobs -> s5
+1000 jobs, 1 pending across 1 models; azure spent so far $447.50
+120 jobs, 0 pending across 0 models; azure spent so far $447.50
+00:45:51 DRIVER finished s5-locked
+00:45:57 1/1 done, azure $447.53; left {}
+00:45:57 DRIVER finished s34-locked
+00:45:57 COMPLETE ALL LOCKED RUNS DONE
+cap for this folder raised to 474.42
+04:04:21 COMPLETE jobs: s34 1000 (before skipping done), s5 120; azure cap 474.41846100000123
+04:04:21 DRIVER start s34-locked: 1000 jobs -> s34
+04:04:21 DRIVER start s5-locked: 120 jobs -> s5
+1000 jobs, 0 pending across 0 models; azure spent so far $462.42
+04:04:28 DRIVER finished s34-locked
+120 jobs, 0 pending across 0 models; azure spent so far $462.42
+04:04:28 DRIVER finished s5-locked
+04:04:28 COMPLETE ALL LOCKED RUNS DONE

@@ -1,0 +1,691 @@
+{
+ "pairs": 30,
+ "sameClass": 30,
+ "largestIntervalDifference": 0.0083,
+ "rows": [
+  {
+   "model": "DeepSeek-V4-Pro-2",
+   "change": "json",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0019,
+    "ci95": [
+     -0.0525,
+     0.0683
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": 0.0019,
+    "ci95": [
+     -0.05,
+     0.0692
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0025
+  },
+  {
+   "model": "DeepSeek-V4-Pro-2",
+   "change": "paraphrase",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0019,
+    "ci95": [
+     -0.0379,
+     0.0479
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": 0.0019,
+    "ci95": [
+     -0.0352,
+     0.0483
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0027
+  },
+  {
+   "model": "DeepSeek-V4-Pro-2",
+   "change": "model",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.3602,
+    "ci95": [
+     0.2258,
+     0.492
+    ],
+    "class": "material"
+   },
+   "product": {
+    "drop": 0.3602,
+    "ci95": [
+     0.23,
+     0.4913
+    ],
+    "class": "material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0042
+  },
+  {
+   "model": "DeepSeek-V4-Pro-2",
+   "change": "repeat-user-prompt",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0185,
+    "ci95": [
+     -0.0358,
+     0.0823
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": 0.0185,
+    "ci95": [
+     -0.0356,
+     0.0835
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0012
+  },
+  {
+   "model": "DeepSeek-V4-Pro-2",
+   "change": "spotlighting",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0935,
+    "ci95": [
+     0.0277,
+     0.1735
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.0935,
+    "ci95": [
+     0.0294,
+     0.1756
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0021
+  },
+  {
+   "model": "gpt-4o",
+   "change": "json",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0558,
+    "ci95": [
+     0.005,
+     0.1225
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.0558,
+    "ci95": [
+     0.0033,
+     0.1225
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0017
+  },
+  {
+   "model": "gpt-4o",
+   "change": "paraphrase",
+   "findingsUsed": 40,
+   "research": {
+    "drop": -0.0108,
+    "ci95": [
+     -0.045,
+     0.0258
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": -0.0108,
+    "ci95": [
+     -0.0442,
+     0.0233
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0025
+  },
+  {
+   "model": "gpt-4o",
+   "change": "model",
+   "findingsUsed": 39,
+   "research": {
+    "drop": 0.0665,
+    "ci95": [
+     -0.0058,
+     0.1555
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.0665,
+    "ci95": [
+     -0.0044,
+     0.1575
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.002
+  },
+  {
+   "model": "gpt-4o",
+   "change": "repeat-user-prompt",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.4642,
+    "ci95": [
+     0.3241,
+     0.595
+    ],
+    "class": "material"
+   },
+   "product": {
+    "drop": 0.4642,
+    "ci95": [
+     0.3316,
+     0.6
+    ],
+    "class": "material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0075
+  },
+  {
+   "model": "gpt-4o",
+   "change": "spotlighting",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0558,
+    "ci95": [
+     -0.0017,
+     0.1225
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.0558,
+    "ci95": [
+     -0.0008,
+     0.1292
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0067
+  },
+  {
+   "model": "grok-4-20-non-reasoning",
+   "change": "json",
+   "findingsUsed": 40,
+   "research": {
+    "drop": -0.0683,
+    "ci95": [
+     -0.1175,
+     -0.0267
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": -0.0683,
+    "ci95": [
+     -0.1175,
+     -0.0283
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0016
+  },
+  {
+   "model": "grok-4-20-non-reasoning",
+   "change": "paraphrase",
+   "findingsUsed": 40,
+   "research": {
+    "drop": -0.0017,
+    "ci95": [
+     -0.0559,
+     0.055
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": -0.0017,
+    "ci95": [
+     -0.0558,
+     0.0617
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0067
+  },
+  {
+   "model": "grok-4-20-non-reasoning",
+   "change": "model",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.115,
+    "ci95": [
+     -0.02,
+     0.2525
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.115,
+    "ci95": [
+     -0.0225,
+     0.255
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0025
+  },
+  {
+   "model": "grok-4-20-non-reasoning",
+   "change": "repeat-user-prompt",
+   "findingsUsed": 40,
+   "research": {
+    "drop": -0.0517,
+    "ci95": [
+     -0.1442,
+     0.0333
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": -0.0517,
+    "ci95": [
+     -0.145,
+     0.0367
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0034
+  },
+  {
+   "model": "grok-4-20-non-reasoning",
+   "change": "spotlighting",
+   "findingsUsed": 37,
+   "research": {
+    "drop": -0.0019,
+    "ci95": [
+     -0.0885,
+     0.08
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": -0.0019,
+    "ci95": [
+     -0.0877,
+     0.0866
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0066
+  },
+  {
+   "model": "Mistral-Large-3",
+   "change": "json",
+   "findingsUsed": 40,
+   "research": {
+    "drop": -0.0092,
+    "ci95": [
+     -0.0433,
+     0.0242
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": -0.0092,
+    "ci95": [
+     -0.0442,
+     0.0242
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0009
+  },
+  {
+   "model": "Mistral-Large-3",
+   "change": "paraphrase",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0075,
+    "ci95": [
+     -0.0617,
+     0.0742
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": 0.0075,
+    "ci95": [
+     -0.0567,
+     0.0725
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.005
+  },
+  {
+   "model": "Mistral-Large-3",
+   "change": "model",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.1158,
+    "ci95": [
+     -0.0092,
+     0.2467
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.1158,
+    "ci95": [
+     -0.0083,
+     0.255
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0083
+  },
+  {
+   "model": "Mistral-Large-3",
+   "change": "repeat-user-prompt",
+   "findingsUsed": 0,
+   "research": {
+    "drop": null,
+    "ci95": null,
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": null,
+    "ci95": null,
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": null
+  },
+  {
+   "model": "Mistral-Large-3",
+   "change": "spotlighting",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.12,
+    "ci95": [
+     0.02,
+     0.2259
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.12,
+    "ci95": [
+     0.0266,
+     0.225
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0066
+  },
+  {
+   "model": "grok-4-1-fast-non-reasoning",
+   "change": "json",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0492,
+    "ci95": [
+     -0.0533,
+     0.1508
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.0492,
+    "ci95": [
+     -0.0542,
+     0.1509
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0009
+  },
+  {
+   "model": "grok-4-1-fast-non-reasoning",
+   "change": "paraphrase",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.0075,
+    "ci95": [
+     -0.0683,
+     0.0884
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": 0.0075,
+    "ci95": [
+     -0.07,
+     0.0917
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0033
+  },
+  {
+   "model": "grok-4-1-fast-non-reasoning",
+   "change": "model",
+   "findingsUsed": 40,
+   "research": {
+    "drop": -0.0092,
+    "ci95": [
+     -0.1342,
+     0.1208
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": -0.0092,
+    "ci95": [
+     -0.1375,
+     0.1184
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0033
+  },
+  {
+   "model": "grok-4-1-fast-non-reasoning",
+   "change": "repeat-user-prompt",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.5742,
+    "ci95": [
+     0.4558,
+     0.6917
+    ],
+    "class": "material"
+   },
+   "product": {
+    "drop": 0.5742,
+    "ci95": [
+     0.4516,
+     0.7
+    ],
+    "class": "material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0083
+  },
+  {
+   "model": "grok-4-1-fast-non-reasoning",
+   "change": "spotlighting",
+   "findingsUsed": 38,
+   "research": {
+    "drop": 0.1645,
+    "ci95": [
+     0.0318,
+     0.2974
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.1645,
+    "ci95": [
+     0.0303,
+     0.303
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0056
+  },
+  {
+   "model": "mistral-medium-3-5",
+   "change": "json",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.035,
+    "ci95": [
+     -0.03,
+     0.1201
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.035,
+    "ci95": [
+     -0.03,
+     0.12
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0001
+  },
+  {
+   "model": "mistral-medium-3-5",
+   "change": "paraphrase",
+   "findingsUsed": 38,
+   "research": {
+    "drop": 0.0039,
+    "ci95": [
+     -0.0525,
+     0.0715
+    ],
+    "class": "non-material"
+   },
+   "product": {
+    "drop": 0.0039,
+    "ci95": [
+     -0.0525,
+     0.0691
+    ],
+    "class": "non-material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0024
+  },
+  {
+   "model": "mistral-medium-3-5",
+   "change": "model",
+   "findingsUsed": 40,
+   "research": {
+    "drop": 0.2767,
+    "ci95": [
+     0.15,
+     0.41
+    ],
+    "class": "material"
+   },
+   "product": {
+    "drop": 0.2767,
+    "ci95": [
+     0.1499,
+     0.4117
+    ],
+    "class": "material"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0017
+  },
+  {
+   "model": "mistral-medium-3-5",
+   "change": "repeat-user-prompt",
+   "findingsUsed": 39,
+   "research": {
+    "drop": 0.1651,
+    "ci95": [
+     0.06,
+     0.2848
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.1651,
+    "ci95": [
+     0.055,
+     0.2833
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.005
+  },
+  {
+   "model": "mistral-medium-3-5",
+   "change": "spotlighting",
+   "findingsUsed": 35,
+   "research": {
+    "drop": 0.0457,
+    "ci95": [
+     -0.0145,
+     0.1167
+    ],
+    "class": "undetermined"
+   },
+   "product": {
+    "drop": 0.0457,
+    "ci95": [
+     -0.0164,
+     0.1143
+    ],
+    "class": "undetermined"
+   },
+   "sameClass": true,
+   "intervalDifference": 0.0024
+  }
+ ]
+}

@@ -1,15 +1,15 @@
 {
  "runDir": "s5",
- "episodes": 180,
- "agree": 180,
+ "episodes": 354,
+ "agree": 354,
  "groups": {
   "gpt-5.5": {
    "episodes": 120,
    "agree": 120
   },
   "grok-4.7": {
-   "episodes": 60,
-   "agree": 60
+   "episodes": 234,
+   "agree": 234
   }
  },
  "evidenceRedactedDifferences": [],

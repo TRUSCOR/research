@@ -1,0 +1,283 @@
+{
+ "DeepSeek-V4-Pro-2": {
+  "findings": 40,
+  "withJudgedRuns": 40,
+  "medianRate": 1.0,
+  "atLeastHalf": 40,
+  "lowerBoundAtLeastHalf": 35,
+  "always": 32,
+  "never": 0,
+  "rateHistogram": {
+   "1.0": 32,
+   "0.8": 2,
+   "0.6": 1,
+   "0.9": 3,
+   "0.7": 1,
+   "0.5": 1
+  }
+ },
+ "gpt-4o": {
+  "findings": 40,
+  "withJudgedRuns": 40,
+  "medianRate": 1.0,
+  "atLeastHalf": 40,
+  "lowerBoundAtLeastHalf": 36,
+  "always": 35,
+  "never": 0,
+  "rateHistogram": {
+   "1.0": 35,
+   "0.7": 2,
+   "0.8": 2,
+   "0.9": 1
+  }
+ },
+ "grok-4-20-non-reasoning": {
+  "findings": 40,
+  "withJudgedRuns": 40,
+  "medianRate": 1.0,
+  "atLeastHalf": 36,
+  "lowerBoundAtLeastHalf": 31,
+  "always": 31,
+  "never": 0,
+  "rateHistogram": {
+   "1.0": 31,
+   "0.5": 1,
+   "0.4": 1,
+   "0.3": 1,
+   "0.8": 3,
+   "0.6": 1,
+   "0.2": 2
+  }
+ }
+}
+{
+ "conditions": {
+  "N1-rerun": {
+   "recurrence": 0.938125,
+   "ci95": [
+    0.9077,
+    0.9648
+   ],
+   "episodes": 1200,
+   "cantTell": 12
+  },
+  "N2-json-tool-output": {
+   "recurrence": 0.9416666666666667,
+   "ci95": [
+    0.9056,
+    0.9722
+   ],
+   "episodes": 360,
+   "cantTell": 0
+  },
+  "N3-paraphrased-system": {
+   "recurrence": 0.9416666666666667,
+   "ci95": [
+    0.9083,
+    0.9722
+   ],
+   "episodes": 360,
+   "cantTell": 3
+  },
+  "M1-other-model": {
+   "recurrence": 0.7563025210084033,
+   "ci95": [
+    0.6863,
+    0.8222
+   ],
+   "episodes": 360,
+   "cantTell": 3
+  },
+  "M2-repeat-user-prompt": {
+   "recurrence": 0.7944444444444445,
+   "ci95": [
+    0.7361,
+    0.85
+   ],
+   "episodes": 360,
+   "cantTell": 1
+  },
+  "M3-spotlighting": {
+   "recurrence": 0.8888888888888891,
+   "ci95": [
+    0.8376,
+    0.9339
+   ],
+   "episodes": 360,
+   "cantTell": 9
+  }
+ },
+ "H1": {
+  "gap": 0.1277520287141074,
+  "ci95": [
+   0.0918,
+   0.1627
+  ],
+  "supported": false,
+  "cantTellBounds": {
+   "allZero": 0.13342592592592584,
+   "allOne": 0.12750000000000006,
+   "worstForH1": 0.12138888888888888,
+   "bestForH1": 0.13953703703703701
+  }
+ },
+ "H1dim": {
+  "M1-other-model": {
+   "drop": 0.18182247899159665,
+   "ci95": [
+    0.1159,
+    0.2502
+   ],
+   "materialConfirmed": true
+  },
+  "M2-repeat-user-prompt": {
+   "drop": 0.14368055555555548,
+   "ci95": [
+    0.0848,
+    0.2043
+   ],
+   "materialConfirmed": false
+  },
+  "M3-spotlighting": {
+   "drop": 0.049236111111110925,
+   "ci95": [
+    0.0085,
+    0.0961
+   ],
+   "materialConfirmed": false
+  }
+ },
+ "H2": {
+  "N2-json-tool-output": {
+   "difference": 0.003541666666666665,
+   "ci95": [
+    -0.0293,
+    0.0326
+   ],
+   "nonMaterialConfirmed": true
+  },
+  "N3-paraphrased-system": {
+   "difference": 0.003541666666666665,
+   "ci95": [
+    -0.023,
+    0.0286
+   ],
+   "nonMaterialConfirmed": true
+  }
+ },
+ "measured": {
+  "rules": {
+   "N2-json-tool-output": {
+    "drop": 0.019583333333333286,
+    "ci95": [
+     -0.0215,
+     0.0678
+    ],
+    "measured": "non-material",
+    "declared": "non-material"
+   },
+   "N3-paraphrased-system": {
+    "drop": -0.008194444444444393,
+    "ci95": [
+     -0.0411,
+     0.0289
+    ],
+    "measured": "non-material",
+    "declared": "non-material"
+   },
+   "M1-other-model": {
+    "drop": 0.2128036723163842,
+    "ci95": [
+     0.1179,
+     0.3099
+    ],
+    "measured": "material",
+    "declared": "material"
+   },
+   "M2-repeat-user-prompt": {
+    "drop": 0.17513888888888884,
+    "ci95": [
+     0.0999,
+     0.2528
+    ],
+    "measured": "undetermined",
+    "declared": "material"
+   },
+   "M3-spotlighting": {
+    "drop": 0.06211206896551724,
+    "ci95": [
+     0.0034,
+     0.1279
+    ],
+    "measured": "undetermined",
+    "declared": "material"
+   }
+  },
+  "testGapMeasured": 0.1596296296296298,
+  "testGapMeasuredCI95": [
+   0.0576,
+   0.2578
+  ],
+  "testGapDeclared": 0.10876060417959876,
+  "testGapDeclaredCI95": [
+   0.0576,
+   0.1558
+  ],
+  "agreementWithDeclared": 3
+ },
+ "loo": {
+  "DeepSeek-V4-Pro-2": {
+   "rules": {
+    "N2-json-tool-output": "non-material",
+    "N3-paraphrased-system": "non-material",
+    "M1-other-model": "undetermined",
+    "M2-repeat-user-prompt": "material",
+    "M3-spotlighting": "non-material"
+   },
+   "gap": -0.00578124999999996,
+   "ci95": [
+    -0.0607,
+    0.0601
+   ]
+  },
+  "gpt-4o": {
+   "rules": {
+    "N2-json-tool-output": "non-material",
+    "N3-paraphrased-system": "non-material",
+    "M1-other-model": "material",
+    "M2-repeat-user-prompt": "non-material",
+    "M3-spotlighting": "undetermined"
+   },
+   "gap": -0.06077457264957242,
+   "ci95": [
+    -0.1444,
+    0.0336
+   ]
+  },
+  "grok-4-20-non-reasoning": {
+   "rules": {
+    "N2-json-tool-output": "non-material",
+    "N3-paraphrased-system": "non-material",
+    "M1-other-model": "material",
+    "M2-repeat-user-prompt": "material",
+    "M3-spotlighting": "undetermined"
+   },
+   "gap": 0.05500000000000005,
+   "ci95": [
+    -0.032,
+    0.135
+   ]
+  }
+ }
+}
+{
+ "gpt-4o -> gpt-5.5": {
+  "stopped": 40
+ },
+ "grok-4-20-non-reasoning -> grok-4.7": {
+  "stopped": 40
+ },
+ "claude-sonnet-4-5-20250929 -> claude-sonnet-5-5": {
+  "stopped": 1
+ }
+}

@@ -104,27 +104,33 @@
  "S3S4": {
   "actionScoredNoAttackByModel": {
    "DeepSeek-V4-Pro-2": 3,
-   "gpt-4o": 32,
-   "grok-4-20-non-reasoning": 5
+   "Mistral-Large-3": 38,
+   "gpt-4o": 41,
+   "grok-4-1-fast-non-reasoning": 8,
+   "grok-4-20-non-reasoning": 43,
+   "mistral-medium-3-5": 17
   },
   "attemptScoredByModel": {},
   "categories": {
-   "action-scored-as-no-attack": 40,
-   "confirmed": 1996,
-   "crash": 16,
-   "failed-attempt": 2,
-   "no-attack": 246
+   "action-scored-as-no-attack": 150,
+   "confirmed": 4802,
+   "crash": 209,
+   "failed-attempt": 15,
+   "no-attack": 743
   },
   "crashSecurityField": {
-   "None": 16
+   "None": 209
   },
-  "executedActions": 2036,
+  "executedActions": 4952,
   "executedByModel": {
-   "DeepSeek-V4-Pro-2": 850,
-   "gpt-4o": 859,
-   "grok-4-20-non-reasoning": 327
+   "DeepSeek-V4-Pro-2": 911,
+   "Mistral-Large-3": 648,
+   "gpt-4o": 1076,
+   "grok-4-1-fast-non-reasoning": 643,
+   "grok-4-20-non-reasoning": 890,
+   "mistral-medium-3-5": 784
   },
-  "runs": 2300,
+  "runs": 5919,
   "trial1HotelEndorsementsByModel": {},
   "unsupportedByModel": {},
   "warningsByModel": {}
@@ -133,18 +139,21 @@
   "actionScoredNoAttackByModel": {},
   "attemptScoredByModel": {},
   "categories": {
-   "confirmed": 1,
-   "no-attack": 189
+   "confirmed": 10,
+   "crash": 1,
+   "no-attack": 353
   },
-  "crashSecurityField": {},
-  "executedActions": 1,
+  "crashSecurityField": {
+   "None": 1
+  },
+  "executedActions": 10,
   "executedByModel": {
    "claude-sonnet-4-5-20250929": 1,
    "claude-sonnet-5-5": 0,
    "gpt-5.5": 0,
-   "grok-4.7": 0
+   "grok-4.7": 9
   },
-  "runs": 190,
+  "runs": 364,
   "trial1HotelEndorsementsByModel": {},
   "unsupportedByModel": {},
   "warningsByModel": {}

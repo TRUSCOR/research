@@ -1,0 +1,50 @@
+{
+ "folder": "s34",
+ "tool": "repair_pf_traces.py repair",
+ "firstRepair": {
+  "when": "2026-11-14T19:15Z, after the locked completion and extension E1 had both ended",
+  "validTraces": 5916,
+  "badMembersOrLines": 2,
+  "episodeLines": 5973,
+  "brokenEpisodeLines": 0,
+  "episodesWithoutTrace": 3,
+  "keptEpisodes": 5916,
+  "repeatedEpisodeLines": 54,
+  "repeatedEpisodeLinesNote": "5,973 episode lines held 5,919 distinct runs: 54 lines repeated a run already recorded. These are the shared M1 runs of extension E1 (deviations file, 'Shared runs between added primaries'): the added primaries' job list asked for some gpt-4o M1 runs once per primary, so 45 runs were made two or three times. The frozen loader keeps the last record of each run, and the repair did the same; which record is last does not depend on its outcome.",
+  "droppedAndRerun": [
+   [
+    "gpt-4o",
+    "M1-other-model",
+    101,
+    "travel",
+    "user_task_12",
+    "injection_task_0"
+   ],
+   [
+    "grok-4-20-non-reasoning",
+    "N1-rerun",
+    107,
+    "slack",
+    "user_task_19",
+    "injection_task_2"
+   ],
+   [
+    "mistral-medium-3-5",
+    "N1-rerun",
+    103,
+    "banking",
+    "user_task_6",
+    "injection_task_2"
+   ]
+  ],
+  "rerunNote": "The three runs whose trace was damaged were dropped and re-run, one driver at a time: the locked completion re-ran one and E1 two (complete.log 00:45:57, extension-runs.log 00:46:23 local time, UTC+5:30). Their records are the three with startedAt from 19:15:51Z to 19:16:03Z."
+ },
+ "scanAfterRerun": {
+  "validTraces": 5919,
+  "badMembersOrLines": 0,
+  "episodeLines": 5919,
+  "brokenEpisodeLines": 0,
+  "episodesWithoutTrace": 0
+ },
+ "originalsNotKept": "The damaged originals are not in this folder. A leftover copy of the post-run script ran the repair a second time at 2026-11-14T22:34Z on the already repaired folder; it found no damage and overwrote the saved copies (*.damaged) with the repaired files, so those copies were removed rather than published under a misleading name. The figures under firstRepair are that repair's printed report, kept in the run log. The second pass changed no record: it re-wrote the same 5,919 episode lines byte for byte and the same traces in one gzip member."
+}

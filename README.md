@@ -70,30 +70,34 @@ did, re-ran its attacks on 24 current models from eight developers, and re-ran
 
 - **Did the attack really work?** In 19,381 published runs, the agent carried
   out the attacker's decisive step (for example, sending money to the
-  attacker) in 433 runs that the benchmark scored as "no attack". On current
+  attacker) in at least 412 runs that the benchmark scored as "no attack". On current
   models the error reverses: the benchmark scores four Claude 5.x models as
   attacked in 10.9% to 12.8% of attacks, yet every one of those runs was the
   model warning the user, and no Claude model carried out an attacker's action.
-- **Does it still work, and how often?** Of 100 recorded attacks re-run five or
-  ten times, all recurred at least once and 98 at least half the time, but for
-  16 the runs could not show a rate of at least 50% with 95% confidence. None of
-  40 GPT-4o attacks worked on GPT-5.5, and none of 20 Grok 4.20 attacks on Grok 4.7.
-- **Can it be proved to a stranger?** Declared rules for when two runs are
-  comparable predicted recurrence by 14.0 points (95% interval 10.2 to 17.8),
-  passing a pre-set test; per model they held only on GPT-4o, and rules learned
-  on two models did not carry over to a third. `sova verify` caught every
-  one-byte tamper we made, where a recent diagnosis tool silently changed its
-  verdict.
+- **Does it still work, and how often?** Of 240 recorded attacks re-run ten
+  times each on six models, 224 recurred in at least half of their re-runs, but
+  for 39 the runs could not show a rate of at least 50% with 95% confidence.
+  Upgrades stopped all 40 GPT-4o attacks on GPT-5.5 and all 40 Grok 4.20 attacks
+  on Grok 4.7, but 3 of 40 Grok 4.1 Fast attacks still work on Grok 4.7.
+- **Can it be proved to a stranger?** Attacks came back 14.7 points more often
+  after setup changes declared in advance not to matter than after a model swap
+  or a prompt defense (95% interval 11.9 to 17.4, six models), passing a pre-set
+  test that the protocol's own three models, taken alone, narrowly missed (12.8,
+  9.2 to 16.3). Rules measured on each model instead, as `sova calibrate` does,
+  separated recurrence on 80 fresh findings by 39.2 points (29.7 to 49.4) under
+  a later frozen extension. `sova verify` caught every one-byte tamper we made,
+  where a recent diagnosis tool silently changed its verdict.
 
-`.sova` is released with the paper as a free, local tool and file format:
-`sova audit` checks a benchmark's verdict against the agent's actual tool
-calls, `sova rerun` and `sova matrix` re-run a finding on any model, and
+`.sova` is released with the paper as a free, local tool and file format,
+`pip install sova-oss`: `sova audit` checks a benchmark's verdict against the
+agent's actual tool calls, `sova rerun` and `sova matrix` re-run a finding on
+any model, `sova calibrate` measures which setup changes matter on a model, and
 `sova verify` checks a sealed record offline. Every run of the paper's studies
 is released as a `.sova` file. **Try it:** [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/).
 
 **This is a preprint. It has not been peer reviewed.** All results come from one
-benchmark with simulated apps; two AI models, not people, read the disputed
-runs blind; the protocols were published before the runs but held by the
+benchmark with simulated apps; three AI models, not people, read the disputed
+runs blind (a blind reading by people is under way and not in this version); the protocols were published before the runs but held by the
 author; and the studies have not yet been re-run independently. The author leads TRUSCOR,
 which develops SOVA.
 
@@ -119,7 +123,9 @@ This repository holds only released papers and the material needed to check them
 
 [SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS) is the
 open-source implementation: the `.sova` and `.sova-trace` formats, schemas, the
-reference verifier, examples, and tests. It is pre-alpha and under active development.
+reference verifier, examples, and tests. Version 0.1 is on PyPI
+(`pip install sova-oss`), with the `.sova` and `.sova-trace` 0.1.0 formats frozen;
+the paper's results use `sova-oss` 0.1.0.
 
 The papers specify and test the ideas. The repository is where they are built and
 where you can check them. For the preprint, the research code, retained results,

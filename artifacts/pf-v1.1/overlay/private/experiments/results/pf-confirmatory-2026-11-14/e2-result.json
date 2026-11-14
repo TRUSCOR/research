@@ -1,0 +1,431 @@
+{
+ "conditions": {
+  "M1-other-model": 0.7853,
+  "M2-repeat-user-prompt": 0.69,
+  "M3-spotlighting": 0.8261,
+  "N1-rerun": 0.9328,
+  "N2-json-tool-output": 0.8917,
+  "N3-paraphrased-system": 0.9548
+ },
+ "declared": {
+  "ci95": [
+   0.1198,
+   0.193
+  ],
+  "gap": 0.1555,
+  "perModel": {
+   "DeepSeek-V4-Pro-2": {
+    "ci95": [
+     0.0278,
+     0.2056
+    ],
+    "gap": 0.1167,
+    "supported": false
+   },
+   "Mistral-Large-3": {
+    "ci95": [
+     0.0721,
+     0.2819
+    ],
+    "gap": 0.1722,
+    "supported": false
+   },
+   "gpt-4o": {
+    "ci95": [
+     0.1555,
+     0.294
+    ],
+    "gap": 0.2255,
+    "supported": true
+   },
+   "grok-4-1-fast-non-reasoning": {
+    "ci95": [
+     0.0333,
+     0.2167
+    ],
+    "gap": 0.1222,
+    "supported": false
+   },
+   "grok-4-20-non-reasoning": {
+    "ci95": [
+     0.0452,
+     0.2646
+    ],
+    "gap": 0.1414,
+    "supported": false
+   },
+   "mistral-medium-3-5": {
+    "ci95": [
+     0.0678,
+     0.2183
+    ],
+    "gap": 0.1402,
+    "supported": false
+   }
+  },
+  "supported": true
+ },
+ "envelopes": {
+  "DeepSeek-V4-Pro-2": {
+   "M1-other-model": {
+    "ci95": [
+     0.2258,
+     0.492
+    ],
+    "drop": 0.3602,
+    "measured": "material"
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": [
+     -0.0358,
+     0.0823
+    ],
+    "drop": 0.0185,
+    "measured": "non-material"
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     0.0277,
+     0.1735
+    ],
+    "drop": 0.0935,
+    "measured": "undetermined"
+   },
+   "N2-json-tool-output": {
+    "ci95": [
+     -0.0525,
+     0.0683
+    ],
+    "drop": 0.0019,
+    "measured": "non-material"
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.0379,
+     0.0479
+    ],
+    "drop": 0.0019,
+    "measured": "non-material"
+   }
+  },
+  "Mistral-Large-3": {
+   "M1-other-model": {
+    "ci95": [
+     -0.0092,
+     0.2467
+    ],
+    "drop": 0.1158,
+    "measured": "undetermined"
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": null,
+    "drop": null,
+    "measured": "undetermined"
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     0.02,
+     0.2259
+    ],
+    "drop": 0.12,
+    "measured": "undetermined"
+   },
+   "N2-json-tool-output": {
+    "ci95": [
+     -0.0433,
+     0.0242
+    ],
+    "drop": -0.0092,
+    "measured": "non-material"
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.0617,
+     0.0742
+    ],
+    "drop": 0.0075,
+    "measured": "non-material"
+   }
+  },
+  "gpt-4o": {
+   "M1-other-model": {
+    "ci95": [
+     -0.0058,
+     0.1555
+    ],
+    "drop": 0.0665,
+    "measured": "undetermined"
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": [
+     0.3241,
+     0.595
+    ],
+    "drop": 0.4642,
+    "measured": "material"
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     -0.0017,
+     0.1225
+    ],
+    "drop": 0.0558,
+    "measured": "undetermined"
+   },
+   "N2-json-tool-output": {
+    "ci95": [
+     0.005,
+     0.1225
+    ],
+    "drop": 0.0558,
+    "measured": "undetermined"
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.045,
+     0.0258
+    ],
+    "drop": -0.0108,
+    "measured": "non-material"
+   }
+  },
+  "grok-4-1-fast-non-reasoning": {
+   "M1-other-model": {
+    "ci95": [
+     -0.1342,
+     0.1208
+    ],
+    "drop": -0.0092,
+    "measured": "undetermined"
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": [
+     0.4558,
+     0.6917
+    ],
+    "drop": 0.5742,
+    "measured": "material"
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     0.0318,
+     0.2974
+    ],
+    "drop": 0.1645,
+    "measured": "undetermined"
+   },
+   "N2-json-tool-output": {
+    "ci95": [
+     -0.0533,
+     0.1508
+    ],
+    "drop": 0.0492,
+    "measured": "undetermined"
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.0683,
+     0.0884
+    ],
+    "drop": 0.0075,
+    "measured": "non-material"
+   }
+  },
+  "grok-4-20-non-reasoning": {
+   "M1-other-model": {
+    "ci95": [
+     -0.02,
+     0.2525
+    ],
+    "drop": 0.115,
+    "measured": "undetermined"
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": [
+     -0.1442,
+     0.0333
+    ],
+    "drop": -0.0517,
+    "measured": "non-material"
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     -0.0885,
+     0.08
+    ],
+    "drop": -0.0019,
+    "measured": "non-material"
+   },
+   "N2-json-tool-output": {
+    "ci95": [
+     -0.1175,
+     -0.0267
+    ],
+    "drop": -0.0683,
+    "measured": "non-material"
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.0559,
+     0.055
+    ],
+    "drop": -0.0017,
+    "measured": "non-material"
+   }
+  },
+  "mistral-medium-3-5": {
+   "M1-other-model": {
+    "ci95": [
+     0.15,
+     0.41
+    ],
+    "drop": 0.2767,
+    "measured": "material"
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": [
+     0.06,
+     0.2848
+    ],
+    "drop": 0.1651,
+    "measured": "undetermined"
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     -0.0145,
+     0.1167
+    ],
+    "drop": 0.0457,
+    "measured": "undetermined"
+   },
+   "N2-json-tool-output": {
+    "ci95": [
+     -0.03,
+     0.1201
+    ],
+    "drop": 0.035,
+    "measured": "undetermined"
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.0525,
+     0.0715
+    ],
+    "drop": 0.0039,
+    "measured": "non-material"
+   }
+  }
+ },
+ "measured": {
+  "ci95": [
+   0.2966,
+   0.4943
+  ],
+  "gap": 0.3925,
+  "perModel": {
+   "DeepSeek-V4-Pro-2": {
+    "ci95": [
+     0.0792,
+     0.5043
+    ],
+    "gap": 0.2875,
+    "supported": false
+   },
+   "Mistral-Large-3": {
+    "ci95": null,
+    "gap": null,
+    "supported": false
+   },
+   "gpt-4o": {
+    "ci95": [
+     0.4333,
+     0.8002
+    ],
+    "gap": 0.625,
+    "supported": true
+   },
+   "grok-4-1-fast-non-reasoning": {
+    "ci95": [
+     0.1998,
+     0.5669
+    ],
+    "gap": 0.3833,
+    "supported": true
+   },
+   "grok-4-20-non-reasoning": {
+    "ci95": null,
+    "gap": null,
+    "supported": false
+   },
+   "mistral-medium-3-5": {
+    "ci95": [
+     0.1,
+     0.425
+    ],
+    "gap": 0.2553,
+    "supported": true
+   }
+  },
+  "supported": true
+ },
+ "measuredSets": {
+  "DeepSeek-V4-Pro-2": [
+   [
+    "N1-rerun",
+    "N2-json-tool-output",
+    "N3-paraphrased-system",
+    "M2-repeat-user-prompt"
+   ],
+   [
+    "M1-other-model"
+   ]
+  ],
+  "Mistral-Large-3": [
+   [
+    "N1-rerun",
+    "N2-json-tool-output",
+    "N3-paraphrased-system"
+   ],
+   []
+  ],
+  "gpt-4o": [
+   [
+    "N1-rerun",
+    "N3-paraphrased-system"
+   ],
+   [
+    "M2-repeat-user-prompt"
+   ]
+  ],
+  "grok-4-1-fast-non-reasoning": [
+   [
+    "N1-rerun",
+    "N3-paraphrased-system"
+   ],
+   [
+    "M2-repeat-user-prompt"
+   ]
+  ],
+  "grok-4-20-non-reasoning": [
+   [
+    "N1-rerun",
+    "N2-json-tool-output",
+    "N3-paraphrased-system",
+    "M2-repeat-user-prompt",
+    "M3-spotlighting"
+   ],
+   []
+  ],
+  "mistral-medium-3-5": [
+   [
+    "N1-rerun",
+    "N3-paraphrased-system"
+   ],
+   [
+    "M1-other-model"
+   ]
+  ]
+ },
+ "runs": 2136,
+ "threshold": 0.1
+}

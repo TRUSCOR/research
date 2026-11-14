@@ -17,7 +17,7 @@ permissions:
   contents: read
 
 env:
-  SOVA_COMMIT: "143e1751995e8e76dd8e6a19f67eb21ccc968703"
+  SOVA_VERSION: "0.1.0"
   ART: artifacts/pf-v1.1
   RES: artifacts/pf-v1.1/overlay/private/experiments/results/pf-confirmatory-2026-11-14
 
@@ -37,10 +37,10 @@ jobs:
           version: "0.11.3"
           python-version: "3.11"
 
-      - name: Install SOVA at the paper's commit
+      - name: Install the paper's SOVA release from PyPI
         run: |
           uv venv .venv
-          uv pip install --python .venv "sova-oss @ git+https://github.com/TRUSCOR/SOVA-OSS@${SOVA_COMMIT}"
+          uv pip install --python .venv "sova-oss==${SOVA_VERSION}"
           echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
 
       - name: Check every file against SHA256SUMS
@@ -66,3 +66,4 @@ jobs:
             python "$X/check_pf_sova_audit.py" "$RES/$d" "$RES/sova/$d"
           done
           python "$X/check_pf_sova_audit.py" "$RES/s34" "$RES/sova/s34" --group model-condition
+          python "$X/check_pf_sova_audit.py" "$RES/e2" "$RES/sova/e2" --group model-condition

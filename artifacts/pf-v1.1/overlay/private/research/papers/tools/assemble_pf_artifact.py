@@ -44,6 +44,9 @@ FILES = [
         "run_pf_confirmatory", "audit_pf", "analyze_pf_v2", "read_pf_blind", "drive_pf_remaining",
         "package_pf_v2_runs", "scoreboard_table_pf", "compare_pf_neighbors", "test_compare_pf_neighbors",
         "check_pf_sova_audit", "audit_totals_pf", "posthoc_sensitivity_pf",
+        "drive_pf_complete_locked", "finish_pf_locked_runs", "analyze_pf_locked", "extend_pf_primaries",
+        "compare_pf_tasks_ext", "repair_pf_traces", "extend_pf_e2", "check_pf_calibrate", "analyze_pf_human", "select_pf_human_e3",
+        "recover_pf_s6b", "run_pf_s6b_t10",
     )),
     # tests of the prototype and studies
     *(f"{EXP}/{name}.py" for name in (
@@ -100,10 +103,13 @@ FILES = [
     f"{PAP}/PF-confirmatory-protocol-2026-11-14.md",
     f"{PAP}/PF-head-to-head-addendum-2026-11-14.md",
     f"{PAP}/PF-confirmatory-deviations-2026-11-14.md",
+    f"{PAP}/PF-extension-addendum-2026-11-14.md",
+    f"{PAP}/PF-extension-e2-addendum-2026-11-14.md",
+    f"{PAP}/PF-extension-e3-human-reading-addendum-2026-11-14.md",
     f"{PAP}/audit-spec-agentdojo-v1.2.2.json",
     *(f"{PAP}/tools/{name}" for name in (
         "build_pf_v1_1.py", "build_publication_packages.py", "validate_pf_v1_1.py", "validate_pf_claims.py",
-        "assemble_pf_artifact.py", "references.bib", "README.md", "pf_cross_numbers.py",
+        "assemble_pf_artifact.py", "references.bib", "README.md", "pf_cross_numbers.py", "pf_fills.py",
     )),
     # v1.0 artifacts (the validator proves they are unchanged) and v1.1 outputs
     f"{PAP}/arxiv/sova-portable-evidence-reproduction/main.md",

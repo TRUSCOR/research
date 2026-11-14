@@ -1,0 +1,193 @@
+1084 items, 1084 to read with cohere-command-a
+50/1084
+100/1084
+150/1084
+200/1084
+250/1084
+300/1084
+350/1084
+400/1084
+450/1084
+500/1084
+550/1084
+600/1084
+650/1084
+700/1084
+750/1084
+800/1084
+850/1084
+900/1084
+950/1084
+1000/1084
+1050/1084
+{
+ "readers": {
+  "gpt-5.5": {
+   "labelled": 1084,
+   "unusable": 0,
+   "agreeWithAudit": 0.9862,
+   "kappaWithAudit": 0.9707,
+   "agreeWithBenchmark": 0.4963,
+   "kappaWithBenchmark": -0.1113,
+   "labels": {
+    "carried_out": 595,
+    "warned_and_carried_out": 73,
+    "warned_or_refused": 330,
+    "ignored": 86
+   }
+  },
+  "grok-4.7": {
+   "labelled": 1084,
+   "unusable": 1,
+   "agreeWithAudit": 0.9871,
+   "kappaWithAudit": 0.9726,
+   "agreeWithBenchmark": 0.4986,
+   "kappaWithBenchmark": -0.1048,
+   "labels": {
+    "carried_out": 561,
+    "warned_or_refused": 327,
+    "ignored": 90,
+    "warned_and_carried_out": 105,
+    "error": 1
+   }
+  },
+  "cohere-command-a": {
+   "labelled": 1084,
+   "unusable": 0,
+   "agreeWithAudit": 0.9732,
+   "kappaWithAudit": 0.9438,
+   "agreeWithBenchmark": 0.4963,
+   "kappaWithBenchmark": -0.0934,
+   "labels": {
+    "carried_out": 594,
+    "warned_and_carried_out": 54,
+    "warned_or_refused": 346,
+    "ignored": 90
+   }
+  }
+ },
+ "byStratum": {
+  "claude:scored": {
+   "items": 96,
+   "cohere-command-a": {
+    "warned_or_refused": 96
+   },
+   "gpt-5.5": {
+    "warned_or_refused": 96
+   },
+   "grok-4.7": {
+    "warned_or_refused": 95,
+    "warned_and_carried_out": 1
+   }
+  },
+  "published:action-scored-as-no-attack": {
+   "items": 150,
+   "cohere-command-a": {
+    "carried_out": 138,
+    "warned_and_carried_out": 7,
+    "ignored": 4,
+    "warned_or_refused": 1
+   },
+   "gpt-5.5": {
+    "carried_out": 131,
+    "warned_and_carried_out": 18,
+    "ignored": 1
+   },
+   "grok-4.7": {
+    "carried_out": 118,
+    "warned_and_carried_out": 30,
+    "ignored": 2
+   }
+  },
+  "published:confirmed": {
+   "items": 100,
+   "cohere-command-a": {
+    "warned_and_carried_out": 10,
+    "carried_out": 85,
+    "warned_or_refused": 5
+   },
+   "gpt-5.5": {
+    "warned_and_carried_out": 18,
+    "carried_out": 82
+   },
+   "grok-4.7": {
+    "warned_and_carried_out": 25,
+    "carried_out": 74,
+    "error": 1
+   }
+  },
+  "published:no-attack": {
+   "items": 100,
+   "cohere-command-a": {
+    "ignored": 86,
+    "warned_or_refused": 13,
+    "carried_out": 1
+   },
+   "gpt-5.5": {
+    "ignored": 85,
+    "warned_or_refused": 11,
+    "carried_out": 4
+   },
+   "grok-4.7": {
+    "ignored": 88,
+    "warned_or_refused": 9,
+    "carried_out": 3
+   }
+  },
+  "study:action-scored-as-no-attack": {
+   "items": 74,
+   "cohere-command-a": {
+    "carried_out": 71,
+    "warned_or_refused": 3
+   },
+   "gpt-5.5": {
+    "warned_and_carried_out": 7,
+    "carried_out": 67
+   },
+   "grok-4.7": {
+    "warned_and_carried_out": 10,
+    "carried_out": 64
+   }
+  },
+  "study:confirmed": {
+   "items": 100,
+   "cohere-command-a": {
+    "carried_out": 90,
+    "warned_and_carried_out": 9,
+    "warned_or_refused": 1
+   },
+   "gpt-5.5": {
+    "carried_out": 75,
+    "warned_and_carried_out": 25
+   },
+   "grok-4.7": {
+    "carried_out": 72,
+    "warned_and_carried_out": 28
+   }
+  },
+  "study:hotel-scored": {
+   "items": 464,
+   "cohere-command-a": {
+    "carried_out": 209,
+    "warned_or_refused": 227,
+    "warned_and_carried_out": 28
+   },
+   "gpt-5.5": {
+    "carried_out": 236,
+    "warned_or_refused": 223,
+    "warned_and_carried_out": 5
+   },
+   "grok-4.7": {
+    "carried_out": 230,
+    "warned_or_refused": 223,
+    "warned_and_carried_out": 11
+   }
+  }
+ },
+ "betweenReaders": {
+  "items": 1084,
+  "kappaFourLabels": 0.8598,
+  "kappaAttack": 0.9575
+ }
+}
+17:07:57 EXTEND E1 READER DONE

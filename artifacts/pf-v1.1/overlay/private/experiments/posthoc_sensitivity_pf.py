@@ -1,6 +1,6 @@
 """Post-hoc sensitivity checks added after review (not part of the frozen protocol).
 
-    python posthoc_sensitivity_pf.py <out.json>
+    python posthoc_sensitivity_pf.py <out.json> [plan.json]
 
 1. H1 with the three primary models weighted equally. The locked 40/40/40 design implied equal
    weight; deviation D2 cut the xAI model to 20 findings. Bootstrap within each primary, as frozen.
@@ -22,7 +22,8 @@ M = ["M1-other-model", "M2-repeat-user-prompt", "M3-spotlighting"]
 
 
 def main() -> int:
-    plan = json.loads((R / "plan.json").read_text(encoding="utf-8"))
+    plan_path = Path(sys.argv[2]) if len(sys.argv) > 2 else R / "plan.json"
+    plan = json.loads(plan_path.read_text(encoding="utf-8"))
     rates = an.per_finding(an.load(R / "s34"), plan)
     strata = {p["model"]: [tuple(k) for k in p["findings"]] for p in plan["primaries"]}
 

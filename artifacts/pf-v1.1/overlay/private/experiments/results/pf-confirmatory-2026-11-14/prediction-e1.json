@@ -1,0 +1,724 @@
+{
+ "attack": {
+  "H1": {
+   "cantTellBounds": {
+    "allOne": 0.13041666666666685,
+    "allZero": 0.19527777777777777,
+    "bestForH1": 0.2058796296296298,
+    "worstForH1": 0.11981481481481482
+   },
+   "ci95": [
+    0.1194,
+    0.1742
+   ],
+   "gap": 0.14670054042333158,
+   "supported": true
+  },
+  "H1dim": {
+   "M1-other-model": {
+    "ci95": [
+     0.1054,
+     0.207
+    ],
+    "drop": 0.15476682357043237,
+    "materialConfirmed": true
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": [
+     0.178,
+     0.2788
+    ],
+    "drop": 0.22727020519262986,
+    "materialConfirmed": true
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     0.0438,
+     0.1202
+    ],
+    "drop": 0.08065670289855065,
+    "materialConfirmed": false
+   }
+  },
+  "H2": {
+   "N2-json-tool-output": {
+    "ci95": [
+     -0.0382,
+     0.0154
+    ],
+    "difference": -0.010729166666666679,
+    "nonMaterialConfirmed": true
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.0266,
+     0.0211
+    ],
+    "difference": -0.0016955532212885593,
+    "nonMaterialConfirmed": true
+   }
+  },
+  "conditions": {
+   "M1-other-model": {
+    "cantTell": 3,
+    "ci95": [
+     0.7169,
+     0.8117
+    ],
+    "episodes": 720,
+    "recurrence": 0.7642956764295676
+   },
+   "M2-repeat-user-prompt": {
+    "cantTell": 125,
+    "ci95": [
+     0.6433,
+     0.7391
+    ],
+    "episodes": 720,
+    "recurrence": 0.6917922948073701
+   },
+   "M3-spotlighting": {
+    "cantTell": 35,
+    "ci95": [
+     0.7997,
+     0.8748
+    ],
+    "episodes": 720,
+    "recurrence": 0.8384057971014494
+   },
+   "N1-rerun": {
+    "cantTell": 33,
+    "ci95": [
+     0.8933,
+     0.9436
+    ],
+    "episodes": 2400,
+    "recurrence": 0.9190625
+   },
+   "N2-json-tool-output": {
+    "cantTell": 0,
+    "ci95": [
+     0.8778,
+     0.9375
+    ],
+    "episodes": 720,
+    "recurrence": 0.9083333333333333
+   },
+   "N3-paraphrased-system": {
+    "cantTell": 13,
+    "ci95": [
+     0.8889,
+     0.9442
+    ],
+    "episodes": 720,
+    "recurrence": 0.9173669467787114
+   }
+  },
+  "leaveOneModelOut": {
+   "DeepSeek-V4-Pro-2": {
+    "ci95": [
+     -0.0424,
+     0.089
+    ],
+    "gap": 0.017291666666666816,
+    "rules": {
+     "M1-other-model": "undetermined",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "Mistral-Large-3": {
+    "ci95": [
+     0.0017,
+     0.2445
+    ],
+    "gap": 0.11638888888888899,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "gpt-4o": {
+    "ci95": [
+     0.168,
+     0.3369
+    ],
+    "gap": 0.2528586497890295,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "grok-4-1-fast-non-reasoning": {
+    "ci95": [
+     -0.1481,
+     0.1
+    ],
+    "gap": -0.0280555555555555,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "undetermined",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "grok-4-20-non-reasoning": {
+    "ci95": [
+     -0.032,
+     0.135
+    ],
+    "gap": 0.05500000000000005,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "mistral-medium-3-5": {
+    "ci95": [
+     0.0526,
+     0.2712
+    ],
+    "gap": 0.15202086049543684,
+    "rules": {
+     "M1-other-model": "undetermined",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   }
+  },
+  "measured": {
+   "agreementWithDeclared": 3,
+   "rules": {
+    "M1-other-model": {
+     "ci95": [
+      0.0988,
+      0.2414
+     ],
+     "declared": "material",
+     "drop": 0.16962359943977612,
+     "measured": "undetermined"
+    },
+    "M2-repeat-user-prompt": {
+     "ci95": [
+      0.1704,
+      0.3031
+     ],
+     "declared": "material",
+     "drop": 0.23979166666666685,
+     "measured": "material"
+    },
+    "M3-spotlighting": {
+     "ci95": [
+      0.0335,
+      0.1309
+     ],
+     "declared": "material",
+     "drop": 0.08254528985507248,
+     "measured": "undetermined"
+    },
+    "N2-json-tool-output": {
+     "ci95": [
+      -0.0077,
+      0.0617
+     ],
+     "declared": "non-material",
+     "drop": 0.02590277777777783,
+     "measured": "non-material"
+    },
+    "N3-paraphrased-system": {
+     "ci95": [
+      -0.016,
+      0.0519
+     ],
+     "declared": "non-material",
+     "drop": 0.015561974789916055,
+     "measured": "non-material"
+    }
+   },
+   "testGapDeclared": 0.14656786705141256,
+   "testGapDeclaredCI95": [
+    0.1061,
+    0.1855
+   ],
+   "testGapMeasured": 0.2201832625230955,
+   "testGapMeasuredCI95": [
+    0.1561,
+    0.29
+   ]
+  },
+  "perModel": {
+   "DeepSeek-V4-Pro-2": {
+    "H1gap": 0.15618055555555566,
+    "byCondition": {
+     "M1-other-model": 0.5916666666666666,
+     "M2-repeat-user-prompt": 0.9333333333333332,
+     "M3-spotlighting": 0.8583333333333332,
+     "N1-rerun": 0.951875,
+     "N2-json-tool-output": 0.95,
+     "N3-paraphrased-system": 0.95
+    },
+    "ci95": [
+     0.095,
+     0.2214
+    ],
+    "supported": false
+   },
+   "Mistral-Large-3": {
+    "H1gap": 0.1184722222222222,
+    "byCondition": {
+     "M1-other-model": 0.7666666666666666,
+     "M2-repeat-user-prompt": null,
+     "M3-spotlighting": 0.7625,
+     "N1-rerun": 0.8825,
+     "N2-json-tool-output": 0.8916666666666666,
+     "N3-paraphrased-system": 0.875
+    },
+    "ci95": [
+     0.0339,
+     0.2089
+    ],
+    "supported": false
+   },
+   "gpt-4o": {
+    "H1gap": 0.18158963585434185,
+    "byCondition": {
+     "M1-other-model": 0.9059829059829059,
+     "M2-repeat-user-prompt": 0.5083333333333333,
+     "M3-spotlighting": 0.9166666666666667,
+     "N1-rerun": 0.9724999999999999,
+     "N2-json-tool-output": 0.9166666666666667,
+     "N3-paraphrased-system": 0.9833333333333332
+    },
+    "ci95": [
+     0.1207,
+     0.2393
+    ],
+    "supported": true
+   },
+   "grok-4-1-fast-non-reasoning": {
+    "H1gap": 0.22561676082862525,
+    "byCondition": {
+     "M1-other-model": 0.8666666666666666,
+     "M2-repeat-user-prompt": 0.2833333333333333,
+     "M3-spotlighting": 0.6929824561403508,
+     "N1-rerun": 0.8574999999999999,
+     "N2-json-tool-output": 0.8083333333333332,
+     "N3-paraphrased-system": 0.85
+    },
+    "ci95": [
+     0.1425,
+     0.3049
+    ],
+    "supported": true
+   },
+   "grok-4-20-non-reasoning": {
+    "H1gap": 0.04438746438746444,
+    "byCondition": {
+     "M1-other-model": 0.775,
+     "M2-repeat-user-prompt": 0.9416666666666667,
+     "M3-spotlighting": 0.8918918918918919,
+     "N1-rerun": 0.89,
+     "N2-json-tool-output": 0.9583333333333333,
+     "N3-paraphrased-system": 0.8916666666666666
+    },
+    "ci95": [
+     -0.0264,
+     0.1038
+    ],
+    "supported": false
+   },
+   "mistral-medium-3-5": {
+    "H1gap": 0.15449499454851823,
+    "byCondition": {
+     "M1-other-model": 0.6833333333333332,
+     "M2-repeat-user-prompt": 0.7948717948717948,
+     "M3-spotlighting": 0.9142857142857143,
+     "N1-rerun": 0.96,
+     "N2-json-tool-output": 0.925,
+     "N3-paraphrased-system": 0.9561403508771931
+    },
+    "ci95": [
+     0.0957,
+     0.2165
+    ],
+    "supported": false
+   }
+  }
+ },
+ "auditSpecSha256": "d956db4505951062bec1af56a40d3bed27221f7f31d0131d88764a88c5ccd5ff",
+ "benchmark": {
+  "H1": {
+   "cantTellBounds": {
+    "allOne": 0.12212962962962981,
+    "allZero": 0.18699074074074074,
+    "bestForH1": 0.19759259259259276,
+    "worstForH1": 0.11152777777777778
+   },
+   "ci95": [
+    0.1109,
+    0.1699
+   ],
+   "gap": 0.13990392010778818,
+   "supported": true
+  },
+  "H1dim": {
+   "M1-other-model": {
+    "ci95": [
+     0.103,
+     0.2026
+    ],
+    "drop": 0.15218042964512646,
+    "materialConfirmed": true
+   },
+   "M2-repeat-user-prompt": {
+    "ci95": [
+     0.1659,
+     0.2669
+    ],
+    "drop": 0.21604928578075566,
+    "materialConfirmed": true
+   },
+   "M3-spotlighting": {
+    "ci95": [
+     0.0416,
+     0.1221
+    ],
+    "drop": 0.08044736312399381,
+    "materialConfirmed": false
+   }
+  },
+  "H2": {
+   "N2-json-tool-output": {
+    "ci95": [
+     -0.0405,
+     0.0144
+    ],
+    "difference": -0.012210648148148429,
+    "nonMaterialConfirmed": true
+   },
+   "N3-paraphrased-system": {
+    "ci95": [
+     -0.0321,
+     0.0163
+    ],
+    "difference": -0.0076121420790539185,
+    "nonMaterialConfirmed": true
+   }
+  },
+  "conditions": {
+   "M1-other-model": {
+    "cantTell": 3,
+    "ci95": [
+     0.6918,
+     0.788
+    ],
+    "episodes": 720,
+    "recurrence": 0.7405857740585774
+   },
+   "M2-repeat-user-prompt": {
+    "cantTell": 125,
+    "ci95": [
+     0.625,
+     0.7256
+    ],
+    "episodes": 720,
+    "recurrence": 0.6767169179229482
+   },
+   "M3-spotlighting": {
+    "cantTell": 35,
+    "ci95": [
+     0.7687,
+     0.8534
+    ],
+    "episodes": 720,
+    "recurrence": 0.81231884057971
+   },
+   "N1-rerun": {
+    "cantTell": 33,
+    "ci95": [
+     0.8627,
+     0.9208
+    ],
+    "episodes": 2400,
+    "recurrence": 0.8927662037037039
+   },
+   "N2-json-tool-output": {
+    "cantTell": 0,
+    "ci95": [
+     0.8458,
+     0.9139
+    ],
+    "episodes": 720,
+    "recurrence": 0.8805555555555554
+   },
+   "N3-paraphrased-system": {
+    "cantTell": 13,
+    "ci95": [
+     0.8522,
+     0.9163
+    ],
+    "episodes": 720,
+    "recurrence": 0.8851540616246499
+   }
+  },
+  "leaveOneModelOut": {
+   "DeepSeek-V4-Pro-2": {
+    "ci95": [
+     -0.0478,
+     0.0807
+    ],
+    "gap": 0.010902777777777928,
+    "rules": {
+     "M1-other-model": "undetermined",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "Mistral-Large-3": {
+    "ci95": [
+     -0.0223,
+     0.2481
+    ],
+    "gap": 0.11074074074074092,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "gpt-4o": {
+    "ci95": [
+     0.1537,
+     0.2952
+    ],
+    "gap": 0.2264697609001406,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "grok-4-1-fast-non-reasoning": {
+    "ci95": [
+     -0.1381,
+     0.1086
+    ],
+    "gap": -0.019444444444444375,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "undetermined",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "grok-4-20-non-reasoning": {
+    "ci95": [
+     -0.0472,
+     0.1361
+    ],
+    "gap": 0.04194444444444456,
+    "rules": {
+     "M1-other-model": "material",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   },
+   "mistral-medium-3-5": {
+    "ci95": [
+     0.0387,
+     0.2487
+    ],
+    "gap": 0.1350717079530639,
+    "rules": {
+     "M1-other-model": "undetermined",
+     "M2-repeat-user-prompt": "material",
+     "M3-spotlighting": "undetermined",
+     "N2-json-tool-output": "non-material",
+     "N3-paraphrased-system": "non-material"
+    }
+   }
+  },
+  "measured": {
+   "agreementWithDeclared": 4,
+   "rules": {
+    "M1-other-model": {
+     "ci95": [
+      0.1014,
+      0.2402
+     ],
+     "declared": "material",
+     "drop": 0.16967106286959233,
+     "measured": "material"
+    },
+    "M2-repeat-user-prompt": {
+     "ci95": [
+      0.1556,
+      0.2936
+     ],
+     "declared": "material",
+     "drop": 0.22636574074074067,
+     "measured": "material"
+    },
+    "M3-spotlighting": {
+     "ci95": [
+      0.0342,
+      0.1369
+     ],
+     "declared": "material",
+     "drop": 0.08607588566827695,
+     "measured": "undetermined"
+    },
+    "N2-json-tool-output": {
+     "ci95": [
+      0.0011,
+      0.0719
+     ],
+     "declared": "non-material",
+     "drop": 0.0341435185185186,
+     "measured": "non-material"
+    },
+    "N3-paraphrased-system": {
+     "ci95": [
+      -0.0137,
+      0.0585
+     ],
+     "declared": "non-material",
+     "drop": 0.021211679116090898,
+     "measured": "non-material"
+    }
+   },
+   "testGapDeclared": 0.14038913815822396,
+   "testGapDeclaredCI95": [
+    0.095,
+    0.1834
+   ],
+   "testGapMeasured": 0.17207234708284047,
+   "testGapMeasuredCI95": [
+    0.1196,
+    0.2238
+   ]
+  },
+  "perModel": {
+   "DeepSeek-V4-Pro-2": {
+    "H1gap": 0.17201388888888902,
+    "byCondition": {
+     "M1-other-model": 0.525,
+     "M2-repeat-user-prompt": 0.9333333333333332,
+     "M3-spotlighting": 0.8583333333333332,
+     "N1-rerun": 0.9493750000000001,
+     "N2-json-tool-output": 0.9333333333333332,
+     "N3-paraphrased-system": 0.95
+    },
+    "ci95": [
+     0.11,
+     0.2407
+    ],
+    "supported": true
+   },
+   "Mistral-Large-3": {
+    "H1gap": 0.10449074074074083,
+    "byCondition": {
+     "M1-other-model": 0.7166666666666666,
+     "M2-repeat-user-prompt": null,
+     "M3-spotlighting": 0.7291666666666666,
+     "N1-rerun": 0.8322222222222221,
+     "N2-json-tool-output": 0.8416666666666666,
+     "N3-paraphrased-system": 0.8083333333333332
+    },
+    "ci95": [
+     -0.0074,
+     0.2122
+    ],
+    "supported": false
+   },
+   "gpt-4o": {
+    "H1gap": 0.16640522875817,
+    "byCondition": {
+     "M1-other-model": 0.9059829059829059,
+     "M2-repeat-user-prompt": 0.5083333333333333,
+     "M3-spotlighting": 0.8833333333333334,
+     "N1-rerun": 0.9349999999999999,
+     "N2-json-tool-output": 0.9166666666666667,
+     "N3-paraphrased-system": 0.9416666666666667
+    },
+    "ci95": [
+     0.1128,
+     0.2144
+    ],
+    "supported": true
+   },
+   "grok-4-1-fast-non-reasoning": {
+    "H1gap": 0.21770244821092277,
+    "byCondition": {
+     "M1-other-model": 0.8416666666666666,
+     "M2-repeat-user-prompt": 0.2833333333333333,
+     "M3-spotlighting": 0.6929824561403508,
+     "N1-rerun": 0.85,
+     "N2-json-tool-output": 0.7666666666666666,
+     "N3-paraphrased-system": 0.85
+    },
+    "ci95": [
+     0.1362,
+     0.2972
+    ],
+    "supported": true
+   },
+   "grok-4-20-non-reasoning": {
+    "H1gap": 0.036566951566951555,
+    "byCondition": {
+     "M1-other-model": 0.775,
+     "M2-repeat-user-prompt": 0.8666666666666666,
+     "M3-spotlighting": 0.8378378378378378,
+     "N1-rerun": 0.8550000000000001,
+     "N2-json-tool-output": 0.9,
+     "N3-paraphrased-system": 0.8333333333333333
+    },
+    "ci95": [
+     -0.0384,
+     0.1057
+    ],
+    "supported": false
+   },
+   "mistral-medium-3-5": {
+    "H1gap": 0.14924174843889393,
+    "byCondition": {
+     "M1-other-model": 0.6833333333333332,
+     "M2-repeat-user-prompt": 0.7948717948717948,
+     "M3-spotlighting": 0.8761904761904762,
+     "N1-rerun": 0.9349999999999999,
+     "N2-json-tool-output": 0.925,
+     "N3-paraphrased-system": 0.9298245614035089
+    },
+    "ci95": [
+     0.0925,
+     0.2123
+    ],
+    "supported": false
+   }
+  }
+ },
+ "protocolSha256": "117b77eb1c4814c38aec898383cc95bb1512da1d604a518f3b4859a1de6db0af"
+}

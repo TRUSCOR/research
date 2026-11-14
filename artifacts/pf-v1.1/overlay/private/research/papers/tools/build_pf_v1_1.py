@@ -35,7 +35,7 @@ from build_publication_packages import (  # noqa: E402
 
 VERSION = "1.1"
 VERSION_DATE = "2026-11-14"
-SOVA_COMMIT = "143e175"  # the SOVA-OSS commit the paper's tools run on; set at release
+SOVA_COMMIT = "3c3b1d1"  # the SOVA-OSS commit of release v0.1.0 (sova-oss 0.1.0 on PyPI)
 SLUG = "sova-portable-evidence-reproduction"
 SOURCE = PAPERS / "PF-sova-portable-evidence-reproduction-working-paper.md"
 BIB = Path(__file__).with_name("references.bib")
@@ -110,17 +110,20 @@ OPTIONAL_RESULT_FILES = [
     "pf-cross-provider-predictiveness-2026-11-13.json",
 ]
 
-INK = "#0B1930"
-TEAL = "#157A8A"
-GREY = "#96A6B8"
-MUTED = "#45546A"
+# TRUSCOR house palette (truscor.org): ink on paper with one crimson accent.
+INK = "#121110"
+TEAL = "#3E3A35"  # primary series: warm charcoal (name kept for the drawing code)
+GREY = "#B4ADA2"
+MUTED = "#5A544C"
+PAPER = "#F8F6F1"
+PAPER_2 = "#EFEBE2"
 STATE_COLOURS = {
-    "equivalent": "#2E7D5B",
-    "divergent": "#B5523B",
-    "inconclusive": "#C9A227",
-    "incompatible": "#6B5CA5",
-    "unsafe": "#8E2C48",
-    "evidence-invalid": "#5E6B78",
+    "equivalent": "#3F6B4A",
+    "divergent": "#A3162B",
+    "inconclusive": "#B8892B",
+    "incompatible": "#6A5D82",
+    "unsafe": "#5C0F1E",
+    "evidence-invalid": "#7A7369",
 }
 
 
@@ -190,7 +193,7 @@ def draw_decision_ladder(path: Path) -> None:
                 boxstyle="round,pad=0.05,rounding_size=0.08",
                 linewidth=1.1,
                 edgecolor=INK,
-                facecolor="#E8EDF5",
+                facecolor=PAPER_2,
             )
         )
         ax.text(x, 5.55, label, ha="center", va="center", fontsize=8.5, color=INK)
@@ -220,7 +223,7 @@ def draw_decision_ladder(path: Path) -> None:
                 boxstyle="round,pad=0.04,rounding_size=0.06",
                 linewidth=1.1,
                 edgecolor=INK,
-                facecolor="#F4F7FA",
+                facecolor=PAPER,
             )
         )
         ax.text(0.75, y, question, ha="left", va="center", fontsize=9, color=INK)
@@ -435,8 +438,10 @@ def draw_agentdojo(path: Path) -> None:
     fig, (ax, bx) = plt.subplots(
         1, 2, figsize=(11.5, 6.4), gridspec_kw={"width_ratios": [1.55, 1]}, constrained_layout=True
     )
-    cmap = plt.get_cmap("viridis").copy()
-    cmap.set_bad("#F2F4F7")
+    from matplotlib.colors import LinearSegmentedColormap
+
+    cmap = LinearSegmentedColormap.from_list("truscor", ["#F3EEE4", "#C98A8F", "#A3162B", "#121110"])
+    cmap.set_bad("#FFFFFF")
     image = ax.imshow(grid, cmap=cmap, vmin=0, vmax=1)
     labels = [MODEL_LABELS[m] for m in models]
     ax.set_xticks(range(n), labels=labels, rotation=90, fontsize=6.5)
@@ -628,7 +633,7 @@ SHORT_NAMES = {
 
 def draw_confirmatory(path: Path) -> bool:
     sb_path = RESULTS / CONFIRMATORY / "scoreboard.json"
-    pr_path = RESULTS / CONFIRMATORY / "prediction.json"
+    pr_path = RESULTS / CONFIRMATORY / "prediction-e1.json"
     if not sb_path.is_file() or not pr_path.is_file():
         return False
     import matplotlib
@@ -661,26 +666,34 @@ def draw_confirmatory(path: Path) -> bool:
         "M2-repeat-user-prompt": "Defense: repeat user prompt",
         "M3-spotlighting": "Defense: spotlighting",
     }
-    series = [("DeepSeek-V4-Pro-2", "DeepSeek V4 Pro (40)", STATE_COLOURS["divergent"], -0.2),
-              ("gpt-4o", "GPT-4o (40)", TEAL, 0.0), ("grok-4-20-non-reasoning", "Grok 4.20 (20)", STATE_COLOURS["incompatible"], 0.2)]
-    for key, name, colour, dy in series:
+    series = [("DeepSeek-V4-Pro-2", STATE_COLOURS["divergent"], "o"), ("gpt-4o", TEAL, "s"),
+              ("grok-4-20-non-reasoning", STATE_COLOURS["incompatible"], "^"),
+              ("grok-4-1-fast-non-reasoning", STATE_COLOURS["inconclusive"], "v"),
+              ("Mistral-Large-3", STATE_COLOURS["equivalent"], "D"), ("mistral-medium-3-5", MUTED, "P")]
+    for i, (key, colour, marker) in enumerate(series):
         cond = pred["perModel"][key]["byCondition"]
+        dy = -0.3 + 0.12 * i
+        first = True
         for y, c in enumerate(labels):
-            bx.plot(cond[c], y + dy, "o", color=colour, ms=5.5, label=name if y == 0 else None)
+            if cond.get(c) is None:  # every run of this cell failed (can't tell); no point to draw
+                continue
+            bx.plot(cond[c], y + dy, marker, color=colour, ms=4.6,
+                    label=f"{SHORT_NAMES[key]} (40)" if first else None)
+            first = False
     for y, c in enumerate(labels):
         cell = pred["conditions"][c]
         low, high = cell["ci95"]
         bx.plot([low, high], [y, y], color=INK, lw=4, alpha=0.12, solid_capstyle="butt")
     bx.set_yticks(range(len(labels)), labels=list(labels.values()), fontsize=8)
-    bx.set_xlim(0.45, 1.02)
+    bx.set_xlim(0.2, 1.02)
     bx.set_ylim(5.6, -0.8)
     bx.tick_params(axis="x", labelsize=7.5)
     bx.axhline(2.5, color=GREY, lw=0.8, ls=":")
-    bx.text(0.46, -0.5, "declared non-material", fontsize=7, color=MUTED, va="center")
-    bx.text(0.46, 2.75, "declared material", fontsize=7, color=MUTED, va="center")
+    bx.text(0.21, -0.55, "declared non-material", fontsize=7, color=MUTED, va="center")
+    bx.text(0.21, 2.75, "declared material", fontsize=7, color=MUTED, va="center")
     bx.set_xlabel("Share of re-runs in which the attack recurred (grey: pooled 95% CI)", fontsize=8)
-    bx.set_title("Recurrence of 100 findings under one change each", loc="left", fontsize=9.5, weight="bold", color=INK)
-    bx.legend(fontsize=7, frameon=False, loc="lower left")
+    bx.set_title("Recurrence of 240 findings under one change each", loc="left", fontsize=9.5, weight="bold", color=INK)
+    bx.legend(fontsize=7, frameon=False, loc="upper center", bbox_to_anchor=(0.45, -0.1), ncol=3)
     bx.grid(axis="x", alpha=0.2)
     for axis in (ax, bx):
         for side in ("top", "right"):
@@ -773,7 +786,7 @@ header-includes:
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), © 2026 Gautam R. Patil\\
 **arXiv classification:** {PRIMARY} (cross-list candidates: {", ".join(CROSS)})\\
 **Artifact:** <https://github.com/TRUSCOR/research/tree/main/artifacts/pf-v1.1> (code, data, frozen protocols, validators, and every run as .sova files)\\
-**Implementation:** <https://github.com/TRUSCOR/SOVA-OSS> (commit {SOVA_COMMIT})\\
+**Implementation:** <https://github.com/TRUSCOR/SOVA-OSS> (`sova-oss` 0.1.0 on PyPI, commit {SOVA_COMMIT})\\
 **Competing interest:** the author leads TRUSCOR Private Limited, which develops the system evaluated here (see Declarations).
 
 """
