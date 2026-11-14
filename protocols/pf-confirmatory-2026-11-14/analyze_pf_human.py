@@ -1,13 +1,14 @@
-"""PF extension E3: human blind reading of the 120-item sample, analysed by a rule frozen before any label.
+"""PF extension E3 (version 2): human blind reading of 30 runs, analysed by a rule frozen before any label.
 
-Frozen by `PF-extension-e3-human-reading-addendum-2026-11-14.md` before any human label existed.
+Frozen by `PF-extension-e3-human-reading-addendum-2026-11-14.md` (version 2) before any human label
+existed. The 30 runs are those of `plan-e3.json` (`select_pf_human_e3.py`).
 
-    python analyze_pf_human.py <human-sample-key.json> <labels-dir> <out.json>
+    python analyze_pf_human.py <human-sample-key.json> <plan-e3.json> <labels-dir> <out.json>
 
 <labels-dir> holds one JSON file per reader: either a document exported from the reading page's
-store (`labels/<reader id>`) or a file a reader downloaded from it; both carry `relation`,
-`background`, `unseen` and `labels` ({item id: label}). A reader counts only if `unseen` is true
-and all 120 items are labelled; others are listed as incomplete and enter no statistic.
+store or the file the offline reading page saves; both carry `relation`, `background`, `unseen`
+and `labels` ({item id: label}). A reader counts only if `unseen` is true and all 30 items are
+labelled; others are listed as incomplete and enter no statistic.
 """
 
 from __future__ import annotations
@@ -46,9 +47,10 @@ def load_readers(folder: Path) -> list[dict]:
     return readers
 
 
-def main(key_path: Path, folder: Path, out: Path) -> None:
+def main(key_path: Path, plan_path: Path, folder: Path, out: Path) -> None:
     key = {item["id"]: item for item in json.loads(key_path.read_text(encoding="utf-8"))}
-    ids = sorted(key)
+    ids = sorted(json.loads(plan_path.read_text(encoding="utf-8"))["items"])
+    assert len(ids) == 30 and set(ids) <= set(key)
     readers = load_readers(folder)
     complete = [r for r in readers if r["unseen"] and set(r["labels"]) >= set(ids)]
     result: dict = {"items": len(ids), "readersFound": len(readers),
@@ -69,7 +71,9 @@ def main(key_path: Path, folder: Path, out: Path) -> None:
             "auditAboveBenchmark": None if k_audit is None or k_bench is None else k_audit > k_bench,
             "agreeWithAudit": sum(side[i] == AUDIT[key[i]["category"]] for i in ids),
             "claudeHotelLabelledNoAttack": sum(1 for i in ids if key[i]["stratum"] == "claude-hotel" and side[i] == "no-attack"),
+            "claudeHotelItems": sum(1 for i in ids if key[i]["stratum"] == "claude-hotel"),
             "publishedScoredNoAttackLabelledAttack": sum(1 for i in ids if key[i]["stratum"] == "pub-unscored" and side[i] == "attack"),
+            "publishedScoredNoAttackItems": sum(1 for i in ids if key[i]["stratum"] == "pub-unscored"),
             "labelsByStratum": {s: dict(c) for s, c in sorted(strata.items())},
         }
     names = sorted(result["readers"])
@@ -85,4 +89,4 @@ def main(key_path: Path, folder: Path, out: Path) -> None:
 
 
 if __name__ == "__main__":
-    main(Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3]))
+    main(Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3]), Path(sys.argv[4]))
