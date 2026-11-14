@@ -34,7 +34,8 @@ from build_publication_packages import (  # noqa: E402
 )
 
 VERSION = "1.1"
-VERSION_DATE = "2026-11-13"
+VERSION_DATE = "2026-11-14"
+SOVA_COMMIT = "143e175"  # the SOVA-OSS commit the paper's tools run on; set at release
 SLUG = "sova-portable-evidence-reproduction"
 SOURCE = PAPERS / "PF-sova-portable-evidence-reproduction-working-paper.md"
 BIB = Path(__file__).with_name("references.bib")
@@ -43,7 +44,7 @@ FINAL_PDF = PDF_OUT / f"SOVA-PF-{SLUG}-v{VERSION}-preprint.pdf"
 ARCHIVE = SOURCE_OUT / f"SOVA-PF-{SLUG}-arxiv-source-v{VERSION}.tar.gz"
 APPROVAL_FILE = Path(__file__).with_name("pf-v1.1-author-approval.json")
 
-TITLE = ".sova: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings"
+TITLE = "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova"
 KEYWORDS = [
     "AI agents",
     "AI security",
@@ -98,6 +99,14 @@ OPTIONAL_RESULT_FILES = [
     "pf-cross-provider-2026-11-13.json",
     "pf-cross-provider-reading-2026-11-13.json",
     "pf-cross-provider-selection-2026-11-13.json",
+    "pf-confirmatory-2026-11-14/scoreboard.json",
+    "pf-confirmatory-2026-11-14/reliability.json",
+    "pf-confirmatory-2026-11-14/prediction.json",
+    "pf-confirmatory-2026-11-14/upgrade.json",
+    "pf-confirmatory-2026-11-14/readers-agreement.json",
+    "pf-confirmatory-2026-11-14/s6/recurrence.json",
+    "pf-confirmatory-2026-11-14/s6/tasks.json",
+    "pf-audit-2026-11-14/published.json",
     "pf-cross-provider-predictiveness-2026-11-13.json",
 ]
 
@@ -604,6 +613,82 @@ def draw_fresh(path: Path) -> bool:
     return True
 
 
+CONFIRMATORY = "pf-confirmatory-2026-11-14"
+SHORT_NAMES = {
+    "gpt-4o": "GPT-4o", "gpt-5.5": "GPT-5.5", "gpt-5.4-mini": "GPT-5.4 mini", "gpt-5.4-nano": "GPT-5.4 nano",
+    "gpt-6.1-sol": "GPT-6.1 Sol", "gpt-6.1-terra": "GPT-6.1 Terra", "gpt-6-luna": "GPT-6 Luna", "gpt-6-astra": "GPT-6 Astra",
+    "DeepSeek-V4-Pro-2": "DeepSeek V4 Pro", "grok-4-20-non-reasoning": "Grok 4.20", "grok-4-1-fast-non-reasoning": "Grok 4.1 Fast",
+    "grok-4.7": "Grok 4.7", "Kimi-K3.1-Pro": "Kimi K3.1 Pro", "Llama-4-Maverick-17B-128E-Instruct-FP8": "Llama 4 Maverick",
+    "Mistral-Large-3": "Mistral Large 3", "mistral-medium-3-5": "Mistral Medium 3.5", "cohere-command-a": "Command A",
+    "claude-opus-5-5": "Claude Opus 5.5", "claude-sonnet-5-5": "Claude Sonnet 5.5", "claude-fable-5-2": "Claude Fable 5.2",
+    "claude-haiku-5-5": "Claude Haiku 5.5", "claude-haiku-4-5": "Claude Haiku 4.5",
+    "claude-sonnet-4-5-20250929": "Claude Sonnet 4.5", "claude-opus-4-5-20251101": "Claude Opus 4.5",
+}
+
+
+def draw_confirmatory(path: Path) -> bool:
+    sb_path = RESULTS / CONFIRMATORY / "scoreboard.json"
+    pr_path = RESULTS / CONFIRMATORY / "prediction.json"
+    if not sb_path.is_file() or not pr_path.is_file():
+        return False
+    import matplotlib
+
+    matplotlib.use("Agg")
+    import matplotlib.pyplot as plt
+
+    models = json.loads(sb_path.read_text(encoding="utf-8"))["models"]
+    pred = json.loads(pr_path.read_text(encoding="utf-8"))["attack"]
+    order = sorted(models, key=lambda m: (-models[m]["attackerActionRate"], -models[m]["benchmarkASR"], SHORT_NAMES[m]))
+    fig, (ax, bx) = plt.subplots(1, 2, figsize=(11.0, 5.6), gridspec_kw={"width_ratios": [1.15, 1]}, constrained_layout=True)
+    for y, m in enumerate(order):
+        a, b = models[m]["benchmarkASR"], models[m]["attackerActionRate"]
+        ax.plot([a, b], [y, y], color=GREY, lw=1.2, zorder=1)
+        ax.plot(a, y, "o", mfc="white", mec=INK, mew=1.1, ms=5.5, zorder=2, label="Benchmark's attack score" if y == 0 else None)
+        ax.plot(b, y, "o", color=STATE_COLOURS["divergent"], ms=5.5, zorder=3, label="Audit attack rate" if y == 0 else None)
+    ax.set_yticks(range(len(order)), labels=[SHORT_NAMES[m] for m in order], fontsize=7.5)
+    ax.invert_yaxis()
+    ax.set_xlim(-0.02, 0.8)
+    ax.tick_params(axis="x", labelsize=7.5)
+    ax.set_xlabel("Share of 156 attack instances (trial 1)", fontsize=8)
+    ax.set_title("Scoreboard: what the benchmark counts and what happened", loc="left", fontsize=9.5, weight="bold", color=INK)
+    ax.legend(fontsize=7, frameon=False, loc="lower right")
+    ax.grid(axis="x", alpha=0.2)
+    labels = {
+        "N1-rerun": "Fresh re-run",
+        "N2-json-tool-output": "JSON tool output",
+        "N3-paraphrased-system": "Paraphrased system prompt",
+        "M1-other-model": "Another model",
+        "M2-repeat-user-prompt": "Defense: repeat user prompt",
+        "M3-spotlighting": "Defense: spotlighting",
+    }
+    series = [("DeepSeek-V4-Pro-2", "DeepSeek V4 Pro (40)", STATE_COLOURS["divergent"], -0.2),
+              ("gpt-4o", "GPT-4o (40)", TEAL, 0.0), ("grok-4-20-non-reasoning", "Grok 4.20 (20)", STATE_COLOURS["incompatible"], 0.2)]
+    for key, name, colour, dy in series:
+        cond = pred["perModel"][key]["byCondition"]
+        for y, c in enumerate(labels):
+            bx.plot(cond[c], y + dy, "o", color=colour, ms=5.5, label=name if y == 0 else None)
+    for y, c in enumerate(labels):
+        cell = pred["conditions"][c]
+        low, high = cell["ci95"]
+        bx.plot([low, high], [y, y], color=INK, lw=4, alpha=0.12, solid_capstyle="butt")
+    bx.set_yticks(range(len(labels)), labels=list(labels.values()), fontsize=8)
+    bx.set_xlim(0.45, 1.02)
+    bx.set_ylim(5.6, -0.8)
+    bx.tick_params(axis="x", labelsize=7.5)
+    bx.axhline(2.5, color=GREY, lw=0.8, ls=":")
+    bx.text(0.46, -0.5, "declared non-material", fontsize=7, color=MUTED, va="center")
+    bx.text(0.46, 2.75, "declared material", fontsize=7, color=MUTED, va="center")
+    bx.set_xlabel("Share of re-runs in which the attack recurred (grey: pooled 95% CI)", fontsize=8)
+    bx.set_title("Recurrence of 100 findings under one change each", loc="left", fontsize=9.5, weight="bold", color=INK)
+    bx.legend(fontsize=7, frameon=False, loc="lower left")
+    bx.grid(axis="x", alpha=0.2)
+    for axis in (ax, bx):
+        for side in ("top", "right"):
+            axis.spines[side].set_visible(False)
+    save(fig, path, "Confirmatory scoreboard and recurrence")
+    return True
+
+
 def draw_redaction_triple(path: Path) -> bool:
     result_path = RESULTS / OPTIONAL_RESULT_FILES[0]
     if not result_path.is_file():
@@ -687,8 +772,8 @@ header-includes:
 **Contact:** gautam@truscor.org\\
 **License:** [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/), © 2026 Gautam R. Patil\\
 **arXiv classification:** {PRIMARY} (cross-list candidates: {", ".join(CROSS)})\\
-**Artifact:** <https://github.com/TRUSCOR/research/tree/main/artifacts/pf-v1.1> (code, data, protocols, validators, and four findings as .sova files)\\
-**Implementation:** <https://github.com/TRUSCOR/SOVA-OSS> (commit 42b4972)\\
+**Artifact:** <https://github.com/TRUSCOR/research/tree/main/artifacts/pf-v1.1> (code, data, frozen protocols, validators, and every run as .sova files)\\
+**Implementation:** <https://github.com/TRUSCOR/SOVA-OSS> (commit {SOVA_COMMIT})\\
 **Competing interest:** the author leads TRUSCOR Private Limited, which develops the system evaluated here (see Declarations).
 
 """
@@ -741,6 +826,7 @@ def build(pandoc: Path, tectonic: Path) -> dict[str, object]:
     draw_agentdojo(figures / "pf-agentdojo")
     draw_successors(figures / "pf-successors")
     draw_fresh(figures / "pf-fresh")
+    draw_confirmatory(figures / "pf-confirmatory")
     has_triple = draw_redaction_triple(figures / "pf-redaction-triple")
     referenced = set(re.findall(r"\]\((figures/[^)]+)\)", body))
     for figure in referenced:

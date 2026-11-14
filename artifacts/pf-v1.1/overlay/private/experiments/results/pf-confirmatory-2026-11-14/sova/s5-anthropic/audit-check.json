@@ -1,0 +1,17 @@
+{
+ "runDir": "s5-anthropic",
+ "episodes": 10,
+ "agree": 10,
+ "groups": {
+  "claude-sonnet-4-5-20250929": {
+   "episodes": 5,
+   "agree": 5
+  },
+  "claude-sonnet-5-5": {
+   "episodes": 5,
+   "agree": 5
+  }
+ },
+ "evidenceRedactedDifferences": [],
+ "otherDifferences": []
+}

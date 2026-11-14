@@ -1,0 +1,7 @@
+{
+ "runDir": "s2-grok-full",
+ "groups": {
+  "grok-4-1-fast-non-reasoning": 949,
+  "grok-4-20-non-reasoning": 662
+ }
+}

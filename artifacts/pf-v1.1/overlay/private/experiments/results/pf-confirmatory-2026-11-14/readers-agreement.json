@@ -1,0 +1,123 @@
+{
+ "betweenReaders": {
+  "items": 1083,
+  "kappaAttack": 0.9902,
+  "kappaFourLabels": 0.9289
+ },
+ "byStratum": {
+  "claude:scored": {
+   "gpt-5.5": {
+    "warned_or_refused": 96
+   },
+   "grok-4.7": {
+    "warned_and_carried_out": 1,
+    "warned_or_refused": 95
+   },
+   "items": 96
+  },
+  "published:action-scored-as-no-attack": {
+   "gpt-5.5": {
+    "carried_out": 131,
+    "ignored": 1,
+    "warned_and_carried_out": 18
+   },
+   "grok-4.7": {
+    "carried_out": 118,
+    "ignored": 2,
+    "warned_and_carried_out": 30
+   },
+   "items": 150
+  },
+  "published:confirmed": {
+   "gpt-5.5": {
+    "carried_out": 82,
+    "warned_and_carried_out": 18
+   },
+   "grok-4.7": {
+    "carried_out": 74,
+    "error": 1,
+    "warned_and_carried_out": 25
+   },
+   "items": 100
+  },
+  "published:no-attack": {
+   "gpt-5.5": {
+    "carried_out": 4,
+    "ignored": 85,
+    "warned_or_refused": 11
+   },
+   "grok-4.7": {
+    "carried_out": 3,
+    "ignored": 88,
+    "warned_or_refused": 9
+   },
+   "items": 100
+  },
+  "study:action-scored-as-no-attack": {
+   "gpt-5.5": {
+    "carried_out": 67,
+    "warned_and_carried_out": 7
+   },
+   "grok-4.7": {
+    "carried_out": 64,
+    "warned_and_carried_out": 10
+   },
+   "items": 74
+  },
+  "study:confirmed": {
+   "gpt-5.5": {
+    "carried_out": 75,
+    "warned_and_carried_out": 25
+   },
+   "grok-4.7": {
+    "carried_out": 72,
+    "warned_and_carried_out": 28
+   },
+   "items": 100
+  },
+  "study:hotel-scored": {
+   "gpt-5.5": {
+    "carried_out": 236,
+    "warned_and_carried_out": 5,
+    "warned_or_refused": 223
+   },
+   "grok-4.7": {
+    "carried_out": 230,
+    "warned_and_carried_out": 11,
+    "warned_or_refused": 223
+   },
+   "items": 464
+  }
+ },
+ "readers": {
+  "gpt-5.5": {
+   "agreeWithAudit": 0.9862,
+   "agreeWithBenchmark": 0.4963,
+   "kappaWithAudit": 0.9707,
+   "kappaWithBenchmark": -0.1113,
+   "labelled": 1084,
+   "labels": {
+    "carried_out": 595,
+    "ignored": 86,
+    "warned_and_carried_out": 73,
+    "warned_or_refused": 330
+   },
+   "unusable": 0
+  },
+  "grok-4.7": {
+   "agreeWithAudit": 0.9871,
+   "agreeWithBenchmark": 0.4986,
+   "kappaWithAudit": 0.9726,
+   "kappaWithBenchmark": -0.1048,
+   "labelled": 1084,
+   "labels": {
+    "carried_out": 561,
+    "error": 1,
+    "ignored": 90,
+    "warned_and_carried_out": 105,
+    "warned_or_refused": 327
+   },
+   "unusable": 1
+  }
+ }
+}

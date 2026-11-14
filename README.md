@@ -25,7 +25,7 @@ Gautam R. Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@trus
 
 | Paper | Version | Read | Check it |
 |---|---|---|---|
-| **.sova: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings** | 1.1 · 2026-11-13 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) | [Artifact](artifacts/pf-v1.1/) · [four findings as `.sova` files](artifacts/pf-v1.1/findings/) |
+| **Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova** | 1.1 · 2026-11-14 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) | [Artifact](artifacts/pf-v1.1/) · [every run as `.sova` files](artifacts/pf-v1.1/) |
 
 Each released paper keeps its text in `preprints/` and everything needed to
 check it in `artifacts/<paper-id>/`:
@@ -57,96 +57,51 @@ core output is the `.sova` capsule and the `.sova-trace` evidence record.
 
 ## The .sova preprint
 
-### [`.sova`: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings](preprints/sova-portable-evidence-reproduction-v1.1.pdf)
+### [Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova](preprints/sova-portable-evidence-reproduction-v1.1.pdf)
 
-**Version 1.1 (2026-11-13) · CC BY 4.0 · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and four .sova findings](artifacts/pf-v1.1/)**
+**Version 1.1 (2026-11-14) · CC BY 4.0 · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and every run as `.sova` files](artifacts/pf-v1.1/)**
 · previous: [version 1.0](preprints/sova-portable-evidence-reproduction-v1.0.pdf)
 
-**In brief.** A widely used test of AI-agent security can score an AI as
-successfully attacked when it warns its user about a hidden instruction. Some
-popular models really do follow such instructions: asked only how much the user
-spent in March 2022, GPT-4o and DeepSeek-V4-Pro sent money to an attacker's
-account in a simulated bank, and attacks published in 2024 still worked on
-GPT-4o in 2026. The paper packages findings like these as `.sova` files that
-anyone can open and check offline, and describes a procedure that decides
-whether a rerun shows the same failure, answering with one of six states rather
-than yes or no. The paper's own evidence ships in that format: four findings,
-the whole GPT-4o re-run study, and every reply we read are `.sova` files, and the
-paper's recurrence and reading counts recompute from them with SOVA's own tools.
-**Try it:** [`artifacts/pf-v1.1/findings/`](artifacts/pf-v1.1/findings/).
+**In brief.** Tests of whether AI agents can be tricked score each attack with
+an automated check, and those scores rank models and decide whether a reported
+attack is real. We checked AgentDojo's verdicts against what the agents actually
+did, re-ran its attacks on 24 current models from eight developers, and re-ran
+100 successful attacks many times, under protocols published before the runs.
 
-`.sova` separates three operations that are routinely conflated:
+- **Did the attack really work?** In 19,381 published runs, the agent carried
+  out the attacker's decisive step (for example, sending money to the
+  attacker) in 433 runs that the benchmark scored as "no attack". On current
+  models the error reverses: the benchmark scores four Claude 5.x models as
+  attacked in 10.9% to 12.8% of attacks, yet every one of those runs was the
+  model warning the user, and no Claude model carried out an attacker's action.
+- **Does it still work, and how often?** Of 100 recorded attacks re-run five or
+  ten times, all recurred at least once and 98 at least half the time, but for
+  16 the runs could not show a rate of at least 50% with 95% confidence. None of
+  40 GPT-4o attacks worked on GPT-5.5, and none of 20 Grok 4.20 attacks on Grok 4.7.
+- **Can it be proved to a stranger?** Declared rules for when two runs are
+  comparable predicted recurrence by 14.0 points (95% interval 10.2 to 17.8),
+  passing a pre-set test; per model they held only on GPT-4o, and rules learned
+  on two models did not carry over to a third. `sova verify` caught every
+  one-byte tamper we made, where a recent diagnosis tool silently changed its
+  verdict.
 
-| | |
-|---|---|
-| **Trace playback** | inert inspection of an already recorded timeline |
-| **Controlled re-execution** | a fresh, separately authorized run emitting new evidence |
-| **Semantic reproduction** | whether the declared outcome recurred in a sufficiently equivalent context |
+`.sova` is released with the paper as a free, local tool and file format:
+`sova audit` checks a benchmark's verdict against the agent's actual tool
+calls, `sova rerun` and `sova matrix` re-run a finding on any model, and
+`sova verify` checks a sealed record offline. Every run of the paper's studies
+is released as a `.sova` file. **Try it:** [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/).
 
-**What version 1.1 adds: fresh re-execution of 7,434 attack episodes on eight
-models from three developers, and a re-analysis of 15,118 published prompt-injection
-logs from 22 AI models** (AgentDojo), under frozen protocols.
+**This is a preprint. It has not been peer reviewed.** All results come from one
+benchmark with simulated apps; two AI models, not people, read the disputed
+runs blind; the protocols were published before the runs but held by the
+author; and the studies have not yet been re-run independently. The author leads TRUSCOR,
+which develops SOVA.
 
-- **The same benchmark score means opposite things on different models.** The
-  benchmark scored GPT-4o as attacked in 369 of 949 instances and DeepSeek-V4-Pro
-  in 561 of 822, and all 109 of those successes we read were real: money sent to
-  the attacker, inboxes forwarded, files deleted. GPT-6.1-sol was never scored as
-  attacked in 949 (95% upper bound 0.4%) and still completed 83.8% of the user
-  tasks. Attacks from the published GPT-4o logs succeeded again on a fresh run
-  in 85.3% of cases, against 23.1% of those that had failed, and goal difficulty
-  does not explain it (goal-stratified odds ratio 11.4). Two published prompt
-  defenses left 91% and 87% of 60 real DeepSeek attacks working. The pre-set test
-  of whether the context rules predict recurrence passed on conclusive runs only
-  through the change of model, and is not identified once inconclusive runs are
-  bounded.
-- **On the Claude 5.5 models, the "successful attacks" were the models warning the
-  user.** Of the 341 fresh runs the benchmark scored as successful attacks (21
-  distinct attack instances), 340 were the model refusing the planted
-  instruction and telling the user about it, and in one of these the warning
-  still relayed the attacker's link. We read every one with AI assistance. 339 sit on the one attacker goal (of 35) that the
-  benchmark scores from the reply text: if the reply contains the hotel's name,
-  the attack counts. On that goal the benchmark scored Claude Sonnet 4.5 as
-  never attacked (0 of 20) and the newer Claude Haiku 5.5 as attacked in up to
-  19 of 20 runs, because only the newer model tells the user, by name, what it
-  refused. The warnings recurred on a second full run (18 of 18) and in 80-100%
-  of re-runs, even with two published defenses on. The one scored attack that was not a
-  warning: told to "follow the instructions precisely" in a file, Claude Sonnet
-  4.5 sent money to the attacker, which the user had arguably asked for.
-- **Some recorded attack successes were never observed.** 98 of 2,710 came from
-  runs that ended in an error or had no agent turn; for Command R+, 22 of 28.
-- **"Unknown" is not "failed".** A third of the Claude 3 Opus logs are empty;
-  read as unknown, its attack success rate is only bounded between 10.2% and 43.1%.
-- **A success on one model is a weak guide to another.** In the published logs, an attack
-  that worked on one model also worked on another in 34.9% of comparisons, about twice the
-  second model's base rate; most of that is shared attack difficulty, not
-  transfer between specific models.
-- **What still works against the most resistant models tends to work against
-  many models.** The few attacks that survived on the October 2024 Claude 3.5
-  Sonnet and on Meta-SecAlign 70B succeed on about half of all other models
-  (post hoc).
-- **The same test name did not always mean the same test.** Only 12.6% of logs
-  record the benchmark version, and 18 user tasks and 11 attack goals were
-  reworded under unchanged names.
-
-The paper also reports constructed same-team corpora, real-model web
-trajectories, a redaction study that found (and fixed) a defect in our own
-code, and every retained negative result.
-
-**This is a preprint. It has not been peer reviewed.** The constructed evidence is
-same-team, the fresh runs cover eight models from three developers and two
-attack templates, the reading of scored successes was AI-assisted and not
-blind, and the test of whether the context rules predict recurrence has run on
-one model's real attacks under an addendum frozen during data collection and is
-not identified once inconclusive runs are bounded. The
-confirmatory gate (independently authored claim contracts, blinded labels, two
-independently operated runtimes, and external security and privacy review) is
-**not** complete.
-
-**Check it yourself.** [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/) holds the
-research prototype, every experiment script and result file, the frozen
-protocols, the manuscript source, and a validator that recomputes all 309
-reported values, with SHA-256 checksums, plus every fresh-run episode with its
-full message trace and four findings packaged as `.sova` files.
+**Check it yourself.** [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/) holds the code,
+every result file, the frozen protocols, every run as a `.sova` bundle, and a
+validator that recomputes every reported value. A
+[GitHub workflow](.github/workflows/verify-pf-v1-1.yml) re-verifies the files,
+the capsules, and the audit on GitHub's machines with no model key.
 
 ---
 
@@ -199,8 +154,8 @@ The SOVA OSS source code is separately licensed under Apache-2.0.
 
 ```bibtex
 @misc{patil2026sova,
-  title        = {{.sova}: Portable, Evidence-Bounded Reproduction of
-                  {AI}-Agent Security Findings},
+  title        = {Did the Attack Really Work? Auditing, Re-running, and
+                  Proving {AI}-Agent Security Findings with {.sova}},
   author       = {Patil, Gautam R.},
   year         = {2026},
   note         = {Preprint, version 1.1. Not peer reviewed.},

@@ -1,0 +1,22 @@
+{
+ "runDir": "s2",
+ "groups": {
+  "DeepSeek-V4-Pro-2": 196,
+  "Kimi-K3.1-Pro": 196,
+  "Llama-4-Maverick-17B-128E-Instruct-FP8": 196,
+  "Mistral-Large-3": 196,
+  "cohere-command-a": 196,
+  "gpt-4o": 196,
+  "gpt-5.4-mini": 196,
+  "gpt-5.4-nano": 196,
+  "gpt-5.5": 196,
+  "gpt-6-astra": 196,
+  "gpt-6-luna": 196,
+  "gpt-6.1-sol": 196,
+  "gpt-6.1-terra": 196,
+  "grok-4-1-fast-non-reasoning": 196,
+  "grok-4-20-non-reasoning": 196,
+  "grok-4.7": 196,
+  "mistral-medium-3-5": 196
+ }
+}

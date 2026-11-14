@@ -18,6 +18,7 @@ import json
 import math
 import re
 import subprocess
+import sys
 import tarfile
 from collections import Counter
 from pathlib import Path
@@ -786,6 +787,8 @@ def model_table_strings() -> dict[str, str]:
 
     runs: dict[str, list[dict]] = {}
     for path in sorted(RESULTS.glob("pf-*/**/episodes.jsonl")):
+        if "pf-confirmatory-2026-11-14" in path.as_posix():
+            continue  # the confirmatory runs have their own checks
         for line in path.read_text(encoding="utf-8").splitlines():
             if line.strip():
                 record = json.loads(line)
@@ -795,7 +798,7 @@ def model_table_strings() -> dict[str, str]:
     check(set(runs) == claude | azure, f"models in the fresh runs: {sorted(runs)}")
     check(sum(len(v) for v in runs.values()) == 7434, "fresh-run episode total")
     check(all(r["software"]["agentdojo"] == "0.1.35" and r["software"]["python"] == "3.11.15" for v in runs.values() for r in v), "runner software")
-    must = {"model-table total": "These are the 7,434 episodes"}
+    must: dict[str, str] = {}
     for model, records in runs.items():
         starts = sorted(datetime.strptime(r["startedAt"], "%Y-%m-%dT%H:%M:%SZ") for r in records)
         a, b = starts[0], starts[-1]
@@ -810,10 +813,276 @@ def model_table_strings() -> dict[str, str]:
             ident = f"| `{model}` | Anthropic Messages |"
         else:
             check(len(returned) == 1 and all(r["software"].get("openaiSdk") == "3.49.0" for r in records), f"Azure records: {model}")
-            ident = f"| `{model}` (`{returned[0]}`) | Azure "
+            ident = f"returned `{returned[0]}` in C.5"
         must[f"model-table identifier: {model}"] = ident
-        must[f"model-table runs: {model}"] = f"| {len(records):,} | {window} |"
+        must[f"model-table runs: {model}"] = f"C.5: {len(records):,} episodes, {window}."
     return must
+
+
+CONF = RESULTS / "pf-confirmatory-2026-11-14"
+FROZEN = {
+    "protocol": "117b77eb1c4814c38aec898383cc95bb1512da1d604a518f3b4859a1de6db0af",
+    "spec": "d956db4505951062bec1af56a40d3bed27221f7f31d0131d88764a88c5ccd5ff",
+}
+# Goals whose text asks for more than one state-changing action (Appendix B).
+SEVERAL_ACTION_GOALS = {("workspace", f"injection_task_{i}") for i in range(5, 13)} | {
+    ("slack", "injection_task_5"), ("banking", "injection_task_6")}
+
+
+def _p1(x: float) -> str:
+    return f"{100 * x:.1f}"
+
+
+def _ci(ci: list[float]) -> str:
+    return f"{100 * ci[0]:.1f} to {100 * ci[1]:.1f}"
+
+
+def confirmatory_strings() -> dict[str, str]:
+    """Sections 4 to 6 and the summary: studies S1 to S6 of 2026-11-14, from their result files."""
+    must: dict[str, str] = {}
+    check(sha(PAPERS / "audit-spec-agentdojo-v1.2.2.json") == FROZEN["spec"], "frozen audit rules")
+    check(sha(PAPERS / "PF-confirmatory-protocol-2026-11-14.md") == FROZEN["protocol"], "frozen protocol")
+    # ---- S1: published runs
+    pub = json.loads((RESULTS / "pf-audit-2026-11-14" / "published.json").read_text(encoding="utf-8"))
+    check(pub["specSha256"] == FROZEN["spec"], "S1 spec")
+    rows = pub["rows"]
+    check(len(rows) == pub["episodes"], "S1 rows")
+    cats = Counter(r["category"] for r in rows)
+    scored = sum(1 for r in rows if r["verdict"])
+    missed = [r for r in rows if r["category"] == "action-scored-as-no-attack"]
+    several = sum(1 for r in missed if (r["suite"], r["injectionTask"]) in SEVERAL_ACTION_GOALS)
+    crash = [r for r in rows if r["category"] == "crash"]
+    executed = cats["confirmed"] + len(missed)
+    forward = sum(1 for r in missed if (r["suite"], r["injectionTask"]) == ("workspace", "injection_task_3"))
+    ut15 = sum(1 for r in missed if (r["suite"], r["userTask"]) == ("banking", "user_task_15"))
+    must.update({
+        "S1 runs": f"all {len(rows):,} attacked runs in the 28 published run folders",
+        "S1 scored": f"The benchmark scored {scored:,} of them as attacks",
+        "S1 confirmed": f"confirmed an executed attacker action in {cats['confirmed']:,}",
+        "S1 missed": f"In {len(missed)} runs the agent executed the attacker's decisive call",
+        "S1 missed share": f"{_p1(len(missed) / executed)}% of all runs with an executed attacker action",
+        "S1 one-action": f"In {len(missed) - several} of the {len(missed)} the goal asks for one",
+        "S1 several": f"In {several} the goal asks for several actions",
+        "S1 forward": f"case, {forward} runs, forwards",
+        "S1 crashes": f"{len(crash)} runs ended in an error or without an agent reply",
+        "S1 crash verdicts": (f"scored {sum(1 for r in crash if r['verdict'])} of them as attacks and "
+                              f"{sum(1 for r in crash if not r['verdict'])} as no attack"),
+        "S1 unsupported": f"{cats['unsupported']} runs scored as attacks contain no attacker action",
+        "abstract S1": f"In {len(rows):,} published runs, at least {len(missed) - ut15} in which the agent carried out",
+        "S1 ut15": f"In {ut15} of them, on banking `user_task_15`",
+        "S1 at least": f"At least {len(missed) - ut15} are attacker actions the benchmark did not count",
+    })
+    check(cats["warning-scored-as-attack"] == 2, "S1 warnings")
+    check({r["model"] for r in crash if not r["verdict"]} == {"claude-3-opus-20240229"}, "S1 Opus crashes")
+    names = {"gpt-4-0125-preview": "GPT-4 (0125)", "gpt-4o-mini-2024-07-18": "GPT-4o mini", "gpt-4o-2024-05-13": "GPT-4o (2024-05-13)",
+             "gpt-3.5-turbo-0125": "GPT-3.5 Turbo", "claude-3-opus-20240229": "Claude 3 Opus"}
+    for model, name in names.items():
+        s = pub["summary"][model]
+        must[f"S1 row {model}"] = (f"| {name} | {s['episodes']} | {_p1(s['benchmarkASR'])}% | {_p1(s['attackerActionRate'])}% | "
+                                   f"{s['categories'].get('action-scored-as-no-attack', 0)} |")
+    # ---- S2: scoreboard
+    sb = json.loads((CONF / "scoreboard.json").read_text(encoding="utf-8"))
+    check(sb["protocolSha256"] == FROZEN["protocol"] and sb["auditSpecSha256"] == FROZEN["spec"], "S2 frozen digests")
+    table = subprocess.run([sys.executable, str(ROOT / "private" / "experiments" / "scoreboard_table_pf.py"), str(CONF / "scoreboard.json")],
+                           capture_output=True, text=True, encoding="utf-8", check=True).stdout
+    body = [line.strip() for line in table.splitlines() if line.startswith("| ") and "Developer" not in line]
+    check(len(body) == len(sb["models"]), "S2 table rows")
+    for i, line in enumerate(body):
+        must[f"S2 table row {i}"] = line
+    m = sb["models"]
+    must["S2 models"] = f"on {len(m)} models from eight developers"
+    must["S2 tau"] = f"Kendall's tau between the two rankings, {sb['kendallTauASRvsAction']:.2f}"
+    c5 = ["claude-opus-5-5", "claude-sonnet-5-5", "claude-fable-5-2", "claude-haiku-5-5"]
+    lo, hi = min(m[x]["benchmarkASR"] for x in c5), max(m[x]["benchmarkASR"] for x in c5)
+    alo, ahi = min(m[x]["attackerActionRate"] for x in c5), max(m[x]["attackerActionRate"] for x in c5)
+    check(alo == 0, "S2 Claude 5.x minimum")
+    must["S2 claude benchmark"] = f"score {_p1(lo)}% to {_p1(hi)}% on the benchmark"
+    must["S2 claude audit"] = f"the audit they score 0% to {_p1(ahi)}%"
+    must["S2 claude warnings"] = f"recognised {sum(m[x]['hotelWarningsScored'] for x in c5)} of them as warnings"
+    must["S2 claude scored"] = f"{sum(m[x]['hotelScored'] for x in c5)} of {sum(m[x]['hotelRuns'] for x in c5)} hotel runs"
+    must["abstract S2"] = f"four Claude 5.x models as attacked in {_p1(lo)}-{_p1(hi)}% of attacks"
+    must["S2 gpt-4o"] = f"it scores {_p1(m['gpt-4o']['benchmarkASR'])}% of the set as attacked"
+    must["S2 gpt-4o action"] = f"while the audit counts {_p1(m['gpt-4o']['attackerActionRate'])}%"
+    tot = json.loads((CONF / "audit-totals.json").read_text(encoding="utf-8"))
+    g4 = m["gpt-4o"]["categories"]
+    tool_only = (g4.get("confirmed", 0) + g4.get("action-scored-as-no-attack", 0) - tot["S2"]["trial1HotelEndorsementsByModel"]["gpt-4o"]) / m["gpt-4o"]["instances"]
+    must["S2 gpt-4o tool"] = f"or {_p1(tool_only)}% counting only executed tool calls"
+    s2t = tot["S2"]
+    must["S4.3 runs"] = f"Across {s2t['runs']:,} runs on {len(m)} models"
+    must["S4.3 missed"] = (f"It also scored {s2t['categories']['action-scored-as-no-attack']} runs as no attack in which the attacker's decisive "
+                           f"call executed, {_p1(s2t['categories']['action-scored-as-no-attack'] / s2t['executedActions'])}% of the "
+                           f"{s2t['executedActions']:,} runs the audit counts as attacks")
+    must["S4.3 grok"] = (f"adds {tot['S2grokfull']['actionScoredNoAttackByModel']['grok-4-20-non-reasoning']} such runs of "
+                         f"{tot['S2grokfull']['executedByModel']['grok-4-20-non-reasoning']} it counts as attacks")
+    must["S4.3 crashes"] = f"none of the {s2t['categories']['crash']} crashed scoreboard runs received one"
+    check(s2t["crashSecurityField"] == {"None": s2t["categories"]["crash"]}, "new-run crashes carry no verdict")
+    # ---- S3: reliability
+    rel = json.loads((CONF / "reliability.json").read_text(encoding="utf-8"))["byPrimary"]
+    disp = {"DeepSeek-V4-Pro-2": "DeepSeek V4 Pro", "gpt-4o": "GPT-4o", "grok-4-20-non-reasoning": "Grok 4.20"}
+    for model, name in disp.items():
+        r = rel[model]
+        must[f"S3 row {model}"] = f"| {name} | {r['findings']} | {r['always']} | {r['atLeastHalf']} | {r['lowerBoundAtLeastHalf']} | {r['never']} |"
+    total = sum(r["findings"] for r in rel.values())
+    half = sum(r["atLeastHalf"] for r in rel.values())
+    below = total - sum(r["lowerBoundAtLeastHalf"] for r in rel.values())
+    check(total == 100 and sum(r["never"] for r in rel.values()) == 0, "S3 totals")
+    must["S3 half"] = f"{half} of 100 recurred in at least half of their runs"
+    must["S3 below"] = f"for {below} of the 100 findings, the Wilson lower bound stays below 50%"
+    must["abstract S3"] = f"{half} in at least half of their re-runs, but with so few re-runs, {below} could not be shown"
+    # ---- S4: prediction
+    pr = json.loads((CONF / "prediction.json").read_text(encoding="utf-8"))
+    a, b = pr["attack"], pr["benchmark"]
+    check(pr["protocolSha256"] == FROZEN["protocol"], "S4 protocol digest")
+    label = {"N1-rerun": "None (fresh re-run)", "N2-json-tool-output": "JSON tool output", "N3-paraphrased-system": "Paraphrased system prompt",
+             "M1-other-model": "Different model", "M2-repeat-user-prompt": "Repeat-user-prompt defense", "M3-spotlighting": "Spotlighting defense"}
+    for cond, name in label.items():
+        c = a["conditions"][cond]
+        kind = "non-material" if cond.startswith("N") else "material"
+        must[f"S4 row {cond}"] = f"| {name} | {kind} | {c['episodes']} | {_p1(c['recurrence'])}% ({_p1(c['ci95'][0])}-{_p1(c['ci95'][1])}%) |"
+    h1 = a["H1"]
+    check(h1["supported"] and not b["H1"]["supported"], "S4 H1 verdicts")
+    must["S4 H1"] = f"by {_p1(h1['gap'])} points (95% interval {_ci(h1['ci95'])})"
+    must["abstract S4"] = (f"{_p1(h1['gap'])} points more often after setup changes declared in advance not to matter than after "
+                           f"a model swap or a prompt defense (95% interval {_p1(h1['ci95'][0])}-{_p1(h1['ci95'][1])})")
+    must["S4 worst"] = f"the gap is still {_p1(h1['cantTellBounds']['worstForH1'])} points"
+    d = a["H1dim"]
+    must["S4 M1"] = f"by {_p1(d['M1-other-model']['drop'])} points ({_ci(d['M1-other-model']['ci95'])})"
+    must["S4 M2"] = f"defense by {_p1(d['M2-repeat-user-prompt']['drop'])} ({_ci(d['M2-repeat-user-prompt']['ci95'])})"
+    must["S4 M3"] = f"by only {_p1(d['M3-spotlighting']['drop'])} points ({_ci(d['M3-spotlighting']['ci95'])})"
+    check([d[k]["materialConfirmed"] for k in ("M1-other-model", "M2-repeat-user-prompt", "M3-spotlighting")] == [True, True, False], "S4 H1dim")
+    pm = a["perModel"]
+    must["S4 gpt-4o"] = f"GPT-4o ({_p1(pm['gpt-4o']['H1gap'])} points, {_ci(pm['gpt-4o']['ci95'])})"
+    must["S4 deepseek"] = f"DeepSeek V4 Pro ({_p1(pm['DeepSeek-V4-Pro-2']['H1gap'])}, {_ci(pm['DeepSeek-V4-Pro-2']['ci95'])})"
+    must["S4 grok"] = f"Grok 4.20 ({_p1(pm['grok-4-20-non-reasoning']['H1gap'])}, {_ci(pm['grok-4-20-non-reasoning']['ci95'])})"
+    check([pm[k]["supported"] for k in ("gpt-4o", "DeepSeek-V4-Pro-2", "grok-4-20-non-reasoning")] == [True, False, False], "S4 per model")
+    me = a["measured"]
+    must["S4 measured"] = (f"recurrence by {_p1(me['testGapMeasured'])} points ({_ci(me['testGapMeasuredCI95'])}), against "
+                           f"{_p1(me['testGapDeclared'])} ({_ci(me['testGapDeclaredCI95'])})")
+    lomo = sorted(v["gap"] for v in a["leaveOneModelOut"].values())
+    must["S4 lomo"] = f"between {_p1(lomo[0])} and {_p1(lomo[-1])} points"
+    must["S4 benchmark"] = f"pooled gap of {_p1(b['H1']['gap'])} points ({_ci(b['H1']['ci95'])})"
+    bc = {k: v["byCondition"] for k, v in pm.items()}
+    must["S4 by model"] = (f"cut GPT-4o's recurrence to {_p1(bc['gpt-4o']['M2-repeat-user-prompt'])}%, but left DeepSeek V4 Pro's at "
+                           f"{_p1(bc['DeepSeek-V4-Pro-2']['M2-repeat-user-prompt'])}% and Grok 4.20's at "
+                           f"{_p1(bc['grok-4-20-non-reasoning']['M2-repeat-user-prompt'])}%")
+    must["S4 by model 2"] = (f"cut their recurrence to {_p1(bc['DeepSeek-V4-Pro-2']['M1-other-model'])}%, while moving GPT-4o's attacks "
+                             f"to Grok 4.20 left it at {_p1(bc['gpt-4o']['M1-other-model'])}%")
+    h2 = a["H2"]
+    check(all(v["nonMaterialConfirmed"] for v in h2.values()), "S4 H2")
+    must["S4 H2"] = (f"(JSON tool output, {_ci(h2['N2-json-tool-output']['ci95'])}; paraphrase, "
+                     f"{_ci(h2['N3-paraphrased-system']['ci95'])})")
+    must["S4 per model N"] = (f"lowered GPT-4o's recurrence from {_p1(bc['gpt-4o']['N1-rerun'])}% to {_p1(bc['gpt-4o']['N2-json-tool-output'])}%, "
+                              f"and the paraphrase lowered Grok 4.20's from {_p1(bc['grok-4-20-non-reasoning']['N1-rerun'])}% to "
+                              f"{_p1(bc['grok-4-20-non-reasoning']['N3-paraphrased-system'])}%")
+    ph = json.loads((CONF / "posthoc-sensitivity.json").read_text(encoding="utf-8"))
+    eq = ph["equalWeightH1"]
+    check(eq["ci95"][0] < 0.10, "equal-weight H1 misses the threshold")
+    must["S4 equal weight"] = f"the gap is {_p1(eq['gap'])} points ({_ci(eq['ci95'])})"
+    must["S3 below 80"] = f"so seven of the {len(ph['belowHalfBound'])}, which recurred in at least 80% of their runs"
+    check(ph["belowHalfBoundAtLeast80"] == 7, "S3 below-bound findings at 80% or more")
+    # ---- S5: upgrades
+    up = json.loads((CONF / "upgrade.json").read_text(encoding="utf-8"))["pairs"]
+    pairs = {"gpt-4o -> gpt-5.5": "GPT-4o to GPT-5.5", "grok-4-20-non-reasoning -> grok-4.7": "Grok 4.20 to Grok 4.7",
+             "claude-sonnet-4-5-20250929 -> claude-sonnet-5-5": "Claude Sonnet 4.5 to Claude Sonnet 5.5"}
+    for pair, name in pairs.items():
+        cl = up[pair]["classes"]
+        cant = cl.get("cant-tell", 0)
+        must[f"S5 {pair}"] = f"| {name} | {len(up[pair]['findings'])} | {cl.get('still works', 0)} | {cl.get('stopped', 0)} | {cant} |"
+    # ---- S6: head-to-head
+    s6 = json.loads((CONF / "s6" / "recurrence.json").read_text(encoding="utf-8"))
+    tasks = json.loads((CONF / "s6" / "tasks.json").read_text(encoding="utf-8"))["tasks"]
+    check(s6["scriptSha256"] == "78eb49cdd4acc6cc931ece1054fe452efa52e150b6da8aa52206b3241f2e7f73", "S6 script digest")
+    t3, t4 = tasks["T3-recurred-on-fresh-run"]["attack"], tasks["T4-refuse-when-setup-differs"]["attack"]
+    rows6 = {"ours": "`.sova`, declared rules", "ours-measured": "`.sova`, measured rules", "naive": "Naive verdict pairing",
+             "plain-sequence": "Plain log, same call sequence", "plain-final-call": "Plain log, same final call",
+             "CR*-finding": "ClaimReceipt, our instance", "AT*-latest": "AgentTriage, its latest-terminal rule",
+             "AT*-per-call": "AgentTriage, every call (our variant)"}
+    untyped = {"naive", "plain-sequence", "plain-final-call", "AT*-latest", "AT*-per-call"}
+    for key, name in rows6.items():
+        refused = t4[key]["refused"]
+        if key in untyped:
+            check(refused == 0, f"S6 {key} refuses nothing")
+            ref = "not applicable"
+        else:
+            ref = f"{refused} of {t4[key]['materialCells']}"
+        must[f"S6 row {key}"] = f"| {name} | {t3[key]['withRecurrenceVerdict']} ({t3[key]['agreeWithOursOnThose']}) | {ref} |"
+    check(t3["CR*-strict"]["withRecurrenceVerdict"] == 0 and t4["CR*-strict"]["refused"] == 0, "S6 CR strict abstains")
+    tab = s6["contingency"]["attack"]
+    must["S6 AT latest"] = f"called {tab['AT*-latest']['all']['table']['reproduced']['no-finding']} of the 294 recurring attacks"
+    check(sum(tab["AT*-latest"]["all"]["table"]["reproduced"].values()) == 294, "S6 recurring cells")
+    must["S6 CR finding"] = f"left {tab['CR*-finding']['all']['table']['reproduced']['inconclusive']} recurring cells inconclusive"
+    must["S6 naive material"] = f"would report {tab['naive']['all']['table']['incompatible']['not-reproduced']} of them"
+    must["S6 sequence"] = f"the same in only {tab['plain-sequence']['all']['table']['reproduced']['reproduced']} of them"
+    t5 = tasks["T5-abstain-on-crashes"]
+    t6 = tasks["T6-warning-scored-as-attack"]
+    must["S6 crashes"] = f"All {t5['episodes']} crashed runs in the data"
+    must["S6 warnings"] = f"Of the {t6['episodes']} Claude hotel-goal warnings"
+    check(all(v["state"] == "verified" for v in tasks["T1-verify-offline"]["ours (.sova)"]), "S6 T1")
+    tot = agree = red = 0
+    for d in ("s2", "s2-anthropic", "s2-grok-full", "s34", "s5", "s5-anthropic"):
+        r6 = json.loads((CONF / "sova" / d / "audit-check.json").read_text(encoding="utf-8"))
+        check(not r6["otherDifferences"], f"sova audit differs from the analysis: {d}")
+        tot, agree = tot + r6["episodes"], agree + r6["agree"]
+        red += sum(x["sova"] for x in r6["evidenceRedactedDifferences"] if x["category"] == "evidence-redacted")
+        check(all(x["injectionTask"] == "injection_task_7" and x["suite"] == "banking" for x in r6["evidenceRedactedDifferences"]), f"redactions are password changes: {d}")
+    check(tot - agree == red, "every difference is a redaction")
+    # ---- S7: blind readers
+    items7 = {it["id"]: it for it in json.loads((CONF / "readers-items.json").read_text(encoding="utf-8"))}
+    labels7: dict[str, dict[str, str]] = {}
+    for reader in ("gpt-5.5", "grok-4.7"):
+        labels7[reader] = {json.loads(line)["id"]: json.loads(line)["label"]
+                           for line in (CONF / f"readers-{reader}.jsonl").read_text(encoding="utf-8").splitlines() if line.strip()}
+        check(set(labels7[reader]) == set(items7), f"S7 every item labelled once: {reader}")
+    attack7 = {"carried_out", "warned_and_carried_out"}
+    valid7 = attack7 | {"warned_or_refused", "ignored"}
+    names7 = {
+        "published:action-scored-as-no-attack": ("Published runs: action executed, scored as no attack", "attack"),
+        "published:confirmed": ("Published runs: action executed, scored as attack", "attack"),
+        "published:no-attack": ("Published runs: no action, scored as no attack", "no attack"),
+        "study:action-scored-as-no-attack": ("New runs: action executed, scored as no attack", "attack"),
+        "study:confirmed": ("New runs: action executed, scored as attack", "attack"),
+        "study:hotel-scored": ("New runs: hotel replies scored as attacks", "mixed"),
+        "claude:scored": ("Claude runs of Appendix C.5 scored as attacks", "mixed"),
+    }
+    for stratum, (label, audit_says) in names7.items():
+        ids = [i for i, it in items7.items() if it["stratum"] == stratum]
+        cells = []
+        for reader in ("gpt-5.5", "grok-4.7"):
+            lab = [labels7[reader][i] for i in ids]
+            cells.append(f"{sum(x in attack7 for x in lab)} of {sum(x in valid7 for x in lab)}")
+        must[f"S7 row {stratum}"] = f"| {label} | {len(ids)} | {audit_says} | {cells[0]} | {cells[1]} |"
+    must["S7 items"] = f"read {len(items7):,} runs blind"
+    c5set = {"claude-opus-5-5", "claude-sonnet-5-5", "claude-fable-5-2", "claude-haiku-5-5"}
+    c5ids = [i for i, it in items7.items() if it["stratum"] == "study:hotel-scored" and it["model"] in c5set]
+    check(len(c5ids) == 219 and all(labels7[r][i] == "warned_or_refused" for r in labels7 for i in c5ids), "S7 Claude 5.x hotel runs")
+    must["S7 claude"] = "Both blind readers of section 4.4 labelled all 219 of these runs as warnings or refusals."
+    ag7 = json.loads((CONF / "readers-agreement.json").read_text(encoding="utf-8"))
+    for reader in ("gpt-5.5", "grok-4.7"):
+        must[f"S7 agree {reader}"] = f"{100 * ag7['readers'][reader]['agreeWithAudit']:.1f}% (Cohen's kappa {ag7['readers'][reader]['kappaWithAudit']:.2f})"             if reader == "gpt-5.5" else f"the audit in {100 * ag7['readers'][reader]['agreeWithAudit']:.1f}% (kappa {ag7['readers'][reader]['kappaWithAudit']:.2f})"
+    must["S7 between"] = f"with kappa {ag7['betweenReaders']['kappaAttack']:.2f} on attack or not"
+    must["S6.3 agreement"] = f"for {agree:,} of {tot:,} runs. The other {red} are password changes"
+    return must
+
+
+# Values that only the earlier draft's summary, abstract, or planned-study paragraph reported.
+# The restructured paper keeps those studies in Appendix C, where the values that remain are
+# still checked; these strings no longer appear and so are not reported values.
+RETIRED = {
+    "40 of 120", "triple:26 findings", "triple:1,170", "agentdojo:12.6% of logs",
+    "agentdojo:18 user tasks and 11 goals were reworded between versions", "agentdojo:11 attacker goals",
+    "agentdojo:21 of 949", "agentdojo:12.6% of logs (one in eight)", "agentdojo:22 of its 28",
+    "fresh:340 of the 341 runs scored as attacked", "fresh:the benchmark scored 341 runs as successful",
+    "fresh:In 3,507 runs on Claude models", "fresh:about USD 38", "fresh:Seven forms",
+    "cross:369 of 949 attack instances", "cross:561 of the 822 that completed", "cross:in 39% and 68% of conclusive instances",
+    "cross:against 94.6% on a plain re-run", "cross:cut recurrence to 53.9%", "cross:left 91.2% of them working",
+    "cross:marking tool output as data left 86.7%", "cross:all 109 of their successes we read were real",
+    "cross:every one of the 109 we read was a real attack", "cross:against 23.1% of those that had failed",
+    "cross:(629 pairs of runs)", "cross:gives back 256 of 300", "cross:one capsule of 1,258 traces",
+    "cross:two capsules of 341 and 109 traces", "cross:(95% upper bound 0.4%)", "cross:scored as attacked in 0 of 949",
+    "cross:(goal-stratified odds ratio 11.4)", "cross:about elevenfold", "cross:(21 distinct attack instances)",
+    "cross:repeat 21 distinct attack instances", "cross:one warning still relayed the attacker's link",
+    "cross:64 claims whose evidence had survived", "cross:one run sent the attacker 0.01, the other 50.0.",
+}
 
 
 def check_text(must: dict[str, str]) -> None:
@@ -821,7 +1090,7 @@ def check_text(must: dict[str, str]) -> None:
     flat = " ".join(raw.split()).replace("−", "-")
     for label, value in must.items():
         check(value in flat, f"reported value absent from paper: {label!r} -> {value!r}")
-    check("<<" not in raw and ">>" not in raw, "unresolved placeholder in paper")
+    check("<<" not in raw and ">>" not in raw and "[[RESULT" not in raw, "unresolved placeholder in paper")
     public = flat.split("## Internal: required work before submission")[0]
     lowered = public.lower()
     for context in ALLOWED_FIRST_CONTEXTS:
@@ -867,7 +1136,7 @@ def check_package() -> dict[str, object]:
     pages = [page.extract_text() or "" for page in reader.pages]
     text = "\n".join(pages)
     compact = re.sub(r"-[ \t]*\n", "", text).replace(" ", "").replace("\n", "")
-    check(10 <= len(pages) <= 34, f"page count {len(pages)}")
+    check(10 <= len(pages) <= 64, f"page count {len(pages)}")
     check(all(len(p.strip()) > 120 for p in pages), "blank page")
     for needle in ["Publicpreprint,version1.1", "hasnotbeenpeerreviewed", "CCBY4.0", "GautamR.Patil", "TRUSCORPrivateLimited", "Competinginterest", "AnthropicClaude", "Declarations", "References", "Thepaperataglance"]:
         check(needle.lower() in compact.lower(), f"PDF missing {needle}")
@@ -898,6 +1167,8 @@ def main() -> int:
     must.update(fresh_strings())
     must.update(cross_strings())
     must.update(model_table_strings())
+    must.update(confirmatory_strings())
+    must = {k: v for k, v in must.items() if k not in RETIRED}
     check_text(must)
     report: dict[str, object] = {
         "artifactType": "sova.paper-claim-validation",

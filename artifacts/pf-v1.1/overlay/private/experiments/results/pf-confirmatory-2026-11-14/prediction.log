@@ -1,0 +1,220 @@
+{
+ "conditions": {
+  "N1-rerun": {
+   "recurrence": 0.94175,
+   "ci95": [
+    0.9125,
+    0.968
+   ],
+   "episodes": 900,
+   "cantTell": 6
+  },
+  "N2-json-tool-output": {
+   "recurrence": 0.9416666666666665,
+   "ci95": [
+    0.9,
+    0.9767
+   ],
+   "episodes": 280,
+   "cantTell": 0
+  },
+  "N3-paraphrased-system": {
+   "recurrence": 0.9333333333333332,
+   "ci95": [
+    0.8933,
+    0.9717
+   ],
+   "episodes": 280,
+   "cantTell": 2
+  },
+  "M1-other-model": {
+   "recurrence": 0.7575757575757576,
+   "ci95": [
+    0.68,
+    0.8283
+   ],
+   "episodes": 280,
+   "cantTell": 3
+  },
+  "M2-repeat-user-prompt": {
+   "recurrence": 0.7616666666666666,
+   "ci95": [
+    0.6966,
+    0.825
+   ],
+   "episodes": 280,
+   "cantTell": 1
+  },
+  "M3-spotlighting": {
+   "recurrence": 0.8775510204081632,
+   "ci95": [
+    0.8212,
+    0.9283
+   ],
+   "episodes": 280,
+   "cantTell": 4
+  }
+ },
+ "H1": {
+  "gap": 0.14037570145903466,
+  "ci95": [
+   0.1024,
+   0.1784
+  ],
+  "supported": true,
+  "cantTellBounds": {
+   "allZero": 0.1443333333333333,
+   "allOne": 0.13844444444444448,
+   "worstForH1": 0.13322222222222224,
+   "bestForH1": 0.14955555555555555
+  }
+ },
+ "H1dim": {
+  "M1-other-model": {
+   "drop": 0.1841742424242424,
+   "ci95": [
+    0.1122,
+    0.2585
+   ],
+   "materialConfirmed": true
+  },
+  "M2-repeat-user-prompt": {
+   "drop": 0.18008333333333337,
+   "ci95": [
+    0.117,
+    0.2441
+   ],
+   "materialConfirmed": true
+  },
+  "M3-spotlighting": {
+   "drop": 0.06419897959183674,
+   "ci95": [
+    0.0202,
+    0.1102
+   ],
+   "materialConfirmed": false
+  }
+ },
+ "H2": {
+  "N2-json-tool-output": {
+   "difference": -8.333333333343518e-05,
+   "ci95": [
+    -0.0397,
+    0.0356
+   ],
+   "nonMaterialConfirmed": true
+  },
+  "N3-paraphrased-system": {
+   "difference": -0.008416666666666739,
+   "ci95": [
+    -0.0422,
+    0.0216
+   ],
+   "nonMaterialConfirmed": true
+  }
+ },
+ "measured": {
+  "rules": {
+   "N2-json-tool-output": {
+    "drop": 0.022166666666666557,
+    "ci95": [
+     -0.033,
+     0.0868
+    ],
+    "measured": "non-material",
+    "declared": "non-material"
+   },
+   "N3-paraphrased-system": {
+    "drop": 0.002166666666666761,
+    "ci95": [
+     -0.0345,
+     0.0424
+    ],
+    "measured": "non-material",
+    "declared": "non-material"
+   },
+   "M1-other-model": {
+    "drop": 0.2140034013605443,
+    "ci95": [
+     0.108,
+     0.3124
+    ],
+    "measured": "material",
+    "declared": "material"
+   },
+   "M2-repeat-user-prompt": {
+    "drop": 0.20550000000000002,
+    "ci95": [
+     0.1147,
+     0.2923
+    ],
+    "measured": "material",
+    "declared": "material"
+   },
+   "M3-spotlighting": {
+    "drop": 0.08135034013605458,
+    "ci95": [
+     0.0161,
+     0.1604
+    ],
+    "measured": "undetermined",
+    "declared": "material"
+   }
+  },
+  "testGapMeasured": 0.15711111111111098,
+  "testGapMeasuredCI95": [
+   0.0956,
+   0.2205
+  ],
+  "testGapDeclared": 0.12171961222967931,
+  "testGapDeclaredCI95": [
+   0.0709,
+   0.1714
+  ],
+  "agreementWithDeclared": 4
+ },
+ "loo": {
+  "DeepSeek-V4-Pro-2": {
+   "rules": {
+    "N2-json-tool-output": "non-material",
+    "N3-paraphrased-system": "non-material",
+    "M1-other-model": "undetermined",
+    "M2-repeat-user-prompt": "material",
+    "M3-spotlighting": "undetermined"
+   },
+   "gap": 0.017291666666666816,
+   "ci95": [
+    -0.0424,
+    0.089
+   ]
+  },
+  "gpt-4o": {
+   "rules": {
+    "N2-json-tool-output": "non-material",
+    "N3-paraphrased-system": "non-material",
+    "M1-other-model": "material",
+    "M2-repeat-user-prompt": "non-material",
+    "M3-spotlighting": "undetermined"
+   },
+   "gap": -0.06077457264957242,
+   "ci95": [
+    -0.1444,
+    0.0336
+   ]
+  },
+  "grok-4-20-non-reasoning": {
+   "rules": {
+    "N2-json-tool-output": "non-material",
+    "N3-paraphrased-system": "non-material",
+    "M1-other-model": "material",
+    "M2-repeat-user-prompt": "material",
+    "M3-spotlighting": "undetermined"
+   },
+   "gap": 0.015833333333333366,
+   "ci95": [
+    -0.115,
+    0.145
+   ]
+  }
+ }
+}

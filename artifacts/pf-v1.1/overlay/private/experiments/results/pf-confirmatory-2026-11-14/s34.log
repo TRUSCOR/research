@@ -1,0 +1,58 @@
+800 jobs, 800 pending across 2 models; azure spent so far $90.97
+11:56:44 25/800 done, azure $91.46; left {'DeepSeek-V4-Pro-2': 389, 'gpt-4o': 386}
+11:56:52 50/800 done, azure $92.27; left {'DeepSeek-V4-Pro-2': 384, 'gpt-4o': 366}
+11:57:00 75/800 done, azure $93.08; left {'DeepSeek-V4-Pro-2': 384, 'gpt-4o': 341}
+11:57:08 100/800 done, azure $94.08; left {'DeepSeek-V4-Pro-2': 384, 'gpt-4o': 316}
+11:57:17 125/800 done, azure $94.85; left {'DeepSeek-V4-Pro-2': 384, 'gpt-4o': 291}
+11:57:26 150/800 done, azure $95.92; left {'DeepSeek-V4-Pro-2': 384, 'gpt-4o': 266}
+11:57:35 175/800 done, azure $96.78; left {'DeepSeek-V4-Pro-2': 382, 'gpt-4o': 243}
+11:57:42 200/800 done, azure $97.67; left {'DeepSeek-V4-Pro-2': 378, 'gpt-4o': 222}
+11:57:49 225/800 done, azure $98.76; left {'DeepSeek-V4-Pro-2': 372, 'gpt-4o': 203}
+11:57:57 250/800 done, azure $99.51; left {'DeepSeek-V4-Pro-2': 371, 'gpt-4o': 179}
+11:58:05 275/800 done, azure $100.49; left {'DeepSeek-V4-Pro-2': 371, 'gpt-4o': 154}
+11:58:13 300/800 done, azure $101.41; left {'DeepSeek-V4-Pro-2': 371, 'gpt-4o': 129}
+11:58:22 325/800 done, azure $102.29; left {'DeepSeek-V4-Pro-2': 371, 'gpt-4o': 104}
+11:58:30 350/800 done, azure $103.15; left {'DeepSeek-V4-Pro-2': 369, 'gpt-4o': 81}
+11:58:38 375/800 done, azure $104.05; left {'DeepSeek-V4-Pro-2': 365, 'gpt-4o': 60}
+11:58:44 400/800 done, azure $104.99; left {'DeepSeek-V4-Pro-2': 359, 'gpt-4o': 41}
+11:58:52 425/800 done, azure $105.93; left {'DeepSeek-V4-Pro-2': 354, 'gpt-4o': 21}
+11:59:43 450/800 done, azure $107.34; left {'DeepSeek-V4-Pro-2': 350}
+12:01:39 475/800 done, azure $108.48; left {'DeepSeek-V4-Pro-2': 325}
+12:03:50 500/800 done, azure $109.47; left {'DeepSeek-V4-Pro-2': 300}
+12:05:47 525/800 done, azure $110.61; left {'DeepSeek-V4-Pro-2': 275}
+12:07:56 550/800 done, azure $111.93; left {'DeepSeek-V4-Pro-2': 250}
+12:09:55 575/800 done, azure $113.10; left {'DeepSeek-V4-Pro-2': 225}
+12:12:34 600/800 done, azure $114.22; left {'DeepSeek-V4-Pro-2': 200}
+12:15:12 625/800 done, azure $115.66; left {'DeepSeek-V4-Pro-2': 175}
+12:17:11 650/800 done, azure $116.78; left {'DeepSeek-V4-Pro-2': 150}
+12:20:00 675/800 done, azure $118.35; left {'DeepSeek-V4-Pro-2': 125}
+12:22:09 700/800 done, azure $119.63; left {'DeepSeek-V4-Pro-2': 100}
+12:24:18 725/800 done, azure $120.69; left {'DeepSeek-V4-Pro-2': 75}
+12:26:27 750/800 done, azure $122.64; left {'DeepSeek-V4-Pro-2': 50}
+12:28:23 775/800 done, azure $123.68; left {'DeepSeek-V4-Pro-2': 25}
+12:31:30 800/800 done, azure $126.40; left {}
+960 jobs, 960 pending across 2 models; azure spent so far $155.25
+12:32:01 25/960 done, azure $155.77; left {'DeepSeek-V4-Pro-2': 469, 'gpt-4o': 466}
+12:32:10 50/960 done, azure $156.58; left {'DeepSeek-V4-Pro-2': 465, 'gpt-4o': 445}
+12:32:19 75/960 done, azure $157.17; left {'DeepSeek-V4-Pro-2': 464, 'gpt-4o': 421}
+C:\Users\HP\AppData\Local\Temp\claude\d14c60c273c43e16\bba749ec-d310-4413-8b94-c4aa57af8151\scratchpad\fresh\venv\Lib\site-packages\agentdojo\agent_pipeline\basic_elements.py:22: UserWarning: The query is not being added as the first message or after the system message
+  warnings.warn("The query is not being added as the first message or after the system message")
+12:32:26 100/960 done, azure $157.98; left {'DeepSeek-V4-Pro-2': 464, 'gpt-4o': 396}
+12:32:36 125/960 done, azure $158.81; left {'DeepSeek-V4-Pro-2': 464, 'gpt-4o': 371}
+12:32:45 150/960 done, azure $159.59; left {'DeepSeek-V4-Pro-2': 463, 'gpt-4o': 347}
+12:32:52 175/960 done, azure $160.44; left {'DeepSeek-V4-Pro-2': 461, 'gpt-4o': 324}
+12:32:59 200/960 done, azure $161.27; left {'DeepSeek-V4-Pro-2': 456, 'gpt-4o': 304}
+12:33:07 225/960 done, azure $162.16; left {'DeepSeek-V4-Pro-2': 454, 'gpt-4o': 281}
+12:33:14 250/960 done, azure $162.96; left {'DeepSeek-V4-Pro-2': 452, 'gpt-4o': 258}
+12:33:22 275/960 done, azure $163.95; left {'DeepSeek-V4-Pro-2': 451, 'gpt-4o': 234}
+12:33:30 300/960 done, azure $164.83; left {'DeepSeek-V4-Pro-2': 451, 'gpt-4o': 209}
+12:33:39 325/960 done, azure $165.56; left {'DeepSeek-V4-Pro-2': 451, 'gpt-4o': 184}
+12:33:47 350/960 done, azure $167.20; left {'DeepSeek-V4-Pro-2': 451, 'gpt-4o': 159}
+12:33:54 375/960 done, azure $168.12; left {'DeepSeek-V4-Pro-2': 446, 'gpt-4o': 139}
+12:34:00 400/960 done, azure $169.07; left {'DeepSeek-V4-Pro-2': 442, 'gpt-4o': 118}
+12:34:08 425/960 done, azure $169.89; left {'DeepSeek-V4-Pro-2': 435, 'gpt-4o': 100}
+12:34:15 450/960 done, azure $170.76; left {'DeepSeek-V4-Pro-2': 433, 'gpt-4o': 77}
+12:34:23 475/960 done, azure $171.60; left {'DeepSeek-V4-Pro-2': 433, 'gpt-4o': 52}
+12:34:34 500/960 done, azure $172.41; left {'DeepSeek-V4-Pro-2': 433, 'gpt-4o': 27}
+12:34:45 525/960 done, azure $174.13; left {'DeepSeek-V4-Pro-2': 432, 'gpt-4o': 3}
+12:36:11 550/960 done, azure $176.14; left {'DeepSeek-V4-Pro-2': 410}

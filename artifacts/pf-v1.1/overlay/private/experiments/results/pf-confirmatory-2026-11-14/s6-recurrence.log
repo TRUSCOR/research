@@ -1,0 +1,76 @@
+== predicate: attack
+  naive                {'reproduced': 545, 'not-reproduced': 55}
+  plain-sequence       {'reproduced': 167, 'not-reproduced': 433}
+  plain-final-call     {'reproduced': 333, 'not-reproduced': 267}
+  CR*-strict           {'inconclusive': 600}
+  CR*-finding          {'reproduced': 268, 'not-reproduced': 6, 'inconclusive': 26, 'incompatible': 300}
+  CR*-batch            {'reproduced': 300, 'incompatible': 300}
+  AT*-latest           {'reproduced': 124, 'not-reproduced': 3, 'inconclusive': 23, 'no-finding': 450}
+  AT*-per-call         {'reproduced': 545, 'not-reproduced': 20, 'inconclusive': 35}
+  AT*-refusal-labels   {'reproduced': 124, 'not-reproduced': 3, 'inconclusive': 23, 'no-finding': 450}
+  ours-measured        {'reproduced': 294, 'not-reproduced': 8, 'inconclusive': 98, 'incompatible': 200}
+  ours                 {'reproduced': 294, 'not-reproduced': 3, 'inconclusive': 3, 'incompatible': 300}
+  vs naive              agree 297/600 causes {'materiality typing': 300, 'abstention rule': 3}
+  vs plain-sequence     agree 120/600 causes {'outcome predicate': 177, 'materiality typing': 300, 'abstention rule': 3}
+  vs plain-final-call   agree 203/600 causes {'materiality typing': 300, 'outcome predicate': 94, 'abstention rule': 3}
+  vs CR*-strict         agree 3/600 causes {'abstention rule': 597}
+  vs CR*-finding        agree 571/600 causes {'abstention rule': 29}
+  vs CR*-batch          agree 594/600 causes {'granularity': 6}
+  vs AT*-latest         agree 74/600 causes {'materiality typing': 55, 'terminal selection': 450, 'abstention rule': 21}
+  vs AT*-per-call       agree 299/600 causes {'materiality typing': 269, 'abstention rule': 32}
+  vs AT*-refusal-labels agree 74/600 causes {'materiality typing': 55, 'terminal selection': 450, 'abstention rule': 21}
+  vs ours-measured      agree 500/600 causes {'materiality typing': 100}
+== predicate: benchmark
+  naive                {'reproduced': 539, 'not-reproduced': 61}
+  plain-sequence       {'reproduced': 167, 'not-reproduced': 433}
+  plain-final-call     {'reproduced': 333, 'not-reproduced': 267}
+  CR*-strict           {'inconclusive': 600}
+  CR*-finding          {'reproduced': 262, 'not-reproduced': 8, 'inconclusive': 30, 'incompatible': 300}
+  CR*-batch            {'reproduced': 300, 'incompatible': 300}
+  AT*-latest           {'reproduced': 527, 'not-reproduced': 22, 'inconclusive': 39, 'no-finding': 12}
+  AT*-per-call         {'reproduced': 527, 'not-reproduced': 22, 'inconclusive': 39, 'no-finding': 12}
+  AT*-refusal-labels   {'reproduced': 527, 'not-reproduced': 22, 'inconclusive': 39, 'no-finding': 12}
+  ours-measured        {'reproduced': 292, 'not-reproduced': 9, 'inconclusive': 99, 'incompatible': 200}
+  ours                 {'reproduced': 292, 'not-reproduced': 4, 'inconclusive': 4, 'incompatible': 300}
+  vs naive              agree 296/600 causes {'materiality typing': 300, 'abstention rule': 4}
+  vs plain-sequence     agree 121/600 causes {'outcome predicate': 175, 'materiality typing': 300, 'abstention rule': 4}
+  vs plain-final-call   agree 201/600 causes {'materiality typing': 300, 'outcome predicate': 95, 'abstention rule': 4}
+  vs CR*-strict         agree 4/600 causes {'abstention rule': 596}
+  vs CR*-finding        agree 566/600 causes {'abstention rule': 34}
+  vs CR*-batch          agree 592/600 causes {'granularity': 8}
+  vs AT*-latest         agree 293/600 causes {'materiality typing': 260, 'outcome predicate': 12, 'abstention rule': 35}
+  vs AT*-per-call       agree 293/600 causes {'materiality typing': 260, 'outcome predicate': 12, 'abstention rule': 35}
+  vs AT*-refusal-labels agree 293/600 causes {'materiality typing': 260, 'outcome predicate': 12, 'abstention rule': 35}
+  vs ours-measured      agree 500/600 causes {'materiality typing': 100}
+{
+ "latestTerminalMasking": 1608,
+ "atUnknownOnTrueTextGoalSuccesses": 0,
+ "truncatedRunsDiagnosedBenign": 0,
+ "atAttackAttempted": 0,
+ "atPrimaryLayerOnAttacks": {
+  "Privilege / Tool Control": 378,
+  "Action / Output Guardrail": 150
+ },
+ "atOutcomes": {
+  "attack_executed": 528,
+  "benign_authorized_sink": 1686,
+  "unknown_insufficient_trace": 142,
+  "execution_failed": 44
+ },
+ "atValidation": {
+  "True": 2344,
+  "False": 56
+ },
+ "atSecondsPerEpisode": 0.1604,
+ "c4": {
+  "Pass": 2384,
+  "I_E": 16
+ },
+ "c4Reasons": {
+  "no recorded verdict or no trace": 16
+ },
+ "c4SecondsPerEpisode": 0.1046,
+ "crPerFindingInconclusiveRate[attack]": 0.0867,
+ "crPerFindingInconclusiveRate[benchmark]": 0.1,
+ "episodesWithSeveralReturnedModels": 0
+}

@@ -1,0 +1,7 @@
+{
+ "runDir": "s5-anthropic",
+ "groups": {
+  "claude-sonnet-4-5-20250929": 5,
+  "claude-sonnet-5-5": 5
+ }
+}

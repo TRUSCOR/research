@@ -1,0 +1,8 @@
+120 jobs, 120 pending across 1 models; azure spent so far $128.37
+12:15:25 25/120 done, azure $128.62; left {'gpt-5.5': 95}
+12:17:27 50/120 done, azure $128.95; left {'gpt-5.5': 70}
+12:20:10 75/120 done, azure $129.33; left {'gpt-5.5': 45}
+12:21:55 100/120 done, azure $129.74; left {'gpt-5.5': 20}
+12:26:45 120/120 done, azure $130.88; left {}
+10 jobs, 10 pending across 2 models; anthropic spent so far $49.02
+12:27:04 10/10 done, anthropic $49.19; left {}

@@ -1,0 +1,68 @@
+name: Verify PF v1.1 evidence
+
+# Re-checks the paper's released evidence on GitHub's machines, with no model call and no
+# secret: file checksums, every .sova capsule offline, and `sova audit` on the released run
+# bundles against the frozen research audit. Anyone can re-run it from the Actions tab.
+
+on:
+  push:
+    paths:
+      - "artifacts/pf-v1.1/**"
+      - ".github/workflows/verify-pf-v1-1.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "23 5 * * 1"
+
+permissions:
+  contents: read
+
+env:
+  SOVA_COMMIT: "143e1751995e8e76dd8e6a19f67eb21ccc968703"
+  ART: artifacts/pf-v1.1
+  RES: artifacts/pf-v1.1/overlay/private/experiments/results/pf-confirmatory-2026-11-14
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out the artifact
+        uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+
+      - name: Install uv and Python
+        uses: astral-sh/setup-uv@08807647e7069bb48b6ef5acd8ec9567f424441b # v8.1.0
+        with:
+          version: "0.11.3"
+          python-version: "3.11"
+
+      - name: Install SOVA at the paper's commit
+        run: |
+          uv venv .venv
+          uv pip install --python .venv "sova-oss @ git+https://github.com/TRUSCOR/SOVA-OSS@${SOVA_COMMIT}"
+          echo "$PWD/.venv/bin" >> "$GITHUB_PATH"
+
+      - name: Check every file against SHA256SUMS
+        working-directory: ${{ env.ART }}
+        run: sha256sum --check --quiet SHA256SUMS
+
+      - name: Verify every .sova capsule offline
+        run: |
+          set -euo pipefail
+          n=0
+          while IFS= read -r -d '' f; do
+            state=$(sova verify "$f" | python -c 'import json,sys; print(json.loads(sys.stdin.read().strip().splitlines()[-1])["state"])')
+            if [ "$state" != "verified" ]; then echo "::error::$f is $state"; exit 1; fi
+            n=$((n+1))
+          done < <(find "$ART/findings" "$RES/sova" -name '*.sova' -print0)
+          echo "verified $n capsules"
+
+      - name: Re-score the released runs with sova audit
+        run: |
+          set -euo pipefail
+          X="$ART/overlay/private/experiments"
+          for d in s2 s2-anthropic s2-grok-full s5 s5-anthropic; do
+            python "$X/check_pf_sova_audit.py" "$RES/$d" "$RES/sova/$d"
+          done
+          python "$X/check_pf_sova_audit.py" "$RES/s34" "$RES/sova/s34" --group model-condition

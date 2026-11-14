@@ -1,0 +1,23 @@
+{
+ "runDir": "s34",
+ "groups": {
+  "DeepSeek-V4-Pro-2--M1-other-model": 40,
+  "DeepSeek-V4-Pro-2--M2-repeat-user-prompt": 120,
+  "DeepSeek-V4-Pro-2--M3-spotlighting": 120,
+  "DeepSeek-V4-Pro-2--N1-rerun": 400,
+  "DeepSeek-V4-Pro-2--N2-json-tool-output": 120,
+  "DeepSeek-V4-Pro-2--N3-paraphrased-system": 120,
+  "gpt-4o--M1-other-model": 120,
+  "gpt-4o--M2-repeat-user-prompt": 120,
+  "gpt-4o--M3-spotlighting": 120,
+  "gpt-4o--N1-rerun": 400,
+  "gpt-4o--N2-json-tool-output": 120,
+  "gpt-4o--N3-paraphrased-system": 120,
+  "grok-4-20-non-reasoning--M1-other-model": 120,
+  "grok-4-20-non-reasoning--M2-repeat-user-prompt": 40,
+  "grok-4-20-non-reasoning--M3-spotlighting": 40,
+  "grok-4-20-non-reasoning--N1-rerun": 100,
+  "grok-4-20-non-reasoning--N2-json-tool-output": 40,
+  "grok-4-20-non-reasoning--N3-paraphrased-system": 40
+ }
+}

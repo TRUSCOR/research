@@ -2,25 +2,25 @@
   "artifactType": "sova.public-preprint-build-provenance",
   "paper": "PF",
   "version": "1.1",
-  "versionDate": "2026-11-13",
+  "versionDate": "2026-11-14",
   "supersedes": "1.0 (2026-08-20)",
-  "generatedAt": "2026-11-14T02:15:36.496618Z",
+  "generatedAt": "2026-11-14T09:22:49.720465Z",
   "status": "author-approved-public-preprint",
   "authorApproval": {
     "version": "1.1",
     "approved": true,
     "date": "2026-11-14",
-    "sourceSha256": "04daa24bc184712bbd65b6faf37483d53d4265aac0937121fd7fb76c765ca79d",
-    "bibSha256": "c4009ec2d86050fe0318e762b5cf3adc559519c8fbd06145c74dc1f5239e9b67",
-    "basis": "Author instruction in the working session of 2026-11-14 to apply the second reader review to version 1.1 before upload (a table of exact model identifiers and settings, tables kept on one page, one form for the 50.0 amount, a playback note in the findings README) in one rebuild; the author reads the built PDF before uploading."
+    "sourceSha256": "df9a0865742cdf838f56662cae85666b191b0959132b50f417f5340e84fe6a84",
+    "bibSha256": "01c9ff824969f82efa756e41454dc92f6b88a6253e730d3b9fb36a626ca97529",
+    "basis": "Author instruction in the working session of 2026-11-14 (full go): rebuild version 1.1 as a measurement paper that releases .sova, run the confirmatory studies S1 to S7 under the protocol published before their runs, and make the paper ready for upload; the author reads the built PDF before uploading."
   },
   "source": {
     "path": "PF-sova-portable-evidence-reproduction-working-paper.md",
-    "sha256": "04daa24bc184712bbd65b6faf37483d53d4265aac0937121fd7fb76c765ca79d"
+    "sha256": "df9a0865742cdf838f56662cae85666b191b0959132b50f417f5340e84fe6a84"
   },
   "references": {
     "path": "references.bib",
-    "sha256": "c4009ec2d86050fe0318e762b5cf3adc559519c8fbd06145c74dc1f5239e9b67"
+    "sha256": "01c9ff824969f82efa756e41454dc92f6b88a6253e730d3b9fb36a626ca97529"
   },
   "results": [
     {
@@ -168,6 +168,38 @@
       "sha256": "5078c707b877f541c1578394bbd10e65404015ebffed8860179ecf5827986481"
     },
     {
+      "path": "pf-confirmatory-2026-11-14/scoreboard.json",
+      "sha256": "1af93aa12aef049a1b6fba5e580248a7f82b0560e44a009f48326be266291143"
+    },
+    {
+      "path": "pf-confirmatory-2026-11-14/reliability.json",
+      "sha256": "ff18e00baf169f10c6ccbbf54b59df7fe4b539a27a6dde3b0c3d72b4619d21a0"
+    },
+    {
+      "path": "pf-confirmatory-2026-11-14/prediction.json",
+      "sha256": "b7f0c5737319e22134b83778e1e32831d88190a25279a6915892f0b758ac34e3"
+    },
+    {
+      "path": "pf-confirmatory-2026-11-14/upgrade.json",
+      "sha256": "785c7a353d2026ca3bfe03251ee85ac29ed559a58b658790d34c8003d7d13206"
+    },
+    {
+      "path": "pf-confirmatory-2026-11-14/readers-agreement.json",
+      "sha256": "46e906eed42c177c94490d3d60a11073f6a49a7d2ca644671fdce726ac4c9801"
+    },
+    {
+      "path": "pf-confirmatory-2026-11-14/s6/recurrence.json",
+      "sha256": "1422803cd2996c2a46617726521b72594d466a919b098ba32c0a76ededbdd587"
+    },
+    {
+      "path": "pf-confirmatory-2026-11-14/s6/tasks.json",
+      "sha256": "061507cb4659efe25d327b22b8ebfa9c63c368c429c685106d0f3fec670e743e"
+    },
+    {
+      "path": "pf-audit-2026-11-14/published.json",
+      "sha256": "48c8c53df46bddbf81890c79ffad5c168974ec17f733fa9b55d978976ca17b3c"
+    },
+    {
       "path": "pf-cross-provider-predictiveness-2026-11-13.json",
       "sha256": "b54bf874c68581d746c6e92954244e4713193d59b8c47eaee34b77ad50faf057"
     }
@@ -188,15 +220,16 @@
     "matplotlib": "3.10.8"
   },
   "outputs": {
-    "mainMarkdownSha256": "6f44ffe2058663970a10bb4df51dff06f863aa2a087c60dcfce828c6c22ebefe",
-    "mainTexSha256": "23a96f24f6fe9c17b823d2a0e1ff0a0d26b01cae26c5edced19ea82c8954f298",
-    "pdfSha256": "09864f8649d57d62eab7417c46a235b0224a6d0e459917fda3472944eeb0cdcd",
-    "pdfBytes": 375992,
+    "mainMarkdownSha256": "d50e512f4e7d8e177396588bdfd8f914bf40d4fe311e03db0f6a73e80e4a70d3",
+    "mainTexSha256": "55cc55107237931f3c78357bce183d117cf5c165edbedf1f131e7d583260c0ff",
+    "pdfSha256": "846d3f4bd48c02cd9b5859d946f040d5113259c8d161cd68339a0e8cf228ae0f",
+    "pdfBytes": 490588,
     "arxivSourceArchive": "output\\source\\SOVA-PF-sova-portable-evidence-reproduction-arxiv-source-v1.1.tar.gz",
-    "arxivSourceArchiveSha256": "450767f84b0b2921e2ce43fcc0e41452f139ae909b2438b976296fbcf08157ae",
+    "arxivSourceArchiveSha256": "100118b142c3ac07c85e64d53029fe60bb7cf336de2dc66f04ec1aa2b4e74ac5",
     "arxivSourceArchiveMembers": [
       "main.tex",
       "figures/pf-agentdojo.pdf",
+      "figures/pf-confirmatory.pdf",
       "figures/pf-decision-ladder.pdf",
       "figures/pf-fresh.pdf",
       "figures/pf-redaction-triple.pdf",

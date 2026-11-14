@@ -847,3 +847,304 @@
   year = {2025},
   url = {https://arxiv.org/abs/2410.09024}
 }
+
+@misc{artamokhov2026hotel,
+  author = {Aleksandr Artamokhov},
+  title = {Clarify mention versus recommendation for travel {InjectionTask6}},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 235},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/235},
+  note = {GitHub issue, opened 2026-10-25; open when accessed 2026-11-14}
+}
+
+% Earlier report of the same banking defect as issue 240.
+
+@misc{prabscodes2026precedence,
+  author = {{Prabscodes}},
+  title = {Banking injection tasks 0/1/3: operator precedence makes the subject check dead code},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 181},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/181},
+  note = {GitHub issue, opened 2026-08-17; open when accessed 2026-11-14}
+}
+
+@misc{cgrodrigues2026precedence,
+  author = {{cgrodrigues}},
+  title = {Operator precedence bug in banking {InjectionTask0/1/3} security() checks},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 240},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/240},
+  note = {GitHub issue, opened 2026-10-31; open when accessed 2026-11-14}
+}
+
+@misc{liu2026securitymetric,
+  author = {Run Liu},
+  title = {Some doubts about the security metric},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 154},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/154},
+  note = {GitHub issue, opened 2026-04-09; open when accessed 2026-11-14; related pull request 186 proposes excluding errored trials from aggregates}
+}
+
+@misc{raza2026localllm,
+  author = {Hassan Raza},
+  title = {{LocalLLM} turns server errors into an empty answer, which is scored as a failed attack},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 220},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/220},
+  note = {GitHub issue, opened 2026-10-06; open when accessed 2026-11-14}
+}
+
+@misc{webpro2026slack,
+  author = {{webpro255}},
+  title = {slack injection\_task\_5: security\_from\_traces simulates state from attempted calls, scoring blocked (never-executed) sequences as attack success},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 168},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/168},
+  note = {GitHub issue, opened 2026-07-04; open when accessed 2026-11-14}
+}
+
+@misc{nawaz2026workspace,
+  author = {Ahad Nawaz},
+  title = {Workspace {InjectionTask3} security check misses successful exfiltration when the agent copies the {YAML}-rendered email body},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 245},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/245},
+  note = {GitHub issue, opened 2026-11-03; open when accessed 2026-11-14}
+}
+
+@misc{kumar2026resultsspace,
+  author = {Nav Kumar},
+  title = {Offer: a community-run {AgentDojo} results Space on Hugging Face},
+  year = {2026},
+  howpublished = {ethz-spylab/agentdojo GitHub issue 248},
+  url = {https://github.com/ethz-spylab/agentdojo/issues/248},
+  note = {GitHub issue, opened 2026-11-07; open when accessed 2026-11-14; the author states an affiliation with a defense vendor}
+}
+
+% ---------------------------------------------------------------------------
+% Scanner issues and practitioner commentary on attack success rates
+% ---------------------------------------------------------------------------
+
+@misc{mrmoshkovitz2025mitigationbypass,
+  author = {{MrMoshkovitz}},
+  title = {Bug: {MitigationBypass} Detector Incorrectly Scores Model Refusals as Failures},
+  year = {2025},
+  howpublished = {NVIDIA/garak GitHub issue 1413},
+  url = {https://github.com/NVIDIA/garak/issues/1413},
+  note = {GitHub issue, opened 2025-10-15; open when accessed 2026-11-14; a maintainer comment notes that the hit log lists only detector hits, and a 2026-10-20 comment reports refusal phrasings missing from the detector's list}
+}
+
+@misc{rajhans2026translation,
+  author = {Siddhant Rajhans},
+  title = {latentinjection: translation probes score faithful translations and refusals as successful injections},
+  year = {2026},
+  howpublished = {NVIDIA/garak GitHub issue 2451},
+  url = {https://github.com/NVIDIA/garak/issues/2451},
+  note = {GitHub issue, opened 2026-11-10; open when accessed 2026-11-14}
+}
+
+@misc{dangelo2025asr,
+  author = {Michael D'Angelo},
+  title = {Why Attack Success Rate ({ASR}) Isn't Comparable Across Jailbreak Papers Without a Shared Threat Model},
+  year = {2025},
+  howpublished = {Promptfoo blog},
+  url = {https://www.promptfoo.dev/blog/asr-not-portable-metric/},
+  note = {Published 12 December 2025; accessed 2026-11-14}
+}
+
+% ---------------------------------------------------------------------------
+% Grading reliability and attack-success validity
+% ---------------------------------------------------------------------------
+
+@misc{zarif2026ignored,
+  author = {Farhan Zarif and Kazi Shahid Ahmed Galib and Synthia Akter Promi and Shabnam Sharmin Tarin and Ariyan Hossain and Sadif Ahmed and Farig Yousuf Sadeque},
+  title = {Ignored, Not Refused: What Low Prompt-Injection Success Rates Hide in Small Tool-Using Agents},
+  year = {2026},
+  eprint = {2610.23254},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  url = {https://arxiv.org/abs/2610.23254},
+  note = {Preprint, submitted 16 October 2026}
+}
+
+% The 410 episodes (300 primary sweep plus 110 tool-filter case study, AgentDojo v1.2 workspace)
+% appear to be the author's own runs, not AgentDojo's published logs.
+
+@misc{owiredu2026severity,
+  author = {Harry Owiredu-Ashley},
+  title = {Beyond Attack-Success Rate: Action-Graded Severity Scale for Tool-Using {AI} Agents},
+  year = {2026},
+  eprint = {2607.07474},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CR},
+  url = {https://arxiv.org/abs/2607.07474},
+  note = {Preprint, submitted 8 July 2026; code and per-episode logs at https://github.com/Harry-Ashley/action-graded-severity (MIT licence)}
+}
+
+@misc{nasr2025attacker,
+  author = {Milad Nasr and Nicholas Carlini and Chawin Sitawarin and Sander V. Schulhoff and Jamie Hayes and Michael Ilie and Juliette Pluto and Shuang Song and Harsh Chaudhari and Ilia Shumailov and Abhradeep Thakurta and Kai Yuanqing Xiao and Andreas Terzis and Florian Tram{\`e}r},
+  title = {The Attacker Moves Second: Stronger Adaptive Attacks Bypass Defenses Against {LLM} Jailbreaks and Prompt Injections},
+  year = {2025},
+  eprint = {2510.09023},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.LG},
+  url = {https://arxiv.org/abs/2510.09023},
+  note = {Preprint, submitted 10 October 2025}
+}
+
+@misc{schwinn2026coinflip,
+  author = {Leo Schwinn and Moritz Ladenburger and Tim Beyer and Mehrnaz Mofakhami and Gauthier Gidel and Stephan G{\"u}nnemann},
+  title = {A Coin Flip for Safety: {LLM} Judges Fail to Reliably Measure Adversarial Robustness},
+  year = {2026},
+  eprint = {2603.06594},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CL},
+  url = {https://arxiv.org/abs/2603.06594},
+  note = {Preprint, submitted 4 February 2026, revised 15 March 2026 (v2); concerns single-turn chat jailbreaks, not agents}
+}
+
+@misc{bhagwatkar2025firewalls,
+  author = {Rishika Bhagwatkar and Kevin Kasa and Abhay Puri and Gabriel Huang and Irina Rish and Graham W. Taylor and Krishnamurthy Dj Dvijotham and Alexandre Lacoste},
+  title = {Indirect Prompt Injections: Are Firewalls All You Need, or Stronger Benchmarks?},
+  year = {2025},
+  eprint = {2510.05244},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CR},
+  url = {https://arxiv.org/abs/2510.05244},
+  note = {Preprint, submitted 6 October 2025, revised 23 March 2026 (v2); section 7.1 reports AgentDojo injection-placement and utility-metric flaws}
+}
+
+% ---------------------------------------------------------------------------
+% Reproducibility and reliability of agents
+% ---------------------------------------------------------------------------
+
+@misc{rabanser2026reliability,
+  author = {Stephan Rabanser and Sayash Kapoor and Peter Kirgis and Kangheng Liu and Saiteja Utpala and Arvind Narayanan},
+  title = {Towards a Science of {AI} Agent Reliability},
+  year = {2026},
+  eprint = {2602.16666},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2602.16666},
+  note = {Preprint, submitted 18 February 2026, revised 2 June 2026 (v3); accepted at ICML 2026 according to the arXiv record}
+}
+
+% Read through the arXiv HTML full text (all but the last 3 percent); the numbers cited also
+% appear in the abstract.
+
+@misc{ding2026reexecuting,
+  author = {Tianyu Ding and Yaocheng Tong and Muzhi Yang and Fei Jiang and Lei Yang and Boya Yu},
+  title = {Re-executing Coding-Agent Evaluations: Unchanged Decisions and Unresolved Policy Risk},
+  year = {2026},
+  eprint = {2610.14460},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.SE},
+  url = {https://arxiv.org/abs/2610.14460},
+  note = {Preprint, submitted 10 October 2026}
+}
+
+% ---------------------------------------------------------------------------
+% Evidence and run-record tools (new entries; other formats use existing keys)
+% ---------------------------------------------------------------------------
+
+@misc{sealedrun2026sealedrun,
+  author = {{SealedRun contributors}},
+  title = {{SealedRun}: Tamper-evident, signed record of every {AI} agent step},
+  year = {2026},
+  howpublished = {GitHub repository sealedrun/sealedrun, version 0.10.0},
+  url = {https://github.com/sealedrun/sealedrun},
+  note = {Apache-2.0; README status "early development"; accessed 2026-11-14 at commit 8094e19}
+}
+
+@misc{proofagent2026harness,
+  author = {{ProofAgent}},
+  title = {proofagent-harness: Open-source test harness for {AI} agents},
+  year = {2026},
+  howpublished = {GitHub repository ProofAgent-ai/proofagent-harness, version 0.14.0},
+  url = {https://github.com/ProofAgent-ai/proofagent-harness},
+  note = {Apache-2.0; exports a Portable Evaluation Record (PER 2.1.x) of the EIO-Agents standard; accessed 2026-11-14 at commit 7956d34}
+}
+
+% ---------------------------------------------------------------------------
+% Disclosure, reporting, and incident response
+% ---------------------------------------------------------------------------
+
+@misc{longpre2025inhouse,
+  author = {Shayne Longpre and Kevin Klyman and Ruth E. Appel and Sayash Kapoor and Rishi Bommasani and Michelle Sahar and Sean McGregor and Avijit Ghosh and Borhane Blili-Hamelin and Nathan Butters and Alondra Nelson and Amit Elazari and Andrew Sellars and Casey John Ellis and Dane Sherrets and Dawn Song and Harley Geiger and Ilona Cohen and Lauren McIlvenny and Madhulika Srikumar and Mark M. Jaycox and Markus Anderljung and Nadine Farid Johnson and Nicholas Carlini and Nicolas Miailhe and Nik Marda and Peter Henderson and Rebecca S. Portnoff and Rebecca Weiss and Victoria Westerhoff and Yacine Jernite and Rumman Chowdhury and Percy Liang and Arvind Narayanan},
+  title = {In-House Evaluation Is Not Enough: Towards Robust Third-Party Flaw Disclosure for General-Purpose {AI}},
+  year = {2025},
+  eprint = {2503.16861},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.AI},
+  url = {https://arxiv.org/abs/2503.16861},
+  note = {Preprint, submitted 21 March 2025, revised 25 March 2025 (v2)}
+}
+
+@misc{piao2025abuse,
+  author = {Yangheran Piao and Jingjie Li and Daniel W. Woods},
+  title = {``Abuse Risks are Often Inherent to Product Features'': Exploring {AI} Vendors' Bug Bounty and Responsible Disclosure Policies},
+  year = {2025},
+  eprint = {2509.06136},
+  archivePrefix = {arXiv},
+  primaryClass = {cs.CR},
+  url = {https://arxiv.org/abs/2509.06136},
+  note = {Preprint, submitted 7 September 2025, revised 21 January 2026 (v2); USENIX Security Symposium 2026 according to the arXiv record}
+}
+
+% The official page https://openai.com/index/safety-bug-bounty/ returned HTTP 403 to automated
+% access on 2026-11-14 and was NOT opened. The two news reports below were opened and both carry
+% the sentence "To qualify, the behavio(u)r must be reproducible at least 50% of the time."
+% The Cyber Security News page shows no exact date (relative date and image path indicate March
+% 2026); SecurityBrief is dated 26 March 2026. Replace with the official page if it can be opened.
+
+@misc{baran2026openaibounty,
+  author = {Guru Baran},
+  title = {{OpenAI} Launches {AI} Safety Bug Bounty to Detect {AI}-Specific Vulnerabilities},
+  year = {2026},
+  howpublished = {Cyber Security News},
+  url = {https://cybersecuritynews.com/openai-safety-bug-bounty/amp/},
+  note = {News report of OpenAI's Safety Bug Bounty; published March 2026 (exact day not shown); accessed 2026-11-14}
+}
+
+@misc{tarre2026openaibounty,
+  author = {Mark Tarre},
+  title = {{OpenAI} launches safety bug bounty for {AI} abuse risks},
+  year = {2026},
+  howpublished = {SecurityBrief},
+  url = {https://securitybrief.news/story/openai-launches-safety-bug-bounty-for-ai-abuse-risks},
+  note = {News report, published 26 March 2026; accessed 2026-11-14}
+}
+
+% Text extracted from the PDF. The non-determinism passage is in section 3.3.3.1 ("Forensics for AI
+% Systems"), page 17; the detection-phase table (page 15) also says "Consider the non-deterministic
+% nature of AI systems".
+
+@techreport{cosai2025incident,
+  author = {{Coalition for Secure AI (CoSAI) Workstream 2}},
+  title = {{AI} Incident Response Framework, Version 1.0},
+  institution = {OASIS Open Project: Coalition for Secure AI},
+  year = {2025},
+  url = {https://www.coalitionforsecureai.org/wp-content/uploads/2026/03/AI-Incident-Response-1.pdf},
+  note = {Workstream 2: Preparing Defenders for a Changing Cybersecurity Landscape; document dated 27 October 2025 (version 24fecc8c); file hosted under a March 2026 upload path; accessed 2026-11-14}
+}
+
+% The website is a single-page app; case-study counts were taken from the official data release.
+
+@misc{mitre2026atlas,
+  author = {{MITRE}},
+  title = {{MITRE ATLAS}: Adversarial Threat Landscape for {AI} Systems},
+  year = {2026},
+  howpublished = {Knowledge base, data release v2026.10},
+  url = {https://atlas.mitre.org/},
+  note = {Release v2026.10, published 28 October 2026 in https://github.com/mitre-atlas/atlas-data (file dist/v6/ATLAS-2026.10.yaml), lists 77 case studies; accessed 2026-11-14}
+}
+
+@misc{arva2026avid,
+  author = {{AI Risk and Vulnerability Alliance}},
+  title = {{AVID}: {AI} Vulnerability Database},
+  year = {2026},
+  howpublished = {Online database and documentation},
+  url = {https://avidml.org/},
+  note = {Documentation at https://docs.avidml.org/; accessed 2026-11-14}
+}

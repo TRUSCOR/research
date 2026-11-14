@@ -1,0 +1,25 @@
+gpt-5.5: 120/120 agree
+grok-4.7: 60/60 agree
+total 180/180 agree; differences explained by redaction: 0; other: 0
+claude-sonnet-4-5-20250929: 5/5 agree
+claude-sonnet-5-5: 5/5 agree
+total 10/10 agree; differences explained by redaction: 0; other: 0
+DeepSeek-V4-Pro-2--M1-other-model: 36/40 agree
+DeepSeek-V4-Pro-2--M2-repeat-user-prompt: 120/120 agree
+DeepSeek-V4-Pro-2--M3-spotlighting: 120/120 agree
+DeepSeek-V4-Pro-2--N1-rerun: 400/400 agree
+DeepSeek-V4-Pro-2--N2-json-tool-output: 120/120 agree
+DeepSeek-V4-Pro-2--N3-paraphrased-system: 120/120 agree
+gpt-4o--M1-other-model: 120/120 agree
+gpt-4o--M2-repeat-user-prompt: 117/120 agree
+gpt-4o--M3-spotlighting: 117/120 agree
+gpt-4o--N1-rerun: 381/400 agree
+gpt-4o--N2-json-tool-output: 117/120 agree
+gpt-4o--N3-paraphrased-system: 114/120 agree
+grok-4-20-non-reasoning--M1-other-model: 114/120 agree
+grok-4-20-non-reasoning--M2-repeat-user-prompt: 36/40 agree
+grok-4-20-non-reasoning--M3-spotlighting: 36/40 agree
+grok-4-20-non-reasoning--N1-rerun: 90/100 agree
+grok-4-20-non-reasoning--N2-json-tool-output: 36/40 agree
+grok-4-20-non-reasoning--N3-paraphrased-system: 36/40 agree
+total 2230/2300 agree; differences explained by redaction: 42; other: 0

@@ -1,31 +1,79 @@
-# Artifact for ".sova: Portable, Evidence-Bounded Reproduction of AI-Agent Security Findings" (v1.1)
+# Artifact for "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova" (v1.1)
 
 Everything needed to check every number, figure, and protocol in preprint
 version 1.1 is in this folder. Nothing that the paper relies on is withheld.
 
-- Paper: [`../../preprints/sova-portable-evidence-reproduction-v1.1.pdf`](../../preprints/)
-- Implementation the studies run on: [SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS), commit `42b4972`
+- Paper: [`../../preprints/`](../../preprints/)
+- Implementation: [SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS), commit `143e175`
+- Frozen protocols, published before their runs: [`../../protocols/pf-confirmatory-2026-11-14/`](../../protocols/pf-confirmatory-2026-11-14/)
 - Checksums for every file: [`SHA256SUMS`](SHA256SUMS)
+- Automatic re-check on GitHub's machines, no model key needed:
+  [`../../.github/workflows/verify-pf-v1-1.yml`](../../.github/workflows/verify-pf-v1-1.yml)
 
-## Start here: open a real finding in two minutes
+## Start here: check the paper's runs in five minutes
 
-The [`findings/`](findings/) folder holds four findings from section 6.2 as
-`.sova` files:
+Every run of the 2026-11-14 studies (S2 to S5) is released as a `.sova` bundle,
+one per model (S2, S5) or per model and change (S3, S4), under
+`overlay/private/experiments/results/pf-confirmatory-2026-11-14/sova/`.
+
+```bash
+python -m pip install "sova-oss @ git+https://github.com/TRUSCOR/SOVA-OSS@143e1751995e8e76dd8e6a19f67eb21ccc968703"
+R=overlay/private/experiments/results/pf-confirmatory-2026-11-14
+sova verify $R/sova/s2-anthropic/claude-opus-5-5/claude-opus-5-5.sova     # offline; runs nothing
+sova audit  $R/sova/s2-anthropic/claude-opus-5-5/claude-opus-5-5.sova     # benchmark verdict vs. the agent's actual calls
+python overlay/private/experiments/check_pf_sova_audit.py $R/s2-anthropic $R/sova/s2-anthropic
+```
+
+The last command recomputes every run's category from the raw records with the
+frozen research audit and compares it with `sova audit` on the released bundle.
+They agree except where the capture redacted a password value; the tool then
+says `evidence-redacted` instead of guessing.
+
+With a model key you can re-run any finding (it calls the model and costs money):
+
+```bash
+sova rerun <finding.sova> --model <your-deployment> --trials 10 --authorize
+```
+
+## The studies of 2026-11-14 (sections 4 to 6)
+
+The protocol, the audit rules, the runner, and the analysis were frozen and
+published before the first run (`protocols/pf-confirmatory-2026-11-14/`,
+commit `c7e3fb4`, 05:57 UTC; the head-to-head addendum at `5a2ad61`, 06:41 UTC).
+Deviations are in `overlay/private/research/papers/PF-confirmatory-deviations-2026-11-14.md`.
+
+| Study | Paper | Result files (under `overlay/private/experiments/results/`) | Script |
+|---|---|---|---|
+| S1 verdict audit of published and earlier runs | 4.1, 4.2 | `pf-audit-2026-11-14/` | `audit_pf.py published` and `study` |
+| S2 scoreboard of current models | 4.3, 5.1 | `pf-confirmatory-2026-11-14/s2/`, `s2-anthropic/`, `scoreboard.json` | `run_pf_confirmatory.py`, `analyze_pf_v2.py scoreboard` |
+| S3 reproduction rates | 5.2 | `s34/`, `reliability.json`, `plan.json` | `analyze_pf_v2.py select` and `reliability` |
+| S4 prediction test | 6.1 | `s34/`, `prediction.json` | `analyze_pf_v2.py prediction` |
+| S5 upgrade checks | 5.3 | `s5/`, `s5-anthropic/`, `upgrade.json` | `analyze_pf_v2.py upgrade` |
+| S6 head-to-head | 6.2 | `s6/` | `compare_pf_neighbors.py` |
+| S7 blind readers | 4.4 | `readers-items.json`, `readers-*.jsonl`, `readers-agreement.json` | `read_pf_blind.py` |
+
+All are under `pf-confirmatory-2026-11-14/` unless named otherwise. Each run
+directory holds `episodes.jsonl` (one record per run: model, returned model
+string, verdict, tokens, cost, time) and `traces.jsonl.gz` (every message).
+`drive_pf_remaining.py` is the single process that ran the later stages, and
+`driver.log` is its log. The runs called Azure AI Foundry deployments and
+Anthropic's API; `run_pf_confirmatory.py` reads the Azure endpoint and key from
+a local notes file named in `PF_AZURE_NOTES` and the Anthropic key from
+`ANTHROPIC_API_KEY`, and never writes either anywhere.
+
+## The studies of the earlier drafts (Appendix C)
+
+Appendix C keeps the studies of the earlier v1.1 drafts unchanged except for
+cross-references: what the earlier README called sections 6.1 to 6.6 are now
+Appendix C.4 to C.9, and section 5 is C.3. The four findings in
+[`findings/`](findings/) come from Appendix C.5:
 - GPT-4o and DeepSeek-V4-Pro sending money to an attacker when asked only about
   the user's spending, with GPT-4o doing so in AgentDojo's published 2024 log
   and again in 2026;
 - an attack that survived two published prompt defenses;
 - a Claude warning that the benchmark scored as an attack;
 - the one Claude transfer.
-
-The paper's study evidence is there too, in the same format: the whole GPT-4o
-re-run study (629 pairs of runs) as one `.sova` file, and every reply we read in
-two more, with scripts that recompute the paper's recurrence and reading counts
-from those files using only SOVA's own tools. Each file opens and verifies
-offline and runs nothing. [`findings/README.md`](findings/README.md) has the
-commands, including the one-line comparison that shows the 2024 and 2026 GPT-4o
-runs reaching the same outcome by different actions, and a converter that turns
-your own AgentDojo runs into `.sova` files.
+[`findings/README.md`](findings/README.md) has the commands.
 
 ## Why the folder is called `overlay/private/...`
 
@@ -70,7 +118,7 @@ studies, then diffs every non-timing field against the retained results. Our
 own run on 2026-11-12 is in
 `overlay/private/experiments/results/reexecution-2026-11-12/` (zero differences).
 
-### 3. Re-run the AgentDojo re-analysis (section 6.1)
+### 3. Re-run the AgentDojo re-analysis (Appendix C.4)
 
 The protocol was frozen and hashed before any AgentDojo log was read:
 `overlay/private/research/papers/PF-agentdojo-reproduction-protocol-2026-11-12.md`
@@ -98,7 +146,7 @@ logs: the banking task whose reworded request names the attacker's account, and
 the 93 published hotel-goal replies that are not warnings, with the reading of
 each passage (`pf-published-hotel-reading-2026-11-13.json`).
 
-### 4. Re-run the fresh re-execution study (section 6.2)
+### 4. Re-run the fresh re-execution study (Appendix C.5)
 
 This study calls a model provider and costs money (about USD 38 at list prices
 for the 3,507 episodes reported across the two fresh-run protocols). Its protocol was frozen and hashed before any
@@ -171,7 +219,7 @@ are post hoc and recomputable the same way; the audit file records that the
 reading was AI-assisted under the author's direction and not blind to the
 keyword rule.
 
-### 5. Re-run the redaction study (section 6.5)
+### 5. Re-run the redaction study (Appendix C.8)
 
 ```bash
 uv run python private/experiments/run_pf_redaction_triple.py /tmp/redaction.json
@@ -187,23 +235,23 @@ in `prototypes/fidelity.py`.
 with Pandoc 3.10.1 and Tectonic 0.16.9 (official binaries; checksums in
 `tools/README.md`) and matplotlib 3.10.8.
 
-## Where each result comes from
+## Where each Appendix C result comes from
 
 | Paper section | Result file (under `overlay/private/experiments/results/`) | Script |
 |---|---|---|
-| 6.4 constructed corpora (144 / 120) | `topics-04-06-study-2026-07-31.json` | `run_topics_04_06_study.py` |
-| 6.4 public-contract study and broker | `topics12-13-postbuild-study-2026-08-03.json` | `run_topics12_13_postbuild_study.py` |
-| 6.1 AgentDojo, 22 models (pre-specified protocol) | `pf-agentdojo-reproduction-2026-11-12.json` | `run_pf_agentdojo_reproduction.py` |
-| 6.1 AgentDojo, post-hoc analyses and reworded-task table | `pf-agentdojo-supplementary-2026-11-12.json` | `run_pf_agentdojo_supplementary.py` |
-| 6.1 and 6.2 text collisions in the published logs; reading of the 93 published hotel-goal non-warnings | `pf-published-text-collisions-2026-11-13.json`, `pf-published-hotel-reading-2026-11-13.json` | `check_pf_published_text_collisions.py` |
-| 6.2 fresh re-execution on Claude models | `pf-fresh-reexecution-2026-11-12.json`, `pf-fresh-reexecution-2026-11-12/`, `pf-warning-classification-2026-11-12.json`, `pf-real-attack-predictiveness-2026-11-12.json`, `pf-real-attack-predictiveness-2026-11-12/`, `pf-fresh-successes-by-goal-2026-11-13.json`, `pf-fresh-successes-manual-audit-2026-11-13.json` | `run_pf_fresh_agentdojo.py`, `classify_pf_warning_successes.py`, `analyze_pf_real_attack_predictiveness.py`, `summarize_pf_fresh_successes.py` |
-| 6.2 other providers, the re-run of published GPT-4o findings, and the predictive test on real attacks | `pf-cross-provider-2026-11-13.json`, `pf-cross-provider-2026-11-13/`, `pf-cross-provider-reading-2026-11-13.json`, `pf-cross-provider-selection-2026-11-13.json`, `pf-cross-provider-findings-2026-11-13.json`, `pf-cross-provider-predictiveness-2026-11-13.json`, `pf-cross-provider-perturb-2026-11-13/` | `run_pf_fresh_agentdojo.py`, `azure_foundry_client.py`, `analyze_pf_cross_provider.py`, `analyze_pf_cross_provider_predictiveness.py` |
-| 6.3 AgentRewardBench pairs | `agentreward-cross-model-study-2026-07-31.json`, `p4-graph-semantic-baselines-2026-08-01.json` | `run_agentreward_cross_model_study.py`, `run_p4_graph_semantic_baselines.py` |
-| 6.4 provider status (60 cases, foreign process) | `topics-04-06-study-2026-07-31.json`, `topic06-independent-adapter-study-2026-07-31.json` | `run_topics_04_06_study.py`, `run_independent_adapter_study.py` |
-| 6.5 redaction triple (before and after the fix) | `pf-redaction-triple-2026-11-12.json`, `pf-redaction-triple-postfix-2026-11-12.json` | `run_pf_redaction_triple.py` |
-| 6.6 attack matrix, privacy, Inspect, OTLP/STIX/Collector, scale, cross-version, repeatability | `topic05-attack-matrix-…`, `topic05-privacy-attack-study-…`, `inspect-*`, `p5-incident-collector-scale-…`, `cross-version-python-3.1*-…`, `p5-repeatability-audit-…`, `external-*` | matching `run_*.py` |
-| 6.6 statistical correction | `topics-04-06-study-2026-07-31.json` (`semantic.wilson`, `semantic.exact_interval`) | `run_topics_04_06_study.py` |
-| 5 TRACE bridge | SOVA OSS `src/sova/interoperability/trace_attestation.py`, `tests/unit/test_trace_attestation.py` at `42b4972` | `pytest tests/unit/test_trace_attestation.py` |
+| C.7 constructed corpora (144 / 120) | `topics-04-06-study-2026-07-31.json` | `run_topics_04_06_study.py` |
+| C.7 public-contract study and broker | `topics12-13-postbuild-study-2026-08-03.json` | `run_topics12_13_postbuild_study.py` |
+| C.4 AgentDojo, 22 models (pre-specified protocol) | `pf-agentdojo-reproduction-2026-11-12.json` | `run_pf_agentdojo_reproduction.py` |
+| C.4 AgentDojo, post-hoc analyses and reworded-task table | `pf-agentdojo-supplementary-2026-11-12.json` | `run_pf_agentdojo_supplementary.py` |
+| C.4 and C.5 text collisions in the published logs; reading of the 93 published hotel-goal non-warnings | `pf-published-text-collisions-2026-11-13.json`, `pf-published-hotel-reading-2026-11-13.json` | `check_pf_published_text_collisions.py` |
+| C.5 fresh re-execution on Claude models | `pf-fresh-reexecution-2026-11-12.json`, `pf-fresh-reexecution-2026-11-12/`, `pf-warning-classification-2026-11-12.json`, `pf-real-attack-predictiveness-2026-11-12.json`, `pf-real-attack-predictiveness-2026-11-12/`, `pf-fresh-successes-by-goal-2026-11-13.json`, `pf-fresh-successes-manual-audit-2026-11-13.json` | `run_pf_fresh_agentdojo.py`, `classify_pf_warning_successes.py`, `analyze_pf_real_attack_predictiveness.py`, `summarize_pf_fresh_successes.py` |
+| C.5 other providers, the re-run of published GPT-4o findings, and the predictive test on real attacks | `pf-cross-provider-2026-11-13.json`, `pf-cross-provider-2026-11-13/`, `pf-cross-provider-reading-2026-11-13.json`, `pf-cross-provider-selection-2026-11-13.json`, `pf-cross-provider-findings-2026-11-13.json`, `pf-cross-provider-predictiveness-2026-11-13.json`, `pf-cross-provider-perturb-2026-11-13/` | `run_pf_fresh_agentdojo.py`, `azure_foundry_client.py`, `analyze_pf_cross_provider.py`, `analyze_pf_cross_provider_predictiveness.py` |
+| C.6 AgentRewardBench pairs | `agentreward-cross-model-study-2026-07-31.json`, `p4-graph-semantic-baselines-2026-08-01.json` | `run_agentreward_cross_model_study.py`, `run_p4_graph_semantic_baselines.py` |
+| C.7 provider status (60 cases, foreign process) | `topics-04-06-study-2026-07-31.json`, `topic06-independent-adapter-study-2026-07-31.json` | `run_topics_04_06_study.py`, `run_independent_adapter_study.py` |
+| C.8 redaction triple (before and after the fix) | `pf-redaction-triple-2026-11-12.json`, `pf-redaction-triple-postfix-2026-11-12.json` | `run_pf_redaction_triple.py` |
+| C.9 attack matrix, privacy, Inspect, OTLP/STIX/Collector, scale, cross-version, repeatability | `topic05-attack-matrix-…`, `topic05-privacy-attack-study-…`, `inspect-*`, `p5-incident-collector-scale-…`, `cross-version-python-3.1*-…`, `p5-repeatability-audit-…`, `external-*` | matching `run_*.py` |
+| C.9 statistical correction | `topics-04-06-study-2026-07-31.json` (`semantic.wilson`, `semantic.exact_interval`) | `run_topics_04_06_study.py` |
+| C.3 TRACE bridge | SOVA OSS `src/sova/interoperability/trace_attestation.py`, `tests/unit/test_trace_attestation.py` at `42b4972` | `pytest tests/unit/test_trace_attestation.py` |
 
 Specifications of the research prototype are in
 `overlay/private/research/specifications/`; the earlier protocol, falsification

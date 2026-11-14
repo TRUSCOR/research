@@ -40,6 +40,10 @@ FILES = [
         "azure_foundry_client", "analyze_pf_cross_provider", "analyze_pf_cross_provider_predictiveness",
         "build_pf_findings_gallery", "build_pf_recurrence_capsule", "recompute_recurrence_from_sova",
         "build_pf_reading_capsules", "tally_readings_from_sova", "agentdojo_to_sova",
+        # 2026-11-14 confirmatory studies S1 to S7
+        "run_pf_confirmatory", "audit_pf", "analyze_pf_v2", "read_pf_blind", "drive_pf_remaining",
+        "package_pf_v2_runs", "scoreboard_table_pf", "compare_pf_neighbors", "test_compare_pf_neighbors",
+        "check_pf_sova_audit", "audit_totals_pf", "posthoc_sensitivity_pf",
     )),
     # tests of the prototype and studies
     *(f"{EXP}/{name}.py" for name in (
@@ -93,6 +97,10 @@ FILES = [
     f"{PAP}/PF-cross-provider-protocol-2026-11-13.sha256",
     f"{PAP}/PF-cross-provider-predictiveness-addendum-2026-11-13.md",
     f"{PAP}/PF-cross-provider-predictiveness-addendum-2026-11-13.sha256",
+    f"{PAP}/PF-confirmatory-protocol-2026-11-14.md",
+    f"{PAP}/PF-head-to-head-addendum-2026-11-14.md",
+    f"{PAP}/PF-confirmatory-deviations-2026-11-14.md",
+    f"{PAP}/audit-spec-agentdojo-v1.2.2.json",
     *(f"{PAP}/tools/{name}" for name in (
         "build_pf_v1_1.py", "build_publication_packages.py", "validate_pf_v1_1.py", "validate_pf_claims.py",
         "assemble_pf_artifact.py", "references.bib", "README.md", "pf_cross_numbers.py",
@@ -113,6 +121,8 @@ DIRECTORIES = [
     f"{RES}/pf-findings-gallery-2026-11-13",
     f"{RES}/pf-recurrence-in-sova-2026-11-13",
     f"{RES}/pf-readings-in-sova-2026-11-13",
+    f"{RES}/pf-confirmatory-2026-11-14",
+    f"{RES}/pf-audit-2026-11-14",
     f"{RSR}/reviewer-packets/templates",
     f"{PAP}/arxiv/sova-portable-evidence-reproduction-v1.1",
 ]

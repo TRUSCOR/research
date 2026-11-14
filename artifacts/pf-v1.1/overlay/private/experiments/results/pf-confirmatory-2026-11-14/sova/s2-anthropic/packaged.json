@@ -1,0 +1,12 @@
+{
+ "runDir": "s2-anthropic",
+ "groups": {
+  "claude-fable-5-2": 196,
+  "claude-haiku-4-5": 196,
+  "claude-haiku-5-5": 196,
+  "claude-opus-4-5-20251101": 196,
+  "claude-opus-5-5": 196,
+  "claude-sonnet-4-5-20250929": 196,
+  "claude-sonnet-5-5": 196
+ }
+}

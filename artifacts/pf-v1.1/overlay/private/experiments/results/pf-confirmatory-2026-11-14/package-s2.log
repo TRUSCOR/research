@@ -1,0 +1,42 @@
+DeepSeek-V4-Pro-2: 196 runs sealed
+Kimi-K3.1-Pro: 196 runs sealed
+Llama-4-Maverick-17B-128E-Instruct-FP8: 196 runs sealed
+Mistral-Large-3: 196 runs sealed
+cohere-command-a: 196 runs sealed
+gpt-4o: 196 runs sealed
+gpt-5.4-mini: 196 runs sealed
+gpt-5.4-nano: 196 runs sealed
+gpt-5.5: 196 runs sealed
+gpt-6-astra: 196 runs sealed
+gpt-6-luna: 196 runs sealed
+gpt-6.1-sol: 196 runs sealed
+gpt-6.1-terra: 196 runs sealed
+grok-4-1-fast-non-reasoning: 196 runs sealed
+grok-4-20-non-reasoning: 196 runs sealed
+grok-4.7: 196 runs sealed
+mistral-medium-3-5: 196 runs sealed
+Counter({'runs': 3332, 'capsules': 17})
+DeepSeek-V4-Pro-2: 192/196 agree
+Kimi-K3.1-Pro: 195/196 agree
+Llama-4-Maverick-17B-128E-Instruct-FP8: 194/196 agree
+Mistral-Large-3: 193/196 agree
+cohere-command-a: 196/196 agree
+gpt-4o: 193/196 agree
+gpt-5.4-mini: 195/196 agree
+gpt-5.4-nano: 195/196 agree
+gpt-5.5: 195/196 agree
+gpt-6-astra: 195/196 agree
+gpt-6-luna: 195/196 agree
+gpt-6.1-sol: 195/196 agree
+gpt-6.1-terra: 195/196 agree
+grok-4-1-fast-non-reasoning: 193/196 agree
+grok-4-20-non-reasoning: 192/196 agree
+grok-4.7: 195/196 agree
+mistral-medium-3-5: 192/196 agree
+total 3300/3332 agree; differences explained by redaction: 64; other: 0
+grok-4-1-fast-non-reasoning: 949 runs sealed
+grok-4-20-non-reasoning: 662 runs sealed
+Counter({'runs': 1611, 'capsules': 2})
+grok-4-1-fast-non-reasoning: 943/949 agree
+grok-4-20-non-reasoning: 648/662 agree
+total 1591/1611 agree; differences explained by redaction: 40; other: 0
