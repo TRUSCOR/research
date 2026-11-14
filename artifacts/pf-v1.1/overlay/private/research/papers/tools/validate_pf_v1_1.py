@@ -776,8 +776,44 @@ def bold_strings(v: dict, cross: dict) -> list[str]:
         f"anywhere from $-{100 * (m_hi - nm_lo):.1f}$ to {100 * (nm_hi - m_lo):.1f} points",
         f"({len(instances)} distinct attack instances)", f"repeat {len(instances)} distinct attack instances", "one warning still relayed the attacker's link",
         f"{triple['overAbstention']['observed']} claims whose evidence had survived",
-        f"{('zero', 'one', 'two', 'three', 'four', 'five')[len(gallery['findings'])]} findings packaged as .sova files", "one run sent the attacker 0.01, the other 50.00",
+        f"{('zero', 'one', 'two', 'three', 'four', 'five')[len(gallery['findings'])]} findings packaged as .sova files", "one run sent the attacker 0.01, the other 50.0.",
     ]
+
+
+def model_table_strings() -> dict[str, str]:
+    """Section 9, models and settings: identifiers, returned strings, episode counts and run times, from every fresh-run record."""
+    from datetime import datetime
+
+    runs: dict[str, list[dict]] = {}
+    for path in sorted(RESULTS.glob("pf-*/**/episodes.jsonl")):
+        for line in path.read_text(encoding="utf-8").splitlines():
+            if line.strip():
+                record = json.loads(line)
+                runs.setdefault(record["model"], []).append(record)
+    claude = {"claude-haiku-4-5", "claude-haiku-5-5", "claude-sonnet-5-5", "claude-sonnet-4-5-20250929", "claude-opus-4-5-20251101"}
+    azure = {"gpt-4o", "gpt-6.1-sol", "DeepSeek-V4-Pro-2"}
+    check(set(runs) == claude | azure, f"models in the fresh runs: {sorted(runs)}")
+    check(sum(len(v) for v in runs.values()) == 7434, "fresh-run episode total")
+    check(all(r["software"]["agentdojo"] == "0.1.35" and r["software"]["python"] == "3.11.15" for v in runs.values() for r in v), "runner software")
+    must = {"model-table total": "These are the 7,434 episodes"}
+    for model, records in runs.items():
+        starts = sorted(datetime.strptime(r["startedAt"], "%Y-%m-%dT%H:%M:%SZ") for r in records)
+        a, b = starts[0], starts[-1]
+        check(a.year == b.year == 2026 and a.month == b.month == 11, f"run month: {model}")
+        if a.date() == b.date():
+            window = f"{a.day} {a:%b}, {a:%H:%M} to {b:%H:%M}"
+        else:
+            window = f"{a.day} {a:%b} {a:%H:%M} to {b.day} {b:%b} {b:%H:%M}"
+        returned = sorted({m for r in records for m in r.get("returnedModels") or []})
+        if model in claude:
+            check(not returned and all("anthropicSdk" in r["software"] for r in records), f"Claude records: {model}")
+            ident = f"| `{model}` | Anthropic Messages |"
+        else:
+            check(len(returned) == 1 and all(r["software"].get("openaiSdk") == "3.49.0" for r in records), f"Azure records: {model}")
+            ident = f"| `{model}` (`{returned[0]}`) | Azure "
+        must[f"model-table identifier: {model}"] = ident
+        must[f"model-table runs: {model}"] = f"| {len(records):,} | {window} |"
+    return must
 
 
 def check_text(must: dict[str, str]) -> None:
@@ -861,6 +897,7 @@ def main() -> int:
     must.update(agentdojo_strings())
     must.update(fresh_strings())
     must.update(cross_strings())
+    must.update(model_table_strings())
     check_text(must)
     report: dict[str, object] = {
         "artifactType": "sova.paper-claim-validation",

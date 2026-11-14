@@ -694,6 +694,26 @@ header-includes:
 """
 
 
+def keep_tables_whole(tex: str, max_rows: int = 12) -> str:
+    """Set tables in small type and keep short ones on one page.
+
+    Pandoc writes every table as a longtable, which may break at any row. In a table of
+    at most `max_rows` rows, every row ending becomes `\\*` (no page break after it), so
+    the table moves whole to the next page when it does not fit. Longer tables (the
+    glossary) still break across pages.
+    """
+
+    row_end = "\\\\\n"
+
+    def fix(match: re.Match[str]) -> str:
+        table = match.group(0)
+        if table.count(row_end) <= max_rows + 1:
+            table = table.replace(row_end, "\\\\*\n")
+        return "\\begingroup\\small\n" + table + "\n\\endgroup"
+
+    return re.sub(r"\\begin\{longtable\}.*?\\end\{longtable\}", fix, tex, flags=re.DOTALL)
+
+
 def build(pandoc: Path, tectonic: Path) -> dict[str, object]:
     approved = approval()
     # Negative values are written with U+2212 in the source; typeset them as math so the PDF shows a true minus.
@@ -744,6 +764,8 @@ def build(pandoc: Path, tectonic: Path) -> dict[str, object]:
         ],
         PACKAGE,
     )
+    tex = PACKAGE / "main.tex"
+    tex.write_text(keep_tables_whole(tex.read_text(encoding="utf-8")), encoding="utf-8", newline="\n")
     run([str(tectonic), "main.tex", "--outdir", str(PACKAGE), "--keep-logs"], PACKAGE)
     PDF_OUT.mkdir(parents=True, exist_ok=True)
     shutil.copy2(PACKAGE / "main.pdf", FINAL_PDF)

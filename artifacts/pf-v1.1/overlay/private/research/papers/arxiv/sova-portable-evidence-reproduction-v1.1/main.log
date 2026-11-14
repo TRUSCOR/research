@@ -923,30 +923,31 @@ File: figures/pf-agentdojo.pdf Graphic file (type pdf)
  [12]
 File: figures/pf-successors.pdf Graphic file (type pdf)
 <use figures/pf-successors.pdf>
- [13] [14] [15] [16] [17]
-Overfull \hbox (1.61363pt too wide) in paragraph at lines 1729--1730
- []\TU/lmr/m/n/10 Conclusive
- []
-
-[18]
+ [13] [14] [15] [16] [17] [18]
 File: figures/pf-fresh.pdf Graphic file (type pdf)
 <use figures/pf-fresh.pdf>
  [19]
 File: figures/pf-same-pairs.pdf Graphic file (type pdf)
 <use figures/pf-same-pairs.pdf>
- [20] [21] [22]
+ [20]
+[21] [22]
 File: figures/pf-redaction-triple.pdf Graphic file (type pdf)
 <use figures/pf-redaction-triple.pdf>
  [23]
-Overfull \hbox (0.25627pt too wide) in paragraph at lines 2288--2296
+Overfull \hbox (0.25627pt too wide) in paragraph at lines 2311--2319
 \TU/lmr/m/n/10 100-event minimized disclosure, and Python/Node digest agreement
 . A repeated 50,000-event run produced
  []
 
-[24] [25] [26] [27] [28] [29] [30] [31] [32] [33]
+[24] [25]
+Overfull \hbox (3.3575pt too wide) in paragraph at lines 2553--2554
+ []\TU/lmr/m/n/9 Episodes
+ []
+
+[26] [27] [28] [29] [30] [31] [32] [33]
 
 Package caption Warning: Unused \captionsetup[table] on input line 46.
 See the caption package documentation for explanation.
 
 [34] (main.aux) )
-Output written on main.xdv (34 pages, 1439244 bytes).
+Output written on main.xdv (34 pages, 1466040 bytes).

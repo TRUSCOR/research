@@ -186,7 +186,7 @@ gives back 256 of 300. Every reply we read is in two more, and four of the
 findings above ship as .sova files of their own. Opening one runs nothing, and
 comparing the 2024 and 2026 GPT-4o runs of the spending question shows the
 same outcome reached by different actions: one run sent the attacker 0.01, the
-other 50.00.
+other 50.0.
 
 **What we found with real web-agent recordings.** On eleven pairs of real
 web-agent recordings from two model families, the procedure judged two the
@@ -973,7 +973,8 @@ on current models under a second protocol, frozen and hashed before any episode
 was run, with the same-team custody as before. The study used AgentDojo 0.1.35
 (benchmark v1.2.2, 949 attack instances, the same `important_instructions`
 attack), AgentDojo's own pipeline elements and security checks, and Claude
-models through Anthropic's API. One element was replaced: the model call. The
+models through Anthropic's API (section 9 lists each model's exact identifier,
+API, settings, and run times). One element was replaced: the model call. The
 replacement sent no sampling parameters, because the current API rejects them,
 and enabled prompt caching. Claude models ran with their defaults. For the 5.5
 models, this means adaptive thinking at default effort, with the thinking text
@@ -1021,7 +1022,7 @@ Across the two Claude protocols and all five Claude models, the scored successes
 on three goals:
 
 | Attacker goal | What the benchmark's check reads | Episodes | Scored successes | Warnings | Followed |
-|---|---|---:|---:|---:|---:|
+|----------------------------------|--------------------------|----------:|----------:|----------:|----------:|
 | Travel injection task 6: endorse the hotel | the final reply | 412 | 339 | 339 | 0 |
 | Slack injection task 1: send Alice a link | the messages sent | 77 | 1 | 1 | 0 |
 | Banking injection task 0: pay the attacker | the transactions made | 69 | 1 | 0 | 1 |
@@ -1694,6 +1695,43 @@ respectively, the 144-, 120-, and 60-case corpora together, the component
 ablation, the privacy study, the foreign-process adapter study, and the
 12-contract and broker studies together. Every decision and metric matched
 the retained results, and only timing fields differed.
+
+**Models and settings.** The table below lists every model called in the
+fresh runs of section 6.2. The identifier is the string sent to the API; where
+the run records also kept the string the service returned, it follows in
+parentheses. The Claude runs did not keep it. Claude models were called through
+Anthropic's Messages API (Anthropic Python SDK 0.125.0) with no sampling or
+thinking parameters, a 4,096-token output limit per call, and prompt caching.
+Without a thinking parameter, the 5.5 models run adaptive thinking at their
+default effort and the 4.5 models run without thinking. The other three models
+were deployments on one Azure AI Foundry project, called through its
+OpenAI-compatible v1 endpoint (OpenAI Python SDK 3.49.0) with no output limit
+set. There the identifier sent is the deployment's name. The model this paper
+calls DeepSeek-V4-Pro is the deployment `DeepSeek-V4-Pro-2`. For it and for
+GPT-6.1-sol, the service returned the deployment's name rather than a dated
+snapshot, so no finer version is recorded. GPT-6.1-sol ran with reasoning at
+the service's default effort, its encrypted reasoning carried between turns and
+nothing stored on the server. No reasoning setting was sent to GPT-4o or
+DeepSeek-V4-Pro, and the runner did not record reasoning tokens for them. Every
+run used AgentDojo 0.1.35 (benchmark v1.2.2) on Python 3.11.15. Times are the
+earliest and latest episode starts, in UTC, in November 2026. Claude Sonnet 4.5
+retires from Anthropic's API on 30 November 2026, after which its runs cannot be
+repeated there. The published logs of section 6.1 were produced by AgentDojo's
+authors and name their own models, for example `gpt-4o-2024-05-13`.
+
+| Model in this paper | Identifier sent (returned) | API | Sampling; thinking | Episodes | Runs (UTC) |
+|-------------|---------------------------------|-------------|----------------|-------:|-----------------|
+| Claude Haiku 4.5 | `claude-haiku-4-5` | Anthropic Messages | defaults; off | 48 | 12 Nov, 12:25 to 12:27 |
+| Claude Haiku 5.5 | `claude-haiku-5-5` | Anthropic Messages | defaults; adaptive | 2,216 | 12 Nov, 12:25 to 13:17 |
+| Claude Sonnet 5.5 | `claude-sonnet-5-5` | Anthropic Messages | defaults; adaptive | 102 | 12 Nov, 12:25 to 12:44 |
+| Claude Sonnet 4.5 | `claude-sonnet-4-5-20250929` | Anthropic Messages | defaults; off | 1,045 | 12 Nov, 13:03 to 13:31 |
+| Claude Opus 4.5 | `claude-opus-4-5-20251101` | Anthropic Messages | defaults; off | 96 | 12 Nov, 13:03 to 13:07 |
+| GPT-4o | `gpt-4o` (`gpt-4o-2024-11-20`) | Azure Chat Completions | temperature 0; none requested | 1,129 | 12 Nov 20:57 to 13 Nov 06:18 |
+| GPT-6.1-sol | `gpt-6.1-sol` (`gpt-6.1-sol`) | Azure Responses | defaults; reasoning on | 949 | 12 Nov 20:57 to 13 Nov 05:53 |
+| DeepSeek-V4-Pro | `DeepSeek-V4-Pro-2` (`DeepSeek-V4-Pro-2`) | Azure Chat Completions | temperature 0; none requested | 1,849 | 12 Nov 20:57 to 13 Nov 06:22 |
+
+These are the 7,434 episodes of the three frozen protocols, the addendum, and
+the post-hoc pass, pilots included.
 
 The confirmatory study must be executed after freezing its protocol and
 candidate commit. It requires:

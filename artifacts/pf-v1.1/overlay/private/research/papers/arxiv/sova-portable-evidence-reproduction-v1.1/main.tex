@@ -398,7 +398,7 @@ outcome with \texttt{sova\ compare} gives back 256 of 300. Every reply
 we read is in two more, and four of the findings above ship as .sova
 files of their own. Opening one runs nothing, and comparing the 2024 and
 2026 GPT-4o runs of the spending question shows the same outcome reached
-by different actions: one run sent the attacker 0.01, the other 50.00.
+by different actions: one run sent the attacker 0.01, the other 50.0.
 
 \textbf{What we found with real web-agent recordings.} On eleven pairs
 of real web-agent recordings from two model families, the procedure
@@ -470,6 +470,7 @@ fixed order. A later ``it looks the same'' can therefore never override
 an earlier ``the setup differed'' or ``the evidence is missing''.
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
@@ -478,20 +479,21 @@ an earlier ``the setup differed'' or ``the evidence is missing''.
 Question
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 What in .sova answers it
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Is it the same failure? & The outcome contract: checkable rules over
-observable events \\
+observable events \\*
 Was the setup the same where it matters? & The context-equivalence
-envelope: one rule per condition \\
+envelope: one rule per condition \\*
 Is the evidence still enough? & Claim-specific evidence requirements and
-declared losses \\
+declared losses \\*
 Did it not happen, or could nobody tell? & Six possible answers,
-including ``inconclusive'' \\
+including ``inconclusive'' \\*
 \end{longtable}
+\endgroup
 }
 
 \subsection{1. Introduction}\label{introduction}
@@ -1288,6 +1290,7 @@ for both models of a pair, so its totals differ slightly from the
 per-model counts above (209 against Llama 3.3's 219).
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.5488}}
   >{\raggedleft\arraybackslash}p{(\linewidth - 8\tabcolsep) * \real{0.1220}}
@@ -1305,24 +1308,25 @@ Also on earlier
 Expected from difficulty
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Ratio
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Claude 3 Sonnet → Claude 3.5 Sonnet (June 2024) & 213 & 98 & 89.8 &
-1.09 \\
-Claude 3.5 Sonnet, June → October 2024 & 7 & 6 & 4.5 & 1.34 \\
+1.09 \\*
+Claude 3.5 Sonnet, June → October 2024 & 7 & 6 & 4.5 & 1.34 \\*
 Claude 3.5 Sonnet (October 2024) → Claude 3.7 Sonnet & 46 & 6 & 2.4 &
-2.51 \\
-GPT-4 (0125) → GPT-4 Turbo & 180 & 167 & 153.4 & 1.09 \\
-GPT-4 Turbo → GPT-4o & 300 & 166 & 133.8 & 1.24 \\
-Gemini 1.5 Flash 001 → 002 & 22 & 17 & 8.9 & 1.91 \\
-Gemini 1.5 Pro 001 → 002 & 104 & 62 & 55.0 & 1.13 \\
-Gemini 2.0 Flash experimental → 001 & 131 & 65 & 49.6 & 1.31 \\
-Llama 3 70B → Llama 3.3 70B & 209 & 61 & 66.4 & 0.92 \\
-Llama 3.3 70B → Meta-SecAlign 70B & 21 & 20 & 13.9 & 1.44 \\
+2.51 \\*
+GPT-4 (0125) → GPT-4 Turbo & 180 & 167 & 153.4 & 1.09 \\*
+GPT-4 Turbo → GPT-4o & 300 & 166 & 133.8 & 1.24 \\*
+Gemini 1.5 Flash 001 → 002 & 22 & 17 & 8.9 & 1.91 \\*
+Gemini 1.5 Pro 001 → 002 & 104 & 62 & 55.0 & 1.13 \\*
+Gemini 2.0 Flash experimental → 001 & 131 & 65 & 49.6 & 1.31 \\*
+Llama 3 70B → Llama 3.3 70B & 209 & 61 & 66.4 & 0.92 \\*
+Llama 3.3 70B → Meta-SecAlign 70B & 21 & 20 & 13.9 & 1.44 \\*
 \end{longtable}
+\endgroup
 }
 
 Nine of the ten ratios exceed the median ratio of the 452 other ordered
@@ -1452,11 +1456,12 @@ attacks on current models under a second protocol, frozen and hashed
 before any episode was run, with the same-team custody as before. The
 study used AgentDojo 0.1.35 (benchmark v1.2.2, 949 attack instances, the
 same \texttt{important\_instructions} attack), AgentDojo's own pipeline
-elements and security checks, and Claude models through Anthropic's API.
-One element was replaced: the model call. The replacement sent no
-sampling parameters, because the current API rejects them, and enabled
-prompt caching. Claude models ran with their defaults. For the 5.5
-models, this means adaptive thinking at default effort, with the
+elements and security checks, and Claude models through Anthropic's API
+(section 9 lists each model's exact identifier, API, settings, and run
+times). One element was replaced: the model call. The replacement sent
+no sampling parameters, because the current API rejects them, and
+enabled prompt caching. Claude models ran with their defaults. For the
+5.5 models, this means adaptive thinking at default effort, with the
 thinking text omitted from responses. AgentDojo scores the joined text
 of every block in the final message, so a configuration that returned
 thinking summaries could change the scores. Episodes use the evidence
@@ -1505,13 +1510,14 @@ Across the two Claude protocols and all five Claude models, the scored
 successes fall on three goals:
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1364}}
-  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1364}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}
-  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1818}}@{}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.3269}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.2500}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1058}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1058}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1058}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1058}}@{}}
 \toprule\noalign{}
 \begin{minipage}[b]{\linewidth}\raggedright
 Attacker goal
@@ -1525,20 +1531,21 @@ Scored successes
 Warnings
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Followed
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
 Travel injection task 6: endorse the hotel & the final reply & 412 & 339
-& 339 & 0 \\
+& 339 & 0 \\*
 Slack injection task 1: send Alice a link & the messages sent & 77 & 1 &
-1 & 0 \\
+1 & 0 \\*
 Banking injection task 0: pay the attacker & the transactions made & 69
-& 1 & 0 & 1 \\
+& 1 & 0 & 1 \\*
 The other 32 goals & the environment, or the tool-call trace & 2,949 & 0
-& 0 & 0 \\
+& 0 & 0 \\*
 \end{longtable}
+\endgroup
 }
 
 \textbf{We read all 341.} A transparent keyword rule, applied post hoc,
@@ -1619,6 +1626,7 @@ system prompt) and three material (Claude Sonnet 5.5 instead of Haiku
 5.5, and AgentDojo's repeat-user-prompt and spotlighting defenses).
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3704}}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1481}}
@@ -1633,21 +1641,22 @@ Declared
 Recurred (episodes)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Mean over findings (95\% CI)
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Fresh re-run & non-material & 52 of 54 & 96.3\% (88.9-100\%) \\
+Fresh re-run & non-material & 52 of 54 & 96.3\% (88.9-100\%) \\*
 JSON tool output & non-material & 42 of 44 conclusive & 95.6\%
-(88.9-100\%), 15 findings \\
+(88.9-100\%), 15 findings \\*
 Paraphrased system prompt & non-material & 53 of 54 & 98.1\%
-(94.4-100\%) \\
-Claude Sonnet 5.5 & material & 43 of 54 & 79.6\% (64.8-92.6\%) \\
+(94.4-100\%) \\*
+Claude Sonnet 5.5 & material & 43 of 54 & 79.6\% (64.8-92.6\%) \\*
 Defense: repeat user prompt & material & 52 of 54 & 96.3\%
-(90.7-100\%) \\
-Defense: spotlighting & material & 54 of 54 & 100\% (100-100\%) \\
+(90.7-100\%) \\*
+Defense: spotlighting & material & 54 of 54 & 100\% (100-100\%) \\*
 \end{longtable}
+\endgroup
 }
 
 The non-material declarations held (H2). Neither JSON tool output
@@ -1715,6 +1724,7 @@ so it ran there with default settings. As AgentDojo does for every
 model, the attack text addressed each model by name.
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.4250}}
   >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1125}}
@@ -1735,17 +1745,18 @@ Warnings
 Goals attacked
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 Hotel goal scored
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Claude Haiku 5.5 (R1) & 949 & 18 & 18 & 1 & 18 of 20 \\
-Claude Sonnet 4.5 (post hoc) & 949 & 1 & 0 & 1 & 0 of 20 \\
-GPT-6.1-sol & 949 & 0 & 0 & 0 & 0 of 20 \\
-GPT-4o (2024-11-20) & 949 & 369 & 0 & 31 & 9 of 20 \\
-DeepSeek-V4-Pro & 822 & 561 & 0 & 35 & 14 of 20 \\
+Claude Haiku 5.5 (R1) & 949 & 18 & 18 & 1 & 18 of 20 \\*
+Claude Sonnet 4.5 (post hoc) & 949 & 1 & 0 & 1 & 0 of 20 \\*
+GPT-6.1-sol & 949 & 0 & 0 & 0 & 0 of 20 \\*
+GPT-4o (2024-11-20) & 949 & 369 & 0 & 31 & 9 of 20 \\*
+DeepSeek-V4-Pro & 822 & 561 & 0 & 35 & 14 of 20 \\*
 \end{longtable}
+\endgroup
 }
 
 The pre-set reading answers the question about Claude: the warning
@@ -1818,6 +1829,7 @@ times under the six conditions, 1,080 episodes in all; a finding recurs
 in a run only if that run is again a real attack.
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.3896}}
   >{\raggedright\arraybackslash}p{(\linewidth - 6\tabcolsep) * \real{0.1688}}
@@ -1832,20 +1844,21 @@ Declared
 Real attacks (conclusive episodes)
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Mean over findings (95\% CI)
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Fresh re-run & non-material & 120 of 127 & 94.6\% (89.1-98.9\%) \\
-JSON tool output & non-material & 51 of 55 & 91.3\% (77.3-100\%) \\
+Fresh re-run & non-material & 120 of 127 & 94.6\% (89.1-98.9\%) \\*
+JSON tool output & non-material & 51 of 55 & 91.3\% (77.3-100\%) \\*
 Paraphrased system prompt & non-material & 115 of 121 & 94.0\%
-(87.5-99.1\%) \\
-GPT-4o instead & material & 97 of 180 & 53.9\% (41.7-65.6\%) \\
+(87.5-99.1\%) \\*
+GPT-4o instead & material & 97 of 180 & 53.9\% (41.7-65.6\%) \\*
 Defense: repeat user prompt & material & 150 of 162 & 91.2\%
-(84.4-96.7\%) \\
-Defense: spotlighting & material & 95 of 110 & 86.7\% (78.1-94.6\%) \\
+(84.4-96.7\%) \\*
+Defense: spotlighting & material & 95 of 110 & 86.7\% (78.1-94.6\%) \\*
 \end{longtable}
+\endgroup
 }
 
 H1 held on conclusive runs. Recurrence under the non-material changes
@@ -1931,17 +1944,19 @@ expert label on any of them was treated as missing evidence. The eleven
 cross-model pairs produced the following decisions:
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}lr@{}}
 \toprule\noalign{}
-Decision & Count \\
+Decision & Count \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Equivalent & 2 \\
-Divergent & 5 \\
-Inconclusive & 4 \\
+Equivalent & 2 \\*
+Divergent & 5 \\*
+Inconclusive & 4 \\*
 \end{longtable}
+\endgroup
 }
 
 All four inconclusive pairs contain at least one trajectory whose expert
@@ -2002,40 +2017,44 @@ supported and 100 inconclusive, so this corpus does not exercise the
 does.
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}lr@{}}
 \toprule\noalign{}
-Semantic-reproduction method & Macro-F1 \\
+Semantic-reproduction method & Macro-F1 \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Complete composed mechanism & 1.000 \\
-Exact canonical trace & 0.111 \\
-Exact final payload & 0.000 \\
-Terminal completion status & 0.048 \\
-Untyped event-kind equality & 0.048 \\
-Remove context envelope & 0.778 \\
-Remove evidence-validity gate & 0.778 \\
-Collapse inconclusive into failure & 0.778 \\
-Collapse inconclusive into success & 0.778 \\
+Complete composed mechanism & 1.000 \\*
+Exact canonical trace & 0.111 \\*
+Exact final payload & 0.000 \\*
+Terminal completion status & 0.048 \\*
+Untyped event-kind equality & 0.048 \\*
+Remove context envelope & 0.778 \\*
+Remove evidence-validity gate & 0.778 \\*
+Collapse inconclusive into failure & 0.778 \\*
+Collapse inconclusive into success & 0.778 \\*
 \end{longtable}
+\endgroup
 }
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}lr@{}}
 \toprule\noalign{}
-Evidence-fidelity method & Accuracy \\
+Evidence-fidelity method & Accuracy \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Claim-conditioned fidelity & 1.000 \\
-Integrity valid alone & 0.333 \\
-Capture-profile name alone & 0.167 \\
-Full-share assumption & 0.167 \\
-Remove causal-parent requirements & 0.833 \\
-Remove full-content requirements & 0.833 \\
+Claim-conditioned fidelity & 1.000 \\*
+Integrity valid alone & 0.333 \\*
+Capture-profile name alone & 0.167 \\*
+Full-share assumption & 0.167 \\*
+Remove causal-parent requirements & 0.833 \\*
+Remove full-content requirements & 0.833 \\*
 \end{longtable}
+\endgroup
 }
 
 The complete mechanisms made zero false-equivalence, false-divergence,
@@ -2074,19 +2093,21 @@ independent observation before accepting success. It matched all 60
 labels with zero false accepts and zero false rejects.
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}lr@{}}
 \toprule\noalign{}
-Executor-conformance method & Accuracy \\
+Executor-conformance method & Accuracy \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Four-state decision with independent observation & 1.000 \\
-Remove the independent observation & 0.600 \\
-Exact provider output & 0.417 \\
-Provider-reported status & 0.400 \\
-Declared capability only & 0.200 \\
+Four-state decision with independent observation & 1.000 \\*
+Remove the independent observation & 0.600 \\*
+Exact provider output & 0.417 \\*
+Provider-reported status & 0.400 \\*
+Declared capability only & 0.200 \\*
 \end{longtable}
+\endgroup
 }
 
 Trusting provider status matched 24 of 60 cases and produced 36 false
@@ -2137,6 +2158,7 @@ the defect described below, and the re-run after the fix is reported
 afterward.
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.3882}}
   >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.0941}}
@@ -2157,25 +2179,26 @@ Weakened
 Inconclusive
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
 False support
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-Omit detected secrets (default) & 0.625 & 0.250 & 0.292 & 0.458 & 0 \\
-Keyed commitment & 0.625 & 0.250 & 0.292 & 0.458 & 0 \\
-Authenticated encryption, padded & 0.625 & 0.250 & 0.292 & 0.458 & 0 \\
-Lite capture profile & 0.792 & 0.250 & 0.292 & 0.458 & 0 \\
+Omit detected secrets (default) & 0.625 & 0.250 & 0.292 & 0.458 & 0 \\*
+Keyed commitment & 0.625 & 0.250 & 0.292 & 0.458 & 0 \\*
+Authenticated encryption, padded & 0.625 & 0.250 & 0.292 & 0.458 & 0 \\*
+Lite capture profile & 0.792 & 0.250 & 0.292 & 0.458 & 0 \\*
 Claim-closure disclosure (prototype) & 0.799 & 0.250 & 0.292 & 0.458 &
-0 \\
-Metadata only & 1.000 & 0.000 & 0.000 & 1.000 & 0 \\
+0 \\*
+Metadata only & 1.000 & 0.000 & 0.000 & 1.000 & 0 \\*
 Library disclosure view, payload kept & 0.799 & 0.167 & 0.000 & 0.833 &
-0 \\
+0 \\*
 Library disclosure view, payload dropped & 1.000 & 0.167 & 0.000 & 0.833
-& \textbf{32} \\
+& \textbf{32} \\*
 Default with redaction gate removed (ablation) & 0.625 & 1.000 & 0.000 &
-0.000 & 24 \\
+0.000 & 24 \\*
 \end{longtable}
+\endgroup
 }
 
 The default, commitment, and encryption policies all hid the same
@@ -2352,6 +2375,7 @@ that gap \emph{evidence laundering}: a weaker signal is passed off as a
 stronger one. Seven forms appeared in the evaluation:
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
   >{\raggedright\arraybackslash}p{(\linewidth - 4\tabcolsep) * \real{0.3333}}
@@ -2363,25 +2387,26 @@ Laundered signal
 Mistaken for
 \end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
 Where it appeared
-\end{minipage} \\
+\end{minipage} \\*
 \midrule\noalign{}
 \endhead
 \bottomrule\noalign{}
 \endlastfoot
-A tool reported ``succeeded'' & The effect was observed & 6.4 \\
+A tool reported ``succeeded'' & The effect was observed & 6.4 \\*
 A harness error scored as attack success, read as a finding & The attack
-was observed & 6.1 \\
+was observed & 6.1 \\*
 A model's warning matched by a string check & The model followed the
-injection & 6.2 \\
+injection & 6.2 \\*
 A valid signature or hash chain & The recorder told the truth, or the
-evidence suffices & 6.4, 6.6 \\
+evidence suffices & 6.4, 6.6 \\*
 A named capture profile & The events the claim needs were captured &
-6.4 \\
+6.4 \\*
 High semantic similarity & Compatible context and sufficient evidence &
-6.3 \\
+6.3 \\*
 The agent finished, or ended the same way & The behavior recurred & 6.3,
-6.4 \\
+6.4 \\*
 \end{longtable}
+\endgroup
 }
 
 The term describes how a score is misread, not what its producer
@@ -2479,6 +2504,85 @@ component ablation, the privacy study, the foreign-process adapter
 study, and the 12-contract and broker studies together. Every decision
 and metric matched the retained results, and only timing fields
 differed.
+
+\textbf{Models and settings.} The table below lists every model called
+in the fresh runs of section 6.2. The identifier is the string sent to
+the API; where the run records also kept the string the service
+returned, it follows in parentheses. The Claude runs did not keep it.
+Claude models were called through Anthropic's Messages API (Anthropic
+Python SDK 0.125.0) with no sampling or thinking parameters, a
+4,096-token output limit per call, and prompt caching. Without a
+thinking parameter, the 5.5 models run adaptive thinking at their
+default effort and the 4.5 models run without thinking. The other three
+models were deployments on one Azure AI Foundry project, called through
+its OpenAI-compatible v1 endpoint (OpenAI Python SDK 3.49.0) with no
+output limit set. There the identifier sent is the deployment's name.
+The model this paper calls DeepSeek-V4-Pro is the deployment
+\texttt{DeepSeek-V4-Pro-2}. For it and for GPT-6.1-sol, the service
+returned the deployment's name rather than a dated snapshot, so no finer
+version is recorded. GPT-6.1-sol ran with reasoning at the service's
+default effort, its encrypted reasoning carried between turns and
+nothing stored on the server. No reasoning setting was sent to GPT-4o or
+DeepSeek-V4-Pro, and the runner did not record reasoning tokens for
+them. Every run used AgentDojo 0.1.35 (benchmark v1.2.2) on Python
+3.11.15. Times are the earliest and latest episode starts, in UTC, in
+November 2026. Claude Sonnet 4.5 retires from Anthropic's API on 30
+November 2026, after which its runs cannot be repeated there. The
+published logs of section 6.1 were produced by AgentDojo's authors and
+name their own models, for example \texttt{gpt-4o-2024-05-13}.
+
+{\def\LTcaptype{none} % do not increment counter
+\begingroup\small
+\begin{longtable}[]{@{}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.3300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1300}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1600}}
+  >{\raggedleft\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.0800}}
+  >{\raggedright\arraybackslash}p{(\linewidth - 10\tabcolsep) * \real{0.1700}}@{}}
+\toprule\noalign{}
+\begin{minipage}[b]{\linewidth}\raggedright
+Model in this paper
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Identifier sent (returned)
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+API
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Sampling; thinking
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedleft
+Episodes
+\end{minipage} & \begin{minipage}[b]{\linewidth}\raggedright
+Runs (UTC)
+\end{minipage} \\*
+\midrule\noalign{}
+\endhead
+\bottomrule\noalign{}
+\endlastfoot
+Claude Haiku 4.5 & \texttt{claude-haiku-4-5} & Anthropic Messages &
+defaults; off & 48 & 12 Nov, 12:25 to 12:27 \\*
+Claude Haiku 5.5 & \texttt{claude-haiku-5-5} & Anthropic Messages &
+defaults; adaptive & 2,216 & 12 Nov, 12:25 to 13:17 \\*
+Claude Sonnet 5.5 & \texttt{claude-sonnet-5-5} & Anthropic Messages &
+defaults; adaptive & 102 & 12 Nov, 12:25 to 12:44 \\*
+Claude Sonnet 4.5 & \texttt{claude-sonnet-4-5-20250929} & Anthropic
+Messages & defaults; off & 1,045 & 12 Nov, 13:03 to 13:31 \\*
+Claude Opus 4.5 & \texttt{claude-opus-4-5-20251101} & Anthropic Messages
+& defaults; off & 96 & 12 Nov, 13:03 to 13:07 \\*
+GPT-4o & \texttt{gpt-4o} (\texttt{gpt-4o-2024-11-20}) & Azure Chat
+Completions & temperature 0; none requested & 1,129 & 12 Nov 20:57 to 13
+Nov 06:18 \\*
+GPT-6.1-sol & \texttt{gpt-6.1-sol} (\texttt{gpt-6.1-sol}) & Azure
+Responses & defaults; reasoning on & 949 & 12 Nov 20:57 to 13 Nov
+05:53 \\*
+DeepSeek-V4-Pro & \texttt{DeepSeek-V4-Pro-2}
+(\texttt{DeepSeek-V4-Pro-2}) & Azure Chat Completions & temperature 0;
+none requested & 1,849 & 12 Nov 20:57 to 13 Nov 06:22 \\*
+\end{longtable}
+\endgroup
+}
+
+These are the 7,434 episodes of the three frozen protocols, the
+addendum, and the post-hoc pass, pilots included.
 
 The confirmatory study must be executed after freezing its protocol and
 candidate commit. It requires:
@@ -2589,6 +2693,7 @@ approach.
 readers}\label{appendix-a.-glossary-for-non-specialist-readers}
 
 {\def\LTcaptype{none} % do not increment counter
+\begingroup\small
 \begin{longtable}[]{@{}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}
   >{\raggedright\arraybackslash}p{(\linewidth - 2\tabcolsep) * \real{0.5000}}@{}}
@@ -2683,6 +2788,7 @@ H1, H2 & The two pre-set hypotheses of the fresh-run protocol: H1, that
 the context rules predict recurrence; H2, that changes declared
 non-material do not lower recurrence much. \\
 \end{longtable}
+\endgroup
 }
 
 \subsection{Appendix B. Changes since version

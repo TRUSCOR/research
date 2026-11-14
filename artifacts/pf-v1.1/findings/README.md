@@ -33,6 +33,12 @@ sova playback traces/01-gpt-4o-2026-fresh.sova-trace       # the run, event by e
 sova query traces/01-gpt-4o-2026-fresh.sova-trace --kind-prefix tool.   # what the agent called
 ```
 
+In `sova playback`, every event in a trace is stamped with the same second. The
+original logs record no time for each message, so a fresh-run trace stamps
+every event with the episode's recorded start time, and a trace of AgentDojo's
+2024 published log stamps every event with the time it was converted. The
+order of events is the recorded order; the timestamps do not time the steps.
+
 The same outcome, reached by different actions, two years apart:
 
 ```bash

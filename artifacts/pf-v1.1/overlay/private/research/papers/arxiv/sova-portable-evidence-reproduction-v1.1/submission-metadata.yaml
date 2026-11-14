@@ -7,7 +7,7 @@ version: "1.1"
 version_date: "2026-11-13"
 supersedes: "1.0 (2026-08-20)"
 status: "APPROVED FOR PUBLIC PREPRINT SUBMISSION"
-author_approval_date: "2026-11-13"
+author_approval_date: "2026-11-14"
 primary_category: "cs.CR"
 cross_list_candidates: [cs.AI, cs.SE]
 license: "CC BY 4.0"

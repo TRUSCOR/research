@@ -144,7 +144,7 @@ independently operated runtimes, and external security and privacy review) is
 
 **Check it yourself.** [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/) holds the
 research prototype, every experiment script and result file, the frozen
-protocols, the manuscript source, and a validator that recomputes all 292
+protocols, the manuscript source, and a validator that recomputes all 309
 reported values, with SHA-256 checksums, plus every fresh-run episode with its
 full message trace and four findings packaged as `.sova` files.
 
