@@ -9,13 +9,14 @@ so a reader can recompute its numbers instead of taking them on trust.
 
 <p>
   <a href="preprints/sova-portable-evidence-reproduction-v1.1.pdf"><img src="https://img.shields.io/badge/LATEST%20PREPRINT-.sova%20v1.1-FFB000?style=for-the-badge" alt="Latest preprint: .sova v1.1" /></a>
+  <a href="https://doi.org/10.5281/zenodo.24290458"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24290458-1682D4?style=for-the-badge" alt="DOI 10.5281/zenodo.24290458" /></a>
   <img src="https://img.shields.io/badge/PEER%20REVIEW-NOT%20YET-D22128?style=for-the-badge" alt="Not peer reviewed" />
   <img src="https://img.shields.io/badge/PAPERS-CC%20BY%204.0-00B8D9?style=for-the-badge" alt="CC BY 4.0" />
   <a href="https://github.com/TRUSCOR/SOVA-OSS"><img src="https://img.shields.io/badge/CODE-TRUSCOR%2FSOVA--OSS-0B8793?style=for-the-badge" alt="Implementation" /></a>
   <a href="artifacts/pf-v1.1/findings/"><img src="https://img.shields.io/badge/EVIDENCE-.sova%20FILES-6554C0?style=for-the-badge" alt="Evidence as .sova files" /></a>
 </p>
 
-Gautam R Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@truscor.org
+[Gautam R Patil](https://orcid.org/0009-0005-7614-2771) · [TRUSCOR Private Limited](https://truscor.org) · gautam@truscor.org
 
 </div>
 
@@ -25,7 +26,7 @@ Gautam R Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@trusc
 
 | Paper | Version | Read | Check it |
 |---|---|---|---|
-| **Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova** | 1.1 · 2026-11-16 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) | [Artifact](artifacts/pf-v1.1/) · [every run as `.sova` files](artifacts/pf-v1.1/) |
+| **Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova** | 1.1 · 2026-11-16 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [DOI](https://doi.org/10.5281/zenodo.24290458) | [Artifact](artifacts/pf-v1.1/) · [every run as `.sova` files](artifacts/pf-v1.1/) |
 
 Each released paper keeps its text in `preprints/` and everything needed to
 check it in `artifacts/<paper-id>/`:
@@ -59,7 +60,7 @@ core output is the `.sova` capsule and the `.sova-trace` evidence record.
 
 ### [Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova](preprints/sova-portable-evidence-reproduction-v1.1.pdf)
 
-**Version 1.1 (2026-11-16) · CC BY 4.0 · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and every run as `.sova` files](artifacts/pf-v1.1/)**
+**Version 1.1 (2026-11-16) · CC BY 4.0 · DOI [10.5281/zenodo.24290458](https://doi.org/10.5281/zenodo.24290458) · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and every run as `.sova` files](artifacts/pf-v1.1/)**
 · previous: [version 1.0](preprints/sova-portable-evidence-reproduction-v1.0.pdf)
 
 **In brief.** Tests of whether AI agents can be tricked score each attack with
@@ -165,10 +166,15 @@ The SOVA OSS source code is separately licensed under Apache-2.0.
                   Sealing {AI}-Agent Security Findings with {.sova}},
   author       = {Patil, Gautam R},
   year         = {2026},
+  publisher    = {Zenodo},
+  doi          = {10.5281/zenodo.24290458},
+  url          = {https://doi.org/10.5281/zenodo.24290458},
   note         = {Preprint, version 1.1. Not peer reviewed.},
-  howpublished = {\url{https://github.com/TRUSCOR/research}},
 }
 ```
+
+The DOI above is version 1.1. To cite whichever version is newest, use the
+all-versions DOI [10.5281/zenodo.24290457](https://doi.org/10.5281/zenodo.24290457).
 
 ## AI-assistance disclosure
 

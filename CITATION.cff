@@ -4,16 +4,25 @@ type: dataset
 title: "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova"
 version: "1.1"
 date-released: "2026-11-16"
+doi: 10.5281/zenodo.24290458
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.24290458
+    description: "Version 1.1 on Zenodo: the paper, its LaTeX source, and the full artifact"
+  - type: doi
+    value: 10.5281/zenodo.24290457
+    description: "All versions; always resolves to the newest"
 license: CC-BY-4.0
 authors:
   - family-names: "Patil"
     given-names: "Gautam R"
     affiliation: "TRUSCOR Private Limited"
     email: "gautam@truscor.org"
+    orcid: "https://orcid.org/0009-0005-7614-2771"
 repository: "https://github.com/TRUSCOR/research"
 repository-code: "https://github.com/TRUSCOR/SOVA-OSS"
 url: "https://github.com/TRUSCOR/research/tree/main/artifacts/pf-v1.1"
-abstract: "Agent-security benchmarks score an attack as successful when an automated check passes, and those scores rank models and decide whether a reported attack is real. We checked AgentDojo's verdicts against the agent's actual tool calls and re-ran its attacks on 24 current models from eight developers, under protocols published before the runs. In 19,381 published runs, 433 in which the agent executed the attacker's decisive action, such as sending money to the attacker, were scored as no attack, and 298 crashed runs received verdicts. On current models the error reverses: warnings to the user count as attacks, so the benchmark ranks four Claude 5.x models (10.9-12.8%) above models that carried out more attacks, although every one of their runs it scored as attacked was a warning. Of 100 recorded attacks re-run five or ten times, none failed to recur and 98 recurred at least half the time, yet 16 could not be shown to meet a 50% threshold with 95% confidence. Moving from GPT-4o to GPT-5.5 stopped all 40 known GPT-4o attacks. Declared rules for when two runs are comparable predicted recurrence, separating it by 14.0 points (95% interval 10.2-17.8); rules measured on half the findings did slightly better but did not transfer between models. We release .sova, a free, local tool and record format that audits verdicts, re-runs a finding on any model, and seals the evidence so that a stranger can verify it offline."
+abstract: "Agent-security benchmarks score an attack as successful when an automated check passes, and those scores rank models and decide whether a reported attack is real. We checked AgentDojo's verdicts against the tool calls agents actually made in its simulated apps, and re-ran its standard attack on 24 current models from eight developers, under protocols published before the runs. In 19,381 published runs, at least 412 in which the agent carried out the attacker's decisive action, such as paying the attacker, were scored as no attack, and 298 crashed runs received verdicts. On current models the error reverses: the benchmark scores four Claude 5.x models as attacked in 10.9-12.8% of attacks, more often than models that carried out more attacks, yet every one of those runs was the model warning the user. Of 240 recorded attacks re-run ten times each on six models, 224 recurred in at least half of their re-runs, but with so few re-runs, 39 could not be shown to succeed at least half the time. Upgrades stopped all 40 GPT-4o attacks on GPT-5.5, but 3 of 40 Grok 4.1 Fast attacks still work on Grok 4.7. Attacks came back 14.7 points more often after setup changes declared in advance not to matter than after a model swap or a prompt defense (95% interval 11.9-17.4, six models), passing a pre-set test that the protocol's own three models, taken alone, narrowly missed (12.8, 9.2-16.3); the declared rules held on two of the six models, and rules learned on five models did not reliably carry over to the sixth. Rules measured on each model, as the released sova calibrate does, separated recurrence on 80 fresh findings by 39.2 points (29.7-49.4) under a later frozen extension, passing the same test. We release .sova, a free, local tool and file format that audits a benchmark's verdicts, re-runs a finding on any model, and seals the evidence so anyone can check offline that it was not altered."
 keywords:
   - "AI agent security"
   - "prompt injection"
@@ -32,9 +41,11 @@ preferred-citation:
     - family-names: "Patil"
       given-names: "Gautam R"
       affiliation: "TRUSCOR Private Limited"
+      orcid: "https://orcid.org/0009-0005-7614-2771"
   year: 2026
   month: 11
+  doi: 10.5281/zenodo.24290458
   publisher:
-    name: "TRUSCOR Private Limited"
-  url: "https://github.com/TRUSCOR/research/blob/main/preprints/sova-portable-evidence-reproduction-v1.1.pdf"
+    name: "Zenodo"
+  url: "https://doi.org/10.5281/zenodo.24290458"
   notes: "Preprint version 1.1. Not peer reviewed."

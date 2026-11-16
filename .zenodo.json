@@ -2,11 +2,12 @@
   "title": "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova",
   "upload_type": "publication",
   "publication_type": "preprint",
-  "description": "<p>Agent-security benchmarks score an attack as successful when an automated check passes, and those scores rank models and decide whether a reported attack is real. We checked AgentDojo's verdicts against the agent's actual tool calls and re-ran its attacks on 24 current models from eight developers, under protocols published before the runs. In 19,381 published runs, 433 in which the agent executed the attacker's decisive action, such as sending money to the attacker, were scored as no attack, and 298 crashed runs received verdicts. On current models the error reverses: warnings to the user count as attacks, so the benchmark ranks four Claude 5.x models (10.9-12.8%) above models that carried out more attacks, although every one of their runs it scored as attacked was a warning. Of 100 recorded attacks re-run five or ten times, none failed to recur and 98 recurred at least half the time, yet 16 could not be shown to meet a 50% threshold with 95% confidence. Moving from GPT-4o to GPT-5.5 stopped all 40 known GPT-4o attacks. Declared rules for when two runs are comparable predicted recurrence, separating it by 14.0 points (95% interval 10.2-17.8); rules measured on half the findings did slightly better but did not transfer between models. We release .sova, a free, local tool and record format that audits verdicts, re-runs a finding on any model, and seals the evidence so that a stranger can verify it offline.</p><p>Preprint version 1.1. Not peer reviewed. The record includes the paper, its arXiv source, and the full validation artifact: frozen protocols, every result file and run trace, the code, and every run of the paper's studies as .sova files.</p>",
+  "description": "<p>Agent-security benchmarks score an attack as successful when an automated check passes, and those scores rank models and decide whether a reported attack is real. We checked AgentDojo's verdicts against the tool calls agents actually made in its simulated apps, and re-ran its standard attack on 24 current models from eight developers, under protocols published before the runs. In 19,381 published runs, at least 412 in which the agent carried out the attacker's decisive action, such as paying the attacker, were scored as no attack, and 298 crashed runs received verdicts. On current models the error reverses: the benchmark scores four Claude 5.x models as attacked in 10.9-12.8% of attacks, more often than models that carried out more attacks, yet every one of those runs was the model warning the user. Of 240 recorded attacks re-run ten times each on six models, 224 recurred in at least half of their re-runs, but with so few re-runs, 39 could not be shown to succeed at least half the time. Upgrades stopped all 40 GPT-4o attacks on GPT-5.5, but 3 of 40 Grok 4.1 Fast attacks still work on Grok 4.7. Attacks came back 14.7 points more often after setup changes declared in advance not to matter than after a model swap or a prompt defense (95% interval 11.9-17.4, six models), passing a pre-set test that the protocol's own three models, taken alone, narrowly missed (12.8, 9.2-16.3); the declared rules held on two of the six models, and rules learned on five models did not reliably carry over to the sixth. Rules measured on each model, as the released sova calibrate does, separated recurrence on 80 fresh findings by 39.2 points (29.7-49.4) under a later frozen extension, passing the same test. We release .sova, a free, local tool and file format that audits a benchmark's verdicts, re-runs a finding on any model, and seals the evidence so anyone can check offline that it was not altered.</p>\n<p>Preprint version 1.1 (supersedes version 1.0 of 2026-08-20). Not peer reviewed. This record contains the paper, its LaTeX source, and the full validation artifact: the protocols and the three extensions frozen and published before their runs, every result file and run trace, every run of studies S2 to S5 and extension E2 as .sova bundles, the blind readers' labels, the code, the validators, and build provenance. The tool the paper releases is sova-oss 0.1.0 on PyPI (pip install sova-oss), with the .sova and .sova-trace 0.1.0 formats frozen. Text and data are CC BY 4.0; code in the artifact is Apache-2.0 (LICENSE-CODE). Funded and supported by TRUSCOR Private Limited; the author leads TRUSCOR, which develops SOVA. Live repository: https://github.com/TRUSCOR/research</p>",
   "creators": [
     {
       "name": "Patil, Gautam R",
-      "affiliation": "TRUSCOR Private Limited"
+      "affiliation": "TRUSCOR Private Limited",
+      "orcid": "0009-0005-7614-2771"
     }
   ],
   "license": "cc-by-4.0",
@@ -14,34 +15,53 @@
     "AI agent security",
     "prompt injection",
     "LLM agents",
-    "reproducibility",
-    "benchmark validity",
     "AgentDojo",
-    "security evidence",
-    "semantic reproduction",
-    ".sova",
+    "benchmark validity",
     "verdict audit",
-    "benchmark scoring",
-    "model upgrades"
+    "reproducibility",
+    "model upgrades",
+    "security evidence",
+    ".sova"
   ],
   "version": "1.1",
   "publication_date": "2026-11-16",
   "language": "eng",
   "related_identifiers": [
     {
+      "identifier": "https://github.com/TRUSCOR/research",
+      "relation": "isSupplementedBy",
+      "resource_type": "dataset",
+      "scheme": "url"
+    },
+    {
+      "identifier": "https://pypi.org/project/sova-oss/0.1.0/",
+      "relation": "isSupplementedBy",
+      "resource_type": "software",
+      "scheme": "url"
+    },
+    {
       "identifier": "https://github.com/TRUSCOR/SOVA-OSS",
       "relation": "isSupplementedBy",
-      "resource_type": "software"
+      "resource_type": "software",
+      "scheme": "url"
     },
     {
-      "identifier": "https://github.com/TRUSCOR/SOVA-OSS/tree/42b4972",
+      "identifier": "https://github.com/TRUSCOR/SOVA-OSS/releases/tag/v0.1.0",
       "relation": "references",
-      "resource_type": "software"
+      "resource_type": "software",
+      "scheme": "url"
     },
     {
-      "identifier": "https://github.com/TRUSCOR/research",
-      "relation": "isSupplementTo"
+      "identifier": "https://github.com/TRUSCOR/research/tree/main/protocols/pf-confirmatory-2026-11-14",
+      "relation": "references",
+      "resource_type": "other",
+      "scheme": "url"
     }
   ],
-  "notes": "Funded and supported by TRUSCOR Private Limited. The author leads TRUSCOR Private Limited, which develops SOVA."
+  "notes": "Funded and supported by TRUSCOR Private Limited. The author leads TRUSCOR Private Limited, which develops SOVA.",
+  "communities": [
+    {
+      "identifier": "truscor"
+    }
+  ]
 }
