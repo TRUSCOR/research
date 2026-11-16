@@ -38,7 +38,7 @@ def build_main(R: Path) -> dict:
     rel = load("reliability-e1.json")["byPrimary"]
     ms = [m for m in ORDER if m in rel]
     rows = ["| Primary model | Findings | Every run | At least half | Wilson lower bound at least half | Never |",
-            "|---|---:|---:|---:|---:|---:|"]
+            "|----------------------|--------:|---------:|-------------:|-------------------:|------:|"]
     for m in ms:
         r = rel[m]
         rows.append(f"| {DISPLAY[m]} | {r['findings']} | {r['always']} | {r['atLeastHalf']} | {r['lowerBoundAtLeastHalf']} | {r['never']} |")
@@ -76,7 +76,8 @@ def build_main(R: Path) -> dict:
     pname = {"gpt-4o -> gpt-5.5": "GPT-4o to GPT-5.5", "grok-4-20-non-reasoning -> grok-4.7": "Grok 4.20 to Grok 4.7",
              "grok-4-1-fast-non-reasoning -> grok-4.7": "Grok 4.1 Fast to Grok 4.7",
              "claude-sonnet-4-5-20250929 -> claude-sonnet-5-5": "Claude Sonnet 4.5 to Claude Sonnet 5.5"}
-    rows = ["| Upgrade | Findings | Still works | Stopped | Newly works | Can't tell |", "|---|---:|---:|---:|---:|---:|"]
+    rows = ["| Upgrade | Findings | Still works | Stopped | Newly works | Can't tell |",
+            "|----------------------------------------|--------:|----------:|--------:|----------:|----------:|"]
     still = cant = 0
     still_pairs = []
     matrix_rule = Counter()  # the released `sova matrix` rule for the findings the frozen analysis calls can't tell
@@ -385,6 +386,7 @@ def build_s6(R: Path, sub: str = "s6-e1") -> dict:
 E2_SHORT = {"N2-json-tool-output": "JSON", "N3-paraphrased-system": "Paraphrase", "M1-other-model": "Other model",
             "M2-repeat-user-prompt": "Repeat prompt", "M3-spotlighting": "Spotlighting"}
 E2_CLASS = {"material": "material", "non-material": "not material", "undetermined": "undetermined"}
+E2_CELL = {"material": "mat.", "non-material": "not mat.", "undetermined": "undet."}  # table cells; key in "S4 e2"
 E2_PRODUCT = {"N2-json-tool-output": "json", "N3-paraphrased-system": "paraphrase", "M1-other-model": "model",
               "M2-repeat-user-prompt": "repeat-user-prompt", "M3-spotlighting": "spotlighting"}
 
@@ -411,12 +413,12 @@ def build_e2(R: Path) -> dict:
 
     f = {}
     lines = ["| Model | " + " | ".join(E2_SHORT.values()) + " | Measured gap, fresh findings | Declared gap, fresh findings |",
-             "|---|" + "---|" * len(E2_SHORT) + "---:|---:|"]
+             "|----------|" + "-------|" * len(E2_SHORT) + "-----------:|-----------:|"]
     for m in models:
         cells = []
         for c in E2_SHORT:
             r = env[m][c]
-            cells.append(f"{E2_CLASS[r['measured']]} ({p1(r['drop'])})")
+            cells.append(f"{E2_CELL[r['measured']]} ({p1(r['drop'])})")
         pm, pd = ms["perModel"][m], de["perModel"][m]
         mg = "no change material" if m not in with_material else f"{p1(pm['gap'])} ({ci(pm['ci95'])})"
         lines.append(f"| {DISPLAY[m]} | " + " | ".join(cells) + f" | {mg} | {p1(pd['gap'])} ({ci(pd['ci95'])}) |")
@@ -446,7 +448,8 @@ def build_e2(R: Path) -> dict:
     if without:
         f["S4 e2"] += (f"{_names(without)} had no change measured material, so this test says nothing about "
                        f"{'it' if len(without) == 1 else 'them'}. ")
-    f["S4 e2"] += "Each class in the table below is followed by the drop it was measured from, in points."
+    f["S4 e2"] += ("Each class in the table below (mat.: material; not mat.: not material; undet.: undetermined) "
+                   "is followed by the drop it was measured from, in points.")
     xc_path = R / "calibrate-crosscheck.json"
     if xc_path.is_file():
         xc = json.loads(xc_path.read_text(encoding="utf-8"))

@@ -1,10 +1,10 @@
-# Artifact for "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova" (v1.1)
+# Artifact for "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova" (v1.1)
 
 Everything needed to check every number, figure, and protocol in preprint
 version 1.1 is in this folder. Nothing that the paper relies on is withheld.
 
 - Paper: [`../../preprints/`](../../preprints/)
-- Implementation: [SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS), released as [`sova-oss` 0.1.0 on PyPI](https://pypi.org/project/sova-oss/0.1.0/) (release commit `3c3b1d1`)
+- Implementation: [SOVA OSS](https://github.com/TRUSCOR/SOVA-OSS), released as [`sova-oss` 0.1.0 on PyPI](https://pypi.org/project/sova-oss/0.1.0/) (release commit `3c3b1d1`). Version 0.1.1, released the same day, restores a file check on Windows and reads and writes the same formats; `pip install sova-oss` installs it, and either version gives the results below
 - Frozen protocols, published before their runs: [`../../protocols/pf-confirmatory-2026-11-14/`](../../protocols/pf-confirmatory-2026-11-14/)
 - Checksums for every file: [`SHA256SUMS`](SHA256SUMS)
 - Automatic re-check on GitHub's machines, no model key needed:
@@ -28,6 +28,14 @@ The last command recomputes every run's category from the raw records with the
 frozen research audit and compares it with `sova audit` on the released bundle.
 They agree except where the capture redacted a password value; the tool then
 says `evidence-redacted` instead of guessing.
+
+`sova audit` on this bundle reports a benchmark rate of 30.6% (60 of 196 runs),
+while the paper's scoreboard gives 12.8% for Claude Opus 5.5. Both are right: a
+model's scoreboard bundle holds all of its runs, the 156 attack cases once
+(trial 1) plus a second and third run of each of the 20 hotel cases (trials 2
+and 3), and the audit counts all 196. The scoreboard counts each of the 156
+cases once (20 of 156). All 60 runs the benchmark scored as attacks are warnings
+to the user (`warning-scored-as-attack`).
 
 With a model key you can re-run any finding (it calls the model and costs money):
 
@@ -61,7 +69,10 @@ All are under `pf-confirmatory-2026-11-14/` unless named otherwise. Each run
 directory holds `episodes.jsonl` (one record per run: model, returned model
 string, verdict, tokens, cost, time) and `traces.jsonl.gz` (every message).
 `drive_pf_remaining.py` is the single process that ran the later stages, and
-`driver.log` is its log. The runs called Azure AI Foundry deployments and
+`driver.log` is its log. In the run, the folder of AgentDojo's published logs was
+written into the script as a path on the author's machine; on 2026-11-16 it
+became the argument `--published-runs`, with no other change. The logs and some
+result files still show local paths of the machine that ran them. The runs called Azure AI Foundry deployments and
 Anthropic's API; `run_pf_confirmatory.py` reads the Azure endpoint and key from
 a local notes file named in `PF_AZURE_NOTES` and the Anthropic key from
 `ANTHROPIC_API_KEY`, and never writes either anywhere.

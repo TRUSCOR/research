@@ -34,7 +34,7 @@ from build_publication_packages import (  # noqa: E402
 )
 
 VERSION = "1.1"
-VERSION_DATE = "2026-11-14"
+VERSION_DATE = "2026-11-16"
 SOVA_COMMIT = "3c3b1d1"  # the SOVA-OSS commit of release v0.1.0 (sova-oss 0.1.0 on PyPI)
 SLUG = "sova-portable-evidence-reproduction"
 SOURCE = PAPERS / "PF-sova-portable-evidence-reproduction-working-paper.md"
@@ -44,7 +44,7 @@ FINAL_PDF = PDF_OUT / f"SOVA-PF-{SLUG}-v{VERSION}-preprint.pdf"
 ARCHIVE = SOURCE_OUT / f"SOVA-PF-{SLUG}-arxiv-source-v{VERSION}.tar.gz"
 APPROVAL_FILE = Path(__file__).with_name("pf-v1.1-author-approval.json")
 
-TITLE = "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova"
+TITLE = "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova"
 KEYWORDS = [
     "AI agents",
     "AI security",
@@ -803,8 +803,13 @@ def keep_tables_whole(tex: str, max_rows: int = 12) -> str:
 
     row_end = "\\\\\n"
 
+    def breakable(code: re.Match[str]) -> str:
+        # Model IDs and paths in a narrow column may break after - . _ or /, never inside a word.
+        inner = re.sub(r"(\\_|[-./])", lambda m: m.group(1) + "\\allowbreak{}", code.group(1))
+        return "\\texttt{" + inner + "}"
+
     def fix(match: re.Match[str]) -> str:
-        table = match.group(0)
+        table = re.sub(r"\\texttt\{([^{}]*)\}", breakable, match.group(0))
         if table.count(row_end) <= max_rows + 1:
             table = table.replace(row_end, "\\\\*\n")
         return "\\begingroup\\small\n" + table + "\n\\endgroup"

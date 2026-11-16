@@ -25,7 +25,7 @@ Gautam R. Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@trus
 
 | Paper | Version | Read | Check it |
 |---|---|---|---|
-| **Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova** | 1.1 · 2026-11-14 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) | [Artifact](artifacts/pf-v1.1/) · [every run as `.sova` files](artifacts/pf-v1.1/) |
+| **Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova** | 1.1 · 2026-11-16 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) | [Artifact](artifacts/pf-v1.1/) · [every run as `.sova` files](artifacts/pf-v1.1/) |
 
 Each released paper keeps its text in `preprints/` and everything needed to
 check it in `artifacts/<paper-id>/`:
@@ -57,36 +57,37 @@ core output is the `.sova` capsule and the `.sova-trace` evidence record.
 
 ## The .sova preprint
 
-### [Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova](preprints/sova-portable-evidence-reproduction-v1.1.pdf)
+### [Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova](preprints/sova-portable-evidence-reproduction-v1.1.pdf)
 
-**Version 1.1 (2026-11-14) · CC BY 4.0 · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and every run as `.sova` files](artifacts/pf-v1.1/)**
+**Version 1.1 (2026-11-16) · CC BY 4.0 · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and every run as `.sova` files](artifacts/pf-v1.1/)**
 · previous: [version 1.0](preprints/sova-portable-evidence-reproduction-v1.0.pdf)
 
 **In brief.** Tests of whether AI agents can be tricked score each attack with
 an automated check, and those scores rank models and decide whether a reported
 attack is real. We checked AgentDojo's verdicts against what the agents actually
 did, re-ran its attacks on 24 current models from eight developers, and re-ran
-100 successful attacks many times, under protocols published before the runs.
+240 successful attacks ten times each, under protocols published before the runs.
 
 - **Did the attack really work?** In 19,381 published runs, the agent carried
   out the attacker's decisive step (for example, sending money to the
   attacker) in at least 412 runs that the benchmark scored as "no attack". On current
   models the error reverses: the benchmark scores four Claude 5.x models as
   attacked in 10.9% to 12.8% of attacks, yet every one of those runs was the
-  model warning the user, and no Claude model carried out an attacker's action.
+  model warning the user, and no Claude model carried out an attacker's action
+  in these runs.
 - **Does it still work, and how often?** Of 240 recorded attacks re-run ten
   times each on six models, 224 recurred in at least half of their re-runs, but
   for 39 the runs could not show a rate of at least 50% with 95% confidence.
   Upgrades stopped all 40 GPT-4o attacks on GPT-5.5 and all 40 Grok 4.20 attacks
   on Grok 4.7, but 3 of 40 Grok 4.1 Fast attacks still work on Grok 4.7.
-- **Can it be proved to a stranger?** Attacks came back 14.7 points more often
+- **Can a stranger check it?** Attacks came back 14.7 points more often
   after setup changes declared in advance not to matter than after a model swap
   or a prompt defense (95% interval 11.9 to 17.4, six models), passing a pre-set
   test that the protocol's own three models, taken alone, narrowly missed (12.8,
   9.2 to 16.3). Rules measured on each model instead, as `sova calibrate` does,
   separated recurrence on 80 fresh findings by 39.2 points (29.7 to 49.4) under
-  a later frozen extension. `sova verify` caught every one-byte tamper we made,
-  where a recent diagnosis tool silently changed its verdict.
+  a later frozen extension. `sova verify` caught every one-byte edit we made to
+  a sealed record (5 of 5).
 
 `.sova` is released with the paper as a free, local tool and file format,
 `pip install sova-oss`: `sova audit` checks a benchmark's verdict against the
@@ -161,7 +162,7 @@ The SOVA OSS source code is separately licensed under Apache-2.0.
 ```bibtex
 @misc{patil2026sova,
   title        = {Did the Attack Really Work? Auditing, Re-running, and
-                  Proving {AI}-Agent Security Findings with {.sova}},
+                  Sealing {AI}-Agent Security Findings with {.sova}},
   author       = {Patil, Gautam R.},
   year         = {2026},
   note         = {Preprint, version 1.1. Not peer reviewed.},

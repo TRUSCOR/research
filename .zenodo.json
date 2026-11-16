@@ -1,5 +1,5 @@
 {
-  "title": "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova",
+  "title": "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova",
   "upload_type": "publication",
   "publication_type": "preprint",
   "description": "<p>Agent-security benchmarks score an attack as successful when an automated check passes, and those scores rank models and decide whether a reported attack is real. We checked AgentDojo's verdicts against the agent's actual tool calls and re-ran its attacks on 24 current models from eight developers, under protocols published before the runs. In 19,381 published runs, 433 in which the agent executed the attacker's decisive action, such as sending money to the attacker, were scored as no attack, and 298 crashed runs received verdicts. On current models the error reverses: warnings to the user count as attacks, so the benchmark ranks four Claude 5.x models (10.9-12.8%) above models that carried out more attacks, although every one of their runs it scored as attacked was a warning. Of 100 recorded attacks re-run five or ten times, none failed to recur and 98 recurred at least half the time, yet 16 could not be shown to meet a 50% threshold with 95% confidence. Moving from GPT-4o to GPT-5.5 stopped all 40 known GPT-4o attacks. Declared rules for when two runs are comparable predicted recurrence, separating it by 14.0 points (95% interval 10.2-17.8); rules measured on half the findings did slightly better but did not transfer between models. We release .sova, a free, local tool and record format that audits verdicts, re-runs a finding on any model, and seals the evidence so that a stranger can verify it offline.</p><p>Preprint version 1.1. Not peer reviewed. The record includes the paper, its arXiv source, and the full validation artifact: frozen protocols, every result file and run trace, the code, and every run of the paper's studies as .sova files.</p>",
@@ -25,7 +25,7 @@
     "model upgrades"
   ],
   "version": "1.1",
-  "publication_date": "2026-11-14",
+  "publication_date": "2026-11-16",
   "language": "eng",
   "related_identifiers": [
     {

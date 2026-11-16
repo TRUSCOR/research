@@ -1,7 +1,7 @@
 ---
-title: "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova"
+title: "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova"
 author: "Gautam R. Patil"
-date: 2026-11-14
+date: 2026-11-16
 abstract: |
   Agent-security benchmarks score an attack as successful when an automated check passes, and those scores rank models and decide whether a reported attack is real. We checked AgentDojo's verdicts against the tool calls agents actually made in its simulated apps, and re-ran its standard attack on 24 current models from eight developers, under protocols published before the runs. In 19,381 published runs, at least 412 in which the agent carried out the attacker's decisive action, such as paying the attacker, were scored as no attack, and 298 crashed runs received verdicts. On current models the error reverses: the benchmark scores four Claude 5.x models as attacked in 10.9-12.8% of attacks, more often than models that carried out more attacks, yet every one of those runs was the model warning the user. Of 240 recorded attacks re-run ten times each on six models, 224 recurred in at least half of their re-runs, but with so few re-runs, 39 could not be shown to succeed at least half the time. Upgrades stopped all 40 GPT-4o attacks on GPT-5.5, but 3 of 40 Grok 4.1 Fast attacks still work on Grok 4.7. Attacks came back 14.7 points more often after setup changes declared in advance not to matter than after a model swap or a prompt defense (95% interval 11.9-17.4, six models), passing a pre-set test that the protocol's own three models, taken alone, narrowly missed (12.8, 9.2-16.3); the declared rules held on two of the six models, and rules learned on five models did not reliably carry over to the sixth. Rules measured on each model, as the released `sova calibrate` does, separated recurrence on 80 fresh findings by 39.2 points (29.7-49.4) under a later frozen extension, passing the same test. We release .sova, a free, local tool and file format that audits a benchmark's verdicts, re-runs a finding on any model, and seals the evidence so anyone can check offline that it was not altered.
 keywords:
@@ -25,7 +25,7 @@ header-includes:
   - '`\makeatletter\renewcommand{\fps@figure}{htbp}\makeatother`{=latex}'
 ---
 
-> **Public preprint, version 1.1** (2026-11-14). Supersedes version 1.0 (2026-08-20).\
+> **Public preprint, version 1.1** (2026-11-16). Supersedes version 1.0 (2026-08-20).\
 > This manuscript has not been peer reviewed.
 
 **Affiliation:** TRUSCOR Private Limited\
@@ -89,15 +89,13 @@ reached.
   later version than the one the benchmark's authors tested in 2024, and 256
   of 300 of their published attacks still worked on it.
 
-**Can it be proved to a stranger?**
+**Can a stranger check it?**
 
-- Proof has two parts. A `.sova` file shows that the record was not changed
+- Checking has two parts. A `.sova` file shows that the record was not changed
   after it was sealed: any edit is detected offline, as a standard digest
   check would detect it. Whether the run happened as recorded can only be
   shown by running it again, and `.sova` holds what is needed to do that.
-  By contrast, AgentTriage, a recent tool for diagnosing agent runs that has
-  no integrity check, diagnosed a record whose attacker account we had edited
-  as given, and its verdict changed. A file that is rebuilt and re-sealed
+  A file that is rebuilt and re-sealed
   after an edit passes `sova verify`; a digest published elsewhere, as this
   paper's checksums are, or a signature, catches that.
 - Whether a failed re-run means the attack is gone depends on what changed.
@@ -124,7 +122,7 @@ commands answer the three questions:
 |---|---|---|
 | Did the attack really work? | `sova audit` | Checks the benchmark's verdict against the agent's actual tool calls |
 | Does it still work, and how often? | `sova rerun`, `sova matrix`, `sova calibrate` | Re-run a finding on any model, many times, compare models before and after an upgrade, and measure which setup changes matter on a given model |
-| Can it be proved to a stranger? | `sova record`, `sova verify`, `sova show`, `sova compare` | Seal a run, check it offline, read it, and compare two runs' outcomes without running anything |
+| Can a stranger check it? | `sova record`, `sova verify`, `sova show`, `sova compare` | Seal a run, check it offline, read it, and compare two runs' outcomes without running anything |
 
 ## 1. Introduction
 
@@ -162,7 +160,7 @@ checked: none of 40 GPT-4o attacks worked on GPT-5.5, but 3 of 40 Grok 4.1 Fast
 attacks still worked on Grok 4.7. Of 300 attacks recorded on GPT-4o in 2024, 256 still
 worked in 2026 on a model served under the same name but a newer snapshot.
 
-**Can it be proved to a stranger?** A `.sova` file seals the recorded run, the
+**Can a stranger check it?** A `.sova` file seals the recorded run, the
 claim it supports, and what is needed to run it again. Anyone can verify it
 offline, and anyone with a model key can re-run it. We tested whether `.sova`'s
 rules for when two runs are comparable predict when a finding recurs, under a
@@ -850,7 +848,7 @@ section 9). All six ran at temperature 0, so these rates describe near-greedy
 decoding, not each provider's default sampling.
 
 | Primary model | Findings | Every run | At least half | Wilson lower bound at least half | Never |
-|---|---:|---:|---:|---:|---:|
+|----------------------|--------:|---------:|-------------:|-------------------:|------:|
 | DeepSeek V4 Pro | 40 | 32 | 40 | 35 | 0 |
 | GPT-4o | 40 | 35 | 40 | 36 | 0 |
 | Grok 4.20 | 40 | 31 | 36 | 31 | 0 |
@@ -867,7 +865,7 @@ An engineer moving to a new model wants to know which known attacks still
 work. `sova matrix` answers this per finding (study S5).
 
 | Upgrade | Findings | Still works | Stopped | Newly works | Can't tell |
-|---|---:|---:|---:|---:|---:|
+|----------------------------------------|--------:|----------:|--------:|----------:|----------:|
 | GPT-4o to GPT-5.5 | 40 | 0 | 40 | 0 | 0 |
 | Grok 4.20 to Grok 4.7 | 40 | 0 | 40 | 0 | 0 |
 | Grok 4.1 Fast to Grok 4.7 | 40 | 3 | 35 | 0 | 2 |
@@ -943,16 +941,16 @@ The test shows where declarations fail. Each material change was also tested on 
 matter differs between models, as the table shows. The repeat-user-prompt defense cut recurrence to 50.8% on GPT-4o, 28.3% on Grok 4.1 Fast and 79.5% on Mistral Medium 3.5, but left it at 93.3% on DeepSeek V4 Pro and 94.2% on Grok 4.20.
 Rules measured on half of each model's findings separated recurrence on the other half by 22.0 points (15.6 to 29.0), against 14.7 (10.6 to 18.6) for the declared envelope; the pre-set criterion, a lower bound of at least 10 points, was met by both. Rules measured on five models and applied to the sixth separated recurrence by between $-2.8$ and 25.3 points on the held-out model, and met the criterion for one of the six. Comparability rules therefore have to be measured on the model at hand; in these six models, rules learned on others did not carry over reliably.
 
-`sova calibrate` (section 3) measures a model's envelope in this way. Extension E2 tested such measured envelopes prospectively. It was frozen and published after the result above was known and before any of its runs. For each model, the classes measured on its 40 findings were applied to 20 fresh findings of the same model, drawn from its confirmed attacks and never before re-run under any change; each ran under all six conditions three times. Pooled over the 80 fresh findings of the four models whose envelope called at least one change material, recurrence under the unchanged re-runs and the changes measured not material exceeded recurrence under the changes measured material by 39.2 points (95% interval 29.7 to 49.4), which meets the pre-set criterion. The declared envelope, on all 120 fresh findings, separated recurrence by 15.6 points (12.0 to 19.3) and met it. Taken alone, the measured envelope met the criterion on three of these four models (GPT-4o, Grok 4.1 Fast and Mistral Medium 3.5; Mistral Medium 3.5 only just, with a lower bound of exactly 10.0 points), and the declared envelope on one of six (GPT-4o). Grok 4.20 and Mistral Large 3 had no change measured material, so this test says nothing about them. Each class in the table below is followed by the drop it was measured from, in points. The released `sova calibrate` applies the same rule. Given the same runs, it assigned the same class as the frozen analysis to 30 of the 30 pairs of model and change; its interval endpoints, drawn with a different random generator, differed by at most 0.8 points.
+`sova calibrate` (section 3) measures a model's envelope in this way. Extension E2 tested such measured envelopes prospectively. It was frozen and published after the result above was known and before any of its runs. For each model, the classes measured on its 40 findings were applied to 20 fresh findings of the same model, drawn from its confirmed attacks and never before re-run under any change; each ran under all six conditions three times. Pooled over the 80 fresh findings of the four models whose envelope called at least one change material, recurrence under the unchanged re-runs and the changes measured not material exceeded recurrence under the changes measured material by 39.2 points (95% interval 29.7 to 49.4), which meets the pre-set criterion. The declared envelope, on all 120 fresh findings, separated recurrence by 15.6 points (12.0 to 19.3) and met it. Taken alone, the measured envelope met the criterion on three of these four models (GPT-4o, Grok 4.1 Fast and Mistral Medium 3.5; Mistral Medium 3.5 only just, with a lower bound of exactly 10.0 points), and the declared envelope on one of six (GPT-4o). Grok 4.20 and Mistral Large 3 had no change measured material, so this test says nothing about them. Each class in the table below (mat.: material; not mat.: not material; undet.: undetermined) is followed by the drop it was measured from, in points. The released `sova calibrate` applies the same rule. Given the same runs, it assigned the same class as the frozen analysis to 30 of the 30 pairs of model and change; its interval endpoints, drawn with a different random generator, differed by at most 0.8 points.
 
 | Model | JSON | Paraphrase | Other model | Repeat prompt | Spotlighting | Measured gap, fresh findings | Declared gap, fresh findings |
-|---|---|---|---|---|---|---:|---:|
-| DeepSeek V4 Pro | not material (0.2) | not material (0.2) | material (36.0) | not material (1.8) | undetermined (9.3) | 28.7 (7.9 to 50.4) | 11.7 (2.8 to 20.6) |
-| GPT-4o | undetermined (5.6) | not material ($-1.1$) | undetermined (6.7) | material (46.4) | undetermined (5.6) | 62.5 (43.3 to 80.0) | 22.6 (15.6 to 29.4) |
-| Grok 4.20 | not material ($-6.8$) | not material ($-0.2$) | undetermined (11.5) | not material ($-5.2$) | not material ($-0.2$) | no change material | 14.1 (4.5 to 26.5) |
-| Grok 4.1 Fast | undetermined (4.9) | not material (0.8) | undetermined ($-0.9$) | material (57.4) | undetermined (16.4) | 38.3 (20.0 to 56.7) | 12.2 (3.3 to 21.7) |
-| Mistral Large 3 | not material ($-0.9$) | not material (0.8) | undetermined (11.6) | undetermined (n/a) | undetermined (12.0) | no change material | 17.2 (7.2 to 28.2) |
-| Mistral Medium 3.5 | undetermined (3.5) | not material (0.4) | material (27.7) | undetermined (16.5) | undetermined (4.6) | 25.5 (10.0 to 42.5) | 14.0 (6.8 to 21.8) |
+|----------|-------|-------|-------|-------|-------|-----------:|-----------:|
+| DeepSeek V4 Pro | not mat. (0.2) | not mat. (0.2) | mat. (36.0) | not mat. (1.8) | undet. (9.3) | 28.7 (7.9 to 50.4) | 11.7 (2.8 to 20.6) |
+| GPT-4o | undet. (5.6) | not mat. ($-1.1$) | undet. (6.7) | mat. (46.4) | undet. (5.6) | 62.5 (43.3 to 80.0) | 22.6 (15.6 to 29.4) |
+| Grok 4.20 | not mat. ($-6.8$) | not mat. ($-0.2$) | undet. (11.5) | not mat. ($-5.2$) | not mat. ($-0.2$) | no change material | 14.1 (4.5 to 26.5) |
+| Grok 4.1 Fast | undet. (4.9) | not mat. (0.8) | undet. ($-0.9$) | mat. (57.4) | undet. (16.4) | 38.3 (20.0 to 56.7) | 12.2 (3.3 to 21.7) |
+| Mistral Large 3 | not mat. ($-0.9$) | not mat. (0.8) | undet. (11.6) | undet. (n/a) | undet. (12.0) | no change material | 17.2 (7.2 to 28.2) |
+| Mistral Medium 3.5 | undet. (3.5) | not mat. (0.4) | mat. (27.7) | undet. (16.5) | undet. (4.6) | 25.5 (10.0 to 42.5) | 14.0 (6.8 to 21.8) |
 
 Scored with the benchmark's own verdict instead of the audit, the same runs give a pooled gap of 14.0 points (11.1 to 17.0), which meets the criterion.
 
@@ -1080,7 +1078,7 @@ was not changed afterwards; whether the runs happened as recorded can only be
 checked by running them again, which the files also allow. Every run of studies S2 to S5 and of extension E2 is released as a `.sova`
 bundle, one per model and change, and `sova verify` checks each one offline.
 `sova audit` on the released bundles gives the same category as the frozen
-study analysis for 14,420 of 14,734 runs. The other
+study analysis for 14,420 of 14,734 runs (the 12,598 runs of studies S2 to S5 that the table of section 6.3 counts, and the 2,136 runs of extension E2). The other
 314 are password changes whose value the capture
 redacts, and the audit reports them as `evidence-redacted` rather than
 guessing. With a model key, `sova rerun` re-runs any finding. Re-running the
@@ -1251,7 +1249,7 @@ and the deviations file are the evidence on that.
 | E2 | Extension: per-model measured envelopes tested on fresh findings (section 6.1) | 20 fresh findings on each of the six primaries, six conditions, 3 runs each |
 | E3 | Extension: blind reading by people of a fixed 30-run sample (section 4.4) | 30 runs per reader; no agent run |
 
-**Deviations.** Five changes were made after the freeze. Each is recorded
+**Deviations.** Six changes were made after the freeze. Each is recorded
 with its time and reason in the deviations file, which the artifact contains.
 
 - **D1 (order).** S3 and S4 for DeepSeek V4 Pro and GPT-4o started before the
@@ -1310,16 +1308,24 @@ model, condition, threshold, or rule was changed. Corrections of fact and the
 analyses added after review, such as the equal-weight check of section 6.1,
 are listed in the same deviations file.
 
-**Reproduction.** From the artifact, with SOVA installed
-(`pip install sova-oss==0.1.0`):
+**Reproduction.** From the artifact folder, with SOVA installed
+(`pip install sova-oss==0.1.0`; version 0.1.1, released the same day,
+restores a file check on Windows and reads and writes the same formats):
 
 ```
 sha256sum -c SHA256SUMS
 sova verify findings/*.sova
-sova audit scoreboard/<model>.sova
-python analyze_pf_v2.py scoreboard|reliability|prediction|upgrade ...
+R=overlay/private/experiments/results/pf-confirmatory-2026-11-14
+sova verify $R/sova/s2-anthropic/claude-opus-5-5/claude-opus-5-5.sova
+sova audit $R/sova/s2-anthropic/claude-opus-5-5/claude-opus-5-5.sova
 ```
 
+Every bundle of studies S2 to S5 and of extension E2 is under `$R/sova/`, and
+the artifact's README gives the analysis command for each study. A model's
+scoreboard bundle holds all of its runs, including the second and third run of
+each hotel case, so `sova audit` reports the benchmark's rate over all of them
+(for Claude Opus 5.5, 60 of 196 runs, 30.6%), while the scoreboard of section
+4.3 counts each of the 156 cases once (20 of 156, 12.8%).
 `sova verify` and `sova audit` call no model. Re-running any finding needs a
 model key and `sova rerun --authorize`; sections 6.3 and 6.4 report such re-runs.
 A public GitHub workflow in the artifact repository, `verify-pf-v1-1.yml`, repeats the checksum, `sova verify`, and `sova audit` checks on GitHub's machines.
@@ -1368,7 +1374,7 @@ the protocol before any attacked episode.
 **Table A1. Models and settings.**
 
 | Developer | Model (as called) | API | Sampling; thinking | Attack-text name | Used in |
-|---|---|---|---|---|---|
+|---------|----------------------|------------|-----------|---------|-----------------|
 | OpenAI | `gpt-4o`; returned `gpt-4o-2024-11-20` in C.5 | Azure Chat Completions | temperature 0; none requested | GPT-4 | C.5: 1,129 episodes, 12 Nov 20:57 to 13 Nov 06:18. S1; S2; S3 and S4 primary; S4 other model for the DeepSeek findings and for E1's three primaries; S5 baseline |
 | OpenAI | `gpt-6.1-sol`; listing version 2026-09-29; returned `gpt-6.1-sol` in C.5 | Azure Responses | defaults; reasoning on | GPT | C.5: 949 episodes, 12 Nov 20:57 to 13 Nov 05:53. S1; S2 |
 | OpenAI | `gpt-6.1-terra`; listing version 2026-10-26 | Azure Responses | defaults; none requested | GPT | S2 |
@@ -1503,7 +1509,7 @@ SHA-256 `d956db4505951062bec1af56a40d3bed27221f7f31d0131d88764a88c5ccd5ff`.
 
 ## Appendix C. Full contracts and the earlier studies
 
-This appendix keeps the full format contracts and the studies of version 1.1 in their original form. Section numbers inside it refer to this appendix unless they name a main section.
+This appendix keeps the full format contracts and the earlier studies of 12 and 13 November in their original form. Section numbers inside it refer to this appendix unless they name a main section.
 
 ### C.1 Artifact and threat model
 
@@ -1722,7 +1728,7 @@ domain-separated salted commitments. The authenticated root is external to the
 prototype. The prototype is an engineering use of established commitments,
 not a new cryptographic primitive or zero-knowledge system.
 
-### C.4-C.9 Evaluation of version 1.1
+### C.4-C.9 Evaluation in the earlier studies (12 and 13 November)
 
 The evaluation asks four questions, in the order the sections below answer them:
 
@@ -2691,23 +2697,25 @@ Other retained negative results include:
   GPT-6.1-sol, and DeepSeek-V4-Pro (2,847 episodes), the re-run of the published
   GPT-4o findings, and the predictive test on real attacks under an addendum
   (1,080 episodes), all in Appendix C.5.
-- Final revision of 2026-11-13, after three independent readings of the
-  previous draft (a non-specialist summary, a specialist review, and a
-  practitioner's attempt to use the artifact). Led the abstract and summary
+- Final revision of 2026-11-13, after three AI-assisted readings of the
+  previous draft (written as a non-specialist summary, a specialist review, and
+  a practitioner's attempt to use the artifact). Led the abstract and summary
   with the findings, scoped the warning count and the predictive test, added
   worst-case bounds for the predictive test and for DeepSeek-V4-Pro's rate,
   a goal-stratified odds ratio for recurrence, seven references, and four
   findings packaged as .sova files.
-- Revision of 2026-11-14, the published version 1.1. Restructured the paper
+- Revision of 2026-11-16, the published version 1.1. Restructured the paper
   around three questions: did the attack really work, does it still work and how
-  often, and can it be proved to a stranger. Added seven studies (S1 to S7) under
+  often, and can a stranger check it. Added seven studies (S1 to S7) under
   a protocol published before their runs: the verdict audit of every published
   and earlier run, a scoreboard of current models, reproduction rates, a held-out
   test of comparability rules that replaces the earlier addendum, upgrade
   checks, a head-to-head comparison with neighbouring systems, and blind reading
-  by three models. Extended them under two later frozen addenda: E1 (six primary
-  models from four developers, a third reader, and a task study) and E2
-  (per-model measured envelopes tested on fresh findings). Released `sova audit`,
+  by three models. Extended them under three later frozen addenda: E1 (six primary
+  models from four developers, a third reader, and a task study), E2
+  (per-model measured envelopes tested on fresh findings), and E3 (blind reading
+  of a fixed 30-run sample by people; two readers counted, section 4.4, and one
+  reader file not counted, deviation D6). Released `sova audit`,
   `sova rerun`, `sova matrix`, `sova calibrate`, and `sova record` with the paper. Moved the earlier studies and full contracts
   to Appendix C, unchanged except for cross-references. Credited the earlier
   public report of the hotel check. Changed the title.
@@ -2733,7 +2741,9 @@ The SOVA implementation, its specifications, and its tests are in the
 SOVA-OSS repository, <https://github.com/TRUSCOR/SOVA-OSS>, under Apache-2.0,
 and released on PyPI as `sova-oss` 0.1.0 (`pip install sova-oss==0.1.0`;
 release commit 3c3b1d1), with the `.sova` and `.sova-trace`
-0.1.0 formats frozen. Everything that
+0.1.0 formats frozen. Version 0.1.1, released the same day, restores a file
+check on Windows and reads and writes the same formats; `pip install sova-oss`
+installs it. Everything that
 validates this preprint is public in the paper artifact,
 <https://github.com/TRUSCOR/research/tree/main/artifacts/pf-v1.1>, and the
 frozen protocols are in the same repository under `protocols/`. The artifact
@@ -2745,7 +2755,7 @@ contains:
   head-to-head scripts, with every result file they produced;
 - the audit of the published runs, which pins AgentDojo's published logs by
   commit instead of redistributing them;
-- the studies of version 1.1 (Appendix C), with their episode records, four
+- the earlier studies of 12 and 13 November (Appendix C), with their episode records, four
   findings as `.sova` capsules, and the readings of every scored success;
 - the manuscript source, bibliography, figure builder, the validator that
   recomputes every reported number, the build log with its deviations, and

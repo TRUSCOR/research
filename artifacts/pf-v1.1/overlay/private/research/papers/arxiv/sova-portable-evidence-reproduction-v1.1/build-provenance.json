@@ -2,25 +2,25 @@
   "artifactType": "sova.public-preprint-build-provenance",
   "paper": "PF",
   "version": "1.1",
-  "versionDate": "2026-11-14",
+  "versionDate": "2026-11-16",
   "supersedes": "1.0 (2026-08-20)",
-  "generatedAt": "2026-11-16T00:37:54.622975Z",
+  "generatedAt": "2026-11-16T14:38:01.921789Z",
   "status": "author-approved-public-preprint",
   "authorApproval": {
     "version": "1.1",
     "approved": true,
     "date": "2026-11-14",
-    "sourceSha256": "fa3964aacc410fdecec2f4183afade629ee2585d88bec82566edca4bac457a27",
-    "bibSha256": "01c9ff824969f82efa756e41454dc92f6b88a6253e730d3b9fb36a626ca97529",
+    "sourceSha256": "faf2cd6f5d82e40c975353b46ab9718b59f970cfd40c8f2b2cf3cc0bb5d0e7dc",
+    "bibSha256": "84337dc96b7139d5e204afe8eeacadf8dc61f32db649410b03fffad099d0f4ca",
     "basis": "Author instruction in the working session of 2026-11-14 (full go): rebuild version 1.1 as a measurement paper that releases .sova, run the confirmatory studies S1 to S7 under the protocol published before their runs, and make the paper ready for upload; the author reads the built PDF before uploading."
   },
   "source": {
     "path": "PF-sova-portable-evidence-reproduction-working-paper.md",
-    "sha256": "fa3964aacc410fdecec2f4183afade629ee2585d88bec82566edca4bac457a27"
+    "sha256": "faf2cd6f5d82e40c975353b46ab9718b59f970cfd40c8f2b2cf3cc0bb5d0e7dc"
   },
   "references": {
     "path": "references.bib",
-    "sha256": "01c9ff824969f82efa756e41454dc92f6b88a6253e730d3b9fb36a626ca97529"
+    "sha256": "84337dc96b7139d5e204afe8eeacadf8dc61f32db649410b03fffad099d0f4ca"
   },
   "results": [
     {
@@ -220,12 +220,12 @@
     "matplotlib": "3.10.8"
   },
   "outputs": {
-    "mainMarkdownSha256": "912d272126c1eb3b4edc6e17ba9e080b78ed95af9caa702ffbf1f7e096b34df7",
-    "mainTexSha256": "2d83bcc122894f75d53a35cdea719dc56d5f0410f91c5f8a6849520624772234",
-    "pdfSha256": "0f4018fdeb1943316d9b7a58b48f87f777e5ab3803856c867f7891a85c7b9c2c",
-    "pdfBytes": 509300,
+    "mainMarkdownSha256": "b995aa31151bda115a44b416f65d22f18131ab8bccd35a2b894006034afca3fd",
+    "mainTexSha256": "95490861cfcf157f7871321f4a1bd73d6eee840a45b60f7f6a9a3964c6815083",
+    "pdfSha256": "dc2bc1719031549fd57e9a25a63b7a1c28645afc9c36538a44e562a2fb108758",
+    "pdfBytes": 509182,
     "arxivSourceArchive": "output\\source\\SOVA-PF-sova-portable-evidence-reproduction-arxiv-source-v1.1.tar.gz",
-    "arxivSourceArchiveSha256": "a31965565115c31b3c2760253a3a89b4d9b5fe5795f9da5ff70608bb87d1e707",
+    "arxivSourceArchiveSha256": "12f0293ebcaedd224839c577337b0923f197926461796a08769cdc7eb11d7813",
     "arxivSourceArchiveMembers": [
       "main.tex",
       "figures/pf-agentdojo.pdf",

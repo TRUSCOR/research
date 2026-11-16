@@ -9,7 +9,12 @@ driver-state.json and skipped on restart):
   3  S7 blind readers (gpt-5.5 and grok-4.7).
   4  Frozen analyses: scoreboard, reliability, prediction, upgrade, reader agreement.
 
-    python drive_pf_remaining.py
+    python drive_pf_remaining.py --published-runs <agentdojo>/runs
+
+<agentdojo>/runs is the runs/ folder of AgentDojo's published logs (ethz-spylab/agentdojo at
+commit 089ed468cf3ed0322acc66b0211f26d9d90dbf60); stage 3 samples blind-reader items from it.
+In the run of 2026-11-14 this folder was written into the script as a path on the author's
+machine; on 2026-11-16 it became this argument, with no other change.
 """
 
 from __future__ import annotations
@@ -139,10 +144,16 @@ def stage2_jobs() -> tuple[list[tuple], list[tuple], list[tuple]]:
     return jobs, g4_m1, s5
 
 
+def published_runs() -> Path:
+    if "--published-runs" not in sys.argv[:-1]:
+        raise SystemExit("stage 3 needs --published-runs <agentdojo>/runs (see the docstring)")
+    return Path(sys.argv[sys.argv.index("--published-runs") + 1])
+
+
 def stage3() -> None:
     items = R / "readers-items.json"
     if not items.is_file():
-        published = Path(r"C:\Users\HP\AppData\Local\Temp\claude\d14c60c273c43e16\bba749ec-d310-4413-8b94-c4aa57af8151\scratchpad\agentdojo-runs\repo\runs")
+        published = published_runs()
         rb.sample(items, published, [R / "s2", R / "s2-anthropic", R / "s34"], [HERE / "results" / "pf-fresh-reexecution-2026-11-12"])
     errors = []
 

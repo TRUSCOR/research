@@ -1,9 +1,9 @@
 cff-version: 1.2.0
 message: "If you use this preprint, its data, or its .sova evidence, please cite it as below."
 type: dataset
-title: "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova"
+title: "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova"
 version: "1.1"
-date-released: "2026-11-14"
+date-released: "2026-11-16"
 license: CC-BY-4.0
 authors:
   - family-names: "Patil"
@@ -27,7 +27,7 @@ keywords:
 preferred-citation:
   type: article
   status: preprint
-  title: "Did the Attack Really Work? Auditing, Re-running, and Proving AI-Agent Security Findings with .sova"
+  title: "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova"
   authors:
     - family-names: "Patil"
       given-names: "Gautam R."
