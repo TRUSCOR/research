@@ -7,7 +7,7 @@ date-released: "2026-11-16"
 license: CC-BY-4.0
 authors:
   - family-names: "Patil"
-    given-names: "Gautam R."
+    given-names: "Gautam R"
     affiliation: "TRUSCOR Private Limited"
     email: "gautam@truscor.org"
 repository: "https://github.com/TRUSCOR/research"
@@ -30,7 +30,7 @@ preferred-citation:
   title: "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova"
   authors:
     - family-names: "Patil"
-      given-names: "Gautam R."
+      given-names: "Gautam R"
       affiliation: "TRUSCOR Private Limited"
   year: 2026
   month: 11

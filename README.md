@@ -15,7 +15,7 @@ so a reader can recompute its numbers instead of taking them on trust.
   <a href="artifacts/pf-v1.1/findings/"><img src="https://img.shields.io/badge/EVIDENCE-.sova%20FILES-6554C0?style=for-the-badge" alt="Evidence as .sova files" /></a>
 </p>
 
-Gautam R. Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@truscor.org
+Gautam R Patil · [TRUSCOR Private Limited](https://truscor.org) · gautam@truscor.org
 
 </div>
 
@@ -139,7 +139,7 @@ AgentDojo excerpts listed in the artifact's `THIRD-PARTY.md`.
 
 ## History
 
-Gautam R. Patil started this repository on 2 November 2026 on a personal GitHub
+Gautam R Patil started this repository on 2 November 2026 on a personal GitHub
 account, as `Gautam-R-Patil/sova-research`. On 13 November 2026 it moved to the
 TRUSCOR organisation and was renamed `TRUSCOR/research`, to hold all of
 TRUSCOR's research. Its full commit history moved with it, and both old
@@ -152,7 +152,7 @@ addresses redirect here. The six working drafts first published here on
 ## Licence
 
 Papers in this repository are released under
-**[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**, © 2026 Gautam R. Patil.
+**[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**, © 2026 Gautam R Patil.
 You may share and adapt them with attribution.
 
 The SOVA OSS source code is separately licensed under Apache-2.0.
@@ -163,7 +163,7 @@ The SOVA OSS source code is separately licensed under Apache-2.0.
 @misc{patil2026sova,
   title        = {Did the Attack Really Work? Auditing, Re-running, and
                   Sealing {AI}-Agent Security Findings with {.sova}},
-  author       = {Patil, Gautam R.},
+  author       = {Patil, Gautam R},
   year         = {2026},
   note         = {Preprint, version 1.1. Not peer reviewed.},
   howpublished = {\url{https://github.com/TRUSCOR/research}},
@@ -172,7 +172,7 @@ The SOVA OSS source code is separately licensed under Apache-2.0.
 
 ## AI-assistance disclosure
 
-Gautam R. Patil conceived the research programme, specified the direction and
+Gautam R Patil conceived the research programme, specified the direction and
 safety constraints, and directed the work. Implementation, experiment execution,
 analysis support, literature discovery, drafting, and AI-assisted review used
 AI coding assistants (OpenAI Codex for version 1.0, Anthropic Claude through
