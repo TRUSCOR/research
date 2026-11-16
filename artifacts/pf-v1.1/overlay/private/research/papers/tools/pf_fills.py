@@ -484,34 +484,97 @@ def build_e3(R: Path) -> dict:
     readers = h["readers"]
     if not readers:
         return {"S7 humans": f"People were asked to read 30 of these runs blind ({frozen}); none completed it in time for this version."}
-    background = {"security": "security", "ml": "machine learning", "software": "software", "other": "another field"}
+    field = {"security": "security", "ml": "machine learning", "software": "software", "other": "another field"}
+    attack = {"carried_out", "warned_and_carried_out"}
+    audit_attack = {"confirmed", "action-scored-as-no-attack"}
+    key = {i["id"]: i for i in json.loads((R / "human-sample-key.json").read_text(encoding="utf-8"))}
+    ids = sorted(json.loads((R / "plan-e3.json").read_text(encoding="utf-8"))["items"])
+    raw = {r["file"]: json.loads((R / "human-readings" / r["file"]).read_text(encoding="utf-8"))["labels"]
+           for r in readers.values()}
+    # The one sampled run on banking user_task_15 whose request names the attacker's account (section 4.1).
+    described = {"h012": ("a published run on banking `user_task_15` whose request names the attacker's account as "
+                          "the user's new landlord: the agent paid the rent there, and it is one of the 21 runs set "
+                          "aside in section 4.1")}
 
-    def one(r):
-        return (f"a reader from {background.get(r['background'], 'another field')}: kappa {r['kappaWithAudit']:.2f} with the "
-                f"audit and {r['kappaWithBenchmark']:.2f} with the benchmark; {r['claudeHotelLabelledNoAttack']} of "
-                f"{r['claudeHotelItems']} Claude hotel-goal runs scored as attacks read as no attack, and "
-                f"{r['publishedScoredNoAttackLabelledAttack']} of {r['publishedScoredNoAttackItems']} published runs scored "
-                "as no attack read as attacks")
+    def k(x):
+        return f"{x:.2f}".replace("-", "−")
+
+    def fields(rs):
+        fs = [field.get(r["background"], "another field") for r in rs]
+        if len(set(fs)) == 1:
+            return f"{'both' if len(rs) == 2 else 'all'} from {fs[0]}" if len(rs) > 1 else f"from {fs[0]}"
+        return ", ".join(f"one from {f}" for f in fs[:-1]) + f" and one from {fs[-1]}"
+
+    def stats(r, lead):
+        hotel, pub = r["claudeHotelItems"], r["publishedScoredNoAttackItems"]
+        h_no, p_att = r["claudeHotelLabelledNoAttack"], r["publishedScoredNoAttackLabelledAttack"]
+        return (f"{lead} agreed with the audit on {r['agreeWithAudit']} of the 30 runs (kappa {k(r['kappaWithAudit'])}, "
+                f"against {k(r['kappaWithBenchmark'])} with the benchmark's verdict), read "
+                f"{'all ' + str(hotel) if h_no == hotel else f'{h_no} of the {hotel}'} Claude hotel-goal runs that the "
+                f"benchmark scored as attacks as no attack, and read {p_att} of the {pub} published runs it scored as no "
+                "attack as attacks")
+
+    def group(rs):
+        sig = {(r["agreeWithAudit"], r["kappaWithAudit"], r["kappaWithBenchmark"], r["claudeHotelLabelledNoAttack"],
+                r["publishedScoredNoAttackLabelledAttack"]) for r in rs}
+        if len(rs) > 1 and len(sig) == 1:
+            return stats(rs[0], "Each")
+        return "; ".join(stats(r, f"The reader from {field.get(r['background'], 'another field')}" if len(rs) > 1 else "The reader")
+                         for r in rs)
 
     ind = [r for r in readers.values() if r["relation"] == "independent"]
     other = [r for r in readers.values() if r["relation"] != "independent"]
     text = f"People also read 30 of these runs blind, on their own computers ({frozen}). "
     if ind:
-        text += (f"{WORDS[len(ind)].capitalize()} reader{'s' if len(ind) > 1 else ''} with no tie to the author "
-                 f"completed it: " + "; ".join(one(r) for r in ind) + ".")
+        n = WORDS[len(ind)].capitalize()
+        text += (f"{n} reader{'s' if len(ind) > 1 else ''} recruited by the author, "
+                 f"{'each declaring' if len(ind) > 1 else 'declaring'} no tie to the author, completed it, {fields(ind)}; "
+                 f"{'they' if len(ind) > 1 else 'the reader'} sent the files to the author, and the files are published "
+                 f"exactly as received. {group(ind)}.")
     else:
         text += "No reader with no tie to the author completed it."
     if other:
         text += " Readers who work with the author, or the author, also completed it: " + "; ".join(
-            f"({r['relation']}) " + one(r) for r in other) + "."
-    if len(readers) > 1:
+            stats(r, f"the reader ({r['relation']}, {field.get(r['background'], 'another field')})") for r in other) + "."
+    labels = list(raw.values())
+    if len(labels) > 1:
         ks = [v for v in h["pairs"].values() if v is not None]
-        if ks:
-            text += f" Between readers, kappa ranged from {min(ks):.2f} to {max(ks):.2f}."
+        same_side = all(len({x[i] in attack for x in labels}) == 1 for i in ids)
+        differ = [i for i in ids if len({x[i] for x in labels}) > 1]
+        between = "the two readers" if len(labels) == 2 else "the readers"
+        if same_side:
+            text += f" On attack or no attack, {between} agreed on every run (kappa {k(min(ks))})"
+        else:
+            span = k(min(ks)) if min(ks) == max(ks) else f"{k(min(ks))} to {k(max(ks))}"
+            text += f" Between readers, kappa on attack or no attack was {span}"
+        if differ and all(len({x[i] for x in labels} - attack) == 0 for i in differ):
+            text += (f"; of the four labels, they differed on {WORDS[len(differ)] if len(differ) < len(WORDS) else len(differ)} "
+                     f"runs, all attacks that one reader marked as carried out and {'the other' if len(labels) == 2 else 'another'} "
+                     "as warned but carried out.")
+        elif differ:
+            text += f"; of the four labels, they differed on {len(differ)} runs."
+        else:
+            text += "; they also chose the same one of the four labels on every run."
     if ind:
+        departs = [i for i in ids if all(((raw[r["file"]][i] in attack) != (key[i]["category"] in audit_attack)) for r in ind)]
+        if departs:
+            what = "; ".join(described.get(i, f"a run the audit records as `{key[i]['category']}`") for i in departs)
+            text += (f" The {'one run' if len(departs) == 1 else f'{len(departs)} runs'} on which "
+                     f"{'the reader' if len(ind) == 1 else 'both readers' if len(ind) == 2 else 'every reader'} departed from the audit "
+                     f"{'is' if len(departs) == 1 else 'are'} {what}.")
         held = h.get("hE3", {}).get("supportedForEach")
         text += (" The frozen hypothesis H-E3, that each reader with no tie to the author agrees more with the audit "
                  "than with the benchmark, " + ("held." if held else "did not hold."))
+    extra = sorted((R / "human-readings-not-counted").glob("*.json")) if (R / "human-readings-not-counted").is_dir() else []
+    if extra:
+        same = sum(1 for f in extra
+                   if json.loads(f.read_text(encoding="utf-8"))["labels"] in [dict(v) for v in raw.values()])
+        if same == len(extra):
+            text += (f" {'A further file, whose' if len(extra) == 1 else f'{WORDS[len(extra)].capitalize()} further files, whose'} "
+                     f"30 labels are identical to a counted reader's, {'is' if len(extra) == 1 else 'are'} published but "
+                     "not counted, because an identical file cannot be shown to be a separate reading (deviation D6).")
+        else:
+            text += f" {len(extra)} further file(s) are published but not counted (deviation D6)."
     return {"S7 humans": text}
 
 

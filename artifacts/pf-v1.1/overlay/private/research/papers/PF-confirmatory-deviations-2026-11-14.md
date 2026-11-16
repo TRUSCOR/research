@@ -180,6 +180,22 @@ After the last run, every file in `MANIFEST.sha256` and `MANIFEST-head-to-head.s
 byte-identical to its published digest. The pacing change of D2 was made by the driver at run
 time (`rc.PACE = 0.92`), not by editing the frozen runner.
 
+## D6. E3: one of two identical reader files not counted (2026-11-16)
+
+**What.** Section 3 of the E3 addendum counts every reader who labels all 30 items and makes the
+declaration. Two reader files give the same one of the four labels on all 30 runs
+(`sova-reading-de28f551.json` and `sova-reading-f8c39784.json`). Only the one received earlier,
+`sova-reading-de28f551.json`, is counted. The other is published unchanged in
+`results/pf-confirmatory-2026-11-14/human-readings-not-counted/`.
+
+**Why.** Another counted reader differs from them on six of the four-way labels, so an exact
+match on all 30 is not what two separate readings are expected to give, and an identical file
+cannot be shown to be a separate reading. Counting it would add a reader without adding a
+separate judgment.
+
+**Effect.** None on any reported value: its labels, and so its agreement with the audit and the
+benchmark, are identical to the counted file's, and H-E3 holds either way.
+
 ## Run record
 
 The driver log (`results/pf-confirmatory-2026-11-14/driver.log`) records every stage start

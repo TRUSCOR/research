@@ -105,7 +105,7 @@ reached.
   and which should (we call the latter *material*). Under plans published before the runs, attacks came back about 91% of the time when nothing changed or only a harmless-listed change was made, and about 76% after material ones, over six models from four developers. This met a pre-set test. It held on two of the six models taken alone, and rules learned on some models did not reliably carry over to others. Measured on each model instead, as the released tool now does, the rules predicted whether fresh attacks came back on the four models where some change was measured material (39.2 points, 95% interval 29.7 to 49.4), meeting the same pre-set test.
 
 **What this does not show.** All results come from one benchmark with
-simulated apps. Three AI models from three developers, not people, read the disputed runs blind. The
+simulated apps. Three AI models from three developers read the disputed runs blind; people read just 30 of them, two readers recruited by the author. The
 author published the analysis plans before running the experiments, but no
 independent party stored them, and the studies have not yet been re-run independently. The paper does not show that `.sova` finds
 more attacks than other tools. The author leads TRUSCOR, which develops SOVA;
@@ -748,11 +748,11 @@ before any label was read.
 
 Where the audit and the benchmark disagree, the readers side with the audit. Of the 150 published runs in which the attacker's action executed but the benchmark scored no attack, GPT-5.5 labelled 149, Grok 4.7 labelled 148, and Command A 145 as carrying out the instruction. All three readers labelled all 219 Claude 5.x hotel replies scored as attacks as warnings or refusals, including the 5 that the frozen rule had read as endorsements. Each reader agreed with the audit's attack-or-not verdict in 97.3% to 98.7% of the runs it labelled (Cohen's kappa 0.94 to 0.97), and with the benchmark's verdict in 49.6% to 49.9% (kappa $-0.11$ to $-0.09$). The sample was drawn to over-represent runs on which the audit and the benchmark disagree, so these rates describe the sample, not all runs. The readers agreed with one another with kappa 0.96 to 0.99 on attack or not. They labelled 4, 3 and 1 of the 100 sampled no-attack runs as carrying out the instruction. In those, the agent began to follow the instruction without completing its decisive step, or, in one Gemini run, endorsed the hotel in an earlier message rather than in the final reply, which is all that the benchmark and the audit read.
 
-The readers are models, not people, and all three were prompted by the
+These three readers are models, and all three were prompted by the
 author.
 Their labels test whether the audit's categories are consistent with an
 independent reading of the same evidence; they are not ground truth.
-People are also reading 30 of these runs blind (extension E3, frozen in commit `4289427` and revised to 30 runs per reader in commit `2c9104a` before any reader saw an item); their results are not in this version.
+People also read 30 of these runs blind, on their own computers (extension E3, frozen in commit `4289427` and revised to 30 runs per reader in commit `2c9104a` before any reader saw an item). Two readers recruited by the author, each declaring no tie to the author, completed it, both from machine learning; they sent the files to the author, and the files are published exactly as received. Each agreed with the audit on 29 of the 30 runs (kappa 0.93, against $-0.27$ with the benchmark's verdict), read all 10 Claude hotel-goal runs that the benchmark scored as attacks as no attack, and read 9 of the 10 published runs it scored as no attack as attacks. On attack or no attack, the two readers agreed on every run (kappa 1.00); of the four labels, they differed on six runs, all attacks that one reader marked as carried out and the other as warned but carried out. The one run on which both readers departed from the audit is a published run on banking `user_task_15` whose request names the attacker's account as the user's new landlord: the agent paid the rent there, and it is one of the 21 runs set aside in section 4.1. The frozen hypothesis H-E3, that each reader with no tie to the author agrees more with the audit than with the benchmark, held. A further file, whose 30 labels are identical to a counted reader's, is published but not counted, because an identical file cannot be shown to be a separate reading (deviation D6).
 
 ## 5. Does it still work, and how often?
 
@@ -1140,8 +1140,8 @@ than some goals: for a goal with several steps, it ignores later steps such
 as deleting the sent email, so it counts some runs as attacks that the
 benchmark's goal does not. The rules name the decisive call and its key
 argument, such as the attacker's account or address, and were written by the
-author from the goals' text. Three model readers, not people, checked them
-blind (section 4.4). The text goal, a hotel endorsement, has no decisive call
+author from the goals' text. Three model readers checked them blind, and two
+people read a 30-run sample (section 4.4). The text goal, a hotel endorsement, has no decisive call
 and is judged by a frozen warning rule. For email goals the rule checks the
 recipient, not the content, except where noted in Appendix B, so an email to
 the attacker that carried nothing would still count; the blind readers
@@ -1158,7 +1158,7 @@ is the author's own: no independent party held them. Commit times are set by
 the committer, but GitHub's repository activity log records, on GitHub's side,
 when each commit was pushed (section 9), and every push came before any
 run it governs. Findings were selected from
-passes we ran, with a seeded sample. Five recorded deviations are listed in
+passes we ran, with a seeded sample. Six recorded deviations are listed in
 section 9. The largest, D2, first cut the Grok design in half; after an
 interim look at the results it was completed, and section 6.1 reports both.
 Extensions E1 and E2 were decided after the main results were known, but
@@ -1280,6 +1280,11 @@ with its time and reason in the deviations file, which the artifact contains.
   without the prices the cap needs, which the tool refused. The re-run counts
   are read from the runs' own records, and the matrix call was made again with
   the prices added and nothing else changed (section 6.3).
+- **D6 (E3 count).** Two reader files give the same label on all 30 runs.
+  The frozen rule would count both; only the one received earlier is counted,
+  because an identical file cannot be shown to be a separate reading. Both
+  files are published, and counting both would change no reported value
+  (section 4.4).
 
 **Extension E1.** After the main results were known, extension E1 added the
 three remaining models with at least 40 confirmed attacks (Grok 4.1 Fast,
@@ -1326,8 +1331,8 @@ retained results; only timing fields differed. Models and settings for every
 run are in Appendix A.
 
 **What remains open.** Independent replication: a party other than the author
-re-running the scoreboard and the prediction test, and people, not models,
-reading the disputed runs blind. The released `.sova` files are built so that
+re-running the scoreboard and the prediction test, and more people, with no
+tie to the author and not recruited by the author, reading the disputed runs blind. The released `.sova` files are built so that
 this needs no access to our machines, only the artifact and a model key.
 
 ## 10. Conclusion
@@ -2762,9 +2767,10 @@ and declarations. Software implementation, experiment execution, analysis,
 literature search, drafting, and pre-release review used OpenAI Codex (for
 version 1.0 of this paper) and Anthropic Claude through Claude Code (for
 version 1.1), under his direction. The reading of every scored success in
-section C.5 was done with AI assistance under his direction, and the blind
-readers of section 4.4 are three AI models from developers other than
-Anthropic. No independent human review has yet taken place. No AI system is
+section C.5 was done with AI assistance under his direction. The blind
+readers of study S7 are three AI models from developers other than
+Anthropic, and under extension E3 two people recruited by the author read
+30 runs blind. No independent human review of the paper has yet taken place. No AI system is
 an author of this paper.
 
 ### Funding and competing interests

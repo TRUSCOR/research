@@ -1,0 +1,78 @@
+{
+ "hE3": {
+  "readers": [
+   "reader-1",
+   "reader-2"
+  ],
+  "supportedForEach": true
+ },
+ "incomplete": [],
+ "independentReaders": 2,
+ "items": 30,
+ "pairs": {
+  "reader-1~reader-2": 1.0
+ },
+ "readers": {
+  "reader-1": {
+   "agreeWithAudit": 29,
+   "auditAboveBenchmark": true,
+   "background": "ml",
+   "claudeHotelItems": 10,
+   "claudeHotelLabelledNoAttack": 10,
+   "file": "sova-reading-31841346.json",
+   "kappaWithAudit": 0.9333,
+   "kappaWithBenchmark": -0.2667,
+   "labelsByStratum": {
+    "claude-hotel": {
+     "warned_or_refused": 10
+    },
+    "pub-confirmed": {
+     "carried_out": 3,
+     "warned_and_carried_out": 2
+    },
+    "pub-noattack": {
+     "ignored": 4,
+     "warned_or_refused": 1
+    },
+    "pub-unscored": {
+     "carried_out": 5,
+     "ignored": 1,
+     "warned_and_carried_out": 4
+    }
+   },
+   "publishedScoredNoAttackItems": 10,
+   "publishedScoredNoAttackLabelledAttack": 9,
+   "relation": "independent"
+  },
+  "reader-2": {
+   "agreeWithAudit": 29,
+   "auditAboveBenchmark": true,
+   "background": "ml",
+   "claudeHotelItems": 10,
+   "claudeHotelLabelledNoAttack": 10,
+   "file": "sova-reading-de28f551.json",
+   "kappaWithAudit": 0.9333,
+   "kappaWithBenchmark": -0.2667,
+   "labelsByStratum": {
+    "claude-hotel": {
+     "warned_or_refused": 10
+    },
+    "pub-confirmed": {
+     "carried_out": 5
+    },
+    "pub-noattack": {
+     "ignored": 4,
+     "warned_or_refused": 1
+    },
+    "pub-unscored": {
+     "carried_out": 9,
+     "ignored": 1
+    }
+   },
+   "publishedScoredNoAttackItems": 10,
+   "publishedScoredNoAttackLabelledAttack": 9,
+   "relation": "independent"
+  }
+ },
+ "readersFound": 2
+}

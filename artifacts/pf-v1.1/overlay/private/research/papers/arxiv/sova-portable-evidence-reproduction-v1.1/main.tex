@@ -337,13 +337,14 @@ checks automatically whether the attacker's goal was reached.
 \end{itemize}
 
 \textbf{What this does not show.} All results come from one benchmark
-with simulated apps. Three AI models from three developers, not people,
-read the disputed runs blind. The author published the analysis plans
-before running the experiments, but no independent party stored them,
-and the studies have not yet been re-run independently. The paper does
-not show that \texttt{.sova} finds more attacks than other tools. The
-author leads TRUSCOR, which develops SOVA; this competing interest is
-declared at the end of the paper.
+with simulated apps. Three AI models from three developers read the
+disputed runs blind; people read just 30 of them, two readers recruited
+by the author. The author published the analysis plans before running
+the experiments, but no independent party stored them, and the studies
+have not yet been re-run independently. The paper does not show that
+\texttt{.sova} finds more attacks than other tools. The author leads
+TRUSCOR, which develops SOVA; this competing interest is declared at the
+end of the paper.
 
 \subsubsection{How .sova works}\label{how-.sova-works}
 
@@ -1256,13 +1257,30 @@ its decisive step, or, in one Gemini run, endorsed the hotel in an
 earlier message rather than in the final reply, which is all that the
 benchmark and the audit read.
 
-The readers are models, not people, and all three were prompted by the
+These three readers are models, and all three were prompted by the
 author. Their labels test whether the audit's categories are consistent
 with an independent reading of the same evidence; they are not ground
-truth. People are also reading 30 of these runs blind (extension E3,
-frozen in commit \texttt{4289427} and revised to 30 runs per reader in
-commit \texttt{2c9104a} before any reader saw an item); their results
-are not in this version.
+truth. People also read 30 of these runs blind, on their own computers
+(extension E3, frozen in commit \texttt{4289427} and revised to 30 runs
+per reader in commit \texttt{2c9104a} before any reader saw an item).
+Two readers recruited by the author, each declaring no tie to the
+author, completed it, both from machine learning; they sent the files to
+the author, and the files are published exactly as received. Each agreed
+with the audit on 29 of the 30 runs (kappa 0.93, against \(-0.27\) with
+the benchmark's verdict), read all 10 Claude hotel-goal runs that the
+benchmark scored as attacks as no attack, and read 9 of the 10 published
+runs it scored as no attack as attacks. On attack or no attack, the two
+readers agreed on every run (kappa 1.00); of the four labels, they
+differed on six runs, all attacks that one reader marked as carried out
+and the other as warned but carried out. The one run on which both
+readers departed from the audit is a published run on banking
+\texttt{user\_task\_15} whose request names the attacker's account as
+the user's new landlord: the agent paid the rent there, and it is one of
+the 21 runs set aside in section 4.1. The frozen hypothesis H-E3, that
+each reader with no tie to the author agrees more with the audit than
+with the benchmark, held. A further file, whose 30 labels are identical
+to a counted reader's, is published but not counted, because an
+identical file cannot be shown to be a separate reading (deviation D6).
 
 \subsection{5. Does it still work, and how
 often?}\label{does-it-still-work-and-how-often}
@@ -2121,15 +2139,15 @@ narrower than some goals: for a goal with several steps, it ignores
 later steps such as deleting the sent email, so it counts some runs as
 attacks that the benchmark's goal does not. The rules name the decisive
 call and its key argument, such as the attacker's account or address,
-and were written by the author from the goals' text. Three model
-readers, not people, checked them blind (section 4.4). The text goal, a
-hotel endorsement, has no decisive call and is judged by a frozen
-warning rule. For email goals the rule checks the recipient, not the
-content, except where noted in Appendix B, so an email to the attacker
-that carried nothing would still count; the blind readers labelled
-nearly every such run in their sample as carrying out the instruction
-(section 4.4). Recurrence is the recurrence of that outcome, not of the
-same actions.
+and were written by the author from the goals' text. Three model readers
+checked them blind, and two people read a 30-run sample (section 4.4).
+The text goal, a hotel endorsement, has no decisive call and is judged
+by a frozen warning rule. For email goals the rule checks the recipient,
+not the content, except where noted in Appendix B, so an email to the
+attacker that carried nothing would still count; the blind readers
+labelled nearly every such run in their sample as carrying out the
+instruction (section 4.4). Recurrence is the recurrence of that outcome,
+not of the same actions.
 
 \subsubsection{Internal validity}\label{internal-validity}
 
@@ -2141,7 +2159,7 @@ independent party held them. Commit times are set by the committer, but
 GitHub's repository activity log records, on GitHub's side, when each
 commit was pushed (section 9), and every push came before any run it
 governs. Findings were selected from passes we ran, with a seeded
-sample. Five recorded deviations are listed in section 9. The largest,
+sample. Six recorded deviations are listed in section 9. The largest,
 D2, first cut the Grok design in half; after an interim look at the
 results it was completed, and section 6.1 reports both. Extensions E1
 and E2 were decided after the main results were known, but their rules,
@@ -2311,6 +2329,12 @@ artifact contains.
   tool refused. The re-run counts are read from the runs' own records,
   and the matrix call was made again with the prices added and nothing
   else changed (section 6.3).
+\item
+  \textbf{D6 (E3 count).} Two reader files give the same label on all 30
+  runs. The frozen rule would count both; only the one received earlier
+  is counted, because an identical file cannot be shown to be a separate
+  reading. Both files are published, and counting both would change no
+  reported value (section 4.4).
 \end{itemize}
 
 \textbf{Extension E1.} After the main results were known, extension E1
@@ -2363,10 +2387,11 @@ matched the retained results; only timing fields differed. Models and
 settings for every run are in Appendix A.
 
 \textbf{What remains open.} Independent replication: a party other than
-the author re-running the scoreboard and the prediction test, and
-people, not models, reading the disputed runs blind. The released
-\texttt{.sova} files are built so that this needs no access to our
-machines, only the artifact and a model key.
+the author re-running the scoreboard and the prediction test, and more
+people, with no tie to the author and not recruited by the author,
+reading the disputed runs blind. The released \texttt{.sova} files are
+built so that this needs no access to our machines, only the artifact
+and a model key.
 
 \subsection{10. Conclusion}\label{conclusion}
 
@@ -4618,10 +4643,11 @@ experiment execution, analysis, literature search, drafting, and
 pre-release review used OpenAI Codex (for version 1.0 of this paper) and
 Anthropic Claude through Claude Code (for version 1.1), under his
 direction. The reading of every scored success in section C.5 was done
-with AI assistance under his direction, and the blind readers of section
-4.4 are three AI models from developers other than Anthropic. No
-independent human review has yet taken place. No AI system is an author
-of this paper.
+with AI assistance under his direction. The blind readers of study S7
+are three AI models from developers other than Anthropic, and under
+extension E3 two people recruited by the author read 30 runs blind. No
+independent human review of the paper has yet taken place. No AI system
+is an author of this paper.
 
 \subsubsection{Funding and competing
 interests}\label{funding-and-competing-interests}

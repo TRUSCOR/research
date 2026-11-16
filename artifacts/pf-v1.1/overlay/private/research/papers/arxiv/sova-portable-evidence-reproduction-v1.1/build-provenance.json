@@ -4,19 +4,19 @@
   "version": "1.1",
   "versionDate": "2026-11-14",
   "supersedes": "1.0 (2026-08-20)",
-  "generatedAt": "2026-11-14T23:30:40.033267Z",
+  "generatedAt": "2026-11-16T00:37:54.622975Z",
   "status": "author-approved-public-preprint",
   "authorApproval": {
     "version": "1.1",
     "approved": true,
     "date": "2026-11-14",
-    "sourceSha256": "83e7281829db5b3dab02de6f6897617e2685784e7f9196cfb38ebbe2845ac15d",
+    "sourceSha256": "fa3964aacc410fdecec2f4183afade629ee2585d88bec82566edca4bac457a27",
     "bibSha256": "01c9ff824969f82efa756e41454dc92f6b88a6253e730d3b9fb36a626ca97529",
     "basis": "Author instruction in the working session of 2026-11-14 (full go): rebuild version 1.1 as a measurement paper that releases .sova, run the confirmatory studies S1 to S7 under the protocol published before their runs, and make the paper ready for upload; the author reads the built PDF before uploading."
   },
   "source": {
     "path": "PF-sova-portable-evidence-reproduction-working-paper.md",
-    "sha256": "83e7281829db5b3dab02de6f6897617e2685784e7f9196cfb38ebbe2845ac15d"
+    "sha256": "fa3964aacc410fdecec2f4183afade629ee2585d88bec82566edca4bac457a27"
   },
   "references": {
     "path": "references.bib",
@@ -220,12 +220,12 @@
     "matplotlib": "3.10.8"
   },
   "outputs": {
-    "mainMarkdownSha256": "4322b686a7667cb85792c1585121578ef5e7ebd6effb7641c8021cc66d930ecb",
-    "mainTexSha256": "7563c1474a8f2547be28401c3b6744977c025a72d94e3702042dbae6aa9e1560",
-    "pdfSha256": "d09b9ee36e10db05a4d2ecb89efa818a8ab12958a20e1da5a140dae2e0dae9b0",
-    "pdfBytes": 507182,
+    "mainMarkdownSha256": "912d272126c1eb3b4edc6e17ba9e080b78ed95af9caa702ffbf1f7e096b34df7",
+    "mainTexSha256": "2d83bcc122894f75d53a35cdea719dc56d5f0410f91c5f8a6849520624772234",
+    "pdfSha256": "0f4018fdeb1943316d9b7a58b48f87f777e5ab3803856c867f7891a85c7b9c2c",
+    "pdfBytes": 509300,
     "arxivSourceArchive": "output\\source\\SOVA-PF-sova-portable-evidence-reproduction-arxiv-source-v1.1.tar.gz",
-    "arxivSourceArchiveSha256": "dbe456b36bbeb963ba0219ad5433ecd77d0180e41ea68b397c418d58065de80e",
+    "arxivSourceArchiveSha256": "a31965565115c31b3c2760253a3a89b4d9b5fe5795f9da5ff70608bb87d1e707",
     "arxivSourceArchiveMembers": [
       "main.tex",
       "figures/pf-agentdojo.pdf",

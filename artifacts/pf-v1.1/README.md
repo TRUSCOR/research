@@ -42,7 +42,7 @@ published before the first run (`protocols/pf-confirmatory-2026-11-14/`,
 commit `c7e3fb4`, 05:57 UTC; the head-to-head addendum at `5a2ad61`, 06:41 UTC).
 The extensions were frozen the same way before their runs: E1 at `6a90764`, E2 at
 `c51b356`, and E3 at `4289427` (revised at `2c9104a` before any reader saw an item).
-Deviations (D1 to D5) are in `overlay/private/research/papers/PF-confirmatory-deviations-2026-11-14.md`.
+Deviations (D1 to D6) are in `overlay/private/research/papers/PF-confirmatory-deviations-2026-11-14.md`.
 
 | Study | Paper | Result files (under `overlay/private/experiments/results/`) | Script |
 |---|---|---|---|
@@ -55,7 +55,7 @@ Deviations (D1 to D5) are in `overlay/private/research/papers/PF-confirmatory-de
 | S6b tasks beyond recurrence | 6.2 | `s6b/`, `s6b-tasks.json` (as the frozen script wrote it), `s6b-tasks-recovered.json` (deviation D5) | `compare_pf_tasks_ext.py`, `recover_pf_s6b.py`, `run_pf_s6b_t10.py` |
 | S7 blind readers | 4.4 | `readers-items.json`, `readers-*.jsonl`, `readers-agreement-e1.json` (three readers) | `read_pf_blind.py` |
 | E2 measured envelopes on fresh findings | 6.1 | `e2/`, `plan-e2.json`, `e2-result.json`, `calibrate-crosscheck.json` | `extend_pf_e2.py`, `check_pf_calibrate.py` |
-| E3 blind reading by people | 4.4 | `plan-e3.json`, `human-sample-key.json`; no results in this version | `select_pf_human_e3.py`, `analyze_pf_human.py` |
+| E3 blind reading by people | 4.4 | `plan-e3.json`, `human-sample-key.json`, `human-readings/` (the two counted reader files, as received), `human-readings-not-counted/` (deviation D6), `human-reading.json` | `select_pf_human_e3.py`, `analyze_pf_human.py` |
 
 All are under `pf-confirmatory-2026-11-14/` unless named otherwise. Each run
 directory holds `episodes.jsonl` (one record per run: model, returned model

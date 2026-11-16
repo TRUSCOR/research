@@ -969,7 +969,7 @@ def confirmatory_strings() -> dict[str, str]:  # noqa: PLR0915
     check(s6["scriptSha256"] == "78eb49cdd4acc6cc931ece1054fe452efa52e150b6da8aa52206b3241f2e7f73", "S6 script digest")
     for key, value in pf_fills.build_all(CONF).items():
         for n, line in enumerate(x for x in value.splitlines() if x.strip()):
-            must[f"fill {key} {n}"] = " ".join(line.split())
+            must[f"fill {key} {n}"] = " ".join(line.split()).replace("−", "-")
     tasks = json.loads((CONF / "s6-e1" / "tasks.json").read_text(encoding="utf-8"))["tasks"]
     check(all(v["state"] == "verified" for v in tasks["T1-verify-offline"]["ours (.sova)"]), "S6 T1")
     tot = agree = red = 0

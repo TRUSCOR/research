@@ -96,8 +96,8 @@ any model, `sova calibrate` measures which setup changes matter on a model, and
 is released as a `.sova` file. **Try it:** [`artifacts/pf-v1.1/`](artifacts/pf-v1.1/).
 
 **This is a preprint. It has not been peer reviewed.** All results come from one
-benchmark with simulated apps; three AI models, not people, read the disputed
-runs blind (a blind reading by people is under way and not in this version); the protocols were published before the runs but held by the
+benchmark with simulated apps; three AI models read the disputed
+runs blind, and people read just 30 of them (two readers recruited by the author); the protocols were published before the runs but held by the
 author; and the studies have not yet been re-run independently. The author leads TRUSCOR,
 which develops SOVA.
 
