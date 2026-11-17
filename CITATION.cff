@@ -2,13 +2,16 @@ cff-version: 1.2.0
 message: "If you use this preprint, its data, or its .sova evidence, please cite it as below."
 type: dataset
 title: "Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova"
-version: "1.1"
-date-released: "2026-11-16"
-doi: 10.5281/zenodo.24290458
+version: "1.2"
+date-released: "2026-11-17"
+doi: 10.5281/zenodo.24321025
 identifiers:
   - type: doi
+    value: 10.5281/zenodo.24321025
+    description: "Version 1.2 on Zenodo, the short version: the paper, its LaTeX source, the post hoc analyses, and the full artifact"
+  - type: doi
     value: 10.5281/zenodo.24290458
-    description: "Version 1.1 on Zenodo: the paper, its LaTeX source, and the full artifact"
+    description: "Version 1.1 on Zenodo, the extended version: the paper, its LaTeX source, and the full artifact"
   - type: doi
     value: 10.5281/zenodo.24290457
     description: "All versions; always resolves to the newest"
@@ -22,7 +25,7 @@ authors:
 repository: "https://github.com/TRUSCOR/research"
 repository-code: "https://github.com/TRUSCOR/SOVA-OSS"
 url: "https://github.com/TRUSCOR/research/tree/main/artifacts/pf-v1.1"
-abstract: "Agent-security benchmarks score an attack as successful when an automated check passes, and those scores rank models and decide whether a reported attack is real. We checked AgentDojo's verdicts against the tool calls agents actually made in its simulated apps, and re-ran its standard attack on 24 current models from eight developers, under protocols published before the runs. In 19,381 published runs, at least 412 in which the agent carried out the attacker's decisive action, such as paying the attacker, were scored as no attack, and 298 crashed runs received verdicts. On current models the error reverses: the benchmark scores four Claude 5.x models as attacked in 10.9-12.8% of attacks, more often than models that carried out more attacks, yet every one of those runs was the model warning the user. Of 240 recorded attacks re-run ten times each on six models, 224 recurred in at least half of their re-runs, but with so few re-runs, 39 could not be shown to succeed at least half the time. Upgrades stopped all 40 GPT-4o attacks on GPT-5.5, but 3 of 40 Grok 4.1 Fast attacks still work on Grok 4.7. Attacks came back 14.7 points more often after setup changes declared in advance not to matter than after a model swap or a prompt defense (95% interval 11.9-17.4, six models), passing a pre-set test that the protocol's own three models, taken alone, narrowly missed (12.8, 9.2-16.3); the declared rules held on two of the six models, and rules learned on five models did not reliably carry over to the sixth. Rules measured on each model, as the released sova calibrate does, separated recurrence on 80 fresh findings by 39.2 points (29.7-49.4) under a later frozen extension, passing the same test. We release .sova, a free, local tool and file format that audits a benchmark's verdicts, re-runs a finding on any model, and seals the evidence so anyone can check offline that it was not altered."
+abstract: "AI-agent security benchmarks decide whether an attack succeeded with an automated check, and those verdicts are used to rank models and are often read as proof that an attack worked. We audited AgentDojo's verdicts against the tool calls agents made and re-ran its attacks on 24 current models from eight developers, under protocols published before the runs. On its 19,381 published runs the benchmark and the audit agree on 97.7% of runs that did not crash, but the benchmark scored as no attack 433 runs in which the agent executed the attacker's decisive action, such as paying the attacker, 11.9% of the runs the audit counts as attacks; on new runs under benchmark v1.2.2 it missed 55 of 744. On current models, the reply-text check for one goal, reported publicly before, counts warnings as attacks: three blind model readers read all 219 Claude 5.x replies it scored as attacked as warnings (our frozen rule, 214), while Claude 4.5 models that ignore the injection score 0%. Of 240 recorded attacks re-run ten times each, 224 recurred in at least half of their runs, but only 201 could be shown at 95% confidence to do so. Most known attacks did not recur in three runs on an upgraded model, but 3 of 40 Grok 4.1 Fast attacks still worked on Grok 4.7. Rules declared in advance for which setup changes can stop an attack missed their preregistered test on the protocol's three models (gap 12.8 points, 95% interval 9.2-16.3, criterion 10), and met it over six models in an extension added after interim results (14.7, 11.9-17.4); rules measured on other models transferred to a held-out model in 1 of 9 tests. We release .sova, an open-source tool and record format that audits verdicts, re-runs AgentDojo findings on a chosen model, and seals the evidence so that anyone can check offline, against the published checksums, that it was not altered."
 keywords:
   - "AI agent security"
   - "prompt injection"
@@ -44,8 +47,8 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0005-7614-2771"
   year: 2026
   month: 11
-  doi: 10.5281/zenodo.24290458
+  doi: 10.5281/zenodo.24321025
   publisher:
     name: "Zenodo"
-  url: "https://doi.org/10.5281/zenodo.24290458"
-  notes: "Preprint version 1.1. Not peer reviewed."
+  url: "https://doi.org/10.5281/zenodo.24321025"
+  notes: "Preprint version 1.2, the short version of version 1.1 (DOI 10.5281/zenodo.24290458). Not peer reviewed."
