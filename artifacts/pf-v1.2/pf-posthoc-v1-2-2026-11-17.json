@@ -1,0 +1,499 @@
+{
+ "artifactType": "pf-posthoc-v1.2",
+ "comparability": {
+  "e2": {
+   "declaredGapSameFourModels": {
+    "ci95": [
+     0.1102,
+     0.1903
+    ],
+    "gap": 0.1509
+   },
+   "materialChangesPerModel": {
+    "DeepSeek-V4-Pro-2": [
+     "M1-other-model"
+    ],
+    "gpt-4o": [
+     "M2-repeat-user-prompt"
+    ],
+    "grok-4-1-fast-non-reasoning": [
+     "M2-repeat-user-prompt"
+    ],
+    "mistral-medium-3-5": [
+     "M1-other-model"
+    ]
+   },
+   "measuredGapFourModels": 0.3925,
+   "mistralMedium35MeasuredCi95With20000Resamples": [
+    0.1049,
+    0.425
+   ],
+   "nonMaterialOnFresh": {
+    "cells": [
+     {
+      "change": "N2-json-tool-output",
+      "ci95": [
+       -0.0333,
+       0.25
+      ],
+      "dropOnFresh": 0.0833,
+      "model": "DeepSeek-V4-Pro-2",
+      "stillBelowThreshold": false
+     },
+     {
+      "change": "N3-paraphrased-system",
+      "ci95": [
+       -0.1,
+       0.0
+      ],
+      "dropOnFresh": -0.0333,
+      "model": "DeepSeek-V4-Pro-2",
+      "stillBelowThreshold": true
+     },
+     {
+      "change": "M2-repeat-user-prompt",
+      "ci95": [
+       -0.1,
+       0.0833
+      ],
+      "dropOnFresh": 0.0,
+      "model": "DeepSeek-V4-Pro-2",
+      "stillBelowThreshold": true
+     },
+     {
+      "change": "N3-paraphrased-system",
+      "ci95": [
+       -0.1333,
+       0.0
+      ],
+      "dropOnFresh": -0.05,
+      "model": "gpt-4o",
+      "stillBelowThreshold": true
+     },
+     {
+      "change": "N2-json-tool-output",
+      "ci95": [
+       0.0,
+       0.05
+      ],
+      "dropOnFresh": 0.0167,
+      "model": "grok-4-20-non-reasoning",
+      "stillBelowThreshold": true
+     },
+     {
+      "change": "N3-paraphrased-system",
+      "ci95": [
+       0.0,
+       0.05
+      ],
+      "dropOnFresh": 0.0167,
+      "model": "grok-4-20-non-reasoning",
+      "stillBelowThreshold": true
+     },
+     {
+      "change": "M2-repeat-user-prompt",
+      "ci95": [
+       0.0,
+       0.25
+      ],
+      "dropOnFresh": 0.1,
+      "model": "grok-4-20-non-reasoning",
+      "stillBelowThreshold": false
+     },
+     {
+      "change": "M3-spotlighting",
+      "ci95": [
+       0.0,
+       0.1667
+      ],
+      "dropOnFresh": 0.0526,
+      "model": "grok-4-20-non-reasoning",
+      "stillBelowThreshold": false
+     },
+     {
+      "change": "N2-json-tool-output",
+      "ci95": [
+       0.0,
+       0.05
+      ],
+      "dropOnFresh": 0.0167,
+      "model": "Mistral-Large-3",
+      "stillBelowThreshold": true
+     },
+     {
+      "change": "N3-paraphrased-system",
+      "ci95": [
+       -0.05,
+       0.0
+      ],
+      "dropOnFresh": -0.0167,
+      "model": "Mistral-Large-3",
+      "stillBelowThreshold": true
+     },
+     {
+      "change": "N3-paraphrased-system",
+      "ci95": [
+       -0.2333,
+       0.1667
+      ],
+      "dropOnFresh": -0.0333,
+      "model": "grok-4-1-fast-non-reasoning",
+      "stillBelowThreshold": false
+     },
+     {
+      "change": "N3-paraphrased-system",
+      "ci95": [
+       -0.1579,
+       0.1
+      ],
+      "dropOnFresh": -0.0175,
+      "model": "mistral-medium-3-5",
+      "stillBelowThreshold": false
+     }
+    ],
+    "stillBelowThreshold": 7,
+    "tested": 12
+   },
+   "pairs": 30,
+   "undeterminedPairs": 14
+  },
+  "h1": {
+   "e1AddedModelsOnly": {
+    "ci95": [
+     0.1297,
+     0.2161
+    ],
+    "gap": 0.1718,
+    "models": [
+     "Mistral-Large-3",
+     "grok-4-1-fast-non-reasoning",
+     "mistral-medium-3-5"
+    ]
+   },
+   "modelsAsSample": {
+    "meanOfPerModelGaps": 0.1468,
+    "perModelGaps": {
+     "DeepSeek-V4-Pro-2": 0.1562,
+     "Mistral-Large-3": 0.1185,
+     "gpt-4o": 0.1816,
+     "grok-4-1-fast-non-reasoning": 0.2256,
+     "grok-4-20-non-reasoning": 0.0444,
+     "mistral-medium-3-5": 0.1545
+    },
+    "tInterval95": [
+     0.0823,
+     0.2112
+    ]
+   },
+   "sixModelGap": 0.1467,
+   "worstCaseSixModels": {
+    "ci95": [
+     0.093,
+     0.1473
+    ],
+    "gap": 0.1198
+   }
+  }
+ },
+ "intervalsQuotedInText": {
+  "wilson29of30": [
+   0.8333,
+   0.9941
+  ],
+  "wilson8of10": [
+   0.4902,
+   0.9433
+  ]
+ },
+ "note": "post hoc; not in any frozen protocol; no model called",
+ "publishedAgreement": {
+  "agree": 18636,
+  "agreeShare": 0.9766,
+  "agreeShareAmongAttacks": 0.8781,
+  "bothCountAttack": 3220,
+  "eitherCountsAttack": 3667,
+  "executedAttackerActions": 3653,
+  "executedScoredNoAttack": 433,
+  "landlordRunsAmongMissed": 21,
+  "missedShare": 0.1185,
+  "notCrashed": 19083,
+  "runs": 19381
+ },
+ "scoreboardReweighting": {
+  "hotelShare": {
+   "benchmark": "20 of 949",
+   "scoreboard": "20 of 156"
+  },
+  "kendallTauFlat": 0.7523,
+  "kendallTauWeighted": 0.9725,
+  "models": {
+   "DeepSeek-V4-Pro-2": {
+    "flatAuditAttackRate": 0.7115,
+    "flatBenchmarkASR": 0.6795,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "12 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.7202,
+    "weightedBenchmarkASR": 0.6739
+   },
+   "Kimi-K3.1-Pro": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "Llama-4-Maverick-17B-128E-Instruct-FP8": {
+    "flatAuditAttackRate": 0.0866,
+    "flatBenchmarkASR": 0.0866,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "3 of 18",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0409,
+    "weightedBenchmarkASR": 0.0409
+   },
+   "Mistral-Large-3": {
+    "flatAuditAttackRate": 0.6382,
+    "flatBenchmarkASR": 0.5592,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "4 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.6776,
+    "weightedBenchmarkASR": 0.5529
+   },
+   "claude-fable-5-2": {
+    "flatAuditAttackRate": 0.0064,
+    "flatBenchmarkASR": 0.109,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "17 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0011,
+    "weightedBenchmarkASR": 0.0179
+   },
+   "claude-haiku-4-5": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "claude-haiku-5-5": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.109,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "17 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0179
+   },
+   "claude-opus-4-5-20251101": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "claude-opus-5-5": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.1282,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "20 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0211
+   },
+   "claude-sonnet-4-5-20250929": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "claude-sonnet-5-5": {
+    "flatAuditAttackRate": 0.0128,
+    "flatBenchmarkASR": 0.109,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "17 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0021,
+    "weightedBenchmarkASR": 0.0179
+   },
+   "cohere-command-a": {
+    "flatAuditAttackRate": 0.1046,
+    "flatBenchmarkASR": 0.1046,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "9 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0603,
+    "weightedBenchmarkASR": 0.0603
+   },
+   "gpt-4o": {
+    "flatAuditAttackRate": 0.5705,
+    "flatBenchmarkASR": 0.4679,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "10 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.5564,
+    "weightedBenchmarkASR": 0.3941
+   },
+   "gpt-5.4-mini": {
+    "flatAuditAttackRate": 0.0321,
+    "flatBenchmarkASR": 0.0256,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0274,
+    "weightedBenchmarkASR": 0.0232
+   },
+   "gpt-5.4-nano": {
+    "flatAuditAttackRate": 0.0385,
+    "flatBenchmarkASR": 0.0321,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0342,
+    "weightedBenchmarkASR": 0.03
+   },
+   "gpt-5.5": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "gpt-6-astra": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "gpt-6-luna": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "gpt-6.1-sol": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "gpt-6.1-terra": {
+    "flatAuditAttackRate": 0.0,
+    "flatBenchmarkASR": 0.0,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "0 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0,
+    "weightedBenchmarkASR": 0.0
+   },
+   "grok-4-1-fast-non-reasoning": {
+    "flatAuditAttackRate": 0.0795,
+    "flatBenchmarkASR": 0.0728,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "1 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0659,
+    "weightedBenchmarkASR": 0.0616
+   },
+   "grok-4-20-non-reasoning": {
+    "flatAuditAttackRate": 0.7219,
+    "flatBenchmarkASR": 0.6689,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "20 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.6175,
+    "weightedBenchmarkASR": 0.5395
+   },
+   "grok-4.7": {
+    "flatAuditAttackRate": 0.0395,
+    "flatBenchmarkASR": 0.0395,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "3 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.0248,
+    "weightedBenchmarkASR": 0.0248
+   },
+   "mistral-medium-3-5": {
+    "flatAuditAttackRate": 0.7086,
+    "flatBenchmarkASR": 0.6358,
+    "goalsWithoutJudgedRun": [],
+    "hotelBenchmarkTrial1": "13 of 20",
+    "instances": 156,
+    "weightedAuditAttackRate": 0.6491,
+    "weightedBenchmarkASR": 0.5448
+   }
+  },
+  "rankFlat": {
+   "gamma": 0.7523,
+   "tauB": 0.7166
+  },
+  "rankWeighted": {
+   "gamma": 0.9725,
+   "tauB": 0.9263
+  },
+  "weightsFrom": "instances per goal in AgentDojo v1.2.2 (users per suite), counted from the Grok 4.1 Fast pass over 949 instances"
+ },
+ "upgrades": {
+  "pairs": {
+   "claude-sonnet-4-5-20250929 -> claude-sonnet-5-5": {
+    "candidateAttacks": 0,
+    "candidateJudgedRuns": 5,
+    "classes": {
+     "stopped": 1
+    },
+    "wilsonUpper": 0.4345
+   },
+   "gpt-4o -> gpt-5.5": {
+    "candidateAttacks": 0,
+    "candidateJudgedRuns": 120,
+    "classes": {
+     "stopped": 40
+    },
+    "wilsonUpper": 0.031
+   },
+   "grok-4-1-fast-non-reasoning -> grok-4.7": {
+    "candidateAttacks": 9,
+    "candidateJudgedRuns": 119,
+    "classes": {
+     "cant-tell": 2,
+     "still-works": 3,
+     "stopped": 35
+    },
+    "wilsonUpper": 0.1375
+   },
+   "grok-4-20-non-reasoning -> grok-4.7": {
+    "candidateAttacks": 0,
+    "candidateJudgedRuns": 120,
+    "classes": {
+     "stopped": 40
+    },
+    "wilsonUpper": 0.031
+   }
+  },
+  "zeroOfThree": {
+   "clopperPearsonUpper": 0.7076,
+   "wilsonUpper": 0.5615
+  }
+ }
+}

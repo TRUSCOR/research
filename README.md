@@ -8,7 +8,7 @@ Each paper ships with its data, code, protocols, validators, and evidence,<br/>
 so a reader can recompute its numbers instead of taking them on trust.
 
 <p>
-  <a href="preprints/sova-portable-evidence-reproduction-v1.1.pdf"><img src="https://img.shields.io/badge/LATEST%20PREPRINT-.sova%20v1.1-FFB000?style=for-the-badge" alt="Latest preprint: .sova v1.1" /></a>
+  <a href="preprints/sova-portable-evidence-reproduction-v1.2.pdf"><img src="https://img.shields.io/badge/LATEST%20PREPRINT-.sova%20v1.2-FFB000?style=for-the-badge" alt="Latest preprint: .sova v1.1" /></a>
   <a href="https://doi.org/10.5281/zenodo.24290458"><img src="https://img.shields.io/badge/DOI-10.5281%2Fzenodo.24290458-1682D4?style=for-the-badge" alt="DOI 10.5281/zenodo.24290458" /></a>
   <img src="https://img.shields.io/badge/PEER%20REVIEW-NOT%20YET-D22128?style=for-the-badge" alt="Not peer reviewed" />
   <img src="https://img.shields.io/badge/PAPERS-CC%20BY%204.0-00B8D9?style=for-the-badge" alt="CC BY 4.0" />
@@ -26,7 +26,8 @@ so a reader can recompute its numbers instead of taking them on trust.
 
 | Paper | Version | Read | Check it |
 |---|---|---|---|
-| **Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova** | 1.1 · 2026-11-16 · preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [DOI](https://doi.org/10.5281/zenodo.24290458) | [Artifact](artifacts/pf-v1.1/) · [every run as `.sova` files](artifacts/pf-v1.1/) |
+| **Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova** | 1.2 · 2026-11-17 · short version, preprint, not peer reviewed | [PDF](preprints/sova-portable-evidence-reproduction-v1.2.pdf) | [Artifact](artifacts/pf-v1.1/) · [post hoc analyses](artifacts/pf-v1.2/) |
+| | 1.1 · 2026-11-16 · extended version | [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [DOI](https://doi.org/10.5281/zenodo.24290458) | [Artifact](artifacts/pf-v1.1/) · [every run as `.sova` files](artifacts/pf-v1.1/) |
 
 Each released paper keeps its text in `preprints/` and everything needed to
 check it in `artifacts/<paper-id>/`:
@@ -58,9 +59,11 @@ core output is the `.sova` capsule and the `.sova-trace` evidence record.
 
 ## The .sova preprint
 
-### [Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova](preprints/sova-portable-evidence-reproduction-v1.1.pdf)
+### [Did the Attack Really Work? Auditing, Re-running, and Sealing AI-Agent Security Findings with .sova](preprints/sova-portable-evidence-reproduction-v1.2.pdf)
 
-**Version 1.1 (2026-11-16) · CC BY 4.0 · DOI [10.5281/zenodo.24290458](https://doi.org/10.5281/zenodo.24290458) · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and every run as `.sova` files](artifacts/pf-v1.1/)**
+**Version 1.2 (2026-11-17), the short version · CC BY 4.0 · [PDF](preprints/sova-portable-evidence-reproduction-v1.2.pdf) · [Post hoc analyses](artifacts/pf-v1.2/)**
+
+**Version 1.1 (2026-11-16), the extended version · CC BY 4.0 · DOI [10.5281/zenodo.24290458](https://doi.org/10.5281/zenodo.24290458) · [PDF](preprints/sova-portable-evidence-reproduction-v1.1.pdf) · [Markdown](preprints/sova-portable-evidence-reproduction-v1.1.md) · [Data, code, protocols, and every run as `.sova` files](artifacts/pf-v1.1/)**
 · previous: [version 1.0](preprints/sova-portable-evidence-reproduction-v1.0.pdf)
 
 **In brief.** Tests of whether AI agents can be tricked score each attack with
